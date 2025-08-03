@@ -179714,7 +179714,7 @@ int func_1948() // Position - 0xE54C2 (939202)
 	return 0;
 }
 
-BOOL func_1949() // Position - 0xE5626 (939558)
+var func_1949() // Position - 0xE5626 (939558)
 {
 	return Global_2696596;
 }

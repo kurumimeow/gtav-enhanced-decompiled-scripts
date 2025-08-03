@@ -4178,8 +4178,8 @@ int func_123(BOOL bParam0) // Position - 0x4B64 (19300)
 {
 	switch (bParam0)
 	{
-		case 0:
-		case 1:
+		case false:
+		case true:
 		case 2:
 		case 3:
 		case 4:
@@ -40957,7 +40957,7 @@ void func_1110(int iParam0) // Position - 0x2EBF4 (191476)
 
 void func_1111() // Position - 0x2EC06 (191494)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -91090,7 +91090,7 @@ BOOL func_1540(Hash hParam0) // Position - 0x693AA (431018)
 	return true;
 }
 
-BOOL func_1541(ePedComponentType epctParam0, ePedComponentType epctParam1) // Position - 0x69476 (431222)
+BOOL func_1541(Hash hParam0, ePedComponentType epctParam1) // Position - 0x69476 (431222)
 {
 	int cloudTimeAsInt;
 	int num;
@@ -91106,7 +91106,7 @@ BOOL func_1541(ePedComponentType epctParam0, ePedComponentType epctParam1) // Po
 	cloudTimeAsInt = NETWORK::GET_CLOUD_TIME_AS_INT();
 	num = 0;
 
-	switch (epctParam0)
+	switch (hParam0)
 	{
 		case -939601823:
 			num = Global_262145.f_36168[0];
@@ -91186,7 +91186,7 @@ BOOL func_1541(ePedComponentType epctParam0, ePedComponentType epctParam1) // Po
 
 	for (i = 0; i < 10; i = i + 1)
 	{
-		if (epctParam0 == Global_1835471[i])
+		if (hParam0 == Global_1835471[i])
 			return true;
 	}
 
@@ -95325,7 +95325,7 @@ BOOL func_1665(Vehicle veParam0, BOOL bParam1) // Position - 0x6ED84 (454020)
 
 void func_1666() // Position - 0x6EDDE (454110)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -104527,7 +104527,7 @@ void func_1856(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0x7D4A
 
 void func_1857() // Position - 0x7D51D (513309)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -135442,7 +135442,7 @@ void func_2439(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0xA43D
 
 void func_2440() // Position - 0xA4446 (672838)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -145758,7 +145758,7 @@ void func_2768(var uParam0, Vehicle veParam1, var uParam2) // Position - 0xB391B
 
 void func_2769() // Position - 0xB3956 (735574)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -148878,7 +148878,7 @@ Player func_2910(Vehicle veParam0) // Position - 0xB82BA (754362)
 
 void func_2911() // Position - 0xB82E9 (754409)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -166743,7 +166743,7 @@ void func_3338(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0xD4BD
 
 void func_3339() // Position - 0xD4C59 (871513)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -175595,7 +175595,7 @@ void func_3628(var uParam0, Vehicle veParam1, var uParam2) // Position - 0xE224F
 
 void func_3629() // Position - 0xE22BE (926398)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -226608,7 +226608,7 @@ void func_4257(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0x12ED
 
 void func_4258() // Position - 0x12EDD5 (1240533)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -242498,7 +242498,7 @@ void func_4614(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0x1467
 
 void func_4615() // Position - 0x146869 (1337449)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -253575,7 +253575,7 @@ void func_4968(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0x156B
 
 void func_4969() // Position - 0x156C64 (1404004)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -259469,7 +259469,7 @@ void func_5127(var uParam0, Vehicle veParam1, var uParam2) // Position - 0x15F50
 
 void func_5128() // Position - 0x15F545 (1439045)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -273136,7 +273136,7 @@ void func_5270(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0x1761
 
 void func_5271() // Position - 0x176244 (1532484)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();
@@ -285240,7 +285240,7 @@ void func_5621(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0x188F
 
 void func_5622() // Position - 0x188FEA (1609706)
 {
-	if (Global_4282954 > -1)
+	if (Global_4282954 > PV_COMP_INVALID)
 	{
 		if (Global_4282955 == PV_COMP_INVALID)
 			Global_4282955 = _GET_ACTIVE_PV_SLOT();

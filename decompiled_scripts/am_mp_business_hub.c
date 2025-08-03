@@ -240219,9 +240219,9 @@ Vector3 func_4498(int iParam0, int iParam1) // Position - 0x13E674 (1304180)
 	return 1f, 1f, 1f;
 }
 
-BOOL func_4499(int iParam0) // Position - 0x13E7EB (1304555)
+BOOL func_4499(var uParam0) // Position - 0x13E7EB (1304555)
 {
-	return Global_1946439.f_5142 == iParam0;
+	return Global_1946439.f_5142 == uParam0;
 }
 
 BOOL func_4500() // Position - 0x13E7FD (1304573)
@@ -278232,9 +278232,9 @@ int func_5274(Player plParam0) // Position - 0x17A37E (1549182)
 	return 0;
 }
 
-int func_5275(BOOL bParam0) // Position - 0x17A3A2 (1549218)
+int func_5275(int iParam0) // Position - 0x17A3A2 (1549218)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
 		case 1:
 			return 102;

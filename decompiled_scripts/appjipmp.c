@@ -21421,12 +21421,12 @@ BOOL func_421() // Position - 0x194B1 (103601)
 	return false;
 }
 
-BOOL func_422(int iParam0) // Position - 0x194CF (103631)
+var func_422(int iParam0) // Position - 0x194CF (103631)
 {
 	return Global_1574538[iParam0];
 }
 
-BOOL func_423() // Position - 0x194DF (103647)
+var func_423() // Position - 0x194DF (103647)
 {
 	return func_422(func_21() + 1);
 }

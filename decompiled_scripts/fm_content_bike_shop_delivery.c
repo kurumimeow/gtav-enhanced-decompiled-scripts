@@ -393740,9 +393740,9 @@ void func_8049() // Position - 0x23D31B (2347803)
 		funcLocal_402.f_162();
 	
 		if (StackVal)
-			Global_1986353.f_3 = 1;
+			Global_1986354.f_3 = 1;
 		else
-			Global_1986353.f_3 = 0;
+			Global_1986354.f_3 = 0;
 	}
 
 	if (func_8051() && func_8050())
@@ -393764,14 +393764,14 @@ BOOL func_8051() // Position - 0x23D384 (2347908)
 	if (Global_2708037.f_10)
 		return false;
 
-	if (Global_1986353.f_3)
+	if (Global_1986354.f_3)
 		return false;
 
 	if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("gb_ie_delivery_cutscene")) > 0)
 		return false;
 
-	if (_STOPWATCH_IS_INITIALIZED(&Global_1986353))
-		return func_30(&Global_1986353, Global_1986353.f_2, false);
+	if (_STOPWATCH_IS_INITIALIZED(&Global_1986354))
+		return func_30(&Global_1986354, Global_1986354.f_2, false);
 
 	return false;
 }
@@ -412906,22 +412906,22 @@ void func_8894(int iParam0, BOOL bParam1, int iParam2, BOOL bParam3, Player plPa
 
 void func_8895(Player plParam0) // Position - 0x253EA8 (2440872)
 {
-	func_35(&Global_1986353, false, false);
+	func_35(&Global_1986354, false, false);
 
 	if (plParam0 != -1)
-		Global_1986353.f_2 = plParam0;
+		Global_1986354.f_2 = plParam0;
 	else
-		Global_1986353.f_2 = *Global_262145.f_37196;
+		Global_1986354.f_2 = *Global_262145.f_37196;
 
 	return;
 }
 
 int func_8896(int iParam0) // Position - 0x253EDB (2440923)
 {
-	if (Global_1986357 == -2)
+	if (Global_1986358 == -2)
 		return 0;
 
-	if (Global_1986357 == iParam0)
+	if (Global_1986358 == iParam0)
 		return 0;
 
 	if (func_3229(iParam0) != 0)
@@ -442390,7 +442390,7 @@ void func_9432() // Position - 0x27429C (2572956)
 {
 	var unk;
 
-	Global_1986353 = { unk };
+	Global_1986354 = { unk };
 	return;
 }
 

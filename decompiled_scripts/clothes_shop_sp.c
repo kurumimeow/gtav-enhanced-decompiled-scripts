@@ -1077,7 +1077,7 @@ void func_1(var uParam0) // Position - 0x161 (353)
 			{
 				if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && func_135(uParam0->f_529) && !Global_4541905)
 				{
-					func_19(ped, uParam0->f_696, uParam0->f_695, IS_BIT_SET(uParam0->f_562, 28), PV_COMP_HEAD);
+					func_19(ped, uParam0->f_696, uParam0->f_695, IS_BIT_SET(uParam0->f_562, 28), 0);
 				}
 				else if (uParam0->f_529 != 1 && uParam0->f_120.f_1 != -1 && Global_4539548[uParam0->f_120.f_1] != PV_COMP_HEAD && !IS_BIT_SET(uParam0->f_564, 0))
 				{
@@ -221882,7 +221882,7 @@ BOOL func_1089(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 
 	for (j = 0; j < Global_4539548; j = j + 1)
 	{
-		Global_4539548[j] = PV_COMP_HEAD;
+		Global_4539548[j] = 0;
 		Global_4539674[j] = 0;
 	}
 
@@ -226131,28 +226131,28 @@ void func_1091(var uParam0, int iParam1, int iParam2) // Position - 0x13C52D (12
 	var unk;
 	var unk2;
 	var unk3;
-	int num;
-	Hash hash;
-	BOOL flag;
+	int unk4;
+	Hash num;
+	BOOL unk5;
+	var unk6;
 	int num2;
-	ePedComponentType type;
 	int num3;
 	int num4;
-	int num5;
-	BOOL flag2;
+	int unk7;
+	var unk8;
 
 	unk = uParam0->f_126[iParam1];
 	unk2 = uParam0->[iParam1];
 	unk3 = uParam0->f_253[iParam1];
-	num = Global_4539926[iParam1];
-	hash = Global_4540178[iParam1];
-	flag = Global_4540430[iParam1];
-	num2 = Global_4540556[iParam1];
-	type = Global_4539548[iParam1];
+	unk4 = Global_4539926[iParam1];
+	num = Global_4540178[iParam1];
+	unk5 = Global_4540430[iParam1];
+	unk6 = Global_4540556[iParam1];
+	num2 = Global_4539548[iParam1];
 	num3 = Global_4539674[iParam1];
 	num4 = Global_4539800[iParam1];
-	num5 = Global_4540304[iParam1];
-	flag2 = Global_4540052[iParam1];
+	unk7 = Global_4540304[iParam1];
+	unk8 = Global_4540052[iParam1];
 	uParam0->f_126[iParam1] = uParam0->f_126[iParam2];
 	uParam0->[iParam1] = uParam0->[iParam2];
 	uParam0->f_253[iParam1] = uParam0->f_253[iParam2];
@@ -226168,15 +226168,15 @@ void func_1091(var uParam0, int iParam1, int iParam2) // Position - 0x13C52D (12
 	uParam0->f_126[iParam2] = unk;
 	uParam0->[iParam2] = unk2;
 	uParam0->f_253[iParam2] = unk3;
-	Global_4539926[iParam2] = num;
-	Global_4540178[iParam2] = hash;
-	Global_4540430[iParam2] = flag;
-	Global_4540556[iParam2] = num2;
-	Global_4539548[iParam2] = type;
+	Global_4539926[iParam2] = unk4;
+	Global_4540178[iParam2] = num;
+	Global_4540430[iParam2] = unk5;
+	Global_4540556[iParam2] = unk6;
+	Global_4539548[iParam2] = num2;
 	Global_4539674[iParam2] = num3;
 	Global_4539800[iParam2] = num4;
-	Global_4540304[iParam2] = num5;
-	Global_4540052[iParam2] = flag2;
+	Global_4540304[iParam2] = unk7;
+	Global_4540052[iParam2] = unk8;
 	return;
 }
 
@@ -226196,16 +226196,16 @@ void func_1092(var uParam0, int iParam1, int iParam2) // Position - 0x13C6DD (12
 
 int func_1093(var uParam0, int iParam1, int iParam2) // Position - 0x13C710 (1296144)
 {
-	BOOL flag;
+	BOOL unk;
 	int num;
 	int i;
 
-	flag = Global_4540052[iParam2];
+	unk = Global_4540052[iParam2];
 	num = iParam1 - 1;
 
 	for (i = iParam1; i <= iParam2 - 1; i = i + 1)
 	{
-		if (Global_4540052[i] <= flag)
+		if (Global_4540052[i] <= unk)
 		{
 			num = num + 1;
 			func_1091(uParam0, num, i);
@@ -226232,24 +226232,24 @@ void func_1094(var uParam0, int iParam1, int iParam2) // Position - 0x13C76B (12
 
 int func_1095(var uParam0, int iParam1, int iParam2) // Position - 0x13C79E (1296286)
 {
+	var unk;
 	int num;
-	int num2;
 	int i;
 
-	num = Global_4540304[iParam2];
-	num2 = iParam1 - 1;
+	unk = Global_4540304[iParam2];
+	num = iParam1 - 1;
 
 	for (i = iParam1; i <= iParam2 - 1; i = i + 1)
 	{
-		if (Global_4540304[i] <= num)
+		if (Global_4540304[i] <= unk)
 		{
-			num2 = num2 + 1;
-			func_1091(uParam0, num2, i);
+			num = num + 1;
+			func_1091(uParam0, num, i);
 		}
 	}
 
-	func_1091(uParam0, num2 + 1, iParam2);
-	return num2 + 1;
+	func_1091(uParam0, num + 1, iParam2);
+	return num + 1;
 }
 
 const char* func_1096(const char* sParam0) // Position - 0x13C7F9 (1296377)
@@ -228425,7 +228425,7 @@ void func_1117(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, 
 							}
 							else
 							{
-								Global_4539548[iParam1->f_252] = PV_COMP_HEAD;
+								Global_4539548[iParam1->f_252] = 0;
 								Global_4539674[iParam1->f_252] = 0;
 							}
 						}
@@ -236903,7 +236903,7 @@ BOOL func_1135(const char* sParam0) // Position - 0x14DCF2 (1367282)
 	return func_1136(sParam0) == Global_4541906;
 }
 
-ePedComponentType func_1136(const char* sParam0) // Position - 0x14DD11 (1367313)
+int func_1136(const char* sParam0) // Position - 0x14DD11 (1367313)
 {
 	Hash hashKey;
 
@@ -236918,43 +236918,43 @@ ePedComponentType func_1136(const char* sParam0) // Position - 0x14DD11 (1367313
 		case joaat("CLO_H4M_O_SM_M2"):
 		case joaat("CLO_H4M_O_SM_M3"):
 		case joaat("CLO_H4M_O_SM_M4"):
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case joaat("CLO_H4M_O_H1_M1"):
 		case joaat("CLO_H4M_O_H1_M2"):
 		case joaat("CLO_H4M_O_H1_M3"):
 		case joaat("CLO_H4M_O_H1_M4"):
-			return PV_COMP_BERD;
+			return 1;
 	
 		case joaat("CLO_H4M_O_H2_M1"):
 		case joaat("CLO_H4M_O_H2_M2"):
 		case joaat("CLO_H4M_O_H2_M3"):
 		case joaat("CLO_H4M_O_H2_M4"):
-			return PV_COMP_HAIR;
+			return 2;
 	
 		case joaat("CLO_H4M_O_L1_M1"):
 		case joaat("CLO_H4M_O_L1_M2"):
 		case joaat("CLO_H4M_O_L1_M3"):
 		case joaat("CLO_H4M_O_L1_M4"):
-			return PV_COMP_UPPR;
+			return 3;
 	
 		case joaat("CLO_H4M_O_L2_M1"):
 		case joaat("CLO_H4M_O_L2_M2"):
 		case joaat("CLO_H4M_O_L2_M3"):
 		case joaat("CLO_H4M_O_L2_M4"):
-			return PV_COMP_LOWR;
+			return 4;
 	
 		case joaat("CLO_H4M_O_S1_M1"):
 		case joaat("CLO_H4M_O_S1_M2"):
 		case joaat("CLO_H4M_O_S1_M3"):
 		case joaat("CLO_H4M_O_S1_M4"):
-			return PV_COMP_HAND;
+			return 5;
 	
 		case joaat("CLO_H4M_O_S2_M1"):
 		case joaat("CLO_H4M_O_S2_M2"):
 		case joaat("CLO_H4M_O_S2_M3"):
 		case joaat("CLO_H4M_O_S2_M4"):
-			return PV_COMP_FEET;
+			return 6;
 	}
 
 	switch (hashKey)
@@ -236963,46 +236963,46 @@ ePedComponentType func_1136(const char* sParam0) // Position - 0x14DD11 (1367313
 		case joaat("CLO_H4F_O_SM_F2"):
 		case joaat("CLO_H4F_O_SM_F3"):
 		case joaat("CLO_H4F_O_SM_F4"):
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case joaat("CLO_H4F_O_H1_F1"):
 		case joaat("CLO_H4F_O_H1_F2"):
 		case joaat("CLO_H4F_O_H1_F3"):
 		case joaat("CLO_H4F_O_H1_F4"):
-			return PV_COMP_BERD;
+			return 1;
 	
 		case joaat("CLO_H4F_O_H2_F1"):
 		case joaat("CLO_H4F_O_H2_F2"):
 		case joaat("CLO_H4F_O_H2_F3"):
 		case joaat("CLO_H4F_O_H2_F4"):
-			return PV_COMP_HAIR;
+			return 2;
 	
 		case joaat("CLO_H4F_O_L1_F1"):
 		case joaat("CLO_H4F_O_L1_F2"):
 		case joaat("CLO_H4F_O_L1_F3"):
 		case joaat("CLO_H4F_O_L1_F4"):
-			return PV_COMP_UPPR;
+			return 3;
 	
 		case joaat("CLO_H4F_O_L2_F1"):
 		case joaat("CLO_H4F_O_L2_F2"):
 		case joaat("CLO_H4F_O_L2_F3"):
 		case joaat("CLO_H4F_O_L2_F4"):
-			return PV_COMP_LOWR;
+			return 4;
 	
 		case joaat("CLO_H4F_O_S1_F1"):
 		case joaat("CLO_H4F_O_S1_F2"):
 		case joaat("CLO_H4F_O_S1_F3"):
 		case joaat("CLO_H4F_O_S1_F4"):
-			return PV_COMP_HAND;
+			return 5;
 	
 		case joaat("CLO_H4F_O_S2_F1"):
 		case joaat("CLO_H4F_O_S2_F2"):
 		case joaat("CLO_H4F_O_S2_F3"):
 		case joaat("CLO_H4F_O_S2_F4"):
-			return PV_COMP_FEET;
+			return 6;
 	}
 
-	return PV_COMP_BERD;
+	return 1;
 }
 
 BOOL func_1137(const char* sParam0) // Position - 0x14DEF0 (1367792)
@@ -237013,7 +237013,7 @@ BOOL func_1137(const char* sParam0) // Position - 0x14DEF0 (1367792)
 	return func_1138(sParam0) == Global_4541906;
 }
 
-ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823)
+int func_1138(const char* sParam0) // Position - 0x14DF0F (1367823)
 {
 	Hash hashKey;
 
@@ -237030,7 +237030,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_DL_14"):
 		case joaat("CLO_H3M_O_DL_15"):
 		case joaat("CLO_H3M_O_DL_16"):
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case joaat("CLO_H3M_O_DL_21"):
 		case joaat("CLO_H3M_O_DL_22"):
@@ -237038,7 +237038,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_DL_24"):
 		case joaat("CLO_H3M_O_DL_25"):
 		case joaat("CLO_H3M_O_DL_26"):
-			return PV_COMP_BERD;
+			return 1;
 	
 		case joaat("CLO_H3M_O_DL_31"):
 		case joaat("CLO_H3M_O_DL_32"):
@@ -237046,7 +237046,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_DL_34"):
 		case joaat("CLO_H3M_O_DL_35"):
 		case joaat("CLO_H3M_O_DL_36"):
-			return PV_COMP_HAIR;
+			return 2;
 	
 		case joaat("CLO_H3M_O_DH_11"):
 		case joaat("CLO_H3M_O_DH_12"):
@@ -237054,7 +237054,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_DH_14"):
 		case joaat("CLO_H3M_O_DH_15"):
 		case joaat("CLO_H3M_O_DH_16"):
-			return PV_COMP_UPPR;
+			return 3;
 	
 		case joaat("CLO_H3M_O_DH_21"):
 		case joaat("CLO_H3M_O_DH_22"):
@@ -237062,7 +237062,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_DH_24"):
 		case joaat("CLO_H3M_O_DH_25"):
 		case joaat("CLO_H3M_O_DH_26"):
-			return PV_COMP_LOWR;
+			return 4;
 	
 		case joaat("CLO_H3M_O_DH_31"):
 		case joaat("CLO_H3M_O_DH_32"):
@@ -237070,7 +237070,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_DH_34"):
 		case joaat("CLO_H3M_O_DH_35"):
 		case joaat("CLO_H3M_O_DH_36"):
-			return PV_COMP_HAND;
+			return 5;
 	
 		case joaat("CLO_H3M_O_SH_11"):
 		case joaat("CLO_H3M_O_SH_12"):
@@ -237078,7 +237078,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_SH_14"):
 		case joaat("CLO_H3M_O_SH_15"):
 		case joaat("CLO_H3M_O_SH_16"):
-			return PV_COMP_TASK;
+			return 9;
 	
 		case joaat("CLO_H3M_O_SH_21"):
 		case joaat("CLO_H3M_O_SH_22"):
@@ -237086,7 +237086,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_SH_24"):
 		case joaat("CLO_H3M_O_SH_25"):
 		case joaat("CLO_H3M_O_SH_26"):
-			return PV_COMP_DECL;
+			return 10;
 	
 		case joaat("CLO_H3M_O_SH_31"):
 		case joaat("CLO_H3M_O_SH_32"):
@@ -237094,7 +237094,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_SH_34"):
 		case joaat("CLO_H3M_O_SH_35"):
 		case joaat("CLO_H3M_O_SH_36"):
-			return PV_COMP_JBIB;
+			return 11;
 	
 		case joaat("CLO_H3M_O_FIB_1"):
 		case joaat("CLO_H3M_O_FIB_2"):
@@ -237151,7 +237151,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_SL_14"):
 		case joaat("CLO_H3M_O_SL_15"):
 		case joaat("CLO_H3M_O_SL_16"):
-			return PV_COMP_FEET;
+			return 6;
 	
 		case joaat("CLO_H3M_O_SL_21"):
 		case joaat("CLO_H3M_O_SL_22"):
@@ -237159,7 +237159,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_SL_24"):
 		case joaat("CLO_H3M_O_SL_25"):
 		case joaat("CLO_H3M_O_SL_26"):
-			return PV_COMP_TEEF;
+			return 7;
 	
 		case joaat("CLO_H3M_O_SL_31"):
 		case joaat("CLO_H3M_O_SL_32"):
@@ -237167,10 +237167,10 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3M_O_SL_34"):
 		case joaat("CLO_H3M_O_SL_35"):
 		case joaat("CLO_H3M_O_SL_36"):
-			return PV_COMP_ACCS;
+			return 8;
 	
 		case joaat("CLO_H3M_O_VAL_1"):
-			return PV_COMP_MAX;
+			return 12;
 	
 		case joaat("CLO_H3M_O_PR_1"):
 		case joaat("CLO_H3M_O_PR_2"):
@@ -237187,7 +237187,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_DL_14"):
 		case joaat("CLO_H3F_O_DL_15"):
 		case joaat("CLO_H3F_O_DL_16"):
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case joaat("CLO_H3F_O_DL_21"):
 		case joaat("CLO_H3F_O_DL_22"):
@@ -237195,7 +237195,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_DL_24"):
 		case joaat("CLO_H3F_O_DL_25"):
 		case joaat("CLO_H3F_O_DL_26"):
-			return PV_COMP_BERD;
+			return 1;
 	
 		case joaat("CLO_H3F_O_DL_31"):
 		case joaat("CLO_H3F_O_DL_32"):
@@ -237203,7 +237203,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_DL_34"):
 		case joaat("CLO_H3F_O_DL_35"):
 		case joaat("CLO_H3F_O_DL_36"):
-			return PV_COMP_HAIR;
+			return 2;
 	
 		case joaat("CLO_H3F_O_DH_11"):
 		case joaat("CLO_H3F_O_DH_12"):
@@ -237211,7 +237211,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_DH_14"):
 		case joaat("CLO_H3F_O_DH_15"):
 		case joaat("CLO_H3F_O_DH_16"):
-			return PV_COMP_UPPR;
+			return 3;
 	
 		case joaat("CLO_H3F_O_DH_21"):
 		case joaat("CLO_H3F_O_DH_22"):
@@ -237219,7 +237219,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_DH_24"):
 		case joaat("CLO_H3F_O_DH_25"):
 		case joaat("CLO_H3F_O_DH_26"):
-			return PV_COMP_LOWR;
+			return 4;
 	
 		case joaat("CLO_H3F_O_DH_31"):
 		case joaat("CLO_H3F_O_DH_32"):
@@ -237227,7 +237227,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_DH_34"):
 		case joaat("CLO_H3F_O_DH_35"):
 		case joaat("CLO_H3F_O_DH_36"):
-			return PV_COMP_HAND;
+			return 5;
 	
 		case joaat("CLO_H3F_O_SH_11"):
 		case joaat("CLO_H3F_O_SH_12"):
@@ -237235,7 +237235,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_SH_14"):
 		case joaat("CLO_H3F_O_SH_15"):
 		case joaat("CLO_H3F_O_SH_16"):
-			return PV_COMP_TASK;
+			return 9;
 	
 		case joaat("CLO_H3F_O_SH_21"):
 		case joaat("CLO_H3F_O_SH_22"):
@@ -237243,7 +237243,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_SH_24"):
 		case joaat("CLO_H3F_O_SH_25"):
 		case joaat("CLO_H3F_O_SH_26"):
-			return PV_COMP_DECL;
+			return 10;
 	
 		case joaat("CLO_H3F_O_SH_31"):
 		case joaat("CLO_H3F_O_SH_32"):
@@ -237251,7 +237251,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_SH_34"):
 		case joaat("CLO_H3F_O_SH_35"):
 		case joaat("CLO_H3F_O_SH_36"):
-			return PV_COMP_JBIB;
+			return 11;
 	
 		case joaat("CLO_H3F_O_FIB_1"):
 		case joaat("CLO_H3F_O_FIB_2"):
@@ -237308,7 +237308,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_SL_14"):
 		case joaat("CLO_H3F_O_SL_15"):
 		case joaat("CLO_H3F_O_SL_16"):
-			return PV_COMP_FEET;
+			return 6;
 	
 		case joaat("CLO_H3F_O_SL_21"):
 		case joaat("CLO_H3F_O_SL_22"):
@@ -237316,7 +237316,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_SL_24"):
 		case joaat("CLO_H3F_O_SL_25"):
 		case joaat("CLO_H3F_O_SL_26"):
-			return PV_COMP_TEEF;
+			return 7;
 	
 		case joaat("CLO_H3F_O_SL_31"):
 		case joaat("CLO_H3F_O_SL_32"):
@@ -237324,10 +237324,10 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 		case joaat("CLO_H3F_O_SL_34"):
 		case joaat("CLO_H3F_O_SL_35"):
 		case joaat("CLO_H3F_O_SL_36"):
-			return PV_COMP_ACCS;
+			return 8;
 	
 		case joaat("CLO_H3F_O_VAL_1"):
-			return PV_COMP_MAX;
+			return 12;
 	
 		case joaat("CLO_H3F_O_PR_1"):
 		case joaat("CLO_H3F_O_PR_2"):
@@ -237336,7 +237336,7 @@ ePedComponentType func_1138(const char* sParam0) // Position - 0x14DF0F (1367823
 			return 14;
 	}
 
-	return PV_COMP_HEAD;
+	return 0;
 }
 
 BOOL func_1139(const char* sParam0) // Position - 0x14E5B4 (1369524)
@@ -237347,7 +237347,7 @@ BOOL func_1139(const char* sParam0) // Position - 0x14E5B4 (1369524)
 	return func_1140(sParam0) == Global_4541906;
 }
 
-ePedComponentType func_1140(const char* sParam0) // Position - 0x14E5D3 (1369555)
+int func_1140(const char* sParam0) // Position - 0x14E5D3 (1369555)
 {
 	Hash hashKey;
 
@@ -237360,10 +237360,10 @@ ePedComponentType func_1140(const char* sParam0) // Position - 0x14E5D3 (1369555
 	{
 		case -511208015:
 		case -1475844739:
-			return PV_COMP_HEAD;
+			return 0;
 	}
 
-	return PV_COMP_BERD;
+	return 1;
 }
 
 BOOL func_1141(const char* sParam0) // Position - 0x14E60C (1369612)
@@ -237374,7 +237374,7 @@ BOOL func_1141(const char* sParam0) // Position - 0x14E60C (1369612)
 	return func_1142(sParam0) == Global_4541906;
 }
 
-ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643)
+int func_1142(const char* sParam0) // Position - 0x14E62B (1369643)
 {
 	Hash hashKey;
 
@@ -237417,7 +237417,7 @@ ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643
 		case joaat("CLO_AWF_O_B_13"):
 		case joaat("CLO_AWF_O_B_14"):
 		case joaat("CLO_AWF_O_B_15"):
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case joaat("CLO_AWM_O_C_0"):
 		case joaat("CLO_AWM_O_C_1"):
@@ -237443,7 +237443,7 @@ ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643
 		case joaat("CLO_AWF_O_C_9"):
 		case joaat("CLO_AWF_O_C_10"):
 		case joaat("CLO_AWF_O_C_11"):
-			return PV_COMP_BERD;
+			return 1;
 	
 		case joaat("CLO_AWM_O_D_0"):
 		case joaat("CLO_AWM_O_D_1"):
@@ -237469,7 +237469,7 @@ ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643
 		case joaat("CLO_AWF_O_D_9"):
 		case joaat("CLO_AWF_O_D_10"):
 		case joaat("CLO_AWF_O_D_11"):
-			return PV_COMP_HAIR;
+			return 2;
 	
 		case joaat("CLO_AWM_O_E_0"):
 		case joaat("CLO_AWM_O_E_1"):
@@ -237495,7 +237495,7 @@ ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643
 		case joaat("CLO_AWF_O_E_9"):
 		case joaat("CLO_AWF_O_E_10"):
 		case joaat("CLO_AWF_O_E_11"):
-			return PV_COMP_UPPR;
+			return 3;
 	
 		case joaat("CLO_AWM_O_F_0"):
 		case joaat("CLO_AWM_O_F_1"):
@@ -237525,7 +237525,7 @@ ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643
 		case joaat("CLO_AWF_O_F_15"):
 		case joaat("CLO_AWF_O_F_16"):
 		case joaat("CLO_AWF_O_F_17"):
-			return PV_COMP_LOWR;
+			return 4;
 	
 		case joaat("CLO_AWM_O_G_0"):
 		case joaat("CLO_AWM_O_G_1"):
@@ -237543,7 +237543,7 @@ ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643
 		case joaat("CLO_AWF_O_G_5"):
 		case joaat("CLO_AWF_O_G_6"):
 		case joaat("CLO_AWF_O_G_7"):
-			return PV_COMP_HAND;
+			return 5;
 	
 		case joaat("CLO_AWM_O_H_0"):
 		case joaat("CLO_AWM_O_H_1"):
@@ -237565,7 +237565,7 @@ ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643
 		case joaat("CLO_AWF_O_H_7"):
 		case joaat("CLO_AWF_O_H_8"):
 		case joaat("CLO_AWF_O_H_9"):
-			return PV_COMP_FEET;
+			return 6;
 	
 		case joaat("CLO_AWM_O_I_0"):
 		case joaat("CLO_AWM_O_I_1"):
@@ -237573,10 +237573,10 @@ ePedComponentType func_1142(const char* sParam0) // Position - 0x14E62B (1369643
 		case joaat("CLO_AWF_O_I_0"):
 		case joaat("CLO_AWF_O_I_1"):
 		case joaat("CLO_AWF_O_I_2"):
-			return PV_COMP_TEEF;
+			return 7;
 	}
 
-	return PV_COMP_TEEF;
+	return 7;
 }
 
 BOOL func_1143(const char* sParam0, int iParam1) // Position - 0x14EA9D (1370781)
@@ -237587,7 +237587,7 @@ BOOL func_1143(const char* sParam0, int iParam1) // Position - 0x14EA9D (1370781
 	return func_1144(sParam0) == Global_4541906;
 }
 
-ePedComponentType func_1144(const char* sParam0) // Position - 0x14EAC6 (1370822)
+int func_1144(const char* sParam0) // Position - 0x14EAC6 (1370822)
 {
 	Hash hashKey;
 
@@ -237643,7 +237643,7 @@ ePedComponentType func_1144(const char* sParam0) // Position - 0x14EAC6 (1370822
 		case joaat("CLO_L2M_E_27_2"):
 		case joaat("CLO_L2M_E_30_0"):
 		case joaat("CLO_L2M_E_30_1"):
-			return PV_COMP_BERD;
+			return 1;
 	
 		case joaat("CLO_LXM_E_1_0"):
 		case joaat("CLO_LXM_E_1_1"):
@@ -237690,10 +237690,10 @@ ePedComponentType func_1144(const char* sParam0) // Position - 0x14EAC6 (1370822
 		case joaat("CLO_L2M_E_28_2"):
 		case joaat("CLO_L2M_E_31_0"):
 		case joaat("CLO_L2M_E_31_1"):
-			return PV_COMP_HAIR;
+			return 2;
 	}
 
-	return PV_COMP_HEAD;
+	return 0;
 }
 
 int func_1145(Hash hParam0, int iParam1, ePedComponentType epctParam2, ePedComponentType epctParam3) // Position - 0x14ED16 (1371414)
@@ -267146,10 +267146,10 @@ void func_1452(var uParam0) // Position - 0x18776E (1603438)
 			
 				if (IS_BIT_SET(uParam0->f_562, 15))
 				{
-					if (uParam0->f_529 != 1 && uParam0->f_120.f_1 != -1 && Global_4539548[uParam0->f_120.f_1] != PV_COMP_HEAD)
+					if (uParam0->f_529 != 1 && uParam0->f_120.f_1 != -1 && Global_4539548[uParam0->f_120.f_1] != 0)
 						func_19(PLAYER::PLAYER_PED_ID(), uParam0->f_696, uParam0->f_695, 0, Global_4539548[uParam0->f_120.f_1]);
 					else
-						func_19(PLAYER::PLAYER_PED_ID(), uParam0->f_696, uParam0->f_695, false, PV_COMP_HEAD);
+						func_19(PLAYER::PLAYER_PED_ID(), uParam0->f_696, uParam0->f_695, false, 0);
 				
 					func_174(-1, "//Failed");
 				}
@@ -268972,10 +268972,10 @@ void func_1508(var uParam0, BOOL bParam1) // Position - 0x18A5B1 (1615281)
 		func_380(uParam0, false, true);
 	
 		if (IS_BIT_SET(uParam0->f_562, 15))
-			if (uParam0->f_529 != 1 && uParam0->f_120.f_1 != -1 && Global_4539548[uParam0->f_120.f_1] != PV_COMP_HEAD)
+			if (uParam0->f_529 != 1 && uParam0->f_120.f_1 != -1 && Global_4539548[uParam0->f_120.f_1] != 0)
 				func_19(PLAYER::PLAYER_PED_ID(), uParam0->f_696, uParam0->f_695, 0, Global_4539548[uParam0->f_120.f_1]);
 			else
-				func_19(PLAYER::PLAYER_PED_ID(), uParam0->f_696, uParam0->f_695, 0, PV_COMP_HEAD);
+				func_19(PLAYER::PLAYER_PED_ID(), uParam0->f_696, uParam0->f_695, 0, 0);
 	
 		ped = PLAYER::PLAYER_PED_ID();
 		func_136(&ped, -1, false, true, false);

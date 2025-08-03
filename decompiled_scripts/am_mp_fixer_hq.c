@@ -144230,7 +144230,7 @@ void func_2626(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPar
 		func_2628(true, bParam3, bParam2, false);
 		Global_64529 = 1;
 		Global_76858 = true;
-		Global_79766 = 1;
+		Global_79766 = true;
 	}
 	else
 	{
@@ -144251,7 +144251,7 @@ void func_2626(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPar
 		else if (!PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()) && !func_407(PLAYER::PLAYER_ID()) && !bParam4 && !bParam5)
 			ENTITY::SET_ENTITY_INVINCIBLE(PLAYER::PLAYER_PED_ID(), false, false);
 	
-		Global_79766 = 0;
+		Global_79766 = false;
 	}
 
 	return;
@@ -214980,7 +214980,7 @@ BOOL func_3701() // Position - 0x11AB95 (1158037)
 	return IS_BIT_SET(Global_1946439, 13);
 }
 
-void func_3702(BOOL bParam0, int iParam1, int iParam2) // Position - 0x11ABA4 (1158052)
+void func_3702(BOOL bParam0, int iParam1, eHudColour ehcParam2) // Position - 0x11ABA4 (1158052)
 {
 	int num;
 	int offset;
@@ -214992,7 +214992,7 @@ void func_3702(BOOL bParam0, int iParam1, int iParam2) // Position - 0x11ABA4 (1
 		if (bParam0 && !IS_BIT_SET(Global_1946439.f_4157[num], offset))
 		{
 			MISC::SET_BIT(&Global_1946439.f_4157[num], offset);
-			Global_1946439.f_3977[iParam1] = iParam2;
+			Global_1946439.f_3977[iParam1] = ehcParam2;
 		}
 		else if (!bParam0 && IS_BIT_SET(Global_1946439.f_4157[num], offset))
 		{
@@ -266370,7 +266370,7 @@ BOOL func_4928(int iParam0) // Position - 0x1686D1 (1476305)
 	{
 		if (ENTITY::GET_ENTITY_SPEED(vehicle) > 0.5f && !IS_BIT_SET(Global_2658019[PLAYER::PLAYER_ID() /*467*/].f_324, 19) && !func_2494(PLAYER::PLAYER_ID()))
 		{
-			func_3702(false, iParam0, 0);
+			func_3702(false, iParam0, HUD_COLOUR_PURE_WHITE);
 			return true;
 		}
 	}
@@ -308453,7 +308453,7 @@ int func_5937(int iParam0) // Position - 0x1AD058 (1757272)
 	{
 		if (ENTITY::GET_ENTITY_SPEED(func_5251()) > 0.5f)
 		{
-			func_3702(false, iParam0, 0);
+			func_3702(false, iParam0, HUD_COLOUR_PURE_WHITE);
 			return 1;
 		}
 	}
@@ -318605,7 +318605,7 @@ BOOL func_6071(int iParam0) // Position - 0x1BE504 (1828100)
 	{
 		if (ENTITY::GET_ENTITY_SPEED(vehicle) > 0.5f && !IS_BIT_SET(Global_2658019[PLAYER::PLAYER_ID() /*467*/].f_324, 19) && !func_2494(PLAYER::PLAYER_ID()))
 		{
-			func_3702(false, iParam0, 0);
+			func_3702(false, iParam0, HUD_COLOUR_PURE_WHITE);
 			return true;
 		}
 	}

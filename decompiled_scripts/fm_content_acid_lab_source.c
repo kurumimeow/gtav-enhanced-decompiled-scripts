@@ -390582,7 +390582,7 @@ eBlipSprite func_8261(int iParam0) // Position - 0x227C7C (2260092)
 	return func_8262();
 }
 
-eBlipSprite func_8262() // Position - 0x227CB5 (2260149)
+int func_8262() // Position - 0x227CB5 (2260149)
 {
 	return 478;
 }
@@ -429578,9 +429578,9 @@ void func_9049() // Position - 0x261A63 (2497123)
 		funcLocal_3150.f_166();
 	
 		if (StackVal)
-			Global_1986353.f_3 = 1;
+			Global_1986354.f_3 = 1;
 		else
-			Global_1986353.f_3 = 0;
+			Global_1986354.f_3 = 0;
 	}
 
 	if (func_9051() && func_9050())
@@ -429602,14 +429602,14 @@ BOOL func_9051() // Position - 0x261ACC (2497228)
 	if (Global_2708037.f_10)
 		return false;
 
-	if (Global_1986353.f_3)
+	if (Global_1986354.f_3)
 		return false;
 
 	if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("gb_ie_delivery_cutscene")) > 0)
 		return false;
 
-	if (_STOPWATCH_IS_INITIALIZED(&Global_1986353))
-		return func_30(&Global_1986353, Global_1986353.f_2, false);
+	if (_STOPWATCH_IS_INITIALIZED(&Global_1986354))
+		return func_30(&Global_1986354, Global_1986354.f_2, false);
 
 	return false;
 }
@@ -438127,7 +438127,7 @@ BOOL func_9349(ePedComponentType epctParam0) // Position - 0x26BCDA (2538714)
 	return func_9347(&Global_2647055.f_756[epctParam0]);
 }
 
-void func_9350(ePedComponentType epctParam0, eBlipSprite ebsParam1, BOOL bParam2, BOOL bParam3) // Position - 0x26BCF1 (2538737)
+void func_9350(ePedComponentType epctParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position - 0x26BCF1 (2538737)
 {
 	BOOL flag;
 
@@ -438137,7 +438137,7 @@ void func_9350(ePedComponentType epctParam0, eBlipSprite ebsParam1, BOOL bParam2
 	if (func_9344(&Global_2647055.f_591[epctParam0], &Global_2647055.f_954[epctParam0], &(Global_2647055.f_388), bParam2, epctParam0, bParam3, &flag))
 	{
 		if (bParam2)
-			Global_2647055.f_426[epctParam0] = ebsParam1;
+			Global_2647055.f_426[epctParam0] = iParam1;
 	
 		if (flag)
 			func_9351();
@@ -453789,7 +453789,7 @@ void func_10072(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Pos
 	return;
 }
 
-eBlipSprite func_10073(ePedComponentType epctParam0) // Position - 0x27F5A0 (2618784)
+int func_10073(ePedComponentType epctParam0) // Position - 0x27F5A0 (2618784)
 {
 	return Global_2647055.f_426[epctParam0];
 }
@@ -457404,22 +457404,22 @@ void func_10233(int iParam0, BOOL bParam1, int iParam2, BOOL bParam3, Player plP
 
 void func_10234(Player plParam0) // Position - 0x282E5D (2633309)
 {
-	func_35(&Global_1986353, false, false);
+	func_35(&Global_1986354, false, false);
 
 	if (plParam0 != -1)
-		Global_1986353.f_2 = plParam0;
+		Global_1986354.f_2 = plParam0;
 	else
-		Global_1986353.f_2 = *Global_262145.f_37196;
+		Global_1986354.f_2 = *Global_262145.f_37196;
 
 	return;
 }
 
 int func_10235(int iParam0) // Position - 0x282E90 (2633360)
 {
-	if (Global_1986357 == -2)
+	if (Global_1986358 == -2)
 		return 0;
 
-	if (Global_1986357 == iParam0)
+	if (Global_1986358 == iParam0)
 		return 0;
 
 	if (func_3293(iParam0) != 0)
@@ -488848,7 +488848,7 @@ void func_10881() // Position - 0x2A573A (2774842)
 {
 	var unk;
 
-	Global_1986353 = { unk };
+	Global_1986354 = { unk };
 	return;
 }
 

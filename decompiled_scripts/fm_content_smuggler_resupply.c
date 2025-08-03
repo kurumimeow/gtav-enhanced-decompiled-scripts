@@ -409928,9 +409928,9 @@ void func_8796() // Position - 0x24733C (2388796)
 		funcLocal_3113.f_166();
 	
 		if (StackVal)
-			Global_1986353.f_3 = 1;
+			Global_1986354.f_3 = 1;
 		else
-			Global_1986353.f_3 = 0;
+			Global_1986354.f_3 = 0;
 	}
 
 	if (func_8798() && func_8797())
@@ -409952,14 +409952,14 @@ BOOL func_8798() // Position - 0x2473A5 (2388901)
 	if (Global_2708037.f_10)
 		return false;
 
-	if (Global_1986353.f_3)
+	if (Global_1986354.f_3)
 		return false;
 
 	if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("gb_ie_delivery_cutscene")) > 0)
 		return false;
 
-	if (_STOPWATCH_IS_INITIALIZED(&Global_1986353))
-		return func_30(&Global_1986353, Global_1986353.f_2, false);
+	if (_STOPWATCH_IS_INITIALIZED(&Global_1986354))
+		return func_30(&Global_1986354, Global_1986354.f_2, false);
 
 	return false;
 }
@@ -438709,22 +438709,22 @@ void func_10044(int iParam0, BOOL bParam1, int iParam2, BOOL bParam3, Player plP
 
 void func_10045(Player plParam0) // Position - 0x269A12 (2529810)
 {
-	func_35(&Global_1986353, false, false);
+	func_35(&Global_1986354, false, false);
 
 	if (plParam0 != -1)
-		Global_1986353.f_2 = plParam0;
+		Global_1986354.f_2 = plParam0;
 	else
-		Global_1986353.f_2 = *Global_262145.f_37196;
+		Global_1986354.f_2 = *Global_262145.f_37196;
 
 	return;
 }
 
 int func_10046(int iParam0) // Position - 0x269A45 (2529861)
 {
-	if (Global_1986357 == -2)
+	if (Global_1986358 == -2)
 		return 0;
 
-	if (Global_1986357 == iParam0)
+	if (Global_1986358 == iParam0)
 		return 0;
 
 	if (func_3291(iParam0) != 0)
@@ -446142,44 +446142,44 @@ int func_10511(int iParam0) // Position - 0x2729F0 (2566640)
 	return -1;
 }
 
-int func_10512(ePedComponentType epctParam0) // Position - 0x272AA0 (2566816)
+int func_10512(BOOL bParam0) // Position - 0x272AA0 (2566816)
 {
-	switch (epctParam0)
+	switch (bParam0)
 	{
-		case PV_COMP_BERD:
+		case true:
 			return joaat("sm_prop_smug_crate_l_medical");
 	
-		case PV_COMP_HAIR:
+		case 2:
 			return joaat("sm_prop_smug_crate_m_medical");
 	
-		case PV_COMP_UPPR:
+		case 3:
 			return joaat("sm_prop_smug_crate_l_tobacco");
 	
-		case PV_COMP_LOWR:
+		case 4:
 			return joaat("sm_prop_smug_crate_m_tobacco");
 	
-		case PV_COMP_HAND:
+		case 5:
 			return joaat("sm_prop_smug_crate_l_antiques");
 	
-		case PV_COMP_FEET:
+		case 6:
 			return joaat("sm_prop_smug_crate_m_antiques");
 	
-		case PV_COMP_TEEF:
+		case 7:
 			return joaat("sm_prop_smug_crate_l_narc");
 	
-		case PV_COMP_ACCS:
+		case 8:
 			return joaat("sm_prop_smug_crate_m_narc");
 	
-		case PV_COMP_TASK:
+		case 9:
 			return joaat("sm_prop_smug_crate_l_jewellery");
 	
-		case PV_COMP_DECL:
+		case 10:
 			return joaat("sm_prop_smug_crate_m_jewellery");
 	
-		case PV_COMP_JBIB:
+		case 11:
 			return joaat("sm_prop_smug_crate_l_bones");
 	
-		case PV_COMP_MAX:
+		case 12:
 			return joaat("sm_prop_smug_crate_m_bones");
 	
 		case 13:
@@ -469941,7 +469941,7 @@ void func_10677() // Position - 0x28B889 (2668681)
 {
 	var unk;
 
-	Global_1986353 = { unk };
+	Global_1986354 = { unk };
 	return;
 }
 

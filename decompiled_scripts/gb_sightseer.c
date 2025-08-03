@@ -102236,22 +102236,22 @@ void func_1273(ePedComponentType epctParam0, BOOL bParam1, int iParam2, BOOL bPa
 
 void func_1274(int iParam0) // Position - 0x738F5 (473333)
 {
-	func_651(&Global_1986353, false, false);
+	func_651(&Global_1986354, false, false);
 
 	if (iParam0 != -1)
-		Global_1986353.f_2 = iParam0;
+		Global_1986354.f_2 = iParam0;
 	else
-		Global_1986353.f_2 = *Global_262145.f_37196;
+		Global_1986354.f_2 = *Global_262145.f_37196;
 
 	return;
 }
 
 int func_1275(ePedComponentType epctParam0) // Position - 0x73928 (473384)
 {
-	if (Global_1986357 == -2)
+	if (Global_1986358 == -2)
 		return 0;
 
-	if (Global_1986357 == epctParam0)
+	if (Global_1986358 == epctParam0)
 		return 0;
 
 	if (func_449(epctParam0) != 0)
@@ -102906,7 +102906,7 @@ void func_1304() // Position - 0x745E3 (476643)
 {
 	var unk;
 
-	Global_1986353 = { unk };
+	Global_1986354 = { unk };
 	return;
 }
 

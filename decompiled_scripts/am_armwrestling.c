@@ -116161,7 +116161,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 75:
 				case 78:
 				case 80:
-					return true;
+					return 1;
 			
 				case 82:
 					return 6;
@@ -116193,7 +116193,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 86:
 				case 87:
 				case 93:
-					return true;
+					return 1;
 			
 				case 88:
 					return 5;
@@ -116228,7 +116228,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 2:
 				case 3:
 				case 7:
-					return true;
+					return 1;
 			
 				case 4:
 				case 6:
@@ -116245,7 +116245,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 98:
 				case 99:
 				case 100:
-					return true;
+					return 1;
 			
 				case 101:
 					return 5;
@@ -116285,7 +116285,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 10:
 				case 11:
 				case 14:
-					return true;
+					return 1;
 			
 				case 12:
 					return 2;
@@ -116307,7 +116307,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 114:
 				case 115:
 				case 119:
-					return true;
+					return 1;
 			
 				case 116:
 					return 250000;
@@ -116339,7 +116339,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 298:
 				case 299:
 				case 300:
-					return true;
+					return 1;
 			
 				case 301:
 					return 5;
@@ -116354,7 +116354,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 					return 5;
 			
 				case 305:
-					return true;
+					return 1;
 			}
 			break;
 	
@@ -116364,7 +116364,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 16:
 				case 17:
 				case 19:
-					return true;
+					return 1;
 			
 				case 18:
 				case 20:
@@ -116385,7 +116385,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 180:
 				case 181:
 				case 182:
-					return true;
+					return 1;
 			
 				case 183:
 					return 25;
@@ -116415,7 +116415,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 327:
 				case 328:
 				case 323:
-					return true;
+					return 1;
 			
 				case 324:
 					return 50;
@@ -116434,7 +116434,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 338:
 				case 339:
 				case 345:
-					return true;
+					return 1;
 			
 				case 340:
 					return 5;
@@ -116460,7 +116460,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 					return 6;
 			
 				case 125:
-					return true;
+					return 1;
 			
 				case 126:
 					return 10;
@@ -116501,7 +116501,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 24:
 				case 25:
 				case 27:
-					return true;
+					return 1;
 			
 				case 26:
 				case 28:
@@ -116518,7 +116518,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 32:
 				case 33:
 				case 35:
-					return true;
+					return 1;
 			
 				case 34:
 				case 36:
@@ -116535,7 +116535,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 40:
 				case 41:
 				case 43:
-					return true;
+					return 1;
 			
 				case 42:
 				case 44:
@@ -116552,7 +116552,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 48:
 				case 49:
 				case 51:
-					return true;
+					return 1;
 			
 				case 50:
 				case 52:
@@ -116569,7 +116569,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 56:
 				case 57:
 				case 59:
-					return true;
+					return 1;
 			
 				case 58:
 				case 60:
@@ -116586,7 +116586,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 64:
 				case 65:
 				case 67:
-					return true;
+					return 1;
 			
 				case 66:
 				case 68:
@@ -116608,7 +116608,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 362:
 				case 363:
 				case 364:
-					return true;
+					return 1;
 			
 				case 365:
 					return 6;
@@ -116641,7 +116641,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 139:
 				case 140:
 				case 143:
-					return true;
+					return 1;
 			
 				case 141:
 				case 142:
@@ -116672,7 +116672,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 231:
 				case 235:
 				case 236:
-					return true;
+					return 1;
 			
 				case 232:
 				case 233:
@@ -116702,7 +116702,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 257:
 				case 258:
 				case 260:
-					return true;
+					return 1;
 			
 				case 259:
 					return 10;
@@ -116736,7 +116736,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 270:
 				case 272:
 				case 275:
-					return true;
+					return 1;
 			
 				case 271:
 					return 25;
@@ -116745,7 +116745,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 					return 3;
 			
 				case 274:
-					return true;
+					return 1;
 			
 				case 276:
 					return 15;
@@ -116771,7 +116771,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 245:
 				case 246:
 				case 249:
-					return true;
+					return 1;
 			
 				case 247:
 					return 13;
@@ -116800,7 +116800,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 285:
 				case 286:
 				case 287:
-					return true;
+					return 1;
 			
 				case 288:
 					return 14;
@@ -116822,7 +116822,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 			{
 				case 306:
 				case 307:
-					return true;
+					return 1;
 			
 				case 308:
 					return 5;
@@ -116852,7 +116852,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 153:
 				case 154:
 				case 155:
-					return true;
+					return 1;
 			
 				case 152:
 					return 5;
@@ -116887,7 +116887,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 166:
 				case 168:
 				case 171:
-					return true;
+					return 1;
 			
 				case 167:
 					return 10;
@@ -116920,7 +116920,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 191:
 				case 192:
 				case 193:
-					return true;
+					return 1;
 			
 				case 194:
 					return 5;
@@ -116955,7 +116955,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 205:
 				case 206:
 				case 207:
-					return true;
+					return 1;
 			
 				case 208:
 					return 13;
@@ -116990,7 +116990,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 219:
 				case 220:
 				case 222:
-					return true;
+					return 1;
 			
 				case 221:
 					return 11;
@@ -117016,7 +117016,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 			switch (iParam1)
 			{
 				case 330:
-					return true;
+					return 1;
 			
 				case 331:
 				case 332:
@@ -117041,7 +117041,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 314:
 				case 315:
 				case 321:
-					return true;
+					return 1;
 			
 				case 316:
 					return 5;
@@ -117071,7 +117071,7 @@ BOOL func_1007(int iParam0, int iParam1) // Position - 0x90980 (592256)
 				case 351:
 				case 352:
 				case 353:
-					return true;
+					return 1;
 			
 				case 354:
 					return 5;
@@ -119318,7 +119318,7 @@ BOOL func_1023(int iParam0, int iParam1) // Position - 0x93DA4 (605604)
 
 	for (i = 0; i < Global_1985099; i = i + 1)
 	{
-		if (Global_1985099.f_1[i /*14*/] == iParam1 && Global_1985099.f_1[i /*14*/].f_1 > false)
+		if (Global_1985099.f_1[i /*14*/] == iParam1 && Global_1985099.f_1[i /*14*/].f_1 > 0)
 			return Global_1985099.f_1[i /*14*/].f_1;
 	}
 
@@ -133117,7 +133117,7 @@ void func_1286(BOOL bParam0, int iParam1, int iParam2, BOOL bParam3, BOOL bParam
 	TEXT_LABEL_ASSIGN_STRING(&(Global_1845274[player /*877*/].f_157), str, 64);
 	Global_1882449[player /*201*/].f_36 = { unk13 };
 	Global_1882449[player /*201*/].f_38 = { unk13 };
-	Global_1836735 = false;
+	Global_1836735 = 0;
 	Global_1836736 = 0;
 	Global_1836243 = -1;
 	flag6 = false;

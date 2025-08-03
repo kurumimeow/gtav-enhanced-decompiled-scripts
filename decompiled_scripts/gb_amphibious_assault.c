@@ -104344,22 +104344,22 @@ void func_1184(int iParam0, BOOL bParam1, int iParam2, BOOL bParam3, int iParam4
 
 void func_1185(int iParam0) // Position - 0x756AC (480940)
 {
-	func_492(&Global_1986353, false, false);
+	func_492(&Global_1986354, false, false);
 
 	if (iParam0 != -1)
-		Global_1986353.f_2 = iParam0;
+		Global_1986354.f_2 = iParam0;
 	else
-		Global_1986353.f_2 = *Global_262145.f_37196;
+		Global_1986354.f_2 = *Global_262145.f_37196;
 
 	return;
 }
 
 int func_1186(int iParam0) // Position - 0x756DF (480991)
 {
-	if (Global_1986357 == -2)
+	if (Global_1986358 == -2)
 		return 0;
 
-	if (Global_1986357 == iParam0)
+	if (Global_1986358 == iParam0)
 		return 0;
 
 	if (func_1029(iParam0) != 0)
@@ -114410,7 +114410,7 @@ void func_1571() // Position - 0x82DE7 (536039)
 	var unk10;
 	var unk11;
 	var unk24;
-	BOOL flag;
+	ePedComponentType type;
 	int num3;
 	var unk40;
 	var unk41;
@@ -114447,7 +114447,7 @@ void func_1571() // Position - 0x82DE7 (536039)
 	
 		for (j = 0; j <= 1; j = j + 1)
 		{
-			Global_2685690.f_1.f_845[i /*57*/].f_33[j] = flag;
+			Global_2685690.f_1.f_845[i /*57*/].f_33[j] = type;
 		}
 	
 		for (j = 0; j <= 6; j = j + 1)
@@ -114469,7 +114469,7 @@ void func_1571() // Position - 0x82DE7 (536039)
 	
 		for (j = 0; j <= 1; j = j + 1)
 		{
-			Global_2685690.f_1.f_2670[i /*57*/].f_33[j] = flag;
+			Global_2685690.f_1.f_2670[i /*57*/].f_33[j] = type;
 		}
 	
 		for (j = 0; j <= 6; j = j + 1)
@@ -451063,7 +451063,7 @@ void func_8600() // Position - 0x2801F4 (2621940)
 {
 	var unk;
 
-	Global_1986353 = { unk };
+	Global_1986354 = { unk };
 	return;
 }
 

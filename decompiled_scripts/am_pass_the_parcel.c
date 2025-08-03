@@ -12241,7 +12241,7 @@ int func_343(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4,
 	return 0;
 }
 
-void func_344(int iParam0, Hash hParam1, int iParam2, BOOL bParam3, int iParam4) // Position - 0xC635 (50741)
+void func_344(int iParam0, Hash hParam1, int iParam2, int iParam3, int iParam4) // Position - 0xC635 (50741)
 {
 	switch (hParam1)
 	{
@@ -98855,7 +98855,7 @@ BOOL func_888(Hash hParam0) // Position - 0x7ACEC (503020)
 	return false;
 }
 
-void func_889(Vehicle veParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position - 0x7AD7B (503163)
+void func_889(Vehicle veParam0, var uParam1, BOOL bParam2, BOOL bParam3) // Position - 0x7AD7B (503163)
 {
 	int num;
 	int num2;
@@ -98868,140 +98868,140 @@ void func_889(Vehicle veParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Posi
 
 	if (VEHICLE::IS_VEHICLE_DRIVEABLE(veParam0, false))
 	{
-		iParam1->f_66 != 0;
+		uParam1->f_66 != 0;
 	
 		if (!func_912(veParam0))
 		{
-			if (MISC::GET_HASH_KEY(&(iParam1->f_1)) != 0)
-				VEHICLE::SET_VEHICLE_NUMBER_PLATE_TEXT(veParam0, &(iParam1->f_1));
+			if (MISC::GET_HASH_KEY(&(uParam1->f_1)) != 0)
+				VEHICLE::SET_VEHICLE_NUMBER_PLATE_TEXT(veParam0, &(uParam1->f_1));
 		
-			if (*iParam1 >= 0 && *iParam1 < VEHICLE::GET_NUMBER_OF_VEHICLE_NUMBER_PLATES())
-				VEHICLE::SET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(veParam0, *iParam1);
+			if (*uParam1 >= 0 && *uParam1 < VEHICLE::GET_NUMBER_OF_VEHICLE_NUMBER_PLATES())
+				VEHICLE::SET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(veParam0, *uParam1);
 		}
 	
-		if (iParam1->f_66 == joaat("sovereign"))
+		if (uParam1->f_66 == joaat("sovereign"))
 		{
-			iParam1->f_5 = 111;
-			iParam1->f_6 = 111;
-			iParam1->f_7 = 111;
+			uParam1->f_5 = 111;
+			uParam1->f_6 = 111;
+			uParam1->f_7 = 111;
 		}
-		else if (iParam1->f_66 == joaat("casco"))
+		else if (uParam1->f_66 == joaat("casco"))
 		{
 			num = 1;
 		
-			if (IS_BIT_SET(iParam1->f_77, func_911(num + 1)))
+			if (IS_BIT_SET(uParam1->f_77, func_911(num + 1)))
 			{
 			}
 			else
 			{
-				MISC::SET_BIT(&(iParam1->f_77), func_911(num + 1));
+				MISC::SET_BIT(&(uParam1->f_77), func_911(num + 1));
 			}
 		}
-		else if (iParam1->f_66 == joaat("sandking") || iParam1->f_66 == joaat("sandking2"))
+		else if (uParam1->f_66 == joaat("sandking") || uParam1->f_66 == joaat("sandking2"))
 		{
 			num2 = 1;
 		
-			if (IS_BIT_SET(iParam1->f_77, func_911(num2 + 1)))
+			if (IS_BIT_SET(uParam1->f_77, func_911(num2 + 1)))
 			{
 			}
 			else
 			{
-				MISC::SET_BIT(&(iParam1->f_77), func_911(num2 + 1));
+				MISC::SET_BIT(&(uParam1->f_77), func_911(num2 + 1));
 			}
 		}
-		else if (iParam1->f_66 == joaat("formula") || iParam1->f_66 == joaat("formula2"))
+		else if (uParam1->f_66 == joaat("formula") || uParam1->f_66 == joaat("formula2"))
 		{
 			for (i = 1; i <= 9; i = i + 1)
 			{
-				if (IS_BIT_SET(iParam1->f_77, func_911(i)))
+				if (IS_BIT_SET(uParam1->f_77, func_911(i)))
 				{
 				}
 				else
 				{
-					MISC::SET_BIT(&(iParam1->f_77), func_911(i));
+					MISC::SET_BIT(&(uParam1->f_77), func_911(i));
 				}
 			}
 		}
-		else if (iParam1->f_66 == joaat("openwheel1"))
+		else if (uParam1->f_66 == joaat("openwheel1"))
 		{
 			for (j = 1; j <= 6; j = j + 1)
 			{
-				if (IS_BIT_SET(iParam1->f_77, func_911(j)))
+				if (IS_BIT_SET(uParam1->f_77, func_911(j)))
 				{
 				}
 				else
 				{
-					MISC::SET_BIT(&(iParam1->f_77), func_911(j));
+					MISC::SET_BIT(&(uParam1->f_77), func_911(j));
 				}
 			}
 		}
-		else if (iParam1->f_66 == joaat("openwheel2"))
+		else if (uParam1->f_66 == joaat("openwheel2"))
 		{
 			for (k = 1; k <= 11; k = k + 1)
 			{
 				if (k != 9 && k != 10)
 				{
-					if (IS_BIT_SET(iParam1->f_77, func_911(k)))
+					if (IS_BIT_SET(uParam1->f_77, func_911(k)))
 					{
 					}
 					else
 					{
-						MISC::SET_BIT(&(iParam1->f_77), func_911(k));
+						MISC::SET_BIT(&(uParam1->f_77), func_911(k));
 					}
 				}
 			}
 		}
-		else if (iParam1->f_66 == -1035489563)
+		else if (uParam1->f_66 == -1035489563)
 		{
 			for (l = 1; l <= 2; l = l + 1)
 			{
-				if (IS_BIT_SET(iParam1->f_77, func_911(l)))
+				if (IS_BIT_SET(uParam1->f_77, func_911(l)))
 				{
 				}
 				else
 				{
-					MISC::SET_BIT(&(iParam1->f_77), func_911(l));
+					MISC::SET_BIT(&(uParam1->f_77), func_911(l));
 				}
 			}
 		}
-		else if (iParam1->f_66 == joaat("dinghy5"))
+		else if (uParam1->f_66 == joaat("dinghy5"))
 		{
-			if (IS_BIT_SET(iParam1->f_77, func_911(4)))
+			if (IS_BIT_SET(uParam1->f_77, func_911(4)))
 			{
 			}
 			else
 			{
-				MISC::SET_BIT(&(iParam1->f_77), func_911(4));
+				MISC::SET_BIT(&(uParam1->f_77), func_911(4));
 			}
 		}
-		else if (iParam1->f_66 == joaat("coquette4"))
+		else if (uParam1->f_66 == joaat("coquette4"))
 		{
 			if (VEHICLE::GET_VEHICLE_MOD(veParam0, 10) != 0)
-				MISC::SET_BIT(&(iParam1->f_77), 0);
+				MISC::SET_BIT(&(uParam1->f_77), 0);
 		}
-		else if (iParam1->f_66 == joaat("yosemite2"))
+		else if (uParam1->f_66 == joaat("yosemite2"))
 		{
-			MISC::SET_BIT(&(iParam1->f_77), func_911(1));
+			MISC::SET_BIT(&(uParam1->f_77), func_911(1));
 		}
-		else if (iParam1->f_66 == -1681653521)
+		else if (uParam1->f_66 == -1681653521)
 		{
-			MISC::SET_BIT(&(iParam1->f_77), func_911(1));
+			MISC::SET_BIT(&(uParam1->f_77), func_911(1));
 		}
-		else if (iParam1->f_66 == joaat("hotknife"))
+		else if (uParam1->f_66 == joaat("hotknife"))
 		{
 			for (m = 1; m <= 2; m = m + 1)
 			{
-				if (IS_BIT_SET(iParam1->f_77, func_911(m)))
+				if (IS_BIT_SET(uParam1->f_77, func_911(m)))
 				{
 				}
 				else
 				{
-					MISC::SET_BIT(&(iParam1->f_77), func_911(m));
+					MISC::SET_BIT(&(uParam1->f_77), func_911(m));
 				}
 			}
 		}
 	
-		if (iParam1->f_66 == joaat("nightshark"))
+		if (uParam1->f_66 == joaat("nightshark"))
 		{
 			VEHICLE::SET_DONT_PROCESS_VEHICLE_GLASS(veParam0, false);
 		
@@ -99009,101 +99009,101 @@ void func_889(Vehicle veParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Posi
 				VEHICLE::SET_DONT_PROCESS_VEHICLE_GLASS(veParam0, true);
 		}
 	
-		if (IS_BIT_SET(iParam1->f_77, 13))
-			VEHICLE::SET_VEHICLE_CUSTOM_PRIMARY_COLOUR(veParam0, iParam1->f_71, iParam1->f_72, iParam1->f_73);
+		if (IS_BIT_SET(uParam1->f_77, 13))
+			VEHICLE::SET_VEHICLE_CUSTOM_PRIMARY_COLOUR(veParam0, uParam1->f_71, uParam1->f_72, uParam1->f_73);
 		else
 			VEHICLE::CLEAR_VEHICLE_CUSTOM_PRIMARY_COLOUR(veParam0);
 	
-		if (IS_BIT_SET(iParam1->f_77, 12))
-			VEHICLE::SET_VEHICLE_CUSTOM_SECONDARY_COLOUR(veParam0, iParam1->f_71, iParam1->f_72, iParam1->f_73);
+		if (IS_BIT_SET(uParam1->f_77, 12))
+			VEHICLE::SET_VEHICLE_CUSTOM_SECONDARY_COLOUR(veParam0, uParam1->f_71, uParam1->f_72, uParam1->f_73);
 		else
 			VEHICLE::CLEAR_VEHICLE_CUSTOM_SECONDARY_COLOUR(veParam0);
 	
-		if (iParam1->f_5 != -1 && iParam1->f_6 != -1)
+		if (uParam1->f_5 != -1 && uParam1->f_6 != -1)
 		{
-			if (func_909(iParam1->f_5) || func_909(iParam1->f_6))
+			if (func_909(uParam1->f_5) || func_909(uParam1->f_6))
 			{
 			}
 			else
 			{
-				VEHICLE::SET_VEHICLE_COLOURS(veParam0, iParam1->f_5, iParam1->f_6);
+				VEHICLE::SET_VEHICLE_COLOURS(veParam0, uParam1->f_5, uParam1->f_6);
 			}
 		}
 	
-		if (iParam1->f_7 < 0)
-			iParam1->f_7 = 0;
+		if (uParam1->f_7 < 0)
+			uParam1->f_7 = 0;
 	
-		if (iParam1->f_8 < 0)
-			iParam1->f_8 = 0;
+		if (uParam1->f_8 < 0)
+			uParam1->f_8 = 0;
 	
-		VEHICLE::SET_VEHICLE_EXTRA_COLOURS(veParam0, iParam1->f_7, iParam1->f_8);
+		VEHICLE::SET_VEHICLE_EXTRA_COLOURS(veParam0, uParam1->f_7, uParam1->f_8);
 	
-		if (IS_BIT_SET(iParam1->f_77, 15) || func_908(veParam0) || iParam1->f_62 == 0 && iParam1->f_63 == 0 && iParam1->f_64 == 0 && iParam1->f_9[20] > 0 && func_907())
+		if (IS_BIT_SET(uParam1->f_77, 15) || func_908(veParam0) || uParam1->f_62 == 0 && uParam1->f_63 == 0 && uParam1->f_64 == 0 && uParam1->f_9[20] > 0 && func_907())
 		{
-			iParam1->f_62 = 0;
-			iParam1->f_63 = 0;
-			iParam1->f_64 = 0;
+			uParam1->f_62 = 0;
+			uParam1->f_63 = 0;
+			uParam1->f_64 = 0;
 		}
-		else if (iParam1->f_62 == 0 && iParam1->f_63 == 0 && iParam1->f_64 == 0)
+		else if (uParam1->f_62 == 0 && uParam1->f_63 == 0 && uParam1->f_64 == 0)
 		{
-			iParam1->f_62 = 255;
-			iParam1->f_63 = 255;
-			iParam1->f_64 = 255;
+			uParam1->f_62 = 255;
+			uParam1->f_63 = 255;
+			uParam1->f_64 = 255;
 		}
 	
-		VEHICLE::SET_VEHICLE_TYRE_SMOKE_COLOR(veParam0, iParam1->f_62, iParam1->f_63, iParam1->f_64);
+		VEHICLE::SET_VEHICLE_TYRE_SMOKE_COLOR(veParam0, uParam1->f_62, uParam1->f_63, uParam1->f_64);
 	
-		if (iParam1->f_65 == -1 && !func_906(iParam1->f_66))
+		if (uParam1->f_65 == -1 && !func_906(uParam1->f_66))
 		{
 			VEHICLE::SET_VEHICLE_WINDOW_TINT(veParam0, 0);
 		}
 		else
 		{
 			VEHICLE::SET_VEHICLE_WINDOW_TINT(veParam0, 0);
-			VEHICLE::SET_VEHICLE_WINDOW_TINT(veParam0, iParam1->f_65);
+			VEHICLE::SET_VEHICLE_WINDOW_TINT(veParam0, uParam1->f_65);
 		}
 	
-		if (IS_BIT_SET(iParam1->f_77, 9))
+		if (IS_BIT_SET(uParam1->f_77, 9))
 		{
 			VEHICLE::SET_VEHICLE_TYRES_CAN_BURST(veParam0, false);
 			VEHICLE::SET_DRIFT_TYRES(veParam0, false);
 		}
 	
 		if (bParam2)
-			VEHICLE::SET_VEHICLE_DOORS_LOCKED(veParam0, iParam1->f_70);
+			VEHICLE::SET_VEHICLE_DOORS_LOCKED(veParam0, uParam1->f_70);
 	
-		VEHICLE::SET_VEHICLE_NEON_COLOUR(veParam0, iParam1->f_74, iParam1->f_75, iParam1->f_76);
-		VEHICLE::SET_VEHICLE_NEON_ENABLED(veParam0, 2, IS_BIT_SET(iParam1->f_77, 28));
-		VEHICLE::SET_VEHICLE_NEON_ENABLED(veParam0, 3, IS_BIT_SET(iParam1->f_77, 29));
-		VEHICLE::SET_VEHICLE_NEON_ENABLED(veParam0, 0, IS_BIT_SET(iParam1->f_77, 30));
-		VEHICLE::SET_VEHICLE_NEON_ENABLED(veParam0, 1, IS_BIT_SET(iParam1->f_77, 31));
-		VEHICLE::SET_VEHICLE_IS_STOLEN(veParam0, IS_BIT_SET(iParam1->f_77, 10));
+		VEHICLE::SET_VEHICLE_NEON_COLOUR(veParam0, uParam1->f_74, uParam1->f_75, uParam1->f_76);
+		VEHICLE::SET_VEHICLE_NEON_ENABLED(veParam0, 2, IS_BIT_SET(uParam1->f_77, 28));
+		VEHICLE::SET_VEHICLE_NEON_ENABLED(veParam0, 3, IS_BIT_SET(uParam1->f_77, 29));
+		VEHICLE::SET_VEHICLE_NEON_ENABLED(veParam0, 0, IS_BIT_SET(uParam1->f_77, 30));
+		VEHICLE::SET_VEHICLE_NEON_ENABLED(veParam0, 1, IS_BIT_SET(uParam1->f_77, 31));
+		VEHICLE::SET_VEHICLE_IS_STOLEN(veParam0, IS_BIT_SET(uParam1->f_77, 10));
 	
-		if (VEHICLE::GET_VEHICLE_LIVERY_COUNT(veParam0) > 1 && iParam1->f_67 >= 0)
-			VEHICLE::SET_VEHICLE_LIVERY(veParam0, iParam1->f_67);
+		if (VEHICLE::GET_VEHICLE_LIVERY_COUNT(veParam0) > 1 && uParam1->f_67 >= 0)
+			VEHICLE::SET_VEHICLE_LIVERY(veParam0, uParam1->f_67);
 	
-		if (iParam1->f_69 > -1 && iParam1->f_69 < 255)
+		if (uParam1->f_69 > -1 && uParam1->f_69 < 255)
 			if (!VEHICLE::IS_THIS_MODEL_A_BICYCLE(ENTITY::GET_ENTITY_MODEL(veParam0)))
 				if (VEHICLE::IS_THIS_MODEL_A_BIKE(ENTITY::GET_ENTITY_MODEL(veParam0)))
-					if (iParam1->f_69 == 6)
-						func_905(veParam0, iParam1->f_69);
+					if (uParam1->f_69 == 6)
+						func_905(veParam0, uParam1->f_69);
 				else
-					func_905(veParam0, iParam1->f_69);
+					func_905(veParam0, uParam1->f_69);
 	
 		if (VEHICLE::IS_VEHICLE_A_CONVERTIBLE(veParam0, false))
-			if (iParam1->f_68 == 0 || iParam1->f_68 == 3 || iParam1->f_68 == 5)
+			if (uParam1->f_68 == 0 || uParam1->f_68 == 3 || uParam1->f_68 == 5)
 				VEHICLE::RAISE_CONVERTIBLE_ROOF(veParam0, true);
 			else
 				VEHICLE::LOWER_CONVERTIBLE_ROOF(veParam0, true);
 	
 		if (bParam3)
-			func_896(&veParam0, &(iParam1->f_9), &(iParam1->f_59));
+			func_896(&veParam0, &(uParam1->f_9), &(uParam1->f_59));
 	
-		if (!VEHICLE::IS_THIS_MODEL_A_HELI(iParam1->f_66) && !VEHICLE::IS_THIS_MODEL_A_BOAT(iParam1->f_66))
+		if (!VEHICLE::IS_THIS_MODEL_A_HELI(uParam1->f_66) && !VEHICLE::IS_THIS_MODEL_A_BOAT(uParam1->f_66))
 		{
 			for (n = 0; n <= 11; n = n + 1)
 			{
-				if (IS_BIT_SET(iParam1->f_77, func_911(n + 1)))
+				if (IS_BIT_SET(uParam1->f_77, func_911(n + 1)))
 					if (!VEHICLE::IS_VEHICLE_EXTRA_TURNED_ON(veParam0, n + 1))
 						VEHICLE::SET_VEHICLE_EXTRA(veParam0, n + 1, false);
 				else if (VEHICLE::IS_VEHICLE_EXTRA_TURNED_ON(veParam0, n + 1))
@@ -99115,16 +99115,16 @@ void func_889(Vehicle veParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Posi
 			if (VEHICLE::GET_VEHICLE_MOD(veParam0, 0) == -1)
 				VEHICLE::SET_VEHICLE_EXTRA(veParam0, 1, false);
 	
-		if (func_892() && VEHICLE::IS_THIS_MODEL_A_PLANE(iParam1->f_66) && VEHICLE::GET_VEHICLE_HAS_LANDING_GEAR(veParam0) && !VEHICLE::IS_VEHICLE_MODEL(veParam0, joaat("avenger")) && !VEHICLE::IS_VEHICLE_MODEL(veParam0, func_891(true)))
-			if (!IS_BIT_SET(iParam1->f_77, 23))
-				if (!IS_BIT_SET(iParam1->f_77, 22) && func_890(veParam0, 5f))
+		if (func_892() && VEHICLE::IS_THIS_MODEL_A_PLANE(uParam1->f_66) && VEHICLE::GET_VEHICLE_HAS_LANDING_GEAR(veParam0) && !VEHICLE::IS_VEHICLE_MODEL(veParam0, joaat("avenger")) && !VEHICLE::IS_VEHICLE_MODEL(veParam0, func_891(true)))
+			if (!IS_BIT_SET(uParam1->f_77, 23))
+				if (!IS_BIT_SET(uParam1->f_77, 22) && func_890(veParam0, 5f))
 					VEHICLE::CONTROL_LANDING_GEAR(veParam0, 3);
 				else
 					VEHICLE::CONTROL_LANDING_GEAR(veParam0, 2);
 			else
 				VEHICLE::CONTROL_LANDING_GEAR(veParam0, 4);
 	
-		if (IS_BIT_SET(iParam1->f_77, 27))
+		if (IS_BIT_SET(uParam1->f_77, 27))
 			DECORATOR::DECOR_SET_BOOL(veParam0, "IgnoredByQuickSave", true);
 		else
 			DECORATOR::DECOR_SET_BOOL(veParam0, "IgnoredByQuickSave", false);
@@ -106602,76 +106602,76 @@ void func_1067(Vehicle veParam0, var uParam1, var uParam2, var uParam3, var uPar
 	return;
 }
 
-void func_1068(Vehicle veParam0, int iParam1) // Position - 0x8B819 (571417)
+void func_1068(Vehicle veParam0, var uParam1) // Position - 0x8B819 (571417)
 {
 	Player player;
 
 	if (ENTITY::DOES_ENTITY_EXIST(veParam0) && VEHICLE::IS_VEHICLE_DRIVEABLE(veParam0, false))
 	{
-		func_1087(veParam0, iParam1);
-		MISC::CLEAR_BIT(&(iParam1->f_95), 0);
+		func_1087(veParam0, uParam1);
+		MISC::CLEAR_BIT(&(uParam1->f_95), 0);
 	
-		if (IS_BIT_SET(iParam1->f_77, 11))
-			MISC::SET_BIT(&(iParam1->f_95), 0);
+		if (IS_BIT_SET(uParam1->f_77, 11))
+			MISC::SET_BIT(&(uParam1->f_95), 0);
 	
 		if (func_865(veParam0))
-			MISC::SET_BIT(&(iParam1->f_95), 0);
+			MISC::SET_BIT(&(uParam1->f_95), 0);
 	
 		if (func_858(veParam0))
-			MISC::SET_BIT(&(iParam1->f_95), 0);
+			MISC::SET_BIT(&(uParam1->f_95), 0);
 	
 		if (VEHICLE::GET_VEHICLE_TYRES_CAN_BURST(veParam0) && !VEHICLE::GET_DRIFT_TYRES_SET(veParam0))
-			iParam1->f_102 = 2;
+			uParam1->f_102 = 2;
 		else if (!VEHICLE::GET_VEHICLE_TYRES_CAN_BURST(veParam0))
-			iParam1->f_102 = 1;
+			uParam1->f_102 = 1;
 		else if (VEHICLE::GET_DRIFT_TYRES_SET(veParam0))
-			iParam1->f_102 = 3;
+			uParam1->f_102 = 3;
 	
-		if (iParam1->f_70 == 0)
-			iParam1->f_70 = 1;
+		if (uParam1->f_70 == 0)
+			uParam1->f_70 = 1;
 	
 		if (func_887(ENTITY::GET_ENTITY_MODEL(veParam0)) && !func_886(ENTITY::GET_ENTITY_MODEL(veParam0)))
 			if (func_1085(veParam0))
-				MISC::SET_BIT(&(iParam1->f_103), 0);
+				MISC::SET_BIT(&(uParam1->f_103), 0);
 			else
-				MISC::CLEAR_BIT(&(iParam1->f_103), 0);
+				MISC::CLEAR_BIT(&(uParam1->f_103), 0);
 		else
-			MISC::CLEAR_BIT(&(iParam1->f_103), 0);
+			MISC::CLEAR_BIT(&(uParam1->f_103), 0);
 	
-		iParam1->f_78 = AUDIO::GET_VEHICLE_DEFAULT_HORN(veParam0);
-		iParam1->f_79 = AUDIO::GET_VEHICLE_HORN_SOUND_INDEX(veParam0);
-		iParam1->f_80 = VEHICLE::GET_VEHICLE_ENVEFF_SCALE(veParam0);
-		VEHICLE::GET_VEHICLE_EXTRA_COLOUR_5(veParam0, &(iParam1->f_97));
-		VEHICLE::GET_VEHICLE_EXTRA_COLOUR_6(veParam0, &(iParam1->f_99));
-		iParam1->f_98 = VEHICLE::GET_VEHICLE_LIVERY2(veParam0);
-		player = func_1071(veParam0, &(iParam1->f_94), &(iParam1->f_96));
-		MISC::CLEAR_BIT(&(iParam1->f_95), 3);
+		uParam1->f_78 = AUDIO::GET_VEHICLE_DEFAULT_HORN(veParam0);
+		uParam1->f_79 = AUDIO::GET_VEHICLE_HORN_SOUND_INDEX(veParam0);
+		uParam1->f_80 = VEHICLE::GET_VEHICLE_ENVEFF_SCALE(veParam0);
+		VEHICLE::GET_VEHICLE_EXTRA_COLOUR_5(veParam0, &(uParam1->f_97));
+		VEHICLE::GET_VEHICLE_EXTRA_COLOUR_6(veParam0, &(uParam1->f_99));
+		uParam1->f_98 = VEHICLE::GET_VEHICLE_LIVERY2(veParam0);
+		player = func_1071(veParam0, &(uParam1->f_94), &(uParam1->f_96));
+		MISC::CLEAR_BIT(&(uParam1->f_95), 3);
 	
 		if (!(player == _INVALID_PLAYER_INDEX()))
 		{
-			NETWORK::NETWORK_HANDLE_FROM_PLAYER(player, &(iParam1->f_81), 13);
-			MISC::SET_BIT(&(iParam1->f_95), 1);
+			NETWORK::NETWORK_HANDLE_FROM_PLAYER(player, &(uParam1->f_81), 13);
+			MISC::SET_BIT(&(uParam1->f_95), 1);
 		}
 		else
 		{
-			MISC::CLEAR_BIT(&(iParam1->f_95), 1);
+			MISC::CLEAR_BIT(&(uParam1->f_95), 1);
 		}
 	
 		if (player == PLAYER::PLAYER_ID())
 		{
-			MISC::SET_BIT(&(iParam1->f_95), 2);
+			MISC::SET_BIT(&(uParam1->f_95), 2);
 		
-			if (iParam1->f_94 == 1)
+			if (uParam1->f_94 == 1)
 				if (func_1070(veParam0))
-					MISC::SET_BIT(&(iParam1->f_95), 3);
+					MISC::SET_BIT(&(uParam1->f_95), 3);
 		}
 		else
 		{
-			MISC::CLEAR_BIT(&(iParam1->f_95), 2);
+			MISC::CLEAR_BIT(&(uParam1->f_95), 2);
 		}
 	
 		if (VEHICLE::IS_VEHICLE_MODEL(veParam0, joaat("deathbike2")))
-			iParam1->f_99 = func_1069(func_879(iParam1->f_74, iParam1->f_75, iParam1->f_76));
+			uParam1->f_99 = func_1069(func_879(uParam1->f_74, uParam1->f_75, uParam1->f_76));
 	}
 
 	return;
@@ -106940,45 +106940,45 @@ BOOL func_1086(Vehicle veParam0) // Position - 0x8BEBB (573115)
 	return 0;
 }
 
-void func_1087(Vehicle veParam0, int iParam1) // Position - 0x8BEE8 (573160)
+void func_1087(Vehicle veParam0, var uParam1) // Position - 0x8BEE8 (573160)
 {
 	int i;
 
 	if (VEHICLE::IS_VEHICLE_DRIVEABLE(veParam0, false))
 	{
-		func_1035(iParam1);
-		iParam1->f_66 = ENTITY::GET_ENTITY_MODEL(veParam0);
-		TEXT_LABEL_ASSIGN_STRING(&(iParam1->f_1), VEHICLE::GET_VEHICLE_NUMBER_PLATE_TEXT(veParam0), 16);
-		*iParam1 = VEHICLE::GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(veParam0);
-		VEHICLE::GET_VEHICLE_COLOURS(veParam0, &(iParam1->f_5), &(iParam1->f_6));
-		VEHICLE::GET_VEHICLE_EXTRA_COLOURS(veParam0, &(iParam1->f_7), &(iParam1->f_8));
-		VEHICLE::GET_VEHICLE_TYRE_SMOKE_COLOR(veParam0, &(iParam1->f_62), &(iParam1->f_63), &(iParam1->f_64));
-		iParam1->f_65 = VEHICLE::GET_VEHICLE_WINDOW_TINT(veParam0);
-		iParam1->f_67 = VEHICLE::GET_VEHICLE_LIVERY(veParam0);
-		iParam1->f_69 = VEHICLE::GET_VEHICLE_WHEEL_TYPE(veParam0);
-		iParam1->f_70 = VEHICLE::GET_VEHICLE_DOOR_LOCK_STATUS(veParam0);
-		VEHICLE::GET_VEHICLE_CUSTOM_SECONDARY_COLOUR(veParam0, &(iParam1->f_71), &(iParam1->f_72), &(iParam1->f_73));
-		VEHICLE::GET_VEHICLE_NEON_COLOUR(veParam0, &(iParam1->f_74), &(iParam1->f_75), &(iParam1->f_76));
+		func_1035(uParam1);
+		uParam1->f_66 = ENTITY::GET_ENTITY_MODEL(veParam0);
+		TEXT_LABEL_ASSIGN_STRING(&(uParam1->f_1), VEHICLE::GET_VEHICLE_NUMBER_PLATE_TEXT(veParam0), 16);
+		*uParam1 = VEHICLE::GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(veParam0);
+		VEHICLE::GET_VEHICLE_COLOURS(veParam0, &(uParam1->f_5), &(uParam1->f_6));
+		VEHICLE::GET_VEHICLE_EXTRA_COLOURS(veParam0, &(uParam1->f_7), &(uParam1->f_8));
+		VEHICLE::GET_VEHICLE_TYRE_SMOKE_COLOR(veParam0, &(uParam1->f_62), &(uParam1->f_63), &(uParam1->f_64));
+		uParam1->f_65 = VEHICLE::GET_VEHICLE_WINDOW_TINT(veParam0);
+		uParam1->f_67 = VEHICLE::GET_VEHICLE_LIVERY(veParam0);
+		uParam1->f_69 = VEHICLE::GET_VEHICLE_WHEEL_TYPE(veParam0);
+		uParam1->f_70 = VEHICLE::GET_VEHICLE_DOOR_LOCK_STATUS(veParam0);
+		VEHICLE::GET_VEHICLE_CUSTOM_SECONDARY_COLOUR(veParam0, &(uParam1->f_71), &(uParam1->f_72), &(uParam1->f_73));
+		VEHICLE::GET_VEHICLE_NEON_COLOUR(veParam0, &(uParam1->f_74), &(uParam1->f_75), &(uParam1->f_76));
 	
 		if (VEHICLE::GET_VEHICLE_NEON_ENABLED(veParam0, 2))
-			MISC::SET_BIT(&(iParam1->f_77), 28);
+			MISC::SET_BIT(&(uParam1->f_77), 28);
 	
 		if (VEHICLE::GET_VEHICLE_NEON_ENABLED(veParam0, 3))
-			MISC::SET_BIT(&(iParam1->f_77), 29);
+			MISC::SET_BIT(&(uParam1->f_77), 29);
 	
 		if (VEHICLE::GET_VEHICLE_NEON_ENABLED(veParam0, 0))
-			MISC::SET_BIT(&(iParam1->f_77), 30);
+			MISC::SET_BIT(&(uParam1->f_77), 30);
 	
 		if (VEHICLE::GET_VEHICLE_NEON_ENABLED(veParam0, 1))
-			MISC::SET_BIT(&(iParam1->f_77), 31);
+			MISC::SET_BIT(&(uParam1->f_77), 31);
 	
-		if (iParam1->f_65 == -1 && !func_906(iParam1->f_66))
-			iParam1->f_65 = 0;
+		if (uParam1->f_65 == -1 && !func_906(uParam1->f_66))
+			uParam1->f_65 = 0;
 	
 		if (VEHICLE::IS_VEHICLE_A_CONVERTIBLE(veParam0, false))
-			iParam1->f_68 = VEHICLE::GET_CONVERTIBLE_ROOF_STATE(veParam0);
+			uParam1->f_68 = VEHICLE::GET_CONVERTIBLE_ROOF_STATE(veParam0);
 	
-		if (VEHICLE::IS_THIS_MODEL_A_PLANE(iParam1->f_66))
+		if (VEHICLE::IS_THIS_MODEL_A_PLANE(uParam1->f_66))
 		{
 			if (VEHICLE::IS_PLANE_LANDING_GEAR_INTACT(veParam0))
 			{
@@ -106986,59 +106986,59 @@ void func_1087(Vehicle veParam0, int iParam1) // Position - 0x8BEE8 (573160)
 				{
 					case 3:
 					case 0:
-						MISC::CLEAR_BIT(&(iParam1->f_77), 23);
-						MISC::SET_BIT(&(iParam1->f_77), 22);
+						MISC::CLEAR_BIT(&(uParam1->f_77), 23);
+						MISC::SET_BIT(&(uParam1->f_77), 22);
 						break;
 				
 					case 4:
 					case 1:
-						MISC::CLEAR_BIT(&(iParam1->f_77), 23);
-						MISC::CLEAR_BIT(&(iParam1->f_77), 22);
+						MISC::CLEAR_BIT(&(uParam1->f_77), 23);
+						MISC::CLEAR_BIT(&(uParam1->f_77), 22);
 						break;
 				
 					case 5:
-						MISC::SET_BIT(&(iParam1->f_77), 23);
+						MISC::SET_BIT(&(uParam1->f_77), 23);
 						break;
 				}
 			}
 			else
 			{
-				MISC::SET_BIT(&(iParam1->f_77), 23);
+				MISC::SET_BIT(&(uParam1->f_77), 23);
 			}
 		}
 	
 		if (!VEHICLE::GET_VEHICLE_TYRES_CAN_BURST(veParam0))
-			MISC::SET_BIT(&(iParam1->f_77), 9);
+			MISC::SET_BIT(&(uParam1->f_77), 9);
 	
 		if (VEHICLE::IS_VEHICLE_STOLEN(veParam0))
-			MISC::SET_BIT(&(iParam1->f_77), 10);
+			MISC::SET_BIT(&(uParam1->f_77), 10);
 	
 		if (VEHICLE::GET_IS_VEHICLE_PRIMARY_COLOUR_CUSTOM(veParam0))
 		{
-			MISC::SET_BIT(&(iParam1->f_77), 13);
-			VEHICLE::GET_VEHICLE_CUSTOM_PRIMARY_COLOUR(veParam0, &(iParam1->f_71), &(iParam1->f_72), &(iParam1->f_73));
+			MISC::SET_BIT(&(uParam1->f_77), 13);
+			VEHICLE::GET_VEHICLE_CUSTOM_PRIMARY_COLOUR(veParam0, &(uParam1->f_71), &(uParam1->f_72), &(uParam1->f_73));
 		}
 	
 		if (VEHICLE::GET_IS_VEHICLE_SECONDARY_COLOUR_CUSTOM(veParam0))
-			MISC::SET_BIT(&(iParam1->f_77), 12);
+			MISC::SET_BIT(&(uParam1->f_77), 12);
 	
-		func_1088(&veParam0, &(iParam1->f_9), &(iParam1->f_59));
+		func_1088(&veParam0, &(uParam1->f_9), &(uParam1->f_59));
 	
 		for (i = 0; i <= 11; i = i + 1)
 		{
 			if (VEHICLE::IS_VEHICLE_EXTRA_TURNED_ON(veParam0, i + 1))
-				MISC::SET_BIT(&(iParam1->f_77), func_911(i + 1));
+				MISC::SET_BIT(&(uParam1->f_77), func_911(i + 1));
 		}
 	
 		if (GRAPHICS::DOES_VEHICLE_HAVE_CREW_EMBLEM(veParam0, 0))
-			MISC::SET_BIT(&(iParam1->f_77), 11);
+			MISC::SET_BIT(&(uParam1->f_77), 11);
 		else
-			MISC::CLEAR_BIT(&(iParam1->f_77), 11);
+			MISC::CLEAR_BIT(&(uParam1->f_77), 11);
 	
 		if (DECORATOR::DECOR_EXIST_ON(veParam0, "IgnoredByQuickSave") && DECORATOR::DECOR_GET_BOOL(veParam0, "IgnoredByQuickSave"))
-			MISC::SET_BIT(&(iParam1->f_77), 27);
+			MISC::SET_BIT(&(uParam1->f_77), 27);
 		else
-			MISC::CLEAR_BIT(&(iParam1->f_77), 27);
+			MISC::CLEAR_BIT(&(uParam1->f_77), 27);
 	}
 
 	return;

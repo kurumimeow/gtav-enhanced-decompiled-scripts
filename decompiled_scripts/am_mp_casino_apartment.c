@@ -455904,7 +455904,7 @@ BOOL func_8458(Vector3 vParam0, var uParam1, var uParam2, int iParam3, int iPara
 	return false;
 }
 
-Object func_8459() // Position - 0x28C19F (2671007)
+Entity func_8459() // Position - 0x28C19F (2671007)
 {
 	if (PLAYER::PLAYER_ID() != -1)
 		return Global_1960332.f_23;

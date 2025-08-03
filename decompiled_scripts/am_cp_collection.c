@@ -23932,9 +23932,9 @@ void func_743() // Position - 0x1A6AB (108203)
 
 void func_744() // Position - 0x1A6DA (108250)
 {
-	BOOL flag;
+	var unk;
 
-	Global_1582022 = flag;
+	Global_1582022 = unk;
 	return;
 }
 
@@ -24385,9 +24385,9 @@ void func_775(int iParam0) // Position - 0x1AEB3 (110259)
 
 void func_776() // Position - 0x1AF69 (110441)
 {
-	int* p_num;
+	int* unk;
 
-	Global_1837048 = p_num;
+	Global_1837048 = unk;
 	return;
 }
 

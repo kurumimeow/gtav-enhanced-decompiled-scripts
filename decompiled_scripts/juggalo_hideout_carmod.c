@@ -65669,7 +65669,7 @@ ePedComponentType func_679(Ped pedParam0, int iParam1) // Position - 0x5D8FA (38
 	return func_680(pedParam0, pedDrawableVariation, pedTextureVariation, iParam1);
 }
 
-ePedComponentType func_680(Ped pedParam0, ePedComponentType epctParam1, int iParam2, int iParam3) // Position - 0x5D95A (383322)
+ePedComponentType func_680(Ped pedParam0, int iParam1, int iParam2, int iParam3) // Position - 0x5D95A (383322)
 {
 	ePedComponentType componentId;
 	int numberOfPedDrawableVariations;
@@ -65681,7 +65681,7 @@ ePedComponentType func_680(Ped pedParam0, ePedComponentType epctParam1, int iPar
 
 	for (i = 0; i <= numberOfPedDrawableVariations - 1; i = i + 1)
 	{
-		if (i != epctParam1)
+		if (i != iParam1)
 		{
 			num = num + PED::GET_NUMBER_OF_PED_TEXTURE_VARIATIONS(pedParam0, componentId, i);
 		}
@@ -177694,7 +177694,7 @@ int func_1734(int iParam0, int iParam1, BOOL bParam2, int iParam3) // Position -
 	return 28;
 }
 
-BOOL func_1735(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Position - 0xED728 (972584)
+BOOL func_1735(Hash hParam0, BOOL bParam1, BOOL bParam2) // Position - 0xED728 (972584)
 {
 	int i;
 
@@ -177706,12 +177706,12 @@ BOOL func_1735(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Posi
 		if (func_1736(*Global_4718592.f_197275, false))
 			return true;
 
-	if (epctParam0 == PV_COMP_HEAD)
+	if (hParam0 == 0)
 		return false;
 
 	for (i = 0; i <= 6; i = i + 1)
 	{
-		if (epctParam0 == Global_262145.f_9526[i])
+		if (hParam0 == Global_262145.f_9526[i])
 			return true;
 	}
 
@@ -312916,7 +312916,7 @@ BOOL func_3137(var uParam0) // Position - 0x1CAECC (1879756)
 			{
 				if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 				{
-					Global_2698280 = true;
+					Global_2698280 = 1;
 					Global_2698281 = 1;
 				}
 			
@@ -312954,7 +312954,7 @@ BOOL func_3137(var uParam0) // Position - 0x1CAECC (1879756)
 				{
 					if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 					{
-						Global_2698280 = true;
+						Global_2698280 = 1;
 						Global_2698281 = 1;
 					}
 				
@@ -315981,7 +315981,7 @@ int func_3204(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 
 	for (i = PV_COMP_HEAD; i < PV_COMP_MAX; i = i + 1)
 	{
-		Global_79621[i] = PV_COMP_INVALID;
+		Global_79621[i] = -1;
 		Global_79621.f_13[i] = -1;
 	}
 
@@ -316072,7 +316072,7 @@ int func_3204(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 							
 								if (flag4 && bParam5)
 								{
-									Global_79621[5] = PV_COMP_HEAD;
+									Global_79621[5] = 0;
 									Global_79621.f_13[5] = 0;
 								}
 							
@@ -316106,7 +316106,7 @@ int func_3204(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 										{
 											if (func_3232(entityModel, 7, func_680(*uParam0, Global_79621[7], Global_79621.f_13[7], 7), -1))
 											{
-												Global_79621[7] = PV_COMP_HEAD;
+												Global_79621[7] = 0;
 												Global_79621.f_13[7] = 0;
 											}
 										}
@@ -316128,7 +316128,7 @@ int func_3204(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 											{
 												if (func_3232(entityModel, 7, func_680(*uParam0, Global_79621[7], Global_79621.f_13[7], 7), -1))
 												{
-													Global_79621[7] = PV_COMP_HEAD;
+													Global_79621[7] = 0;
 													Global_79621.f_13[7] = 0;
 												}
 											}
@@ -316160,7 +316160,7 @@ int func_3204(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 							
 								for (i = PV_COMP_HEAD; i < PV_COMP_MAX; i = i + 1)
 								{
-									if (Global_79621[i] != PV_COMP_INVALID)
+									if (Global_79621[i] != -1)
 									{
 										if (i == PV_COMP_DECL && iParam7 != -1)
 										{
@@ -316230,7 +316230,7 @@ int func_3204(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 									}
 								}
 							
-								if (!flag5 && Global_79621[1] != PV_COMP_INVALID)
+								if (!flag5 && Global_79621[1] != -1)
 									PED::SET_PED_COMPONENT_VARIATION(*uParam0, PV_COMP_BERD, Global_79621[1], Global_79621.f_13[1], 0);
 							
 								for (i = PV_COMP_HEAD; i < Global_79621.f_26; i = i + 1)
@@ -316325,7 +316325,7 @@ int func_3204(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 											FILES::GET_SHOP_PED_COMPONENT(joaat("DLC_MP_HEIST_F_HAIR_0_0"), &outComponent);
 									
 										if (Global_79621[2] == outComponent.f_3)
-											Global_79621[2] = PV_COMP_INVALID;
+											Global_79621[2] = -1;
 									}
 								
 									if (func_3208(uParam0->f_1))
@@ -316342,7 +316342,7 @@ int func_3204(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 										}
 									}
 								
-									if (Global_79621[2] == PV_COMP_INVALID)
+									if (Global_79621[2] == -1)
 									{
 										if (uParam0->f_8 != -1 && PLAYER::INT_TO_PLAYERINDEX(uParam0->f_8) != PLAYER::PLAYER_ID() && !(*uParam0 == PLAYER::PLAYER_PED_ID()))
 										{
@@ -317222,7 +317222,7 @@ void func_3215(Ped pedParam0, int iParam1, Player plParam2, int iParam3) // Posi
 
 	for (i = PV_COMP_HEAD; i < PV_COMP_MAX; i = i + 1)
 	{
-		Global_79621[i] = PV_COMP_INVALID;
+		Global_79621[i] = -1;
 		Global_79621.f_13[i] = -1;
 	}
 
@@ -317243,7 +317243,7 @@ void func_3215(Ped pedParam0, int iParam1, Player plParam2, int iParam3) // Posi
 	{
 		for (i = PV_COMP_HEAD; i < PV_COMP_MAX; i = i + 1)
 		{
-			if (Global_79621[i] != PV_COMP_INVALID)
+			if (Global_79621[i] != -1)
 			{
 				if (PED::GET_PED_DRAWABLE_VARIATION(pedParam0, i) == Global_79621[i] && PED::GET_PED_TEXTURE_VARIATION(pedParam0, i) == Global_79621.f_13[i])
 				{

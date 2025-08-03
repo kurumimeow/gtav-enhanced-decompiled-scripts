@@ -179600,22 +179600,22 @@ void func_2149(int iParam0, BOOL bParam1, int iParam2, BOOL bParam3, int iParam4
 
 void func_2150(int iParam0) // Position - 0xEEA82 (977538)
 {
-	func_341(&Global_1986353, false, false);
+	func_341(&Global_1986354, false, false);
 
 	if (iParam0 != -1)
-		Global_1986353.f_2 = iParam0;
+		Global_1986354.f_2 = iParam0;
 	else
-		Global_1986353.f_2 = *Global_262145.f_37196;
+		Global_1986354.f_2 = *Global_262145.f_37196;
 
 	return;
 }
 
 int func_2151(int iParam0) // Position - 0xEEAB5 (977589)
 {
-	if (Global_1986357 == -2)
+	if (Global_1986358 == -2)
 		return 0;
 
-	if (Global_1986357 == iParam0)
+	if (Global_1986358 == iParam0)
 		return 0;
 
 	if (func_1013(iParam0) != 0)
@@ -181098,7 +181098,7 @@ void func_2213() // Position - 0xF088B (985227)
 {
 	var unk;
 
-	Global_1986353 = { unk };
+	Global_1986354 = { unk };
 	return;
 }
 

@@ -412908,7 +412908,7 @@ BOOL func_8253() // Position - 0x251648 (2430536)
 		{
 			if (func_35() != 2)
 			{
-				if (Global_80031 == 46 || Global_80032 == 46)
+				if (Global_80031 == CHAR_RICKIE || Global_80032 == 46)
 				{
 					if (!CAM::IS_SCREEN_FADED_OUT() && func_105() != 4 && func_105() != 5)
 					{
@@ -412931,7 +412931,7 @@ BOOL func_8253() // Position - 0x251648 (2430536)
 					return false;
 				}
 			
-				if (Global_80031 == 53 || Global_80032 == 53)
+				if (Global_80031 == CHAR_HAO || Global_80032 == 53)
 				{
 					if (!CAM::IS_SCREEN_FADED_OUT() && func_105() != 4 && func_105() != 5)
 					{

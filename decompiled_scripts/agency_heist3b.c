@@ -126277,7 +126277,7 @@ void func_923(Ped pedParam0, BOOL bParam1) // Position - 0x9DEF8 (646904)
 	eCharacter character;
 	int num;
 	var unk;
-	ePedComponentType i;
+	int i;
 
 	if (!PED::IS_PED_INJURED(pedParam0))
 	{
@@ -126314,12 +126314,12 @@ void func_923(Ped pedParam0, BOOL bParam1) // Position - 0x9DEF8 (646904)
 					Global_114370.f_2367.f_539[character /*65*/] = { unk };
 					Global_114370.f_2367.f_539.f_2391[character] = func_433(pedParam0);
 				
-					for (i = PV_COMP_HEAD; i < PV_COMP_MAX; i = i + 1)
+					for (i = 0; i < 12; i = i + 1)
 					{
 						Global_114370.f_2367.f_539.f_204[i /*4*/][character] = func_223(pedParam0, func_219(i));
 					}
 				
-					for (i = PV_COMP_HEAD; i < PV_COMP_MAX; i = i + 1)
+					for (i = 0; i < 12; i = i + 1)
 					{
 						Global_114370.f_2367.f_539.f_204[i /*4*/][character] = func_223(pedParam0, func_219(i));
 					}
@@ -137272,7 +137272,7 @@ void func_1074() // Position - 0xB38F6 (735478)
 		{
 			Global_2696472 = true;
 			Global_2696481 = MISC::GET_GAME_TIMER();
-			Global_2696480 = true;
+			Global_2696480 = 1;
 		}
 	}
 

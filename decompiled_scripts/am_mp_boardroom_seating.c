@@ -31474,15 +31474,15 @@ void func_804(int iParam0) // Position - 0x235BA (144826)
 	return;
 }
 
-void _STOPWATCH_DESTROY(int iParam0) // Position - 0x235CC (144844)
+void _STOPWATCH_DESTROY(var uParam0) // Position - 0x235CC (144844)
 {
-	iParam0->f_1 = 0;
+	uParam0->f_1 = 0;
 	return;
 }
 
-BOOL _STOPWATCH_IS_INITIALIZED(int iParam0) // Position - 0x235D9 (144857)
+BOOL _STOPWATCH_IS_INITIALIZED(var uParam0) // Position - 0x235D9 (144857)
 {
-	return iParam0->f_1;
+	return uParam0->f_1;
 }
 
 void func_807() // Position - 0x235E5 (144869)
@@ -80204,35 +80204,35 @@ BOOL func_1229(BOOL bParam0) // Position - 0x5BFDC (376796)
 	return Global_24009.f_4;
 }
 
-BOOL func_1230(int iParam0, int iParam1, BOOL bParam2) // Position - 0x5C008 (376840)
+BOOL func_1230(var uParam0, int iParam1, BOOL bParam2) // Position - 0x5C008 (376840)
 {
 	if (iParam1 == -1)
 		return true;
 
-	func_1231(iParam0, bParam2, false);
+	func_1231(uParam0, bParam2, false);
 
 	if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && !bParam2)
-		if (MISC::ABSI(NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME(), *iParam0)) >= iParam1)
+		if (MISC::ABSI(NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME(), *uParam0)) >= iParam1)
 			return true;
-	else if (MISC::ABSI(NETWORK::GET_TIME_DIFFERENCE(MISC::GET_GAME_TIMER(), *iParam0)) >= iParam1)
+	else if (MISC::ABSI(NETWORK::GET_TIME_DIFFERENCE(MISC::GET_GAME_TIMER(), *uParam0)) >= iParam1)
 		return true;
 
 	return false;
 }
 
-void func_1231(int iParam0, BOOL bParam1, BOOL bParam2) // Position - 0x5C066 (376934)
+void func_1231(var uParam0, BOOL bParam1, BOOL bParam2) // Position - 0x5C066 (376934)
 {
-	if (iParam0->f_1 == 0)
+	if (uParam0->f_1 == 0)
 	{
 		if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && !bParam1)
 			if (!bParam2)
-				*iParam0 = NETWORK::GET_NETWORK_TIME();
+				*uParam0 = NETWORK::GET_NETWORK_TIME();
 			else
-				*iParam0 = NETWORK::GET_NETWORK_TIME_ACCURATE();
+				*uParam0 = NETWORK::GET_NETWORK_TIME_ACCURATE();
 		else
-			*iParam0 = MISC::GET_GAME_TIMER();
+			*uParam0 = MISC::GET_GAME_TIMER();
 	
-		iParam0->f_1 = 1;
+		uParam0->f_1 = 1;
 	}
 
 	return;
@@ -222548,9 +222548,9 @@ Vector3 func_4102(int iParam0, int iParam1) // Position - 0x129EE8 (1220328)
 	return 1f, 1f, 1f;
 }
 
-BOOL func_4103(int iParam0) // Position - 0x12A05F (1220703)
+BOOL func_4103(var uParam0) // Position - 0x12A05F (1220703)
 {
-	return Global_1946439.f_5142 == iParam0;
+	return Global_1946439.f_5142 == uParam0;
 }
 
 BOOL func_4104() // Position - 0x12A071 (1220721)

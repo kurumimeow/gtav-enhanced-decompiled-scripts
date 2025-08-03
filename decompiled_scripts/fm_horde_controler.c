@@ -239654,16 +239654,16 @@ BOOL func_2858() // Position - 0x1330CC (1257676)
 
 ePedComponentType func_2859() // Position - 0x13310A (1257738)
 {
-	BOOL flag;
+	ePedComponentType type;
 
-	flag = Global_1048576.f_69;
+	type = Global_1048576.f_69;
 
-	if (func_2860(Global_1048576.f_74[flag /*70*/].f_54))
-		return Global_1048576.f_74[flag /*70*/].f_62;
+	if (func_2860(Global_1048576.f_74[type /*70*/].f_54))
+		return Global_1048576.f_74[type /*70*/].f_62;
 	else
-		return Global_1048576.f_74[flag /*70*/].f_63;
+		return Global_1048576.f_74[type /*70*/].f_63;
 
-	return Global_1048576.f_74[flag /*70*/].f_63;
+	return Global_1048576.f_74[type /*70*/].f_63;
 }
 
 BOOL func_2860(int iParam0) // Position - 0x13315A (1257818)
@@ -243804,7 +243804,7 @@ Hash func_2991(ePedComponentType epctParam0) // Position - 0x137D13 (1277203)
 {
 	Hash hash;
 
-	hash = PV_COMP_HEAD;
+	hash = 0;
 
 	if (epctParam0 == PV_COMP_INVALID && PLAYER::GET_PLAYER_INDEX() > -1)
 		epctParam0 = Global_1845274[PLAYER::GET_PLAYER_INDEX() /*877*/].f_97.f_28;
@@ -553101,7 +553101,7 @@ BOOL func_10148(var uParam0) // Position - 0x30AFFC (3190780)
 	AUDIO::SET_AUDIO_FLAG("DisableFlightMusic", true);
 	AUDIO::SET_AUDIO_FLAG("WantedMusicDisabled", true);
 
-	if (Global_4718592.f_3573 != false)
+	if (Global_4718592.f_3573 != PV_COMP_HEAD)
 		Global_4718592.f_3573 = 0;
 
 	num = func_10155(Global_4718592.f_3605[0 /*26949*/], 0);

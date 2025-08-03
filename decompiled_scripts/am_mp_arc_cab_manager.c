@@ -83119,9 +83119,9 @@ BOOL func_534(Player plParam0) // Position - 0x63A39 (408121)
 	return false;
 }
 
-BOOL func_535(int iParam0) // Position - 0x63A57 (408151)
+BOOL func_535(Hash hParam0) // Position - 0x63A57 (408151)
 {
-	return Global_101969.f_398 == iParam0;
+	return Global_101969.f_398 == hParam0;
 }
 
 void func_536() // Position - 0x63A69 (408169)
@@ -97794,16 +97794,16 @@ BOOL func_719() // Position - 0x755A1 (480673)
 	return func_720(*Global_4718592.f_138116);
 }
 
-BOOL func_720(int iParam0) // Position - 0x755C5 (480709)
+BOOL func_720(Hash hParam0) // Position - 0x755C5 (480709)
 {
 	int i;
 
-	if (iParam0 == 0)
+	if (hParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 8; i = i + 1)
 	{
-		if (Global_262145.f_4698[i] == iParam0)
+		if (Global_262145.f_4698[i] == hParam0)
 			return 1;
 	}
 
@@ -231340,15 +231340,15 @@ BOOL func_4239() // Position - 0x1326FD (1255165)
 	return false;
 }
 
-BOOL func_4240(int iParam0) // Position - 0x132741 (1255233)
+BOOL func_4240(Hash hParam0) // Position - 0x132741 (1255233)
 {
 	int i;
 
-	if (iParam0 != 0)
+	if (hParam0 != 0)
 	{
 		for (i = 0; i < Global_262145.f_6131[19]; i = i + 1)
 		{
-			if (iParam0 == Global_262145.f_4731[19 /*51*/][i])
+			if (hParam0 == Global_262145.f_4731[19 /*51*/][i])
 				return true;
 		}
 	}
@@ -231658,9 +231658,9 @@ BOOL func_4258(Player plParam0) // Position - 0x132E4E (1257038)
 	return func_4259(&(Global_2658019[plParam0 /*467*/].f_446), 0);
 }
 
-BOOL func_4259(var uParam0, int iParam1) // Position - 0x132E67 (1257063)
+BOOL func_4259(int* piParam0, int iParam1) // Position - 0x132E67 (1257063)
 {
-	return IS_BIT_SET(*uParam0, iParam1);
+	return IS_BIT_SET(*piParam0, iParam1);
 }
 
 BOOL func_4260(int iParam0) // Position - 0x132E75 (1257077)
@@ -302276,12 +302276,12 @@ Vehicle func_5821() // Position - 0x1A3786 (1718150)
 
 Vehicle func_5822(Player plParam0) // Position - 0x1A3BEF (1719279)
 {
-	var unk;
+	Vehicle vehicle;
 
 	if (plParam0 != _INVALID_PLAYER_INDEX())
-		unk = Global_1965418[plParam0];
+		vehicle = Global_1965418[plParam0];
 
-	return unk;
+	return vehicle;
 }
 
 BOOL func_5823(Player plParam0) // Position - 0x1A3C0C (1719308)

@@ -15751,7 +15751,7 @@ int func_229() // Position - 0x12C83 (76931)
 			if (func_56(PLAYER::PLAYER_ID()) != -1 || func_341())
 				return 5;
 	
-		if (Global_1985411.f_11 > 0 && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1985411.f_11, false, true, false, -1, 0))
+		if (Global_1985411.f_11 > false && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1985411.f_11, false, true, false, -1, 0))
 			return 6;
 	}
 
@@ -27631,7 +27631,7 @@ BOOL func_330(Hash hParam0) // Position - 0x2104C (135244)
 	return false;
 }
 
-BOOL func_331(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4, int iParam5, int iParam6, int iParam7, Hash hParam8, int iParam9) // Position - 0x21089 (135305)
+BOOL func_331(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4, BOOL bParam5, int iParam6, int iParam7, Hash hParam8, int iParam9) // Position - 0x21089 (135305)
 {
 	BOOL flag;
 	int num;
@@ -27675,14 +27675,14 @@ BOOL func_331(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4
 		{
 			itemData = hParam8;
 			itemData.f_1 = hParam2;
-			itemData.f_2 = iParam5;
+			itemData.f_2 = bParam5;
 			itemData.f_3 = iParam6;
 		}
 		else
 		{
 			itemData = hParam2;
 			itemData.f_1 = hParam8;
-			itemData.f_2 = iParam5;
+			itemData.f_2 = bParam5;
 			itemData.f_3 = iParam6;
 		}
 	
@@ -35127,7 +35127,7 @@ int func_661() // Position - 0x2A6BB (173755)
 			if (func_56(PLAYER::PLAYER_ID()) != -1 || func_341())
 				return 5;
 	
-		if (Global_1985411.f_11 > 0 && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1985411.f_11, false, true, false, -1, 0))
+		if (Global_1985411.f_11 > false && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1985411.f_11, false, true, false, -1, 0))
 			return 6;
 	}
 
@@ -38902,7 +38902,7 @@ int func_845() // Position - 0x2F577 (193911)
 			if (func_56(PLAYER::PLAYER_ID()) != -1 || func_341())
 				return 5;
 	
-		if (Global_1985411.f_11 > 0 && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1985411.f_11, false, true, false, -1, 0))
+		if (Global_1985411.f_11 > false && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1985411.f_11, false, true, false, -1, 0))
 			return 6;
 	}
 
@@ -112631,7 +112631,7 @@ int func_2052(function funcParam0, function funcParam1) // Position - 0x8D911 (5
 			if (func_56(PLAYER::PLAYER_ID()) != -1 || func_341())
 				return 5;
 	
-		if (Global_1985411.f_11 > 0 && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1985411.f_11, false, true, false, -1, 0))
+		if (Global_1985411.f_11 > false && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1985411.f_11, false, true, false, -1, 0))
 			return 6;
 	}
 
@@ -127206,7 +127206,7 @@ void func_2131(int iParam0, BOOL bParam1, BOOL bParam2, Hash hParam3, BOOL bPara
 	
 		if (NETSHOPPING::NET_GAMESERVER_CATALOG_ITEM_KEY_IS_VALID(MISC::GET_HASH_KEY(sParam5)) && NETSHOPPING::NET_GAMESERVER_CATALOG_ITEM_KEY_IS_VALID(MISC::GET_HASH_KEY(sParam6)))
 		{
-			if (func_331(78225582, hParam3, MISC::GET_HASH_KEY(sParam5), 235173372, 1, 0, 1, 4, MISC::GET_HASH_KEY(sParam6), 3))
+			if (func_331(78225582, hParam3, MISC::GET_HASH_KEY(sParam5), 235173372, 1, false, 1, 4, MISC::GET_HASH_KEY(sParam6), 3))
 			{
 			}
 			else

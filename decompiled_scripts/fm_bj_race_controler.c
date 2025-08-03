@@ -207042,16 +207042,16 @@ void func_2381() // Position - 0xF2035 (991285)
 
 BOOL func_2382() // Position - 0xF2045 (991301)
 {
-	BOOL flag;
+	ePedComponentType type;
 
-	flag = Global_1048576.f_69;
+	type = Global_1048576.f_69;
 
-	if (func_2383(Global_1048576.f_74[flag /*70*/].f_54))
-		return Global_1048576.f_74[flag /*70*/].f_62;
+	if (func_2383(Global_1048576.f_74[type /*70*/].f_54))
+		return Global_1048576.f_74[type /*70*/].f_62;
 	else
-		return Global_1048576.f_74[flag /*70*/].f_63;
+		return Global_1048576.f_74[type /*70*/].f_63;
 
-	return Global_1048576.f_74[flag /*70*/].f_63;
+	return Global_1048576.f_74[type /*70*/].f_63;
 }
 
 BOOL func_2383(int iParam0) // Position - 0xF2095 (991381)

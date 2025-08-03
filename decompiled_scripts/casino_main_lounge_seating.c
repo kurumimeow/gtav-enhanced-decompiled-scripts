@@ -142612,7 +142612,7 @@ void func_2665() // Position - 0xB19EA (727530)
 {
 	if (Global_21239.f_1 == 9 || Global_21239.f_1 == 10)
 	{
-		Global_22655 = false;
+		Global_22655 = 0;
 		Global_22651 = 1;
 	}
 

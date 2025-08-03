@@ -239820,9 +239820,9 @@ char* func_4303(ePedComponentType epctParam0, int iParam1) // Position - 0x13D80
 	return "";
 }
 
-char* func_4304(var uParam0) // Position - 0x13D86E (1300590)
+char* func_4304(const char* sParam0) // Position - 0x13D86E (1300590)
 {
-	return uParam0;
+	return sParam0;
 }
 
 char* func_4305(ePedComponentType epctParam0, int iParam1) // Position - 0x13D878 (1300600)
@@ -275816,7 +275816,7 @@ void func_5048(var uParam0) // Position - 0x1716B9 (1513145)
 	if (Global_1946432 == 31)
 	{
 		Global_1968560 = true;
-		Global_1968562 = 1;
+		Global_1968562 = true;
 	}
 
 	return;
@@ -281581,7 +281581,7 @@ void func_5219(var uParam0) // Position - 0x179F3B (1548091)
 	if (Global_1946432 == 8 || Global_1946432 == 31)
 	{
 		Global_1968560 = true;
-		Global_1968562 = 1;
+		Global_1968562 = true;
 		Global_1968563 = true;
 		Global_1968561 = true;
 		Global_1968564 = true;

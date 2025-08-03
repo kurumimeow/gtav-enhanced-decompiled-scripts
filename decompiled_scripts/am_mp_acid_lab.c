@@ -233771,9 +233771,9 @@ BOOL func_4482(Player plParam0) // Position - 0x13AE60 (1289824)
 	return func_4483(&(Global_2658019[plParam0 /*467*/].f_446), 0);
 }
 
-BOOL func_4483(int* piParam0, int iParam1) // Position - 0x13AE79 (1289849)
+BOOL func_4483(var uParam0, int iParam1) // Position - 0x13AE79 (1289849)
 {
-	return IS_BIT_SET(*piParam0, iParam1);
+	return IS_BIT_SET(*uParam0, iParam1);
 }
 
 BOOL func_4484(int iParam0) // Position - 0x13AE87 (1289863)
@@ -234985,9 +234985,9 @@ BOOL func_4529(Player plParam0) // Position - 0x13C8FA (1296634)
 	return false;
 }
 
-BOOL func_4530(Hash hParam0) // Position - 0x13C922 (1296674)
+BOOL func_4530(int iParam0) // Position - 0x13C922 (1296674)
 {
-	return Global_101969.f_398 == hParam0;
+	return Global_101969.f_398 == iParam0;
 }
 
 void func_4531(var uParam0, var uParam1) // Position - 0x13C934 (1296692)
@@ -329288,9 +329288,9 @@ int func_6558(var uParam0, var uParam1) // Position - 0x1D4DB8 (1920440)
 	return 1;
 }
 
-void func_6559(Entity eParam0, var uParam1, var uParam2, var uParam3) // Position - 0x1D5049 (1921097)
+void func_6559(var uParam0, var uParam1, var uParam2, var uParam3) // Position - 0x1D5049 (1921097)
 {
-	if (!ENTITY::DOES_ENTITY_EXIST(*eParam0))
+	if (!ENTITY::DOES_ENTITY_EXIST(*uParam0))
 		return;
 
 	if (!ENTITY::DOES_ENTITY_EXIST(*uParam1))
@@ -329302,10 +329302,10 @@ void func_6559(Entity eParam0, var uParam1, var uParam2, var uParam3) // Positio
 	if (!ENTITY::DOES_ENTITY_EXIST(*uParam3))
 		return;
 
-	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*eParam0, *uParam2, false);
+	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam0, *uParam2, false);
 	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam2, *uParam1, false);
 	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam1, *uParam3, false);
-	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam3, *eParam0, false);
+	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam3, *uParam0, false);
 	return;
 }
 

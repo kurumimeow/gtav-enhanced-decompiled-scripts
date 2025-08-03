@@ -226089,7 +226089,7 @@ void func_2263(Vehicle veParam0) // Position - 0x13C626 (1295910)
 	return;
 }
 
-void func_2264(Ped pedParam0, Vehicle veParam1, ePedComponentType epctParam2, var uParam3, float fParam4, int iParam5, int iParam6, BOOL bParam7) // Position - 0x13CA52 (1296978)
+void func_2264(Ped pedParam0, Vehicle veParam1, ePedComponentType epctParam2, var uParam3, float fParam4, int iParam5, var uParam6, BOOL bParam7) // Position - 0x13CA52 (1296978)
 {
 	eCharacter character;
 	int i;
@@ -226272,23 +226272,23 @@ void func_2264(Ped pedParam0, Vehicle veParam1, ePedComponentType epctParam2, va
 		func_1828(&veParam1, &(epctParam2->f_31), &(epctParam2->f_81));
 		epctParam2->f_96 = VEHICLE::GET_VEHICLE_ENVEFF_SCALE(veParam1);
 		epctParam2->f_97 = func_2265(veParam1);
-		*iParam6 = -1;
+		*uParam6 = -1;
 	
 		switch (character)
 		{
 			case CHAR_MICHAEL:
 				if (Global_114370.f_32754.f_69[0 /*78*/].f_66 == ENTITY::GET_ENTITY_MODEL(veParam1))
-					*iParam6 = 12;
+					*uParam6 = 12;
 				break;
 		
 			case CHAR_FRANKLIN:
 				if (Global_114370.f_32754.f_69[1 /*78*/].f_66 == ENTITY::GET_ENTITY_MODEL(veParam1))
-					*iParam6 = 13;
+					*uParam6 = 13;
 				break;
 		
 			case CHAR_TREVOR:
 				if (Global_114370.f_32754.f_69[2 /*78*/].f_66 == ENTITY::GET_ENTITY_MODEL(veParam1))
-					*iParam6 = 14;
+					*uParam6 = 14;
 				break;
 		}
 	}
@@ -226317,7 +226317,7 @@ void func_2264(Ped pedParam0, Vehicle veParam1, ePedComponentType epctParam2, va
 		epctParam2->f_24 = 0;
 		epctParam2->f_25 = 0;
 		*iParam5 = 0;
-		*iParam6 = -1;
+		*uParam6 = -1;
 		epctParam2->f_96 = 0f;
 	}
 

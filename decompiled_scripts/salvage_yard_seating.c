@@ -20932,7 +20932,7 @@ BOOL func_290() // Position - 0x15CEB (89323)
 		if (!NETSHOPPING::NET_GAMESERVER_IS_SESSION_VALID(func_39()) || NETSHOPPING::NET_GAMESERVER_IS_SESSION_REFRESH_PENDING())
 		{
 			if (func_293(Global_4537182[num /*84*/].f_65.f_6, Global_4537182[num /*84*/].f_65.f_4, Global_4537182[num /*84*/].f_65.f_1) == 1)
-				Global_4538672 = 1;
+				Global_4538672 = true;
 		
 			return false;
 		}
@@ -20941,7 +20941,7 @@ BOOL func_290() // Position - 0x15CEB (89323)
 		{
 			if (Global_4537182[num /*84*/].f_65.f_6 == joaat("CATEGORY_WEAPON_AMMO") || Global_4537182[num /*84*/].f_65.f_6 == joaat("CATEGORY_MART"))
 			{
-				Global_4538673 = 1;
+				Global_4538673 = true;
 				return false;
 			}
 		}
@@ -21362,7 +21362,7 @@ BOOL func_296(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4
 	{
 		if (!NETSHOPPING::NET_GAMESERVER_IS_SESSION_VALID(func_39()) || NETSHOPPING::NET_GAMESERVER_IS_SESSION_REFRESH_PENDING())
 		{
-			Global_4538672 = 1;
+			Global_4538672 = true;
 			return false;
 		}
 	
@@ -21370,7 +21370,7 @@ BOOL func_296(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4
 		{
 			if (hParam1 == joaat("CATEGORY_WEAPON_AMMO") || hParam1 == joaat("CATEGORY_MART"))
 			{
-				Global_4538673 = 1;
+				Global_4538673 = true;
 				return false;
 			}
 		}
@@ -21459,7 +21459,7 @@ BOOL func_298(var uParam0, int iParam1, Hash hParam2, Hash hParam3, int iParam4,
 	{
 		if (!NETSHOPPING::NET_GAMESERVER_IS_SESSION_VALID(func_39()) || NETSHOPPING::NET_GAMESERVER_IS_SESSION_REFRESH_PENDING())
 		{
-			Global_4538672 = 1;
+			Global_4538672 = true;
 			return false;
 		}
 	
@@ -21467,7 +21467,7 @@ BOOL func_298(var uParam0, int iParam1, Hash hParam2, Hash hParam3, int iParam4,
 		{
 			if (hParam2 == joaat("CATEGORY_WEAPON_AMMO") || hParam2 == joaat("CATEGORY_MART"))
 			{
-				Global_4538673 = 1;
+				Global_4538673 = true;
 				return false;
 			}
 		}

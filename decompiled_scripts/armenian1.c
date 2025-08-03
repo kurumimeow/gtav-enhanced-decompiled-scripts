@@ -36825,7 +36825,7 @@ BOOL func_233(Vehicle veParam0) // Position - 0x254E8 (152808)
 		if (func_239() || func_238(PLAYER::PLAYER_ID()))
 			return false;
 	
-		if (func_237(PLAYER::PLAYER_ID(), true, false) && Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_36 > PV_COMP_HEAD || IS_BIT_SET(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_34, 14) || IS_BIT_SET(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_34, 11))
+		if (func_237(PLAYER::PLAYER_ID(), true, false) && Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_36 > false || IS_BIT_SET(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_34, 14) || IS_BIT_SET(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_34, 11))
 			return false;
 	
 		if (DECORATOR::DECOR_IS_REGISTERED_AS_TYPE("Player_Vehicle", INT))
@@ -37516,7 +37516,7 @@ BOOL _NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM() // Position - 0x26735 (157493)
 	return false;
 }
 
-BOOL func_256(ePedComponentType epctParam0, int iParam1) // Position - 0x2674C (157516)
+BOOL func_256(Hash hParam0, int iParam1) // Position - 0x2674C (157516)
 {
 	int cloudTimeAsInt;
 	int num;
@@ -37532,7 +37532,7 @@ BOOL func_256(ePedComponentType epctParam0, int iParam1) // Position - 0x2674C (
 	cloudTimeAsInt = NETWORK::GET_CLOUD_TIME_AS_INT();
 	num = 0;
 
-	switch (epctParam0)
+	switch (hParam0)
 	{
 		case -939601823:
 			num = Global_262145.f_36168[0];
@@ -37612,7 +37612,7 @@ BOOL func_256(ePedComponentType epctParam0, int iParam1) // Position - 0x2674C (
 
 	for (i = 0; i < 10; i = i + 1)
 	{
-		if (epctParam0 == Global_1835471[i])
+		if (hParam0 == Global_1835471[i])
 			return true;
 	}
 
@@ -126225,7 +126225,7 @@ struct<5> func_952(int iParam0) // Position - 0xA4F72 (675698)
 	return unk;
 }
 
-char* func_953(char* sParam0) // Position - 0xA7D4A (687434)
+var func_953(char* sParam0) // Position - 0xA7D4A (687434)
 {
 	return sParam0;
 }

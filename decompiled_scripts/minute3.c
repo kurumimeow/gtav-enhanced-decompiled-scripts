@@ -31625,7 +31625,7 @@ struct<2> func_204(int iParam0) // Position - 0x21421 (136225)
 	return unk;
 }
 
-void func_205(BOOL bParam0, BOOL bParam1) // Position - 0x2186D (137325)
+void func_205(int iParam0, BOOL bParam1) // Position - 0x2186D (137325)
 {
 	Global_80037 = bParam1;
 
@@ -31644,7 +31644,7 @@ void func_205(BOOL bParam0, BOOL bParam1) // Position - 0x2186D (137325)
 		{
 		}
 	
-		Global_64543 = bParam0;
+		Global_64543 = iParam0;
 		Global_64517 = true;
 		Global_64528 = true;
 	}

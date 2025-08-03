@@ -221708,16 +221708,16 @@ void func_2875() // Position - 0x106A66 (1075814)
 
 ePedComponentType func_2876() // Position - 0x106A76 (1075830)
 {
-	BOOL flag;
+	ePedComponentType type;
 
-	flag = Global_1048576.f_69;
+	type = Global_1048576.f_69;
 
-	if (func_2877(Global_1048576.f_74[flag /*70*/].f_54))
-		return Global_1048576.f_74[flag /*70*/].f_62;
+	if (func_2877(Global_1048576.f_74[type /*70*/].f_54))
+		return Global_1048576.f_74[type /*70*/].f_62;
 	else
-		return Global_1048576.f_74[flag /*70*/].f_63;
+		return Global_1048576.f_74[type /*70*/].f_63;
 
-	return Global_1048576.f_74[flag /*70*/].f_63;
+	return Global_1048576.f_74[type /*70*/].f_63;
 }
 
 BOOL func_2877(int iParam0) // Position - 0x106AC6 (1075910)
@@ -582753,7 +582753,7 @@ void func_10644(int iParam0, var uParam1) // Position - 0x30E92B (3205419)
 
 	if (func_1074() || IS_BIT_SET(Global_1574953, 4) || func_283() || func_6535())
 	{
-		Global_2750777 = 1;
+		Global_2750777 = true;
 	
 		if (uParam1->f_230 != -1)
 		{
@@ -680796,7 +680796,7 @@ void func_12775(BOOL bParam0, int iParam1, int iParam2, BOOL bParam3, int iParam
 		func_12791();
 		func_12776();
 	
-		if (Global_1836734 == false && Global_1836744 == false && Global_1836761 == false && Global_1836736 == false && Global_1837481 == 0)
+		if (Global_1836734 == false && Global_1836744 == false && Global_1836761 == false && Global_1836736 == false && Global_1837481 == false)
 			func_5459(false);
 	}
 

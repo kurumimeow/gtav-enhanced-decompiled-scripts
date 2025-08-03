@@ -32735,7 +32735,7 @@ void func_338(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPara
 		func_340(true, bParam3, bParam2, false);
 		Global_64529 = 1;
 		Global_76858 = true;
-		Global_79766 = 1;
+		Global_79766 = true;
 	}
 	else
 	{
@@ -32756,7 +32756,7 @@ void func_338(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPara
 		else if (!PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()) && !func_295(PLAYER::PLAYER_ID()) && !bParam4 && !bParam5)
 			ENTITY::SET_ENTITY_INVINCIBLE(PLAYER::PLAYER_PED_ID(), false, false);
 	
-		Global_79766 = 0;
+		Global_79766 = false;
 	}
 
 	return;
@@ -231666,7 +231666,7 @@ BOOL func_4120() // Position - 0x13A450 (1287248)
 	return IS_BIT_SET(Global_1946439, 13);
 }
 
-void func_4121(BOOL bParam0, int iParam1, int iParam2) // Position - 0x13A45F (1287263)
+void func_4121(BOOL bParam0, int iParam1, eHudColour ehcParam2) // Position - 0x13A45F (1287263)
 {
 	int num;
 	int offset;
@@ -231678,7 +231678,7 @@ void func_4121(BOOL bParam0, int iParam1, int iParam2) // Position - 0x13A45F (1
 		if (bParam0 && !IS_BIT_SET(Global_1946439.f_4157[num], offset))
 		{
 			MISC::SET_BIT(&Global_1946439.f_4157[num], offset);
-			Global_1946439.f_3977[iParam1] = iParam2;
+			Global_1946439.f_3977[iParam1] = ehcParam2;
 		}
 		else if (!bParam0 && IS_BIT_SET(Global_1946439.f_4157[num], offset))
 		{
@@ -282815,7 +282815,7 @@ BOOL func_5337(int iParam0) // Position - 0x187ACA (1604298)
 	{
 		if (ENTITY::GET_ENTITY_SPEED(vehicle) > 0.5f && !IS_BIT_SET(Global_2658019[PLAYER::PLAYER_ID() /*467*/].f_324, 19) && !func_2961(PLAYER::PLAYER_ID()))
 		{
-			func_4121(false, iParam0, 0);
+			func_4121(false, iParam0, HUD_COLOUR_PURE_WHITE);
 			return true;
 		}
 	}
@@ -324752,7 +324752,7 @@ int func_6329(int iParam0) // Position - 0x1CC239 (1884729)
 	{
 		if (ENTITY::GET_ENTITY_SPEED(func_5655()) > 0.5f)
 		{
-			func_4121(false, iParam0, 0);
+			func_4121(false, iParam0, HUD_COLOUR_PURE_WHITE);
 			return 1;
 		}
 	}
@@ -334855,7 +334855,7 @@ BOOL func_6461(int iParam0) // Position - 0x1DD5FA (1955322)
 	{
 		if (ENTITY::GET_ENTITY_SPEED(vehicle) > 0.5f && !IS_BIT_SET(Global_2658019[PLAYER::PLAYER_ID() /*467*/].f_324, 19) && !func_2961(PLAYER::PLAYER_ID()))
 		{
-			func_4121(false, iParam0, 0);
+			func_4121(false, iParam0, HUD_COLOUR_PURE_WHITE);
 			return true;
 		}
 	}

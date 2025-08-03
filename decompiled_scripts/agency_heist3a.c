@@ -114456,26 +114456,26 @@ BOOL func_751() // Position - 0x8DE4F (581199)
 	return true;
 }
 
-BOOL func_752(Player plParam0) // Position - 0x8DEDE (581342)
+BOOL func_752(int iParam0) // Position - 0x8DEDE (581342)
 {
-	Player player;
+	int num;
 
-	player = plParam0;
+	num = iParam0;
 
-	if (player != -1)
-		return Global_1882449[player /*201*/].f_82.f_66 != 0;
+	if (num != -1)
+		return Global_1882449[num /*201*/].f_82.f_66 != 0;
 
 	return false;
 }
 
-BOOL func_753(Player plParam0) // Position - 0x8DF02 (581378)
+BOOL func_753(int iParam0) // Position - 0x8DF02 (581378)
 {
-	Player player;
+	int num;
 
-	player = plParam0;
+	num = iParam0;
 
-	if (player != -1)
-		return func_459(plParam0, 9);
+	if (num != -1)
+		return func_459(iParam0, 9);
 
 	return false;
 }

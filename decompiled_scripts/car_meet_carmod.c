@@ -215527,7 +215527,7 @@ int func_2089(var uParam0) // Position - 0x12C17F (1229183)
 			Global_2672967.f_2590[0 /*80*/] = { *uParam0 };
 		
 			if (func_2091(uParam0->f_69, 8192))
-				Global_1931279 = 1;
+				Global_1931279 = true;
 		
 			return 1;
 		}

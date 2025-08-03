@@ -350920,24 +350920,24 @@ Hash func_4315(ePedComponentType epctParam0, int iParam1, int iParam2) // Positi
 
 BOOL func_4316(int iParam0, BOOL bParam1, BOOL bParam2) // Position - 0x1CD18F (1888655)
 {
-	int num;
+	ePedComponentType type;
 
 	if (bParam1)
-		num = Global_4718592.f_3605[Global_1836772 /*26949*/].f_359[iParam0];
+		type = Global_4718592.f_3605[Global_1836772 /*26949*/].f_359[iParam0];
 	else if (bParam2)
-		num = Global_4718592.f_3605[Global_1836772 /*26949*/].f_653[iParam0];
+		type = Global_4718592.f_3605[Global_1836772 /*26949*/].f_653[iParam0];
 	else
-		num = Global_4718592.f_3605[Global_1836772 /*26949*/].f_66[iParam0];
+		type = Global_4718592.f_3605[Global_1836772 /*26949*/].f_66[iParam0];
 
-	if (func_4317(num))
+	if (func_4317(type))
 		return true;
 
 	return false;
 }
 
-BOOL func_4317(int iParam0) // Position - 0x1CD1FC (1888764)
+BOOL func_4317(ePedComponentType epctParam0) // Position - 0x1CD1FC (1888764)
 {
-	if (iParam0 < 100)
+	if (epctParam0 < 100)
 		return true;
 
 	return false;
@@ -350945,41 +350945,41 @@ BOOL func_4317(int iParam0) // Position - 0x1CD1FC (1888764)
 
 ePedComponentType func_4318(ePedComponentType epctParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position - 0x1CD213 (1888787)
 {
-	int num;
+	ePedComponentType type;
 
 	if (bParam2)
-		num = Global_4718592.f_3605[Global_1836772 /*26949*/].f_359[iParam1];
+		type = Global_4718592.f_3605[Global_1836772 /*26949*/].f_359[iParam1];
 	else if (bParam3)
-		num = Global_4718592.f_3605[Global_1836772 /*26949*/].f_653[iParam1];
+		type = Global_4718592.f_3605[Global_1836772 /*26949*/].f_653[iParam1];
 	else
-		num = Global_4718592.f_3605[Global_1836772 /*26949*/].f_66[iParam1];
+		type = Global_4718592.f_3605[Global_1836772 /*26949*/].f_66[iParam1];
 
-	return func_4319(epctParam0, num, 0);
+	return func_4319(epctParam0, type, 0);
 }
 
-ePedComponentType func_4319(ePedComponentType epctParam0, int iParam1, Ped pedParam2) // Position - 0x1CD278 (1888888)
+ePedComponentType func_4319(ePedComponentType epctParam0, ePedComponentType epctParam1, Ped pedParam2) // Position - 0x1CD278 (1888888)
 {
 	int num;
 
-	if (iParam1 == -3)
+	if (epctParam1 == -3)
 		return PV_COMP_INVALID;
 
-	if (iParam1 == -1)
+	if (epctParam1 == PV_COMP_INVALID)
 		return PV_COMP_HEAD;
 
-	if (iParam1 == 0)
+	if (epctParam1 == PV_COMP_HEAD)
 		return func_4320(epctParam0, pedParam2);
 
-	if (iParam1 == 100)
+	if (epctParam1 == 100)
 		return func_4320(epctParam0, pedParam2);
 
-	if (iParam1 > 30 && iParam1 < 61)
-		return iParam1 - 30;
+	if (epctParam1 > 30 && epctParam1 < 61)
+		return epctParam1 - 30;
 
-	if (func_4317(iParam1))
-		return WEAPON::GET_MAX_AMMO_IN_CLIP(PLAYER::PLAYER_PED_ID(), epctParam0, true) * iParam1;
+	if (func_4317(epctParam1))
+		return WEAPON::GET_MAX_AMMO_IN_CLIP(PLAYER::PLAYER_PED_ID(), epctParam0, true) * epctParam1;
 
-	num = iParam1 - 100;
+	num = epctParam1 - 100;
 	return WEAPON::GET_MAX_AMMO_IN_CLIP(PLAYER::PLAYER_PED_ID(), epctParam0, true) * num;
 }
 
@@ -664277,7 +664277,7 @@ BOOL func_11964() // Position - 0x3A6CA9 (3828905)
 
 BOOL func_11965(char* sParam0, char* sParam1, BOOL bParam2, int iParam3) // Position - 0x3A6CD2 (3828946)
 {
-	Player player;
+	ePedComponentType type;
 
 	if (MISC::IS_STRING_NULL_OR_EMPTY(sParam0))
 		return false;
@@ -664294,7 +664294,7 @@ BOOL func_11965(char* sParam0, char* sParam1, BOOL bParam2, int iParam3) // Posi
 	if (func_11966(sParam0, sParam1) && Global_1574766.f_56 == Global_1574766.f_58)
 		return false;
 
-	player = Global_1574766.f_54;
+	type = Global_1574766.f_54;
 	func_3662();
 	Global_1574766 = 9;
 	TEXT_LABEL_ASSIGN_STRING(&(Global_1574766.f_1), SCRIPT::GET_THIS_SCRIPT_NAME(), 32);
@@ -664303,7 +664303,7 @@ BOOL func_11965(char* sParam0, char* sParam1, BOOL bParam2, int iParam3) // Posi
 	TEXT_LABEL_ASSIGN_STRING(&(Global_1574766.f_16), sParam1, 64);
 	Global_1574766.f_58 = iParam3;
 	Global_1574766.f_56 = iParam3;
-	Global_1574766.f_54 = player;
+	Global_1574766.f_54 = type;
 	func_4591();
 	func_4590(bParam2);
 	func_4589();
@@ -693885,7 +693885,7 @@ void func_12952() // Position - 0x3CE9D2 (3992018)
 {
 	var unk;
 
-	Global_1986353 = { unk };
+	Global_1986354 = { unk };
 	return;
 }
 

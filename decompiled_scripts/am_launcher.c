@@ -8799,24 +8799,24 @@ Vector3 func_209(int iParam0) // Position - 0x822E (33326)
 
 Vector3 func_210(float fParam0, float fParam1, float fParam2) // Position - 0x96B0 (38576)
 {
-	Vehicle vehicle;
-	Vehicle vehicle2;
+	Entity entity;
+	Entity entity2;
 
 	if (func_215(false))
 	{
-		vehicle = func_213(_GET_BOSS_OF_LOCAL_PLAYER());
+		entity = func_213(_GET_BOSS_OF_LOCAL_PLAYER());
 	
-		if (_DOES_ENTITY_EXIST_AND_IS_ALIVE(vehicle))
-			return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(vehicle, fParam0);
+		if (_DOES_ENTITY_EXIST_AND_IS_ALIVE(entity))
+			return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(entity, fParam0);
 		else
 			return func_211(904, _GET_BOSS_OF_LOCAL_PLAYER(), false);
 	}
 	else
 	{
-		vehicle2 = func_213(PLAYER::PLAYER_ID());
+		entity2 = func_213(PLAYER::PLAYER_ID());
 	
-		if (_DOES_ENTITY_EXIST_AND_IS_ALIVE(vehicle2))
-			return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(vehicle2, fParam0);
+		if (_DOES_ENTITY_EXIST_AND_IS_ALIVE(entity2))
+			return ENTITY::GET_OFFSET_FROM_ENTITY_IN_WORLD_COORDS(entity2, fParam0);
 	}
 
 	return 0f, 0f, 0f;
@@ -8850,16 +8850,16 @@ Vector3 func_211(int iParam0, Player plParam1, BOOL bParam2) // Position - 0x971
 	return Global_1888882[plParam1 /*611*/].f_559.f_16[num /*6*/].f_3;
 }
 
-BOOL _DOES_ENTITY_EXIST_AND_IS_ALIVE(Vehicle veParam0) // Position - 0x9799 (38809)
+BOOL _DOES_ENTITY_EXIST_AND_IS_ALIVE(Entity eParam0) // Position - 0x9799 (38809)
 {
-	if (ENTITY::DOES_ENTITY_EXIST(veParam0))
-		if (!ENTITY::IS_ENTITY_DEAD(veParam0, false))
+	if (ENTITY::DOES_ENTITY_EXIST(eParam0))
+		if (!ENTITY::IS_ENTITY_DEAD(eParam0, false))
 			return true;
 
 	return false;
 }
 
-Vehicle func_213(Player plParam0) // Position - 0x97BA (38842)
+Entity func_213(Player plParam0) // Position - 0x97BA (38842)
 {
 	if (plParam0 != _INVALID_PLAYER_INDEX())
 		if (ENTITY::DOES_ENTITY_EXIST(Global_1965484[plParam0]))

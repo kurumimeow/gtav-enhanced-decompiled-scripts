@@ -8179,7 +8179,7 @@ void func_95() // Position - 0xB38A (45962)
 							if (func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) <= 24000)
 								func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, -1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1);
 							else
-								func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_RED, 0, 0, false, HUD_COLOUR_RED, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+								func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, -1);
 					
 						if (bLocal_1060.f_21 < bLocal_1060.f_19 * 2)
 							if (!_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED("TCP_LOW" /*You do not have enough Chips to place the Ante and Play Bet.~n~You can still bet on Pair Plus.*/) && !bLocal_1971 && !bLocal_1972 && !bLocal_1967)
@@ -8195,9 +8195,9 @@ void func_95() // Position - 0xB38A (45962)
 				
 					if (_STOPWATCH_IS_INITIALIZED(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/]) && 30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) >= 0)
 						if (func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) <= 24000)
-							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_PURE_WHITE, 0, 0, false, HUD_COLOUR_PURE_WHITE, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1);
 						else
-							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_RED, 0, 0, false, HUD_COLOUR_RED, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, -1);
 				
 					if (bLocal_1060.f_32 != -1 && !IS_BIT_SET(uLocal_771[PLAYER::PLAYER_ID() /*9*/], 0))
 					{
@@ -8482,9 +8482,9 @@ void func_95() // Position - 0xB38A (45962)
 					
 						if (_STOPWATCH_IS_INITIALIZED(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/]) && 30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) >= 0)
 							if (func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) <= 24000)
-								func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_PURE_WHITE, 0, 0, false, HUD_COLOUR_PURE_WHITE, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+								func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1);
 							else
-								func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_RED, 0, 0, false, HUD_COLOUR_RED, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+								func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, -1);
 					
 						if (!_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED("TCP_PLACE_PAIR" /*Pair Plus is a side bet. This will win if your hand has a Pair or higher.*/) && !bLocal_1971 && !bLocal_1972 && !bLocal_1967)
 							func_164("TCP_PLACE_PAIR" /*Pair Plus is a side bet. This will win if your hand has a Pair or higher.*/);
@@ -8497,9 +8497,9 @@ void func_95() // Position - 0xB38A (45962)
 				
 					if (_STOPWATCH_IS_INITIALIZED(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/]) && 30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) >= 0)
 						if (func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) <= 24000)
-							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_PURE_WHITE, 0, 0, false, HUD_COLOUR_PURE_WHITE, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1);
 						else
-							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_RED, 0, 0, false, HUD_COLOUR_RED, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, -1);
 				
 					if (bLocal_1060.f_32 != -1 && !IS_BIT_SET(uLocal_771[PLAYER::PLAYER_ID() /*9*/], 2))
 					{
@@ -8554,7 +8554,7 @@ void func_95() // Position - 0xB38A (45962)
 					}
 				}
 			
-				func_151(bLocal_1060.f_25, "TCP_BET3" /*PAIR PLUS BET*/, PV_COMP_INVALID, HUD_COLOUR_WHITE, 2, false, 0, HUD_COLOUR_WHITE, false, 0, 0, HUD_COLOUR_PURE_WHITE, false, HUD_COLOUR_PURE_WHITE, PV_COMP_INVALID, HUD_COLOUR_PURE_WHITE);
+				func_151(bLocal_1060.f_25, "TCP_BET3" /*PAIR PLUS BET*/, PV_COMP_INVALID, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, -1, 0);
 			}
 			else
 			{
@@ -8574,9 +8574,9 @@ void func_95() // Position - 0xB38A (45962)
 			
 				if (_STOPWATCH_IS_INITIALIZED(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/]) && 30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) >= 0)
 					if (func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) <= 24000)
-						func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_PURE_WHITE, 0, 0, false, HUD_COLOUR_PURE_WHITE, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+						func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1);
 					else
-						func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_RED, 0, 0, false, HUD_COLOUR_RED, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+						func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, -1);
 			}
 		
 			if (uLocal_138.f_576[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2] > 3 && !IS_BIT_SET(bLocal_1060.f_24, 0) && !bLocal_1060.f_1)
@@ -8609,9 +8609,9 @@ void func_95() // Position - 0xB38A (45962)
 				
 					if (_STOPWATCH_IS_INITIALIZED(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/]) && 30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) >= 0)
 						if (func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) <= 24000)
-							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_PURE_WHITE, 0, 0, false, HUD_COLOUR_PURE_WHITE, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1);
 						else
-							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_RED, 0, 0, false, HUD_COLOUR_RED, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+							func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, -1);
 				}
 			}
 			break;
@@ -8693,9 +8693,9 @@ void func_95() // Position - 0xB38A (45962)
 						{
 							if (_STOPWATCH_IS_INITIALIZED(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/]) && 30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) >= 0)
 								if (func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false) <= 24000)
-									func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_PURE_WHITE, 0, 0, false, HUD_COLOUR_PURE_WHITE, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+									func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1);
 								else
-									func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, false, HUD_COLOUR_RED, 0, 0, false, HUD_COLOUR_RED, false, HUD_COLOUR_PURE_WHITE, 0, false, -1);
+									func_165(30000 - func_220(&uLocal_138.f_150[uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_2 /*2*/], false, false), "TCP_TIME" /*TIME*/, 0, 0, PV_COMP_INVALID, 0, 3, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, -1);
 						
 							if (!_IS_THIS_HELP_MESSAGE_BEING_DISPLAYED("TCP_PLACE_PLAY" /*Place a Play bet equal to your Ante to compare your hand against the Dealer. Folding will forfeit your Ante bet.*/) && !bLocal_1971 && !bLocal_1972 && !bLocal_1967)
 								func_164("TCP_PLACE_PLAY" /*Place a Play bet equal to your Ante to compare your hand against the Dealer. Folding will forfeit your Ante bet.*/);
@@ -8876,7 +8876,7 @@ void func_95() // Position - 0xB38A (45962)
 				}
 			
 				if (uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_3 > 0)
-					func_151(uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_3, "TCP_BET4" /*PLAY WAGER*/, PV_COMP_INVALID, HUD_COLOUR_WHITE, 2, false, 0, HUD_COLOUR_WHITE, false, 0, 0, HUD_COLOUR_PURE_WHITE, false, HUD_COLOUR_PURE_WHITE, PV_COMP_INVALID, HUD_COLOUR_PURE_WHITE);
+					func_151(uLocal_771[PLAYER::PLAYER_ID() /*9*/].f_3, "TCP_BET4" /*PLAY WAGER*/, PV_COMP_INVALID, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, -1, 0);
 			}
 			break;
 	
@@ -11331,7 +11331,7 @@ char* func_150(int iParam0) // Position - 0x124CC (74956)
 	return "";
 }
 
-void func_151(ePedComponentType epctParam0, char* sParam1, ePedComponentType epctParam2, eHudColour ehcParam3, int iParam4, BOOL bParam5, const char* sParam6, eHudColour ehcParam7, BOOL bParam8, int iParam9, int iParam10, eHudColour ehcParam11, BOOL bParam12, eHudColour ehcParam13, ePedComponentType epctParam14, eHudColour ehcParam15) // Position - 0x12946 (76102)
+void func_151(ePedComponentType epctParam0, char* sParam1, ePedComponentType epctParam2, int iParam3, int iParam4, int iParam5, const char* sParam6, int iParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15) // Position - 0x12946 (76102)
 {
 	int num;
 	int i;
@@ -11354,20 +11354,20 @@ void func_151(ePedComponentType epctParam0, char* sParam1, ePedComponentType epc
 		func_152(3, num);
 		Global_1675455.f_2872[num] = epctParam0;
 		TEXT_LABEL_ASSIGN_STRING(&Global_1675455.f_2872.f_11[num /*16*/], sParam1, 64);
-		Global_1675455.f_2872.f_183[num] = ehcParam3;
+		Global_1675455.f_2872.f_183[num] = iParam3;
 		Global_1675455.f_2872.f_172[num] = epctParam2;
 		Global_1675455.f_2872.f_205[num] = iParam4;
-		Global_1675455.f_2872.f_216[num] = bParam5;
+		Global_1675455.f_2872.f_216[num] = iParam5;
 		TEXT_LABEL_ASSIGN_STRING(&Global_1675455.f_2872.f_259[num /*16*/], sParam6, 64);
-		Global_1675455.f_2872.f_420[num] = ehcParam7;
-		Global_1675455.f_2872.f_453[num] = bParam8;
+		Global_1675455.f_2872.f_420[num] = iParam7;
+		Global_1675455.f_2872.f_453[num] = iParam8;
 		Global_1675455.f_2872.f_431[num] = iParam9;
 		Global_1675455.f_2872.f_442[num] = iParam10;
-		Global_1675455.f_2872.f_464[num] = ehcParam11;
-		Global_1675455.f_2872.f_475[num] = bParam12;
-		Global_1675455.f_2872.f_486[num] = ehcParam13;
-		Global_1675455.f_2872.f_497[num] = epctParam14;
-		Global_1675455.f_2872.f_508[num] = ehcParam15;
+		Global_1675455.f_2872.f_464[num] = iParam11;
+		Global_1675455.f_2872.f_475[num] = iParam12;
+		Global_1675455.f_2872.f_486[num] = iParam13;
+		Global_1675455.f_2872.f_497[num] = iParam14;
+		Global_1675455.f_2872.f_508[num] = iParam15;
 	}
 
 	return;
@@ -11555,7 +11555,7 @@ void func_164(char* sParam0) // Position - 0x12D34 (77108)
 	return;
 }
 
-void func_165(ePedComponentType epctParam0, char* sParam1, int iParam2, int iParam3, ePedComponentType epctParam4, int iParam5, int iParam6, BOOL bParam7, eHudColour ehcParam8, int iParam9, int iParam10, BOOL bParam11, eHudColour ehcParam12, BOOL bParam13, eHudColour ehcParam14, int iParam15, BOOL bParam16, int iParam17) // Position - 0x12D4A (77130)
+void func_165(ePedComponentType epctParam0, char* sParam1, int iParam2, int iParam3, ePedComponentType epctParam4, int iParam5, int iParam6, int iParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17) // Position - 0x12D4A (77130)
 {
 	int num;
 	int i;
@@ -11580,16 +11580,16 @@ void func_165(ePedComponentType epctParam0, char* sParam1, int iParam2, int iPar
 		Global_1675455.f_4714.f_183[num] = epctParam4;
 		Global_1675455.f_4714.f_194[num] = iParam5;
 		Global_1675455.f_4714.f_249[num] = iParam6;
-		Global_1675455.f_4714.f_260[num] = bParam7;
-		Global_1675455.f_4714.f_205[num] = ehcParam8;
+		Global_1675455.f_4714.f_260[num] = iParam7;
+		Global_1675455.f_4714.f_205[num] = iParam8;
 		Global_1675455.f_4714.f_314[num] = iParam9;
 		Global_1675455.f_4714.f_325[num] = iParam10;
-		Global_1675455.f_4714.f_357[num] = bParam11;
-		Global_1675455.f_4714.f_238[num] = ehcParam12;
-		Global_1675455.f_4714.f_271[num] = bParam13;
-		Global_1675455.f_4714.f_368[num] = ehcParam14;
+		Global_1675455.f_4714.f_357[num] = iParam11;
+		Global_1675455.f_4714.f_238[num] = iParam12;
+		Global_1675455.f_4714.f_271[num] = iParam13;
+		Global_1675455.f_4714.f_368[num] = iParam14;
 		Global_1675455.f_4714.f_379[num] = iParam15;
-		Global_1675455.f_4714.f_390[num] = bParam16;
+		Global_1675455.f_4714.f_390[num] = iParam16;
 		Global_1675455.f_4714.f_227[num] = iParam17;
 	}
 

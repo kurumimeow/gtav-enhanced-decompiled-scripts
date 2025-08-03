@@ -1107,10 +1107,10 @@ void func_32() // Position - 0xAA2 (2722)
 	return;
 }
 
-void func_33(var uParam0, int iParam1, char* sParam2, int iParam3, int iParam4, int iParam5) // Position - 0xAF9 (2809)
+void func_33(var uParam0, eCharacter echParam1, char* sParam2, int iParam3, int iParam4, int iParam5) // Position - 0xAF9 (2809)
 {
 	Global_22056 = { *uParam0 };
-	Global_8391 = iParam1;
+	Global_8391 = echParam1;
 	TEXT_LABEL_ASSIGN_STRING(&Global_22672, sParam2, 24);
 	Global_23591 = iParam5;
 

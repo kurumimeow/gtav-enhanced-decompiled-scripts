@@ -61381,16 +61381,16 @@ BOOL func_755() // Position - 0x4EF60 (323424)
 	return func_756(*Global_4718592.f_138116);
 }
 
-BOOL func_756(int iParam0) // Position - 0x4EF84 (323460)
+BOOL func_756(Hash hParam0) // Position - 0x4EF84 (323460)
 {
 	int i;
 
-	if (iParam0 == 0)
+	if (hParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 11; i = i + 1)
 	{
-		if (Global_262145.f_29446[i] == iParam0)
+		if (Global_262145.f_29446[i] == hParam0)
 			return 1;
 	}
 
@@ -456899,7 +456899,7 @@ BOOL func_8574(BOOL bParam0, BOOL bParam1) // Position - 0x2968C5 (2713797)
 	return flag;
 }
 
-int func_8575() // Position - 0x296A8A (2714250)
+Hash func_8575() // Position - 0x296A8A (2714250)
 {
 	return Global_262145.f_9129;
 }

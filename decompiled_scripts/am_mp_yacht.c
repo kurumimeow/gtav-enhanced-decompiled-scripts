@@ -383419,18 +383419,18 @@ void func_7161(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	return;
 }
 
-BOOL func_7162(Player plParam0, BOOL bParam1) // Position - 0x2200AA (2228394)
+BOOL func_7162(Player plParam0, int iParam1) // Position - 0x2200AA (2228394)
 {
 	int i;
 
 	if (plParam0 == _INVALID_PLAYER_INDEX())
 		return false;
 
-	if (func_7163(bParam1))
+	if (func_7163(iParam1))
 	{
 		for (i = 0; i <= 4; i = i + 1)
 		{
-			if (Global_1845274[plParam0 /*877*/].f_260.f_122[i /*3*/] == bParam1)
+			if (Global_1845274[plParam0 /*877*/].f_260.f_122[i /*3*/] == iParam1)
 				return true;
 		}
 	}
@@ -383438,15 +383438,15 @@ BOOL func_7162(Player plParam0, BOOL bParam1) // Position - 0x2200AA (2228394)
 	return false;
 }
 
-BOOL func_7163(BOOL bParam0) // Position - 0x2200F6 (2228470)
+BOOL func_7163(int iParam0) // Position - 0x2200F6 (2228470)
 {
-	if (bParam0 < 1 || bParam0 > 22)
+	if (iParam0 < 1 || iParam0 > 22)
 		return false;
 
 	return true;
 }
 
-BOOL func_7164(int iParam0) // Position - 0x220115 (2228501)
+int func_7164(int iParam0) // Position - 0x220115 (2228501)
 {
 	switch (iParam0)
 	{
@@ -383639,20 +383639,20 @@ int func_7168(var uParam0, var uParam1) // Position - 0x2204E8 (2229480)
 
 int func_7169(int iParam0, var uParam1) // Position - 0x220500 (2229504)
 {
-	BOOL flag;
+	int num;
 
 	if (func_571(PLAYER::PLAYER_ID(), true))
 		return 0;
 
-	flag = func_7164(iParam0);
+	num = func_7164(iParam0);
 
 	if (func_139(PLAYER::PLAYER_ID(), true))
 		if (func_140(PLAYER::PLAYER_ID()))
-			if (func_7162(PLAYER::PLAYER_ID(), flag))
+			if (func_7162(PLAYER::PLAYER_ID(), num))
 				return 1;
-		else if (func_7162(_GET_BOSS_OF_LOCAL_PLAYER(), flag))
+		else if (func_7162(_GET_BOSS_OF_LOCAL_PLAYER(), num))
 			return 1;
-	else if (func_7162(PLAYER::PLAYER_ID(), flag))
+	else if (func_7162(PLAYER::PLAYER_ID(), num))
 		return 1;
 
 	return 0;
@@ -385852,13 +385852,13 @@ int func_7179(int iParam0, int iParam1, var uParam2, var uParam3, var uParam4, v
 	return 0;
 }
 
-int func_7180(BOOL bParam0) // Position - 0x224654 (2246228)
+int func_7180(int iParam0) // Position - 0x224654 (2246228)
 {
-	if (func_7163(bParam0))
+	if (func_7163(iParam0))
 	{
-		switch (bParam0)
+		switch (iParam0)
 		{
-			case true:
+			case 1:
 			case 2:
 			case 3:
 			case 4:
@@ -386233,11 +386233,11 @@ int func_7204(Player plParam0, int iParam1, var uParam2) // Position - 0x224CFC 
 	return func_7205(func_7206(plParam0, iParam1));
 }
 
-int func_7205(BOOL bParam0) // Position - 0x224D10 (2247952)
+int func_7205(int iParam0) // Position - 0x224D10 (2247952)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
-		case true:
+		case 1:
 			return 0;
 	
 		case 2:
@@ -386307,15 +386307,15 @@ int func_7205(BOOL bParam0) // Position - 0x224D10 (2247952)
 	return -1;
 }
 
-BOOL func_7206(Player plParam0, int iParam1) // Position - 0x224E4C (2248268)
+int func_7206(Player plParam0, int iParam1) // Position - 0x224E4C (2248268)
 {
 	if (plParam0 == _INVALID_PLAYER_INDEX())
-		return false;
+		return 0;
 
 	if (iParam1 > -1 && iParam1 < 5)
 		return Global_1845274[plParam0 /*877*/].f_260.f_122[iParam1 /*3*/];
 
-	return false;
+	return 0;
 }
 
 void func_7207(int iParam0, var uParam1, int iParam2) // Position - 0x224E87 (2248327)
@@ -386346,11 +386346,11 @@ char* func_7208(int iParam0) // Position - 0x224F31 (2248497)
 	return func_7209(func_7164(iParam0));
 }
 
-char* func_7209(BOOL bParam0) // Position - 0x224F43 (2248515)
+char* func_7209(int iParam0) // Position - 0x224F43 (2248515)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
-		case true:
+		case 1:
 			return "MP_WHOUSE_0" /*Pacific Bait Storage*/;
 	
 		case 2:
@@ -386431,12 +386431,12 @@ struct<4> func_7210(int iParam0) // Position - 0x2250CC (2248908)
 
 void func_7211(int iParam0, var uParam1, var uParam2, var uParam3) // Position - 0x2250E9 (2248937)
 {
-	BOOL flag;
+	int num;
 
-	flag = func_7164(iParam0);
+	num = func_7164(iParam0);
 	uParam1->f_419 = { func_7210(iParam0) };
 
-	switch (func_7180(flag))
+	switch (func_7180(num))
 	{
 		case 0:
 			func_7216(uParam1);
@@ -386828,11 +386828,11 @@ void func_7212(var uParam0) // Position - 0x2262C1 (2253505)
 
 void func_7213(int iParam0, var uParam1) // Position - 0x226384 (2253700)
 {
-	BOOL flag;
+	int num;
 
-	flag = func_7164(iParam0);
+	num = func_7164(iParam0);
 
-	if (flag == 8 || flag == 21)
+	if (num == 8 || num == 21)
 	{
 		uParam1->f_22.f_80 = "GTAO_EXEC_WH_GARAGE_DOOR_SOUNDS";
 		uParam1->f_22.f_79 = "Door_Open";

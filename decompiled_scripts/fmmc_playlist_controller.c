@@ -213147,7 +213147,7 @@ void func_2179(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 		func_2210();
 		bLocal_2805 = false;
 	
-		if (!Global_1986359)
+		if (!Global_1986360)
 		{
 			func_2056();
 			func_2054();

@@ -443,7 +443,7 @@ void main() // Position - 0x0 (0)
 
 	if (func_331())
 	{
-		Global_80014 = 1;
+		Global_80014 = true;
 		iLocal_77 = 0;
 	
 		while (!func_322(&uLocal_81))
@@ -451,7 +451,7 @@ void main() // Position - 0x0 (0)
 			SYSTEM::WAIT(0);
 		}
 	
-		Global_80014 = 0;
+		Global_80014 = false;
 		func_321(1843.1725f, 4701.249f, 37.5487f, 320.2838f, 1, 0);
 		func_320(0);
 	}

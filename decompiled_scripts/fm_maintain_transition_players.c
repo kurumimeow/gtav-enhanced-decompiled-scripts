@@ -1418,7 +1418,7 @@ void main() // Position - 0x0 (0)
 					{
 						if (func_29(&iLocal_226, &uLocal_351, bLocal_214))
 						{
-							if (Global_2684748.f_669.f_10 != 0 && bLocal_219 || IS_BIT_SET(Global_4718592.f_16, 14))
+							if (Global_2684748.f_669.f_10 != PV_COMP_HEAD && bLocal_219 || IS_BIT_SET(Global_4718592.f_16, 14))
 							{
 								Global_1882449[PLAYER::PLAYER_ID() /*201*/] = Global_4718592.f_3540;
 								Global_2684748.f_669.f_13 = Global_4718592.f_3540;
@@ -43346,7 +43346,7 @@ void func_464(var uParam0, BOOL bParam1) // Position - 0x2D6CC (186060)
 	return;
 }
 
-void func_465(int iParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4) // Position - 0x2D6FA (186106)
+void func_465(ePedComponentType epctParam0, ePedComponentType epctParam1, BOOL bParam2, int iParam3, BOOL bParam4) // Position - 0x2D6FA (186106)
 {
 	int idOfThisThread;
 	BOOL flag;
@@ -43357,15 +43357,15 @@ void func_465(int iParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4)
 	idOfThisThread = SCRIPT::GET_ID_OF_THIS_THREAD();
 
 	if (NETWORK::NETWORK_IS_THREAD_A_NETWORK_SCRIPT(idOfThisThread) && NETWORK::NETWORK_IS_HOST_OF_THIS_SCRIPT())
-		if (*iParam1 != Global_4718592.f_190142.f_2)
-			*iParam1 = Global_4718592.f_190142.f_2;
+		if (*epctParam1 != Global_4718592.f_190142.f_2)
+			*epctParam1 = Global_4718592.f_190142.f_2;
 
-	if (func_328() && *iParam1 > -1)
+	if (func_328() && *epctParam1 > -1)
 	{
-		if (Global_4718592.f_190142.f_2 != *iParam1)
+		if (Global_4718592.f_190142.f_2 != *epctParam1)
 		{
-			Global_4718592.f_190142.f_2 = *iParam1;
-			iParam0 = *iParam1;
+			Global_4718592.f_190142.f_2 = *epctParam1;
+			epctParam0 = *epctParam1;
 		}
 	}
 
@@ -43388,69 +43388,69 @@ void func_465(int iParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4)
 	
 		if (bParam2)
 		{
-			switch (iParam0)
+			switch (epctParam0)
 			{
-				case 0:
+				case PV_COMP_HEAD:
 					clockHours = 0;
 					weatherType = "CLOUDS";
 					flag = true;
 					break;
 			
-				case 1:
+				case PV_COMP_BERD:
 					clockHours = 23;
 					weatherType = "CLOUDS";
 					flag = true;
 					break;
 			
-				case 2:
+				case PV_COMP_HAIR:
 					clockHours = 18;
 					weatherType = "SMOG";
 					flag = true;
 					break;
 			
-				case 3:
+				case PV_COMP_UPPR:
 					clockHours = 7;
 					weatherType = "HALLOWEEN";
 					flag = true;
 					break;
 			
-				case 4:
+				case PV_COMP_LOWR:
 					clockHours = 15;
 					weatherType = "EXTRASUNNY";
 					flag = true;
 					break;
 			
-				case 5:
+				case PV_COMP_HAND:
 					clockHours = 10;
 					weatherType = "CLOUDS";
 					flag = true;
 					break;
 			
-				case 6:
+				case PV_COMP_FEET:
 					clockHours = 0;
 					weatherType = "SMOG";
 					flag = true;
 					break;
 			
-				case 7:
+				case PV_COMP_TEEF:
 					clockHours = 18;
 					weatherType = "CLOUDS";
 					flag = true;
 					break;
 			
-				case 8:
+				case PV_COMP_ACCS:
 					clockHours = 10;
 					weatherType = "OVERCAST";
 					flag = true;
 					break;
 			
-				case 9:
+				case PV_COMP_TASK:
 					clockHours = 0;
 					weatherType = "CLEAR";
 					flag = true;
 					break;
 			
-				case 10:
+				case PV_COMP_DECL:
 					clockHours = 12;
 					weatherType = "OVERCAST";
 					flag = true;
@@ -43532,45 +43532,45 @@ void func_468(BOOL bParam0) // Position - 0x2D9B5 (186805)
 	return;
 }
 
-char* func_469(int iParam0) // Position - 0x2D9EE (186862)
+char* func_469(ePedComponentType epctParam0) // Position - 0x2D9EE (186862)
 {
-	switch (iParam0)
+	switch (epctParam0)
 	{
-		case 0:
+		case PV_COMP_HEAD:
 			return "";
 	
-		case 1:
+		case PV_COMP_BERD:
 			return "MP_Arena_theme_atlantis";
 	
-		case 2:
+		case PV_COMP_HAIR:
 			return "MP_Arena_theme_evening";
 	
-		case 3:
+		case PV_COMP_UPPR:
 			return "MP_Arena_theme_hell";
 	
-		case 4:
+		case PV_COMP_LOWR:
 			return "MP_Arena_theme_midday";
 	
-		case 5:
+		case PV_COMP_HAND:
 			return "MP_Arena_theme_morning";
 	
-		case 6:
+		case PV_COMP_FEET:
 			if (*Global_4718592.f_190142 == 2)
 				return "MP_Arena_theme_scifi_night";
 			else
 				return "MP_Arena_theme_night";
 			break;
 	
-		case 7:
+		case PV_COMP_TEEF:
 			return "MP_Arena_theme_saccharine";
 	
-		case 8:
+		case PV_COMP_ACCS:
 			return "MP_Arena_theme_sandstorm";
 	
-		case 9:
+		case PV_COMP_TASK:
 			return "MP_Arena_theme_storm";
 	
-		case 10:
+		case PV_COMP_DECL:
 			return "MP_Arena_theme_toxic";
 	}
 
@@ -43640,24 +43640,24 @@ BOOL func_477() // Position - 0x2DB84 (187268)
 
 void func_478(var uParam0, BOOL bParam1) // Position - 0x2DBA3 (187299)
 {
-	func_459(uParam0, "Set_Lights_atlantis", bParam1 && Global_4718592.f_190142.f_2 == 1);
-	func_459(uParam0, "Set_Lights_evening", bParam1 && Global_4718592.f_190142.f_2 == 2);
-	func_459(uParam0, "Set_Lights_hell", bParam1 && Global_4718592.f_190142.f_2 == 3);
-	func_459(uParam0, "Set_Lights_midday", bParam1 && Global_4718592.f_190142.f_2 == 4);
-	func_459(uParam0, "Set_Lights_morning", bParam1 && Global_4718592.f_190142.f_2 == 5);
-	func_459(uParam0, "Set_Lights_night", bParam1 && Global_4718592.f_190142.f_2 == 6 && *Global_4718592.f_190142 != 2);
-	func_459(uParam0, "set_lights_sfnight", bParam1 && Global_4718592.f_190142.f_2 == 6 && *Global_4718592.f_190142 == 2);
-	func_459(uParam0, "Set_Lights_saccharine", bParam1 && Global_4718592.f_190142.f_2 == 7);
-	func_459(uParam0, "Set_Lights_sandstorm", bParam1 && Global_4718592.f_190142.f_2 == 8);
-	func_459(uParam0, "Set_Lights_storm", bParam1 && Global_4718592.f_190142.f_2 == 9);
-	func_459(uParam0, "Set_Lights_toxic", bParam1 && Global_4718592.f_190142.f_2 == 10);
+	func_459(uParam0, "Set_Lights_atlantis", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_BERD);
+	func_459(uParam0, "Set_Lights_evening", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_HAIR);
+	func_459(uParam0, "Set_Lights_hell", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_UPPR);
+	func_459(uParam0, "Set_Lights_midday", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_LOWR);
+	func_459(uParam0, "Set_Lights_morning", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_HAND);
+	func_459(uParam0, "Set_Lights_night", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_FEET && *Global_4718592.f_190142 != 2);
+	func_459(uParam0, "set_lights_sfnight", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_FEET && *Global_4718592.f_190142 == 2);
+	func_459(uParam0, "Set_Lights_saccharine", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_TEEF);
+	func_459(uParam0, "Set_Lights_sandstorm", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_ACCS);
+	func_459(uParam0, "Set_Lights_storm", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_TASK);
+	func_459(uParam0, "Set_Lights_toxic", bParam1 && Global_4718592.f_190142.f_2 == PV_COMP_DECL);
 	return;
 }
 
 void func_479(var uParam0, BOOL bParam1) // Position - 0x2DD1A (187674)
 {
 	int i;
-	int j;
+	ePedComponentType j;
 	var unk;
 
 	i = 0;

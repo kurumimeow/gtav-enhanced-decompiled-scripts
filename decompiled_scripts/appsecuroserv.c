@@ -2001,12 +2001,12 @@ BOOL func_20(Player plParam0, BOOL bParam1) // Position - 0xF9D (3997)
 	return false;
 }
 
-int func_21(BOOL bParam0) // Position - 0x102B (4139)
+int func_21(int iParam0) // Position - 0x102B (4139)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
-		case false:
-		case true:
+		case 0:
+		case 1:
 		case 2:
 		case 3:
 		case 4:
@@ -36790,7 +36790,7 @@ BOOL func_483(var uParam0, var uParam1, BOOL bParam2) // Position - 0x27BDB (162
 			
 				if (!IS_BIT_SET(uParam0->f_54, 1))
 				{
-					if (func_489() || func_488() && Global_4543037 > PV_COMP_INVALID || HUD::IS_WARNING_MESSAGE_ACTIVE() && PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_CANCEL))
+					if (func_489() || func_488() && Global_4543037 > -1 || HUD::IS_WARNING_MESSAGE_ACTIVE() && PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_CANCEL))
 					{
 						AUDIO::PLAY_SOUND_FRONTEND(-1, "CANCEL", "HUD_FREEMODE_SOUNDSET", true);
 					
@@ -36878,7 +36878,7 @@ BOOL func_483(var uParam0, var uParam1, BOOL bParam2) // Position - 0x27BDB (162
 
 void func_484(var uParam0, BOOL bParam1, int iParam2) // Position - 0x280CE (164046)
 {
-	ePedComponentType i;
+	BOOL i;
 	int num;
 
 	Global_24148.f_6342 = uParam0;
@@ -36892,7 +36892,7 @@ void func_484(var uParam0, BOOL bParam1, int iParam2) // Position - 0x280CE (164
 	{
 		for (i = Global_24148.f_6341; i <= Global_24148.f_6342; i = i + 1)
 		{
-			if (i >= PV_COMP_HEAD && i < 127)
+			if (i >= false && i < 127)
 				if (Global_24148.f_5692[i] != 0)
 					num = num + 1;
 		}
@@ -36904,7 +36904,7 @@ void func_484(var uParam0, BOOL bParam1, int iParam2) // Position - 0x280CE (164
 		
 			for (i = Global_24148.f_6341; i <= Global_24148.f_6342; i = i + 1)
 			{
-				if (i >= PV_COMP_HEAD && i < 127)
+				if (i >= false && i < 127)
 					if (Global_24148.f_5692[i] != 0)
 						num = num + 1;
 			}
@@ -37089,7 +37089,7 @@ BOOL func_492(var uParam0, BOOL bParam1, int iParam2) // Position - 0x28483 (164
 BOOL func_493() // Position - 0x28520 (165152)
 {
 	if (PAD::IS_USING_KEYBOARD_AND_MOUSE(FRONTEND_CONTROL))
-		if (Global_4543037 > PV_COMP_INVALID)
+		if (Global_4543037 > -1)
 			if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_CURSOR_ACCEPT))
 				return true;
 
@@ -37128,8 +37128,8 @@ void func_496(BOOL bParam0, int iParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 	int b;
 	int a;
 	int i;
-	ePedComponentType numberOfLinesForString;
-	ePedComponentType j;
+	BOOL numberOfLinesForString;
+	BOOL j;
 	int k;
 	int num2;
 	int num3;
@@ -37377,7 +37377,7 @@ void func_496(BOOL bParam0, int iParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 		
 			while (num2 < Global_24148.f_5828 && numberOfLinesForString <= Global_24148.f_5821)
 			{
-				if (numberOfLinesForString >= PV_COMP_HEAD)
+				if (numberOfLinesForString >= false)
 				{
 					if (Global_24148.f_6088[numberOfLinesForString])
 					{
@@ -41021,7 +41021,7 @@ void func_558(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 
 	if (!PAD::IS_USING_KEYBOARD_AND_MOUSE(FRONTEND_CONTROL))
 	{
-		Global_4543037 = PV_COMP_INVALID;
+		Global_4543037 = -1;
 		return;
 	}
 
@@ -41052,7 +41052,7 @@ void func_558(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 	if (Global_4543037 == -6)
 		return;
 
-	Global_4543037 = PV_COMP_INVALID;
+	Global_4543037 = -1;
 	num4 = Global_4543031;
 	num5 = Global_4543032;
 
@@ -41086,7 +41086,7 @@ void func_558(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 	
 		if (Global_24148.f_6336 == -1)
 		{
-			Global_4543037 = PV_COMP_HEAD;
+			Global_4543037 = false;
 			num10 = 0;
 			return;
 		}
@@ -41130,7 +41130,7 @@ void func_558(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 		return;
 	}
 
-	Global_4543037 = PV_COMP_INVALID;
+	Global_4543037 = -1;
 	return;
 }
 
@@ -49794,14 +49794,14 @@ BOOL func_889(Player plParam0) // Position - 0x39D52 (236882)
 	return 0;
 }
 
-int func_890(BOOL bParam0) // Position - 0x39D79 (236921)
+int func_890(int iParam0) // Position - 0x39D79 (236921)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
-		case false:
+		case 0:
 			return 1;
 	
-		case true:
+		case 1:
 			return 2;
 	
 		case 2:

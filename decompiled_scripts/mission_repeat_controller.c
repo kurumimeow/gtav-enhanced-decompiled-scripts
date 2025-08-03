@@ -120122,7 +120122,7 @@ void func_862() // Position - 0x9FD42 (654658)
 	Global_98819 = 0;
 	Global_98820 = false;
 	Global_98750 = false;
-	Global_98751 = false;
+	Global_98751 = 0;
 	Global_98753 = -15;
 	Global_24008 = 0;
 

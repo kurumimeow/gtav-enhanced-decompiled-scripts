@@ -272644,9 +272644,9 @@ Vector3 func_4920(int iParam0, int iParam1) // Position - 0x16C2CB (1491659)
 	return 1f, 1f, 1f;
 }
 
-BOOL func_4921(int iParam0) // Position - 0x16C442 (1492034)
+BOOL func_4921(var uParam0) // Position - 0x16C442 (1492034)
 {
-	return Global_1946439.f_5142 == iParam0;
+	return Global_1946439.f_5142 == uParam0;
 }
 
 BOOL func_4922() // Position - 0x16C454 (1492052)

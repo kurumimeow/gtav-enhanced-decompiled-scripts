@@ -17018,16 +17018,16 @@ BOOL func_211() // Position - 0x11E6F (73327)
 	return func_212(*Global_4718592.f_138116);
 }
 
-BOOL func_212(Hash hParam0) // Position - 0x11E93 (73363)
+BOOL func_212(int iParam0) // Position - 0x11E93 (73363)
 {
 	int i;
 
-	if (hParam0 == 0)
+	if (iParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 8; i = i + 1)
 	{
-		if (Global_262145.f_4698[i] == hParam0)
+		if (Global_262145.f_4698[i] == iParam0)
 			return 1;
 	}
 
@@ -218805,9 +218805,9 @@ BOOL func_4016(Player plParam0) // Position - 0x126D24 (1207588)
 	return func_4017(&(Global_2658019[plParam0 /*467*/].f_446), 0);
 }
 
-BOOL func_4017(int* piParam0, int iParam1) // Position - 0x126D3D (1207613)
+BOOL func_4017(var uParam0, int iParam1) // Position - 0x126D3D (1207613)
 {
-	return IS_BIT_SET(*piParam0, iParam1);
+	return IS_BIT_SET(*uParam0, iParam1);
 }
 
 BOOL func_4018(int iParam0) // Position - 0x126D4B (1207627)
@@ -314580,9 +314580,9 @@ int func_6112(var uParam0, var uParam1) // Position - 0x1C12EB (1839851)
 	return 1;
 }
 
-void func_6113(Vehicle veParam0, var uParam1, var uParam2, var uParam3) // Position - 0x1C157C (1840508)
+void func_6113(Entity eParam0, var uParam1, var uParam2, var uParam3) // Position - 0x1C157C (1840508)
 {
-	if (!ENTITY::DOES_ENTITY_EXIST(*veParam0))
+	if (!ENTITY::DOES_ENTITY_EXIST(*eParam0))
 		return;
 
 	if (!ENTITY::DOES_ENTITY_EXIST(*uParam1))
@@ -314594,10 +314594,10 @@ void func_6113(Vehicle veParam0, var uParam1, var uParam2, var uParam3) // Posit
 	if (!ENTITY::DOES_ENTITY_EXIST(*uParam3))
 		return;
 
-	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*veParam0, *uParam2, false);
+	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*eParam0, *uParam2, false);
 	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam2, *uParam1, false);
 	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam1, *uParam3, false);
-	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam3, *veParam0, false);
+	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam3, *eParam0, false);
 	return;
 }
 

@@ -138306,9 +138306,9 @@ void func_1673() // Position - 0x913FA (594938)
 	return;
 }
 
-void func_1674(int iParam0) // Position - 0x91434 (594996)
+void func_1674(BOOL bParam0) // Position - 0x91434 (594996)
 {
-	Global_2359296[func_1675() /*5571*/].f_681.f_2 = iParam0;
+	Global_2359296[func_1675() /*5571*/].f_681.f_2 = bParam0;
 	return;
 }
 
@@ -412209,7 +412209,7 @@ void func_6845(var uParam0, int iParam1) // Position - 0x21D8BC (2218172)
 
 void func_6846(var uParam0, Vehicle veParam1, var uParam2) // Position - 0x21DCB2 (2219186)
 {
-	int num;
+	BOOL flag;
 
 	if (!func_6850())
 	{
@@ -412225,16 +412225,16 @@ void func_6846(var uParam0, Vehicle veParam1, var uParam2) // Position - 0x21DCB
 			{
 				if (func_6811(PLAYER::PLAYER_ID()))
 				{
-					num = -1;
-					func_2422(156, &num, true);
+					flag = -1;
+					func_2422(156, &flag, true);
 					func_2603(veParam1, false);
 				
-					if (num >= 0)
+					if (flag >= false)
 					{
 						func_2608(false);
 						func_2605();
-						MISC::SET_BIT(&(Global_1586547[num /*143*/].f_104), 0);
-						func_1674(num);
+						MISC::SET_BIT(&(Global_1586547[flag /*143*/].f_104), 0);
+						func_1674(flag);
 						func_1670(1);
 					}
 				}
@@ -412553,9 +412553,9 @@ Hash func_6858(Player plParam0) // Position - 0x21E575 (2221429)
 int func_6859(var uParam0, Player plParam1, BOOL bParam2) // Position - 0x21E58C (2221452)
 {
 	Vehicle vehiclePedIsIn;
-	int num;
-	int num2;
-	int num3;
+	BOOL flag;
+	BOOL flag2;
+	BOOL flag3;
 
 	if (func_1889(PLAYER::PLAYER_ID()))
 		return 0;
@@ -412657,11 +412657,11 @@ int func_6859(var uParam0, Player plParam1, BOOL bParam2) // Position - 0x21E58C
 										if (Global_2359296[func_1675() /*5571*/].f_681.f_2 != -1 && Global_2672967.f_63.f_57)
 											func_2686(true, false, true, false, false, false, false);
 								
-									num = -1;
-									func_2422(156, &num, true);
+									flag = -1;
+									func_2422(156, &flag, true);
 								
-									if (num >= 0)
-										func_1674(num);
+									if (flag >= false)
+										func_1674(flag);
 								}
 							
 								func_6863(750);
@@ -412679,11 +412679,11 @@ int func_6859(var uParam0, Player plParam1, BOOL bParam2) // Position - 0x21E58C
 										if (Global_2359296[func_1675() /*5571*/].f_681.f_2 != -1 && Global_2672967.f_63.f_57)
 											func_2686(true, false, true, false, false, false, false);
 								
-									num2 = -1;
-									func_2422(156, &num2, true);
+									flag2 = -1;
+									func_2422(156, &flag2, true);
 								
-									if (num2 >= 0)
-										func_1674(num2);
+									if (flag2 >= false)
+										func_1674(flag2);
 								}
 							
 								func_6863(750);
@@ -412725,14 +412725,14 @@ int func_6859(var uParam0, Player plParam1, BOOL bParam2) // Position - 0x21E58C
 							if (Global_2359296[func_1675() /*5571*/].f_681.f_2 != -1 && Global_2672967.f_63.f_57)
 								func_2686(true, false, true, false, false, false, false);
 					
-						num3 = -1;
-						func_2422(156, &num3, true);
+						flag3 = -1;
+						func_2422(156, &flag3, true);
 						func_6446(vehiclePedIsIn, false);
 					
-						if (num3 >= 0)
+						if (flag3 >= false)
 						{
-							MISC::SET_BIT(&(Global_1586547[num3 /*143*/].f_104), 0);
-							func_1674(num3);
+							MISC::SET_BIT(&(Global_1586547[flag3 /*143*/].f_104), 0);
+							func_1674(flag3);
 						
 							if (func_2716(PLAYER::PLAYER_ID()))
 							{
@@ -441768,18 +441768,18 @@ void func_7340(var uParam0, Vehicle veParam1, BOOL bParam2) // Position - 0x24F0
 
 void func_7341(Vehicle veParam0) // Position - 0x24F09E (2420894)
 {
+	BOOL flag;
 	int num;
 	int num2;
-	int num3;
 
 	if (Global_4282955 == -1)
 		Global_4282955 = _GET_ACTIVE_PV_SLOT();
 
-	num3 = func_1540(ENTITY::GET_ENTITY_MODEL(veParam0));
-	num2 = num3 + 148;
-	func_2422(num2, &num, false);
-	func_1674(num);
-	MISC::SET_BIT(&(Global_1586547[num /*143*/].f_104), 23);
+	num2 = func_1540(ENTITY::GET_ENTITY_MODEL(veParam0));
+	num = num2 + 148;
+	func_2422(num, &flag, false);
+	func_1674(flag);
+	MISC::SET_BIT(&(Global_1586547[flag /*143*/].f_104), 23);
 	return;
 }
 

@@ -37534,16 +37534,16 @@ BOOL func_653() // Position - 0x29C3D (171069)
 	return func_654(*Global_4718592.f_138116);
 }
 
-BOOL func_654(Hash hParam0) // Position - 0x29C61 (171105)
+BOOL func_654(int iParam0) // Position - 0x29C61 (171105)
 {
 	int i;
 
-	if (hParam0 == 0)
+	if (iParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 8; i = i + 1)
 	{
-		if (Global_262145.f_4698[i] == hParam0)
+		if (Global_262145.f_4698[i] == iParam0)
 			return 1;
 	}
 
@@ -150399,7 +150399,7 @@ void func_2867(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPar
 	
 		func_2869(true, bParam3, bParam2, false);
 		Global_64529 = 1;
-		Global_76858 = true;
+		Global_76858 = 1;
 		Global_79766 = 1;
 	}
 	else
@@ -325671,9 +325671,9 @@ int func_6311(var uParam0, var uParam1) // Position - 0x1CC224 (1884708)
 	return 1;
 }
 
-void func_6312(Vehicle veParam0, var uParam1, var uParam2, var uParam3) // Position - 0x1CC4B5 (1885365)
+void func_6312(Entity eParam0, var uParam1, var uParam2, var uParam3) // Position - 0x1CC4B5 (1885365)
 {
-	if (!ENTITY::DOES_ENTITY_EXIST(*veParam0))
+	if (!ENTITY::DOES_ENTITY_EXIST(*eParam0))
 		return;
 
 	if (!ENTITY::DOES_ENTITY_EXIST(*uParam1))
@@ -325685,10 +325685,10 @@ void func_6312(Vehicle veParam0, var uParam1, var uParam2, var uParam3) // Posit
 	if (!ENTITY::DOES_ENTITY_EXIST(*uParam3))
 		return;
 
-	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*veParam0, *uParam2, false);
+	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*eParam0, *uParam2, false);
 	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam2, *uParam1, false);
 	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam1, *uParam3, false);
-	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam3, *veParam0, false);
+	ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(*uParam3, *eParam0, false);
 	return;
 }
 
@@ -374387,9 +374387,9 @@ Player func_7099(Player plParam0) // Position - 0x21634A (2188106)
 	return Global_2658019[plParam0 /*467*/].f_324.f_11;
 }
 
-BOOL func_7100(Hash hParam0) // Position - 0x21636E (2188142)
+BOOL func_7100(int iParam0) // Position - 0x21636E (2188142)
 {
-	return Global_262145.f_4698[4] == hParam0;
+	return Global_262145.f_4698[4] == iParam0;
 }
 
 Player func_7101(Player plParam0) // Position - 0x216383 (2188163)

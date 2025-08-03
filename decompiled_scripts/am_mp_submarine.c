@@ -108088,14 +108088,14 @@ BOOL func_878(var uParam0, int iParam1, BOOL bParam2, int iParam3, int iParam4, 
 				break;
 		
 			case 29:
-				Global_2635523.f_3156 < 0;
+				Global_2635523.f_3156 < false;
 				func_1041(Global_2635523.f_3156, &(Global_2635523.f_556), &(Global_2635523.f_556.f_3));
 				flag = true;
 				Global_2635523.f_702 = 1;
 				break;
 		
 			case 30:
-				Global_2635523.f_3156 < 0;
+				Global_2635523.f_3156 < false;
 				func_1038(0, Global_2635523.f_3156, &(Global_2635523.f_556), &(Global_2635523.f_556.f_3), true);
 				Global_2635523.f_556.f_4 = 150f;
 				Global_2635523.f_556.f_7 = 0;
@@ -115248,11 +115248,11 @@ void func_1035(int iParam0, var uParam1, BOOL bParam2) // Position - 0x9470C (60
 	return;
 }
 
-float func_1036(int iParam0, float fParam1) // Position - 0x947AE (608174)
+float func_1036(BOOL bParam0, float fParam1) // Position - 0x947AE (608174)
 {
 	float num;
 
-	num = func_296(iParam0);
+	num = func_296(bParam0);
 
 	for (fParam1 = fParam1 + num; fParam1 < 0f; fParam1 = fParam1 + 360f)
 	{
@@ -115266,27 +115266,27 @@ float func_1036(int iParam0, float fParam1) // Position - 0x947AE (608174)
 	return fParam1;
 }
 
-Vector3 func_1037(int iParam0, Vector3 vParam1, var uParam2, var uParam3) // Position - 0x947F3 (608243)
+Vector3 func_1037(BOOL bParam0, Vector3 vParam1, var uParam2, var uParam3) // Position - 0x947F3 (608243)
 {
-	return OBJECT::GET_OFFSET_FROM_COORD_AND_HEADING_IN_WORLD_COORDS(func_286(iParam0), func_296(iParam0), vParam1);
+	return OBJECT::GET_OFFSET_FROM_COORD_AND_HEADING_IN_WORLD_COORDS(func_286(bParam0), func_296(bParam0), vParam1);
 }
 
-void func_1038(int iParam0, int iParam1, float fParam2, var uParam3, BOOL bParam4) // Position - 0x9480F (608271)
+void func_1038(int iParam0, BOOL bParam1, float fParam2, var uParam3, BOOL bParam4) // Position - 0x9480F (608271)
 {
 	if (!bParam4)
 	{
-		*fParam2 = { func_1037(iParam1, Global_4282659[iParam0 /*10*/]) };
-		*uParam3 = func_1036(iParam1, Global_4282659[iParam0 /*10*/].f_3);
+		*fParam2 = { func_1037(bParam1, Global_4282659[iParam0 /*10*/]) };
+		*uParam3 = func_1036(bParam1, Global_4282659[iParam0 /*10*/].f_3);
 	}
 	else if (func_1039(iParam0, 1))
 	{
-		*fParam2 = { Global_4280768[iParam1 /*45*/].f_32[2 /*4*/] };
-		*uParam3 = Global_4280768[iParam1 /*45*/].f_32[2 /*4*/].f_3;
+		*fParam2 = { Global_4280768[bParam1 /*45*/].f_32[2 /*4*/] };
+		*uParam3 = Global_4280768[bParam1 /*45*/].f_32[2 /*4*/].f_3;
 	}
 	else
 	{
-		*fParam2 = { Global_4280768[iParam1 /*45*/].f_32[1 /*4*/] };
-		*uParam3 = Global_4280768[iParam1 /*45*/].f_32[1 /*4*/].f_3;
+		*fParam2 = { Global_4280768[bParam1 /*45*/].f_32[1 /*4*/] };
+		*uParam3 = Global_4280768[bParam1 /*45*/].f_32[1 /*4*/].f_3;
 	}
 
 	return;
@@ -115305,13 +115305,13 @@ int func_1040() // Position - 0x948BC (608444)
 	return func_1042(PLAYER::PLAYER_ID());
 }
 
-void func_1041(int iParam0, float fParam1, var uParam2) // Position - 0x948CC (608460)
+void func_1041(BOOL bParam0, float fParam1, var uParam2) // Position - 0x948CC (608460)
 {
 	var unk;
 	int randomIntInRange;
 
 	unk = 30;
-	func_1035(iParam0, &unk, false);
+	func_1035(bParam0, &unk, false);
 	randomIntInRange = MISC::GET_RANDOM_INT_IN_RANGE(0, 30);
 	*fParam1 = { unk[randomIntInRange /*4*/] };
 	*uParam2 = unk[randomIntInRange /*4*/].f_3;

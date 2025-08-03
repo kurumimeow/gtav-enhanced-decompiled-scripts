@@ -3875,10 +3875,10 @@ int func_63(Vehicle veParam0) // Position - 0x38BD (14525)
 	int i;
 
 	if (!ENTITY::DOES_ENTITY_EXIST(veParam0))
-		return 145;
+		return _CHAR_NULL;
 
 	if (!VEHICLE::IS_VEHICLE_DRIVEABLE(veParam0, false))
-		return 145;
+		return _CHAR_NULL;
 
 	for (i = 0; i < 9; i = i + 1)
 	{
@@ -3887,7 +3887,7 @@ int func_63(Vehicle veParam0) // Position - 0x38BD (14525)
 				return Global_99233[i];
 	}
 
-	return 145;
+	return _CHAR_NULL;
 }
 
 void func_64(Vehicle veParam0, var uParam1) // Position - 0x3920 (14624)

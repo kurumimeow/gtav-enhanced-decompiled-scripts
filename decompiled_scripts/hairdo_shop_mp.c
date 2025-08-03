@@ -182296,7 +182296,7 @@ int func_1377(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPar
 	Hash componentHash2;
 	int num3;
 	int num4;
-	int num5;
+	ePedComponentType num5;
 	ePedComponentType type16;
 	ePedComponentType type17;
 	ePedComponentType type18;
@@ -188889,7 +188889,7 @@ BOOL func_1412(Hash hParam0, ePedComponentType epctParam1, Hash hParam2) // Posi
 	return false;
 }
 
-ePedComponentType func_1413(Hash hParam0, ePedComponentType epctParam1, ePedComponentType epctParam2, int iParam3) // Position - 0xF3220 (995872)
+ePedComponentType func_1413(Hash hParam0, ePedComponentType epctParam1, ePedComponentType epctParam2, ePedComponentType epctParam3) // Position - 0xF3220 (995872)
 {
 	ePedComponentType type;
 	BOOL flag;
@@ -189851,7 +189851,7 @@ ePedComponentType func_1413(Hash hParam0, ePedComponentType epctParam1, ePedComp
 	}
 
 	if (flag && type != -99)
-		type = type + iParam3;
+		type = type + epctParam3;
 
 	return type;
 }

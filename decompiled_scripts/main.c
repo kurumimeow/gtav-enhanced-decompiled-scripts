@@ -106845,14 +106845,14 @@ BOOL func_767() // Position - 0x8C4FE (574718)
 	if (Global_2708037.f_10)
 		return false;
 
-	if (Global_1986353.f_3)
+	if (Global_1986354.f_3)
 		return false;
 
 	if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("gb_ie_delivery_cutscene")) > 0)
 		return false;
 
-	if (_STOPWATCH_IS_INITIALIZED(&Global_1986353))
-		return func_768(&Global_1986353, Global_1986353.f_2, false);
+	if (_STOPWATCH_IS_INITIALIZED(&Global_1986354))
+		return func_768(&Global_1986354, Global_1986354.f_2, false);
 
 	return false;
 }
@@ -165468,7 +165468,7 @@ void func_2050() // Position - 0xD88A8 (886952)
 
 	if (!func_898() && !func_630())
 	{
-		Global_1685333 = PV_COMP_INVALID;
+		Global_1685333 = -1;
 		func_102(&(Global_1685333.f_1));
 	}
 

@@ -116138,7 +116138,7 @@ BOOL func_2086(int iParam0) // Position - 0x90349 (590665)
 		if (Global_2710593[iParam0 /*113*/].f_111)
 			return false;
 	
-		return Global_2710593[iParam0 /*113*/].f_66 != PV_COMP_HEAD;
+		return Global_2710593[iParam0 /*113*/].f_66 != 0;
 	}
 
 	return false;

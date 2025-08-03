@@ -156757,7 +156757,7 @@ void func_1573(int iParam0, BOOL bParam1) // Position - 0xD4AB0 (871088)
 BOOL func_1574(var uParam0) // Position - 0xD4BE3 (871395)
 {
 	int i;
-	ePedComponentType type;
+	Hash hash;
 	var unk;
 	BOOL flag;
 	int endRange;
@@ -156770,8 +156770,8 @@ BOOL func_1574(var uParam0) // Position - 0xD4BE3 (871395)
 
 	for (i = 0; i < 17; i = i + 1)
 	{
-		type = func_1579(i);
-		unk[i] = func_1578(type);
+		hash = func_1579(i);
+		unk[i] = func_1578(hash);
 	
 		if (!unk[i])
 			flag = false;
@@ -156784,9 +156784,9 @@ BOOL func_1574(var uParam0) // Position - 0xD4BE3 (871395)
 
 	for (i = 0; i < 17; i = i + 1)
 	{
-		type = func_1579(i);
+		hash = func_1579(i);
 	
-		if (!func_1577(type))
+		if (!func_1577(hash))
 			if (!func_1576())
 				flag2 = false;
 			else
@@ -156811,12 +156811,12 @@ BOOL func_1574(var uParam0) // Position - 0xD4BE3 (871395)
 	{
 		if (unk19[i] > -1 && unk19[i] == randomIntInRange)
 		{
-			type = func_1579(i);
-			func_1575(type);
+			hash = func_1579(i);
+			func_1575(hash);
 		
-			if (func_987(type, -1))
+			if (func_987(hash, -1))
 			{
-				*uParam0 = type;
+				*uParam0 = hash;
 				return true;
 			}
 		}
@@ -157017,7 +157017,7 @@ BOOL func_1578(ePedComponentType epctParam0) // Position - 0xD4ECB (872139)
 	return false;
 }
 
-ePedComponentType func_1579(int iParam0) // Position - 0xD511B (872731)
+Hash func_1579(int iParam0) // Position - 0xD511B (872731)
 {
 	switch (iParam0)
 	{

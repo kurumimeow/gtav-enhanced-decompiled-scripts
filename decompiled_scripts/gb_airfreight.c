@@ -50508,7 +50508,7 @@ void func_357(var uParam0, var uParam1) // Position - 0x366F9 (222969)
 	return;
 }
 
-var func_358(ePedComponentType epctParam0) // Position - 0x36713 (222995)
+int func_358(ePedComponentType epctParam0) // Position - 0x36713 (222995)
 {
 	return Global_1888882[epctParam0 /*611*/].f_513;
 }
@@ -69787,7 +69787,7 @@ int func_619(eCharacter echParam0, char* sParam1, int iParam2, int iParam3, char
 	return 1;
 }
 
-void func_620(eCharacter echParam0, char* sParam1, BOOL bParam2, int iParam3) // Position - 0x4DB35 (318261)
+void func_620(eCharacter echParam0, char* sParam1, BOOL bParam2, ePedComponentType epctParam3) // Position - 0x4DB35 (318261)
 {
 	eCharacter character;
 
@@ -69799,7 +69799,7 @@ void func_620(eCharacter echParam0, char* sParam1, BOOL bParam2, int iParam3) //
 	character.f_2 = MISC::GET_HASH_KEY(sParam1);
 	character.f_3 = 0;
 	character.f_4 = bParam2;
-	character.f_5 = iParam3;
+	character.f_5 = epctParam3;
 	character.f_6 = Global_1975612.f_7;
 	character.f_7 = Global_1975612.f_8;
 	character.f_8 = Global_1975612.f_9;
@@ -69839,7 +69839,7 @@ BOOL func_621() // Position - 0x4DBD0 (318416)
 	return true;
 }
 
-int func_622(ePedComponentType epctParam0) // Position - 0x4DC33 (318515)
+ePedComponentType func_622(ePedComponentType epctParam0) // Position - 0x4DC33 (318515)
 {
 	return Global_1845274[epctParam0 /*877*/].f_198.f_6;
 }
@@ -95184,22 +95184,22 @@ void func_1043(int iParam0, BOOL bParam1, int iParam2, BOOL bParam3, int iParam4
 
 void func_1044(int iParam0) // Position - 0x71385 (463749)
 {
-	func_252(&Global_1986353, false, false);
+	func_252(&Global_1986354, false, false);
 
 	if (iParam0 != -1)
-		Global_1986353.f_2 = iParam0;
+		Global_1986354.f_2 = iParam0;
 	else
-		Global_1986353.f_2 = *Global_262145.f_37196;
+		Global_1986354.f_2 = *Global_262145.f_37196;
 
 	return;
 }
 
 int func_1045(int iParam0) // Position - 0x713B8 (463800)
 {
-	if (Global_1986357 == -2)
+	if (Global_1986358 == -2)
 		return 0;
 
-	if (Global_1986357 == iParam0)
+	if (Global_1986358 == iParam0)
 		return 0;
 
 	if (func_724(iParam0) != 0)
@@ -97163,7 +97163,7 @@ void func_1145() // Position - 0x738E5 (473317)
 {
 	var unk;
 
-	Global_1986353 = { unk };
+	Global_1986354 = { unk };
 	return;
 }
 

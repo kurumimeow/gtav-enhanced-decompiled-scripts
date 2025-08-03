@@ -95434,7 +95434,7 @@ int func_433(int iParam0, BOOL bParam1) // Position - 0x71CEB (466155)
 	if (Global_1575068[num2] == true)
 	{
 		bParam1;
-		num = 8;
+		num = CHAR_MIKE_FRANK_CONF;
 	}
 	else
 	{

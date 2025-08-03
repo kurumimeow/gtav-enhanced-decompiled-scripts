@@ -10528,7 +10528,7 @@ BOOL func_166(Vector3 vParam0, var uParam1, var uParam2, int iParam3, int iParam
 	return false;
 }
 
-Object func_167() // Position - 0x6274 (25204)
+Entity func_167() // Position - 0x6274 (25204)
 {
 	if (PLAYER::PLAYER_ID() != -1)
 		return Global_1960332.f_23;
@@ -377317,9 +377317,9 @@ int func_7245(eCharacter echParam0, char* sParam1, int iParam2, int iParam3, cha
 
 	if (IS_BIT_SET(Global_9075, 10))
 	{
-		Global_114370.f_14145[Global_23670 /*104*/].f_99[0] = 1;
-		Global_114370.f_14145[Global_23670 /*104*/].f_99[1] = 1;
-		Global_114370.f_14145[Global_23670 /*104*/].f_99[2] = 1;
+		Global_114370.f_14145[Global_23670 /*104*/].f_99[0] = true;
+		Global_114370.f_14145[Global_23670 /*104*/].f_99[1] = true;
+		Global_114370.f_14145[Global_23670 /*104*/].f_99[2] = true;
 		Global_9815 = 4;
 		func_7254(0);
 		func_7254(2);
@@ -377332,19 +377332,19 @@ int func_7245(eCharacter echParam0, char* sParam1, int iParam2, int iParam3, cha
 		switch (iParam16)
 		{
 			case 3:
-				Global_114370.f_14145[Global_23670 /*104*/].f_99[Global_21239] = 1;
+				Global_114370.f_14145[Global_23670 /*104*/].f_99[Global_21239] = true;
 				break;
 		
 			case 0:
-				Global_114370.f_14145[Global_23670 /*104*/].f_99[0] = 1;
+				Global_114370.f_14145[Global_23670 /*104*/].f_99[0] = true;
 				break;
 		
 			case 2:
-				Global_114370.f_14145[Global_23670 /*104*/].f_99[2] = 1;
+				Global_114370.f_14145[Global_23670 /*104*/].f_99[2] = true;
 				break;
 		
 			case 1:
-				Global_114370.f_14145[Global_23670 /*104*/].f_99[1] = 1;
+				Global_114370.f_14145[Global_23670 /*104*/].f_99[1] = true;
 				break;
 		}
 	
@@ -377607,7 +377607,7 @@ void func_7249(int iParam0) // Position - 0x223B42 (2243394)
 								{
 									if (Global_114370.f_14145[j /*104*/].f_24 != 0)
 										if (Global_114370.f_14145[j /*104*/].f_28 == 0)
-											if (Global_114370.f_14145[j /*104*/].f_99[Global_21239] == 1)
+											if (Global_114370.f_14145[j /*104*/].f_99[Global_21239] == true)
 												Global_23671 = Global_23671 + 1;
 								}
 							
@@ -377991,9 +377991,9 @@ int func_7258() // Position - 0x22448B (2245771)
 	if (Global_23670 == 34)
 		return 0;
 
-	Global_114370.f_14145[Global_23670 /*104*/].f_99[0] = 0;
-	Global_114370.f_14145[Global_23670 /*104*/].f_99[1] = 0;
-	Global_114370.f_14145[Global_23670 /*104*/].f_99[2] = 0;
+	Global_114370.f_14145[Global_23670 /*104*/].f_99[0] = false;
+	Global_114370.f_14145[Global_23670 /*104*/].f_99[1] = false;
+	Global_114370.f_14145[Global_23670 /*104*/].f_99[2] = false;
 	return 1;
 }
 

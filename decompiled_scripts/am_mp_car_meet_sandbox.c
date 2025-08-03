@@ -287158,22 +287158,22 @@ void func_5496(BOOL bParam0) // Position - 0x18E41C (1631260)
 	return;
 }
 
-void func_5497(Player plParam0, BOOL bParam1, int iParam2) // Position - 0x18E459 (1631321)
+void func_5497(Player plParam0, int iParam1, int iParam2) // Position - 0x18E459 (1631321)
 {
 	Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_403 = plParam0;
 	func_2277(35);
 	MISC::SET_BIT(&(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_139), 31);
-	Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_404 = bParam1;
+	Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_404 = iParam1;
 	Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_405 = iParam2;
 	func_2277(35);
 	return;
 }
 
-void func_5498(Player plParam0, BOOL bParam1, int iParam2) // Position - 0x18E4BC (1631420)
+void func_5498(Player plParam0, int iParam1, int iParam2) // Position - 0x18E4BC (1631420)
 {
 	Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_803 = plParam0;
 	MISC::SET_BIT(&(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_803.f_3), 0);
-	Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_803.f_1 = bParam1;
+	Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_803.f_1 = iParam1;
 	Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_803.f_2 = iParam2;
 	return;
 }
@@ -309566,24 +309566,24 @@ BOOL func_5913(Vehicle veParam0, Vector3 vParam1, var uParam2, var uParam3) // P
 
 int func_5914(Player plParam0) // Position - 0x1B4FC3 (1789891)
 {
-	BOOL flag;
+	int num;
 
 	if (plParam0 == _INVALID_PLAYER_INDEX())
 		return -1;
 
-	flag = func_5916(plParam0);
+	num = func_5916(plParam0);
 
-	if (!(flag == false))
-		return func_5915(flag);
+	if (!(num == 0))
+		return func_5915(num);
 
 	return -1;
 }
 
-int func_5915(BOOL bParam0) // Position - 0x1B4FF2 (1789938)
+int func_5915(int iParam0) // Position - 0x1B4FF2 (1789938)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
-		case true:
+		case 1:
 			return 22;
 	
 		case 2:
@@ -309683,17 +309683,17 @@ int func_5915(BOOL bParam0) // Position - 0x1B4FF2 (1789938)
 	return -1;
 }
 
-BOOL func_5916(Player plParam0) // Position - 0x1B51C2 (1790402)
+int func_5916(Player plParam0) // Position - 0x1B51C2 (1790402)
 {
 	if (plParam0 == _INVALID_PLAYER_INDEX())
-		return false;
+		return 0;
 
 	return Global_1845274[plParam0 /*877*/].f_260.f_199[5 /*13*/];
 }
 
 BOOL func_5917(Player plParam0) // Position - 0x1B51E8 (1790440)
 {
-	return func_5916(plParam0) != false;
+	return func_5916(plParam0) != 0;
 }
 
 void func_5918(int iParam0, var uParam1) // Position - 0x1B51F8 (1790456)
@@ -330652,7 +330652,7 @@ Player func_6403(Vehicle veParam0) // Position - 0x1D6997 (1927575)
 	return _INVALID_PLAYER_INDEX();
 }
 
-BOOL func_6404(int iParam0) // Position - 0x1D69B7 (1927607)
+int func_6404(int iParam0) // Position - 0x1D69B7 (1927607)
 {
 	switch (iParam0)
 	{
@@ -331540,15 +331540,15 @@ int func_6442(int iParam0, var uParam1) // Position - 0x1D7E5C (1932892)
 	return 0;
 }
 
-BOOL func_6443(Player plParam0, BOOL bParam1) // Position - 0x1D7E9A (1932954)
+BOOL func_6443(Player plParam0, int iParam1) // Position - 0x1D7E9A (1932954)
 {
 	int i;
 
-	if (func_6444(bParam1) && plParam0 != _INVALID_PLAYER_INDEX())
+	if (func_6444(iParam1) && plParam0 != _INVALID_PLAYER_INDEX())
 	{
 		for (i = 0; i <= 6; i = i + 1)
 		{
-			if (Global_1845274[plParam0 /*877*/].f_260.f_199[i /*13*/] == bParam1)
+			if (Global_1845274[plParam0 /*877*/].f_260.f_199[i /*13*/] == iParam1)
 				return true;
 		}
 	}
@@ -331556,9 +331556,9 @@ BOOL func_6443(Player plParam0, BOOL bParam1) // Position - 0x1D7E9A (1932954)
 	return false;
 }
 
-BOOL func_6444(BOOL bParam0) // Position - 0x1D7EE5 (1933029)
+BOOL func_6444(int iParam0) // Position - 0x1D7EE5 (1933029)
 {
-	if (bParam0 == 33 || bParam0 == false)
+	if (iParam0 == 33 || iParam0 == 0)
 		return false;
 
 	return true;
@@ -332077,13 +332077,13 @@ void func_6455(int iParam0, int iParam1) // Position - 0x1D89F2 (1935858)
 	return;
 }
 
-BOOL func_6456(Player plParam0, BOOL bParam1) // Position - 0x1D8C71 (1936497)
+BOOL func_6456(Player plParam0, int iParam1) // Position - 0x1D8C71 (1936497)
 {
 	int num;
 
-	if (func_6443(plParam0, bParam1))
+	if (func_6443(plParam0, iParam1))
 	{
-		num = func_6457(plParam0, bParam1);
+		num = func_6457(plParam0, iParam1);
 	
 		if (Global_1845274[plParam0 /*877*/].f_260.f_199[num /*13*/].f_4 > false && Global_1845274[plParam0 /*877*/].f_260.f_199[num /*13*/].f_7)
 			return true;
@@ -332092,15 +332092,15 @@ BOOL func_6456(Player plParam0, BOOL bParam1) // Position - 0x1D8C71 (1936497)
 	return false;
 }
 
-int func_6457(Player plParam0, BOOL bParam1) // Position - 0x1D8CC5 (1936581)
+int func_6457(Player plParam0, int iParam1) // Position - 0x1D8CC5 (1936581)
 {
 	int i;
 
-	if (func_6444(bParam1) && plParam0 != _INVALID_PLAYER_INDEX())
+	if (func_6444(iParam1) && plParam0 != _INVALID_PLAYER_INDEX())
 	{
 		for (i = 0; i <= 6; i = i + 1)
 		{
-			if (Global_1845274[plParam0 /*877*/].f_260.f_199[i /*13*/] == bParam1)
+			if (Global_1845274[plParam0 /*877*/].f_260.f_199[i /*13*/] == iParam1)
 				return i;
 		}
 	}
@@ -332499,25 +332499,25 @@ char* func_6470(int iParam0, var uParam1, var uParam2) // Position - 0x1D95C6 (1
 {
 	Player player;
 	Player player2;
-	BOOL flag;
-	BOOL flag2;
 	int num;
-	Player player3;
+	BOOL flag;
 	int num2;
+	Player player3;
+	int num3;
 	Player player4;
-	BOOL flag3;
+	int num4;
 	var unk2;
 
 	if (func_1208())
 		return "SI_ENTR_BLCK10A" /*You can't enter the Bunker while on call. You can cancel this via the Quick Join app on the phone.*/;
 
 	player = func_327(PLAYER::PLAYER_ID());
-	flag = func_6404(iParam0);
-	flag2 = false;
-	num = -1;
+	num = func_6404(iParam0);
+	flag = false;
+	num2 = -1;
 
-	if (player != _INVALID_PLAYER_INDEX() && player != PLAYER::PLAYER_ID() && func_6443(player, flag))
-		flag2 = true;
+	if (player != _INVALID_PLAYER_INDEX() && player != PLAYER::PLAYER_ID() && func_6443(player, num))
+		flag = true;
 
 	if (func_1205())
 		return "BUNK_MC_BLOCK_P" /*You can't enter your Bunker with a prostitute.*/;
@@ -332537,7 +332537,7 @@ char* func_6470(int iParam0, var uParam1, var uParam2) // Position - 0x1D95C6 (1
 		}
 	}
 
-	if (player != PLAYER::PLAYER_ID() && func_6443(PLAYER::PLAYER_ID(), flag) && !flag2)
+	if (player != PLAYER::PLAYER_ID() && func_6443(PLAYER::PLAYER_ID(), num) && !flag)
 	{
 		if (func_262(PLAYER::PLAYER_ID(), false))
 		{
@@ -332562,62 +332562,62 @@ char* func_6470(int iParam0, var uParam1, var uParam2) // Position - 0x1D95C6 (1
 				{
 					return "BUNK_VEH_BLCK1" /*You can't enter the Bunker with this vehicle.*/;
 				}
-				else if (!func_6401(iParam0, &player2, &num, true, false) && func_6443(PLAYER::PLAYER_ID(), flag))
+				else if (!func_6401(iParam0, &player2, &num2, true, false) && func_6443(PLAYER::PLAYER_ID(), num))
 				{
 					if (player2 == PLAYER::PLAYER_ID())
 					{
-						if (num == 1)
+						if (num2 == 1)
 						{
 							return "BUNK_VEH_BLCK0" /*You can't enter the Bunker with this vehicle. Only your Personal Vehicle can be driven in.*/;
 						}
-						else if (num == 2)
+						else if (num2 == 2)
 						{
 						}
-						else if (num == 3)
+						else if (num2 == 3)
 						{
 							return "BUNK_VEH_BLCK2" /*You can't enter the Bunker with a vehicle while working for another player.*/;
 						}
-						else if (num == 4)
+						else if (num2 == 4)
 						{
 							return "BUNK_VEH_BLCK3" /*You can't enter the Bunker with this vehicle. You do not own this Bunker.*/;
 						}
-						else if (num == 5)
+						else if (num2 == 5)
 						{
 							return "BUNK_VEH_BLCK4" /*You can't enter the Bunker with this vehicle, without the Mobile Operations Center trailer attached.*/;
 						}
-						else if (num == 7)
+						else if (num2 == 7)
 						{
 							return "BUNK_VEH_BLCK4b" /*You can't enter the Bunker with another player's Mobile Operations Center.*/;
 						}
-						else if (num == 6)
+						else if (num2 == 6)
 						{
 							return "BUNK_VEH_BLCK7" /*You can't enter the Bunker with this vehicle. Please detach trailer to enter.*/;
 						}
-						else if (num == 1)
+						else if (num2 == 1)
 						{
 							return "BUNK_VEH_BLCK0b" /*You can't enter the Bunker with this vehicle. Only the Bunker owner in their Personal Vehicle can drive in.*/;
 						}
-						else if (num == -1)
+						else if (num2 == -1)
 						{
 							return "BUNK_VEH_BLCK0" /*You can't enter the Bunker with this vehicle. Only your Personal Vehicle can be driven in.*/;
 						}
 					}
-					else if (num == 1)
+					else if (num2 == 1)
 					{
 						return "BUNK_VEH_BLCK0b" /*You can't enter the Bunker with this vehicle. Only the Bunker owner in their Personal Vehicle can drive in.*/;
 					}
-					else if (num == 2)
+					else if (num2 == 2)
 					{
 					}
-					else if (num == 3)
+					else if (num2 == 3)
 					{
 						return "BUNK_VEH_BLCK2b" /*You can't enter the Bunker with this vehicle. The driver is working for another player.*/;
 					}
-					else if (num == 4 || num == 5)
+					else if (num2 == 4 || num2 == 5)
 					{
 						return "BUNK_VEH_BLCK3b" /*You can't enter the Bunker with this vehicle. The driver does not own this Bunker.*/;
 					}
-					else if (num == -1)
+					else if (num2 == -1)
 					{
 						return "BUNK_VEH_BLCK0b" /*You can't enter the Bunker with this vehicle. Only the Bunker owner in their Personal Vehicle can drive in.*/;
 					}
@@ -332627,37 +332627,37 @@ char* func_6470(int iParam0, var uParam1, var uParam2) // Position - 0x1D95C6 (1
 	}
 	else if (func_6477(PLAYER::PLAYER_ID(), true))
 	{
-		num2 = func_198(PLAYER::PLAYER_ID());
+		num3 = func_198(PLAYER::PLAYER_ID());
 		player4 = func_327(PLAYER::PLAYER_ID());
 	
 		if (player4 == _INVALID_PLAYER_INDEX())
 			return "";
 	
-		if (num2 == 192 || num2 == 190)
+		if (num3 == 192 || num3 == 190)
 		{
-			flag3 = { Global_1888882[player4 /*611*/].f_10.f_194 };
+			num4 = { Global_1888882[player4 /*611*/].f_10.f_194 };
 		
-			if (func_6404(iParam0) != flag3)
-				if (num2 == 190)
+			if (func_6404(iParam0) != num4)
+				if (num3 == 190)
 					return "BUNK_BLOCK_BKRh" /*You can't enter the Bunker while selling goods from another business.*/;
-				else if (func_6456(player4, flag3))
+				else if (func_6456(player4, num4))
 					return "BUNK_BLOCK_BKRc" /*You can't enter the Bunker while resupplying another business.*/;
 				else
 					return "BUNK_BLOCK_BKRb" /*You can't enter the Bunker while setting up another business.*/;
 		}
-		else if (num2 == 167)
+		else if (num3 == 167)
 		{
 			return "BUNK_BLOCK_BKRd" /*You can't enter the Bunker while acquiring goods for a warehouse.*/;
 		}
-		else if (num2 == 168)
+		else if (num3 == 168)
 		{
 			return "BUNK_BLOCK_BKRe" /*You can't enter the Bunker while selling goods from a warehouse.*/;
 		}
-		else if (num2 == 178)
+		else if (num3 == 178)
 		{
 			return "BUNK_BLOCK_BKRf" /*You can't enter the Bunker while acquiring a vehicle for a warehouse.*/;
 		}
-		else if (num2 == 188)
+		else if (num3 == 188)
 		{
 			unk2 = { Global_1888882[player4 /*611*/].f_10.f_187 };
 		
@@ -332667,71 +332667,71 @@ char* func_6470(int iParam0, var uParam1, var uParam2) // Position - 0x1D95C6 (1
 				return "BUNK_BLOCK_BKRg" /*You can't enter the Bunker while selling vehicles from a warehouse.*/;
 		}
 	}
-	else if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), false) && func_6443(PLAYER::PLAYER_ID(), flag) || flag2)
+	else if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), false) && func_6443(PLAYER::PLAYER_ID(), num) || flag)
 	{
-		if (func_6443(PLAYER::PLAYER_ID(), flag) && func_1418(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false)) || func_1403(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))) || func_1417(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))) || func_1752(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false)), true) || func_6476(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))) || func_6475(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))) || func_6474(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))))
+		if (func_6443(PLAYER::PLAYER_ID(), num) && func_1418(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false)) || func_1403(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))) || func_1417(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))) || func_1752(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false)), true) || func_6476(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))) || func_6475(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))) || func_6474(ENTITY::GET_ENTITY_MODEL(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false))))
 		{
 			return "BUNK_VEH_BLCK1" /*You can't enter the Bunker with this vehicle.*/;
 		}
-		else if (!func_6401(iParam0, &player2, &num, true, false))
+		else if (!func_6401(iParam0, &player2, &num2, true, false))
 		{
 			if (player2 == PLAYER::PLAYER_ID())
 			{
-				if (num == 1)
+				if (num2 == 1)
 				{
 					return "BUNK_VEH_BLCK0" /*You can't enter the Bunker with this vehicle. Only your Personal Vehicle can be driven in.*/;
 				}
-				else if (num == 2)
+				else if (num2 == 2)
 				{
 				}
-				else if (num == 3)
+				else if (num2 == 3)
 				{
 					return "BUNK_VEH_BLCK2" /*You can't enter the Bunker with a vehicle while working for another player.*/;
 				}
-				else if (num == 4)
+				else if (num2 == 4)
 				{
 					return "BUNK_VEH_BLCK3" /*You can't enter the Bunker with this vehicle. You do not own this Bunker.*/;
 				}
-				else if (num == 5)
+				else if (num2 == 5)
 				{
 					return "BUNK_VEH_BLCK4" /*You can't enter the Bunker with this vehicle, without the Mobile Operations Center trailer attached.*/;
 				}
-				else if (num == 7)
+				else if (num2 == 7)
 				{
 					return "BUNK_VEH_BLCK4b" /*You can't enter the Bunker with another player's Mobile Operations Center.*/;
 				}
-				else if (num == 6)
+				else if (num2 == 6)
 				{
 					return "BUNK_VEH_BLCK7" /*You can't enter the Bunker with this vehicle. Please detach trailer to enter.*/;
 				}
-				else if (num == -1)
+				else if (num2 == -1)
 				{
 					return "BUNK_VEH_BLCK0" /*You can't enter the Bunker with this vehicle. Only your Personal Vehicle can be driven in.*/;
 				}
 			}
-			else if (num == 1)
+			else if (num2 == 1)
 			{
 				return "BUNK_VEH_BLCK0b" /*You can't enter the Bunker with this vehicle. Only the Bunker owner in their Personal Vehicle can drive in.*/;
 			}
-			else if (num == 2)
+			else if (num2 == 2)
 			{
 			}
-			else if (num == 3)
+			else if (num2 == 3)
 			{
 				return "BUNK_VEH_BLCK2b" /*You can't enter the Bunker with this vehicle. The driver is working for another player.*/;
 			}
-			else if (num == 4 || num == 5)
+			else if (num2 == 4 || num2 == 5)
 			{
 				return "BUNK_VEH_BLCK3b" /*You can't enter the Bunker with this vehicle. The driver does not own this Bunker.*/;
 			}
-			else if (num == -1)
+			else if (num2 == -1)
 			{
 				return "BUNK_VEH_BLCK0b" /*You can't enter the Bunker with this vehicle. Only the Bunker owner in their Personal Vehicle can drive in.*/;
 			}
 		}
 	}
 
-	if (func_6443(PLAYER::PLAYER_ID(), flag) || func_6443(_GET_BOSS_OF_LOCAL_PLAYER(), flag))
+	if (func_6443(PLAYER::PLAYER_ID(), num) || func_6443(_GET_BOSS_OF_LOCAL_PLAYER(), num))
 	{
 		if (func_1181(PLAYER::PLAYER_PED_ID()))
 			return "JUG_BLOCK_BUNK" /*You can't access this Bunker while wearing the Ballistic Equipment.*/;
@@ -332742,7 +332742,7 @@ char* func_6470(int iParam0, var uParam1, var uParam2) // Position - 0x1D95C6 (1
 
 	if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), false))
 	{
-		if (func_6401(iParam0, &player2, &num, true, false) && func_6443(PLAYER::PLAYER_ID(), flag) && player2 == PLAYER::PLAYER_ID())
+		if (func_6401(iParam0, &player2, &num2, true, false) && func_6443(PLAYER::PLAYER_ID(), num) && player2 == PLAYER::PLAYER_ID())
 		{
 			if (func_6473(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false)))
 				return "BUNK_VEH_BLCK1" /*You can't enter the Bunker with this vehicle.*/;
@@ -333143,11 +333143,11 @@ void func_6481() // Position - 0x1DA5A8 (1942952)
 
 int func_6482(Player plParam0, int iParam1, var uParam2) // Position - 0x1DA683 (1943171)
 {
-	BOOL flag;
+	int num;
 	var unk;
 	var unk2;
 
-	flag = func_6404(iParam1);
+	num = func_6404(iParam1);
 
 	if (plParam0 == PLAYER::PLAYER_ID() && func_1205())
 		return 0;
@@ -333162,7 +333162,7 @@ int func_6482(Player plParam0, int iParam1, var uParam2) // Position - 0x1DA683 
 	{
 		if (func_345(PLAYER::PLAYER_ID(), false))
 		{
-			if (func_6443(func_327(plParam0), flag))
+			if (func_6443(func_327(plParam0), num))
 			{
 				if (func_6477(plParam0, false))
 					if (!func_6486() && !func_6483(func_6485(plParam0)))
@@ -333179,7 +333179,7 @@ int func_6482(Player plParam0, int iParam1, var uParam2) // Position - 0x1DA683 
 		
 			return 1;
 		}
-		else if (func_6443(plParam0, flag))
+		else if (func_6443(plParam0, num))
 		{
 			return 1;
 		}
@@ -333712,13 +333712,13 @@ void func_6505(int iParam0, Player plParam1, var uParam2) // Position - 0x1DB2C7
 	return;
 }
 
-BOOL func_6506(Player plParam0, BOOL bParam1, int iParam2) // Position - 0x1DB36E (1946478)
+BOOL func_6506(Player plParam0, int iParam1, int iParam2) // Position - 0x1DB36E (1946478)
 {
 	int num;
 
-	if (func_6443(plParam0, bParam1))
+	if (func_6443(plParam0, iParam1))
 	{
-		num = func_6457(plParam0, bParam1);
+		num = func_6457(plParam0, iParam1);
 		return IS_BIT_SET(Global_1845274[plParam0 /*877*/].f_260.f_199[num /*13*/].f_5, iParam2);
 	}
 
@@ -341088,7 +341088,7 @@ Vector3 func_6604(int iParam0) // Position - 0x1E6B1D (1993501)
 {
 	switch (func_6404(iParam0))
 	{
-		case true:
+		case 1:
 			return 22.9f, 6307.98f, 0f;
 	
 		case 2:
@@ -345646,7 +345646,7 @@ char* func_6638(int iParam0, var uParam1, var uParam2) // Position - 0x1EEB43 (2
 char* func_6639(int iParam0, char* sParam1, var uParam2) // Position - 0x1EEC1A (2026522)
 {
 	Player player;
-	BOOL flag;
+	int num;
 
 	if (func_1208())
 	{
@@ -345714,10 +345714,10 @@ char* func_6639(int iParam0, char* sParam1, var uParam2) // Position - 0x1EEC1A 
 	
 		if (player != _INVALID_PLAYER_INDEX())
 		{
-			flag = { Global_1888882[player /*611*/].f_10.f_194 };
+			num = { Global_1888882[player /*611*/].f_10.f_194 };
 		
-			if (func_6404(iParam0) != flag)
-				if (func_6456(player, flag))
+			if (func_6404(iParam0) != num)
+				if (func_6456(player, num))
 					return "BWH_MC_BLOCK_BKRc" /*You can't enter this business while resupplying another.*/;
 				else
 					return "BWH_MC_BLOCK_BKRb" /*You can't enter this business while setting up another.*/;
@@ -345767,14 +345767,14 @@ int func_6641(var uParam0, var uParam1, var uParam2) // Position - 0x1EEECC (202
 
 BOOL func_6642(Player plParam0, int iParam1, int iParam2) // Position - 0x1EEED5 (2027221)
 {
-	BOOL flag;
+	int num;
 
-	flag = func_6404(iParam1);
+	num = func_6404(iParam1);
 
 	if (plParam0 != _INVALID_PLAYER_INDEX())
 		if (func_262(plParam0, true))
-			return func_6443(func_327(plParam0), flag);
-		else if (func_6443(plParam0, flag) && !func_345(PLAYER::PLAYER_ID(), true))
+			return func_6443(func_327(plParam0), num);
+		else if (func_6443(plParam0, num) && !func_345(PLAYER::PLAYER_ID(), true))
 			return true;
 
 	return false;
@@ -345789,8 +345789,8 @@ BOOL func_6644(int iParam0) // Position - 0x1EEF32 (2027314)
 {
 	BOOL flag;
 	Player player;
+	int num;
 	BOOL flag2;
-	BOOL flag3;
 
 	if (func_1747() && !func_1258(PLAYER::PLAYER_ID()))
 		return true;
@@ -345813,9 +345813,9 @@ BOOL func_6644(int iParam0) // Position - 0x1EEF32 (2027314)
 			
 				if (player != -1)
 				{
-					flag2 = { Global_1888882[player /*611*/].f_10.f_194 };
+					num = { Global_1888882[player /*611*/].f_10.f_194 };
 				
-					if (func_6404(iParam0) != flag2)
+					if (func_6404(iParam0) != num)
 						return true;
 					else
 						flag = true;
@@ -345831,9 +345831,9 @@ BOOL func_6644(int iParam0) // Position - 0x1EEF32 (2027314)
 	if (!func_1213(true) && !flag)
 		return true;
 
-	flag3 = false;
+	flag2 = false;
 
-	if (func_1233(flag3, 4) && !func_1181(PLAYER::PLAYER_PED_ID()) && !func_1204() && !func_6645())
+	if (func_1233(flag2, 4) && !func_1181(PLAYER::PLAYER_PED_ID()) && !func_1204() && !func_6645())
 		return true;
 
 	if (func_5392() || func_5391(PLAYER::PLAYER_ID()))
@@ -345958,9 +345958,9 @@ char* func_6654(int iParam0, int iParam1) // Position - 0x1EF187 (2027911)
 	return "";
 }
 
-int func_6655(BOOL bParam0) // Position - 0x1EF259 (2028121)
+int func_6655(int iParam0) // Position - 0x1EF259 (2028121)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
 		case 1:
 			return 3;
@@ -346076,41 +346076,41 @@ int func_6656(var uParam0) // Position - 0x1EF3A9 (2028457)
 int func_6657(Player plParam0, var uParam1, int iParam2) // Position - 0x1EF3C1 (2028481)
 {
 	int num;
-	BOOL flag;
+	int num2;
 
 	num = iParam2;
 
 	if (num != -1)
 	{
-		flag = func_6658(plParam0, num);
+		num2 = func_6658(plParam0, num);
 	
-		if (flag != false)
-			return func_5915(flag);
+		if (num2 != 0)
+			return func_5915(num2);
 	}
 
 	return -1;
 }
 
-BOOL func_6658(Player plParam0, int iParam1) // Position - 0x1EF3ED (2028525)
+int func_6658(Player plParam0, int iParam1) // Position - 0x1EF3ED (2028525)
 {
 	int i;
-	BOOL flag;
+	int num;
 
 	if (plParam0 == _INVALID_PLAYER_INDEX())
-		return false;
+		return 0;
 
 	for (i = 0; i <= 6; i = i + 1)
 	{
-		if (Global_1845274[plParam0 /*877*/].f_260.f_199[i /*13*/] != false)
+		if (Global_1845274[plParam0 /*877*/].f_260.f_199[i /*13*/] != 0)
 		{
-			flag = Global_1845274[plParam0 /*877*/].f_260.f_199[i /*13*/];
+			num = Global_1845274[plParam0 /*877*/].f_260.f_199[i /*13*/];
 		
-			if (func_6655(flag) == iParam1)
-				return flag;
+			if (func_6655(num) == iParam1)
+				return num;
 		}
 	}
 
-	return false;
+	return 0;
 }
 
 void func_6659(int iParam0, var uParam1, var uParam2) // Position - 0x1EF44F (2028623)

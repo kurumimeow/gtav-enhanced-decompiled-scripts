@@ -3898,7 +3898,7 @@ void func_49() // Position - 0x2912 (10514)
 					if (Global_1574589.f_5 >= Global_1050156.f_67)
 						Global_1574589.f_5 = Global_1050156.f_67 - 1;
 				
-					if (Global_1574589.f_5 < false)
+					if (Global_1574589.f_5 < PV_COMP_HEAD)
 						Global_1574589.f_5 = 0;
 				
 					if (iLocal_1154[1] == 3 || iLocal_1154[1] == 7)
