@@ -44,7 +44,7 @@ void main() // Position - 0x0 (0)
 
 	while (true)
 	{
-		SYSTEM::WAIT(250);
+		BUILTIN::WAIT(250);
 	
 		switch (iLocal_16)
 		{
@@ -428,7 +428,7 @@ int func_2(int iParam0, int iParam1, int iParam2, int iParam3, BOOL bParam4) // 
 	}
 
 	num3 = iParam0;
-	iParam3 = SYSTEM::FLOOR(num * SYSTEM::TO_FLOAT(iParam3));
+	iParam3 = BUILTIN::FLOOR(num * BUILTIN::TO_FLOAT(iParam3));
 	num4 = 0;
 	num5 = iParam3;
 
@@ -753,10 +753,10 @@ char* func_6(int iParam0) // Position - 0xD4B (3403)
 	
 		default:
 			if (func_13(iParam0))
-				return "HSW_COUP";
+				return "HSW_COUP" /*One free respray, livery or spoiler.*/;
 		
 			if (func_11(iParam0))
-				return "HSWU_COUP";
+				return "HSWU_COUP" /*One free Hao's Special Works upgrade.*/;
 			break;
 	}
 

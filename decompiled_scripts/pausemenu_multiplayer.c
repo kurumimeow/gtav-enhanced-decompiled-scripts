@@ -1453,7 +1453,7 @@ void main() // Position - 0x0 (0)
 		case 3:
 			while (true)
 			{
-				SYSTEM::WAIT(0);
+				BUILTIN::WAIT(0);
 				func_2037(0);
 			
 				if (func_2036() != 0)
@@ -2229,7 +2229,7 @@ BOOL func_5(float fParam0) // Position - 0x1358 (4952)
 {
 	int num;
 
-	num = SYSTEM::FLOOR(fParam0);
+	num = BUILTIN::FLOOR(fParam0);
 
 	if (fParam0 - (float)num > 0f)
 		return false;
@@ -2517,9 +2517,9 @@ BOOL func_9() // Position - 0x1855 (6229)
 
 	if (!IS_BIT_SET(Global_1965685.f_3, 1) || IS_BIT_SET(Global_1965685.f_3, 2) && !NETWORK::IS_COMMERCE_STORE_OPEN() && !NETWORK::IS_COMMERCE_DATA_FETCH_IN_PROGRESS())
 	{
-		if (unk_0x483F6369B8CEE24B())
+		if (NETWORK::NETWORK_HAS_SC_MEMBERSHIP_INFO())
 		{
-			unk_0x9FA18B5CD8803086(&Global_1965685);
+			NETWORK::NETWORK_GET_SC_MEMBERSHIP_INFO(&Global_1965685);
 			MISC::SET_BIT(&(Global_1965685.f_3), 1);
 		
 			if (IS_BIT_SET(Global_1965685.f_3, 2))
@@ -3315,7 +3315,7 @@ void func_48() // Position - 0x2756 (10070)
 		SAVEMIGRATION::SAVEMIGRATION_MP_REQUEST_ACCOUNTS();
 		iLocal_299 = 1;
 		iLocal_300 = MISC::GET_REAL_WORLD_TIME();
-		unk_0x640B4FB20A104099("UI_FLOW_OP_MIGRATE_C", 1, 1);
+		HUD::PAUSE_MENU_SET_CLOUD_BUSY_SPINNER("UI_FLOW_OP_MIGRATE_C" /*Checking profile migration availability. Please wait.*/, true, true);
 	}
 	else if (iLocal_299 == 1)
 	{
@@ -3359,22 +3359,22 @@ void func_48() // Position - 0x2756 (10070)
 		switch (iLocal_299)
 		{
 			case 2:
-				TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_MIGRATE_E1", 32);
+				TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_MIGRATE_E1" /*A profile migration is currently in progress. Please try again later.*/, 32);
 				instructionalKey = 16;
 				break;
 		
 			case 3:
-				TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_MIGRATE_E2", 32);
+				TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_MIGRATE_E2" /*An error has occurred. Profile migration may not be available at this time. Please ensure the profile you wish to migrate is not currently signed in to GTA Online on Grand Theft Auto V Legacy.*/, 32);
 				instructionalKey = 16;
 				break;
 		
 			case 4:
-				TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_MIGRATE_E3", 32);
+				TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_MIGRATE_E3" /*You have no GTA Online profiles available.~n~Previously migrated profiles are not available to migrate again.*/, 32);
 				instructionalKey = 16;
 				break;
 		
 			case 5:
-				TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_MIGRATE_W", 32);
+				TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_MIGRATE_W" /*Are you sure you want to quit this session and migrate your profile?*/, 32);
 				instructionalKey = 18;
 				break;
 		
@@ -3386,7 +3386,7 @@ void func_48() // Position - 0x2756 (10070)
 	
 		if (HUD::IS_WARNING_MESSAGE_READY_FOR_CONTROL())
 		{
-			unk_0x4947F58BB3AB76D2();
+			HUD::PAUSE_MENU_CLEAR_CLOUD_BUSY_SPINNER();
 		
 			if (PAD::IS_CONTROL_JUST_RELEASED(FRONTEND_CONTROL, INPUT_FRONTEND_ACCEPT) && func_313(instructionalKey, 2))
 			{
@@ -3921,7 +3921,7 @@ void func_49() // Position - 0x2912 (10514)
 			break;
 	
 		case 9:
-			if (unk_0xA6E586C3BD772B7B())
+			if (MONEY::NETWORK_GET_MP_WINDFALL_AVAILABLE())
 			{
 				func_163();
 			}
@@ -3946,7 +3946,7 @@ void func_49() // Position - 0x2912 (10514)
 			break;
 	
 		case 17:
-			if (unk_0xA6E586C3BD772B7B())
+			if (MONEY::NETWORK_GET_MP_WINDFALL_AVAILABLE())
 			{
 				func_163();
 			}
@@ -4129,7 +4129,7 @@ void func_49() // Position - 0x2912 (10514)
 
 	GRAPHICS::GRAB_PAUSEMENU_OWNERSHIP();
 
-	if (!unk_0x776947A43CCD5328())
+	if (!MISC::HAS_PENDING_SCRIPT_ROUTER_LINK())
 	{
 		if (PLAYER::IS_PLAYER_FREE_FOR_AMBIENT_TASK(PLAYER::PLAYER_ID()) == false)
 			func_303(0);
@@ -4167,7 +4167,7 @@ int func_52(int iParam0) // Position - 0x395C (14684)
 
 	if (func_53(unk))
 	{
-		unk_0xD5AEB715D79ADE64(iParam0);
+		NETWORK::RESERVE_COMMERCE_STORE_PURCHASE_LOCATION(iParam0);
 		return 1;
 	}
 
@@ -4176,21 +4176,21 @@ int func_52(int iParam0) // Position - 0x395C (14684)
 
 BOOL func_53(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, var uParam5, var uParam6, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12, var uParam13, var uParam14, var uParam15) // Position - 0x3983 (14723)
 {
-	int num;
+	int contextData;
 
-	num = 3;
-	num.f_1 = 5;
-	num.f_2 = 11;
-	num.f_3 = { uParam0 };
-	return unk_0x317989BB72A2EBFB(&num);
+	contextData = 3;
+	contextData.f_1 = 5;
+	contextData.f_2 = 11;
+	contextData.f_3 = { uParam0 };
+	return MISC::SET_SCRIPT_ROUTER_LINK(&contextData);
 }
 
 BOOL func_54() // Position - 0x39AB (14763)
 {
-	int num;
+	int entitlements;
 
-	if (unk_0xB42DBFF903BB270F())
-		if (unk_0x140491FD99CE6F5D(&num) && num == 2)
+	if (DLC::ARE_USER_ENTITLEMENTS_UP_TO_DATE())
+		if (DLC::TRY_GET_USER_ENTITLEMENTS(&entitlements) && entitlements == 2)
 			return true;
 
 	return false;
@@ -5094,17 +5094,17 @@ void func_91(BOOL bParam0) // Position - 0x4CCD (19661)
 
 void func_92() // Position - 0x4CDB (19675)
 {
-	int num;
+	int contextData;
 
-	unk_0x776947A43CCD5328();
+	MISC::HAS_PENDING_SCRIPT_ROUTER_LINK();
 
 	if (0 != func_89())
 		func_88(0);
 
-	num = 3;
-	num.f_1 = 5;
-	num.f_2 = 1;
-	unk_0x317989BB72A2EBFB(&num);
+	contextData = 3;
+	contextData.f_1 = 5;
+	contextData.f_2 = 1;
+	MISC::SET_SCRIPT_ROUTER_LINK(&contextData);
 	return;
 }
 
@@ -7513,7 +7513,7 @@ void func_262(BOOL bParam0, int iParam1) // Position - 0x7AFE (31486)
 void func_263(int iParam0) // Position - 0x7B20 (31520)
 {
 	if (iParam0 == -1)
-		!unk_0xB42DBFF903BB270F();
+		!DLC::ARE_USER_ENTITLEMENTS_UP_TO_DATE();
 
 	Global_33299 = iParam0;
 	return;
@@ -7543,7 +7543,7 @@ void func_267() // Position - 0x7B67 (31591)
 	return;
 }
 
-var func_268() // Position - 0x7B78 (31608)
+BOOL func_268() // Position - 0x7B78 (31608)
 {
 	var unk;
 
@@ -8502,7 +8502,7 @@ void func_303(int iParam0) // Position - 0x92E4 (37604)
 	func_306();
 
 	if (iParam0 == 0)
-		if (LOADINGSCREEN::LOBBY_AUTO_MULTIPLAYER_FREEMODE())
+		if (LOBBY::LOBBY_AUTO_MULTIPLAYER_FREEMODE())
 			return;
 
 	if (func_305() == 0 || HUD::IS_PAUSE_MENU_ACTIVE())
@@ -8558,7 +8558,7 @@ BOOL func_310() // Position - 0x9387 (37767)
 	if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 		if (Global_262145.f_4425)
 			Global_262145.f_4425 = 0;
-	else if (!Global_262145.f_4425 && unk_0xA6E586C3BD772B7B())
+	else if (!Global_262145.f_4425 && MONEY::NETWORK_GET_MP_WINDFALL_AVAILABLE())
 		Global_262145.f_4425 = 1;
 
 	func_311(&num);
@@ -10385,14 +10385,14 @@ void func_368() // Position - 0xB654 (46676)
 		
 			case 1:
 			case 10:
-				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_MIGRATE", 24);
+				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_MIGRATE" /*Migrate Profile*/, 24);
 			
 				if (!NETWORK::NETWORK_HAS_SOCIAL_CLUB_ACCOUNT())
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_MIGRATE_P1" /*Returning players can transfer their existing Grand Theft Auto Online characters and progression. ~n~~n~For further information please visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/gtaonline~s~ ~n~~n~Press ~INPUT_FRONTEND_ACCEPT~ to visit Rockstar Games.*/, 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_MIGRATE_P1" /*Returning players can migrate their existing Grand Theft Auto Online characters and progression to their PC.~n~~n~For further information please visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/gtaonline~s~ ~n~~n~Press ~INPUT_FRONTEND_ACCEPT~ to visit Rockstar Games.*/, 32);
 				else if (func_412() == 101)
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "HUD_ST_EBAN" /*Your Rockstar Games account is currently banned from Grand Theft Auto Online. You will not be able to transfer your character and progression data until the ban is lifted.*/, 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "HUD_ST_EBAN" /*Your Rockstar Games account is currently banned from Grand Theft Auto Online. You will not be able to migrate your GTA Online profile until the ban is lifted.~n~If you are a GTA+ Member, you will need to manually cancel your Membership.*/, 32);
 				else
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_MIGRATE_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_MIGRATE_D" /*If you have previously played GTA Online with an associated Rockstar Games account, you can migrate your profile from GTAV Legacy.~n~~n~Migration can only be completed once.~n~~n~Press ~INPUT_FRONTEND_ACCEPT~ to begin migrating your previous GTA Online profile.*/, 32);
 				break;
 		
 			case 0:
@@ -10497,7 +10497,7 @@ void func_368() // Position - 0xB654 (46676)
 		
 			case 13:
 				TEXT_LABEL_ASSIGN_STRING(&unk, "PM_SAFEALERT" /*Safety and Alerts*/, 24);
-				TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_SAFEALERTBOD" /*Here you will find messages regarding your account, privacy notifications, policy changes, safety and other important updates.~n~~n~For more information and to learn about our foundation of fair play, respect, and player safety, please read our full Community Guidelines at rockstargames.com/community-guidelines.*/, 32);
+				TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_SAFEALERTBOD" /*Here you will find messages regarding your account, privacy notifications, policy changes, safety and other important updates.~n~~n~For more information and to learn about our foundation of fair play, respect, and player safety, please read our full Community Guidelines at rockstargames.com/community-resources/guidelines.*/, 32);
 			
 				if (!IS_BIT_SET(Global_2740191.f_7238, 4))
 					MISC::SET_BIT(&(Global_2740191.f_7238), 4);
@@ -10529,22 +10529,22 @@ void func_368() // Position - 0xB654 (46676)
 					}
 					else if (iLocal_1278 == 3)
 					{
-						TEXT_LABEL_ASSIGN_STRING(&unk, "PM_INF_MEMB_T", 24);
-						TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_INF_MEMB_B2", 32);
+						TEXT_LABEL_ASSIGN_STRING(&unk, "PM_INF_MEMB_T" /*GTA+*/, 24);
+						TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_INF_MEMB_B2" /*GTA+ is a monthly membership program delivering exclusive benefits including GTA$ and more each month, such as:~n~~n~-	A free vehicle with every new GTA+ Event Period~n~-	Games Included with GTA+ with access to classic Rockstar titles~n~-	GTA$500,000 each month your Membership renews~n~-	The Vinewood Club's services, including a 100-car garage~n~-	Shark Cards with 15% bonus GTA$~n~-	Exclusive styles and more~n~~n~Subscription automatically renews monthly; cancel any time. Visit ~HUD_COLOUR_SOCIAL_CLUB~rsg.ms/gtaplus~s~ for more info and terms.*/, 32);
 					}
 				}
 				else if (!func_9() && !Global_262145.f_31165)
 				{
-					TEXT_LABEL_ASSIGN_STRING(&unk, "PM_INF_MEMB_T", 24);
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_INF_MEMB_B", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk, "PM_INF_MEMB_T" /*GTA+*/, 24);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_INF_MEMB_B" /*GTA+ is a monthly Membership program delivering exclusive benefits including GTA$ and more each month, such as:~n~~n~-	Claim a free vehicle with every new GTA+ Member Event Period~n~-	GTA+ Games Library with access to classic Rockstar titles~n~-	GTA$500,000 each month your Membership renews~n~-	The Vinewood Club's services, including a 100-car garage~n~-	Shark Cards with 15% bonus GTA$~n~-	Exclusive styles and more~n~~n~Subscription automatically renews monthly; cancel anytime. Visit ~HUD_COLOUR_SOCIAL_CLUB~rsg.ms/gtaplus~s~ for more info and terms.*/, 32);
 				}
 				break;
 		
 			case 0:
 				if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 				{
-					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_QJOB", 24);
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_QJOB_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_QJOB" /*Jobs*/, 24);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_QJOB_D" /*Select from a wide range of Jobs to play in GTA Online. Choose 'Quick Join' to find an available Job via Quick Join, or select 'Play Job' to select a Job from the Rockstar Created menu or from the list of Jobs you have Bookmarked on Rockstar Games.~n~~n~There's plenty of variety to keep you fighting for your cash and RP.*/, 32);
 				}
 				else
 				{
@@ -10555,68 +10555,68 @@ void func_368() // Position - 0xB654 (46676)
 		
 			case 1:
 			case 10:
-				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_MIGRATE", 24);
+				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_MIGRATE" /*Migrate Profile*/, 24);
 			
 				if (!NETWORK::NETWORK_HAS_SOCIAL_CLUB_ACCOUNT())
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_MIGRATE_P1" /*Returning players can transfer their existing Grand Theft Auto Online characters and progression. ~n~~n~For further information please visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/gtaonline~s~ ~n~~n~Press ~INPUT_FRONTEND_ACCEPT~ to visit Rockstar Games.*/, 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_MIGRATE_P1" /*Returning players can migrate their existing Grand Theft Auto Online characters and progression to their PC.~n~~n~For further information please visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/gtaonline~s~ ~n~~n~Press ~INPUT_FRONTEND_ACCEPT~ to visit Rockstar Games.*/, 32);
 				else if (func_412() == 101)
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "HUD_ST_EBAN" /*Your Rockstar Games account is currently banned from Grand Theft Auto Online. You will not be able to transfer your character and progression data until the ban is lifted.*/, 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "HUD_ST_EBAN" /*Your Rockstar Games account is currently banned from Grand Theft Auto Online. You will not be able to migrate your GTA Online profile until the ban is lifted.~n~If you are a GTA+ Member, you will need to manually cancel your Membership.*/, 32);
 				else
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_MIGRATE_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_MIGRATE_D" /*If you have previously played GTA Online with an associated Rockstar Games account, you can migrate your profile from GTAV Legacy.~n~~n~Migration can only be completed once.~n~~n~Press ~INPUT_FRONTEND_ACCEPT~ to begin migrating your previous GTA Online profile.*/, 32);
 				break;
 		
 			case 2:
 				if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 				{
-					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_JOINFRND", 24);
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_JOINFRND_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_JOINFRND" /*Join Friends*/, 24);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_JOINFRND_D" /*Find and join a GTA Online session containing one or more of your friends.*/, 32);
 				}
 				else
 				{
-					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_SO_JOINFRND", 24);
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_SO_JOINFRND_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_SO_JOINFRND" /*Join Friends*/, 24);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_SO_JOINFRND_D" /*Find and join a GTA Online session containing one or more of your friends.*/, 32);
 				}
 				break;
 		
 			case 3:
 				if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 				{
-					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_JOINCRW", 24);
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_JOINCRW_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_JOINCRW" /*Join Crew Members*/, 24);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_JOINCRW_D" /*Find and join a session containing one or more of your fellow Crew members.*/, 32);
 				}
 				else
 				{
-					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_SO_JOINCRW", 24);
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_SO_JOINCRW_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_SO_JOINCRW" /*Join Crew Members*/, 24);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_SO_JOINCRW_D" /*Find and join a GTA Online session containing one or more of your fellow Crew members.*/, 32);
 				}
 				break;
 		
 			case 8:
 				if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 				{
-					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_CREATOR", 24);
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_CREATOR_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_CREATOR" /*Rockstar Creator*/, 24);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_CREATOR_D" /*Design your dream Race, Deathmatch, Last Team Standing, Capture, King of the Hill or Survival using Rockstar Creator. Invite Friends to play, or upload to Rockstar Games for the world to play and rate.~n~~n~If other players like your style, your creation could be included in the Community Series. Community Series Jobs are featured in game, with a chance of promotion on the Rockstar Newswire or via a GTA Online Event.~n~~n~Visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com~s~ for more information and tutorials about Rockstar Creator.*/, 32);
 				}
 				else
 				{
-					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_SO_CREATOR", 24);
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_SO_CREATOR_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_SO_CREATOR" /*Rockstar Creator*/, 24);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_SO_CREATOR_D" /*Design your dream Race, Deathmatch, Last Team Standing, Capture, King of the Hill or Survival using Rockstar Creator. Invite Friends to play, or upload to Rockstar Games for the world to play and rate.~n~~n~If other players like your style, your creation could be included in the Community Series. Community Series Jobs are featured in-game, with a chance of promotion on the Rockstar Newswire or via a GTA Online Event.~n~~n~Visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com~s~ for more information and tutorials about Rockstar Creator.*/, 32);
 				}
 				break;
 		
 			case 9:
-				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_SWPCHAR", 24);
-				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_SWPCHAR_D", 32);
+				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_SWPCHAR" /*Manage Characters*/, 24);
+				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_SWPCHAR_D" /*Manage your GTA Online characters. You can rename or delete your existing characters, or create a new one. You can have up to two characters in GTA Online.~n~~n~Visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com~s~ for more information about viewing your GTA Online character's career progress.*/, 32);
 				break;
 		
 			case 17:
-				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_SO_CHARONLNE", 24);
-				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_SO_CHARONLNE_D", 32);
+				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_SO_CHARONLNE" /*Manage Characters*/, 24);
+				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_SO_CHARONLNE_D" /*Choose from up to two custom characters and enter GTA Online. You can rename or delete your existing characters, or create a new one.~n~~n~Visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com~s~ for more information about viewing your GTA Online character's career progress.*/, 32);
 				break;
 		
 			case 23:
-				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_QUITWIN", 24);
-				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_QUITWIN_D", 32);
+				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_QUITWIN" /*Quit Game*/, 24);
+				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_QUITWIN_D" /*Quit the game and return to desktop.*/, 32);
 				break;
 		
 			case 15:
@@ -10633,22 +10633,22 @@ void func_368() // Position - 0xB654 (46676)
 				break;
 		
 			case 12:
-				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_SHRKCRDS", 24);
+				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_SHRKCRDS" /*Purchase Shark Cards*/, 24);
 			
 				if (func_402())
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_SHRKCRDS_D_GAM", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_SHRKCRDS_D_GAM" /*Cash is king in this town. Solve your money problem and help get what you want across Los Santos and Blaine County with the occasional purchase of Shark Cards for GTA Online. All purchased cash is automatically deposited into your character's bank account. Spend wisely, cash therapy is fleeting.*/, 32);
 				else
-					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_SHRKCRDS_D", 32);
+					TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_SHRKCRDS_D" /*Cash is king in this town. Solve your money problem and help get what you want across Los Santos and Blaine County with the occasional purchase of Shark Cards for GTA Online. All purchased cash is automatically deposited into your character's bank account. Spend wisely, cash therapy is fleeting.*/, 32);
 				break;
 		
 			case 21:
-				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_QUITLP", 24);
-				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_QUITLP_D", 32);
+				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_QUITLP" /*Quit to Main Menu*/, 24);
+				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_QUITLP_D" /*Quit GTA Online and return to the Main Menu.*/, 32);
 				break;
 		
 			case 20:
-				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_QUITSM", 24);
-				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_QUITSM_D", 32);
+				TEXT_LABEL_ASSIGN_STRING(&unk, "UI_FLOW_OP_QUITSM" /*Quit to Story Mode*/, 24);
+				TEXT_LABEL_ASSIGN_STRING(&unk7, "UI_FLOW_OP_QUITSM_D" /*Quit GTA Online and enter Story Mode. Your GTA Online progress will be automatically saved when you quit.~n~~n~Visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/gta-online~s~ for more information about comparing your GTA Online career with your friends and the community.*/, 32);
 				break;
 		}
 	}
@@ -10954,7 +10954,7 @@ void func_368() // Position - 0xB654 (46676)
 							if (func_315())
 								TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_INF_CPLB9" /*Save and upload your Playlist.~n~~n~Find your created Playlists under the 'My Playlists' menu or see them on ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com~s~*/, 32);
 							else
-								TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_INF_CPLB9C" /*The Rockstar game services are unavailable right now. Please try again later.*/, 32);
+								TEXT_LABEL_ASSIGN_STRING(&unk7, "PM_INF_CPLB9C" /*Rockstar Games Services are unavailable right now. Please try again later.*/, 32);
 						}
 					}
 					else
@@ -12241,7 +12241,7 @@ int func_390() // Position - 0xDF8E (57230)
 
 BOOL func_391() // Position - 0xDFA4 (57252)
 {
-	return func_386(526, -1) || unk_0xB233964AC562A357() && func_393() != 0 && !func_392(0);
+	return func_386(526, -1) || MISC::HAS_FINALIZED_CHOSEN_CRIMINAL_CAREER() && func_393() != 0 && !func_392(0);
 }
 
 BOOL func_392(int iParam0) // Position - 0xDFD4 (57300)
@@ -12254,7 +12254,7 @@ BOOL func_392(int iParam0) // Position - 0xDFD4 (57300)
 
 int func_393() // Position - 0xDFEB (57323)
 {
-	return unk_0xA0A0D77ECEDD4136();
+	return MISC::GET_CHOSEN_CRIMINAL_CAREER();
 }
 
 BOOL func_394() // Position - 0xDFF7 (57335)
@@ -14292,9 +14292,9 @@ BOOL func_463() // Position - 0x10DA5 (69029)
 
 void func_464() // Position - 0x10E60 (69216)
 {
-	if (!LOADINGSCREEN::LOBBY_AUTO_MULTIPLAYER_FREEMODE() && !NETWORK::GET_IS_LAUNCH_FROM_LIVE_AREA() && !NETWORK::GET_IS_LIVE_AREA_LAUNCH_WITH_CONTENT() && !func_316())
+	if (!LOBBY::LOBBY_AUTO_MULTIPLAYER_FREEMODE() && !NETWORK::GET_IS_LAUNCH_FROM_LIVE_AREA() && !NETWORK::GET_IS_LIVE_AREA_LAUNCH_WITH_CONTENT() && !func_316())
 	{
-		HUD::SET_WARNING_MESSAGE_WITH_HEADER("PCARD_SYNC_ERROR_TITLE" /*Alert*/, "PCARD_SYNC_ERROR" /*Rockstar Games Online Services are unavailable right now. Please try again later.*/, 2, 0, false, -1, 0, 0, true, 0);
+		HUD::SET_WARNING_MESSAGE_WITH_HEADER("PCARD_SYNC_ERROR_TITLE" /*Alert*/, "PCARD_SYNC_ERROR" /*Rockstar Games Services are unavailable right now. Please try again later.*/, 2, 0, false, -1, 0, 0, true, 0);
 	
 		if (PAD::IS_CONTROL_JUST_RELEASED(FRONTEND_CONTROL, INPUT_FRONTEND_ACCEPT) || NETWORK::NETWORK_SESSION_IS_AWAITING_INVITE_RESPONSE())
 		{
@@ -14487,7 +14487,7 @@ void func_469(int iParam0, int iParam1, int iParam2, int iParam3) // Position - 
 	if (num > 0)
 	{
 		num3 = 100f - iParam3;
-		num2 = SYSTEM::FLOOR((float)num * (num3 / 100f));
+		num2 = BUILTIN::FLOOR((float)num * (num3 / 100f));
 	}
 	else
 	{
@@ -14519,7 +14519,7 @@ Vector3 func_471(ePedComponentType epctParam0) // Position - 0x11202 (70146)
 	else if (HUD::DOES_BLIP_EXIST(Global_2647055.f_33[epctParam0]) && !(epctParam0 == Global_2672967))
 		vector = { func_538(Global_2647055.f_33[epctParam0]) };
 
-	if (SYSTEM::VMAG(vector) > 0f)
+	if (BUILTIN::VMAG(vector) > 0f)
 		return vector;
 
 	return func_472(epctParam0);
@@ -14537,12 +14537,12 @@ Vector3 func_472(ePedComponentType epctParam0) // Position - 0x11276 (70262)
 		{
 			vector = { func_536(epctParam0) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	
 		if (Global_2658019[epctParam0 /*467*/].f_75.f_11)
-			if (SYSTEM::VMAG(Global_2658019[epctParam0 /*467*/].f_75.f_12) > 0f)
+			if (BUILTIN::VMAG(Global_2658019[epctParam0 /*467*/].f_75.f_12) > 0f)
 				return Global_2658019[epctParam0 /*467*/].f_75.f_12;
 	}
 
@@ -14550,7 +14550,7 @@ Vector3 func_472(ePedComponentType epctParam0) // Position - 0x11276 (70262)
 	{
 		vector = { func_534(func_535(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_36)) };
 	
-		if (SYSTEM::VMAG(vector) > 0f)
+		if (BUILTIN::VMAG(vector) > 0f)
 			return vector;
 	}
 	else
@@ -14561,7 +14561,7 @@ Vector3 func_472(ePedComponentType epctParam0) // Position - 0x11276 (70262)
 		{
 			vector = { func_534(func_535(type)) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	}
@@ -14570,7 +14570,7 @@ Vector3 func_472(ePedComponentType epctParam0) // Position - 0x11276 (70262)
 	{
 		vector = { func_475(epctParam0) };
 	
-		if (SYSTEM::VMAG(vector) > 0f)
+		if (BUILTIN::VMAG(vector) > 0f)
 			return vector;
 	}
 
@@ -14582,7 +14582,7 @@ Vector3 func_472(ePedComponentType epctParam0) // Position - 0x11276 (70262)
 		{
 			vector = { Global_1946439.f_773[type2 /*3*/] };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	}
@@ -14593,12 +14593,12 @@ Vector3 func_472(ePedComponentType epctParam0) // Position - 0x11276 (70262)
 		{
 			vector = { func_536(epctParam0) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	
 		if (Global_2658019[epctParam0 /*467*/].f_75.f_11)
-			if (SYSTEM::VMAG(Global_2658019[epctParam0 /*467*/].f_75.f_12) > 0f)
+			if (BUILTIN::VMAG(Global_2658019[epctParam0 /*467*/].f_75.f_12) > 0f)
 				return Global_2658019[epctParam0 /*467*/].f_75.f_12;
 	}
 
@@ -16680,12 +16680,12 @@ void func_541() // Position - 0x13EF6 (81654)
 	}
 	else if (iLocal_1154[0] == 21)
 	{
-		TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_QUITLP_W", 24);
+		TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_QUITLP_W" /*Are you sure you want to quit GTA Online and return to the Main Menu?*/, 24);
 	}
 	else if (iLocal_1154[0] == 20)
 	{
 		if (func_54())
-			TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_QUITSM_W", 24);
+			TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_FLOW_OP_QUITSM_W" /*Are you sure you want to quit GTA Online and go to Story Mode?*/, 24);
 		else
 			TEXT_LABEL_ASSIGN_STRING(&entryLine1, "UI_ALERT_ENTRSTORE", 24);
 	}
@@ -17157,9 +17157,9 @@ BOOL func_552(BOOL bParam0) // Position - 0x1490A (84234)
 
 	if (NETWORK::NETWORK_HAS_VALID_ROS_CREDENTIALS() && !NETWORK::UGC_HAS_PERMISSION_TO_WRITE())
 		if (bParam0)
-			HUD::SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS("FMMC_ENDPUBF" /*Alert*/, "FMMC_ENDPUBFP" /*~a~, "~a~", failed to publish. You are suspended from using this feature due to a violation of our Community Guidelines. ~n~ Please visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/community-guidelines~s~ for more information.*/, 2, "", false, -1, 2, additionalTextInfoLine1, &(Global_4718592.f_138123), true, 0);
+			HUD::SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS("FMMC_ENDPUBF" /*Alert*/, "FMMC_ENDPUBFP" /*~a~, "~a~", failed to publish. You are suspended from using this feature due to a violation of our Community Guidelines. ~n~ Please visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/community-resources/guidelines~s~ for more information.*/, 2, "", false, -1, 2, additionalTextInfoLine1, &(Global_4718592.f_138123), true, 0);
 		else
-			HUD::SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS("FMMC_ENDPUBF" /*Alert*/, "FMMC_ENDSAVFP" /*~a~, "~a~", failed to save. You are suspended from using this feature due to a violation of our Community Guidelines. ~n~ Please visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/community-guidelines~s~ for more information.*/, 2, "", false, -1, 2, additionalTextInfoLine1, &(Global_4718592.f_138123), true, 0);
+			HUD::SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS("FMMC_ENDPUBF" /*Alert*/, "FMMC_ENDSAVFP" /*~a~, "~a~", failed to save. You are suspended from using this feature due to a violation of our Community Guidelines. ~n~ Please visit ~HUD_COLOUR_SOCIAL_CLUB~rockstargames.com/community-resources/guidelines~s~ for more information.*/, 2, "", false, -1, 2, additionalTextInfoLine1, &(Global_4718592.f_138123), true, 0);
 	else if (bParam0)
 		HUD::SET_WARNING_MESSAGE_WITH_HEADER_AND_SUBSTRING_FLAGS("FMMC_ENDPUBF" /*Alert*/, "FMMC_ENDPUBF2" /*~a~, "~a~", failed to publish. The Rockstar cloud servers are unavailable right now. Please try again later.*/, 2, "", false, -1, 2, additionalTextInfoLine1, &(Global_4718592.f_138123), true, 0);
 	else
@@ -27459,7 +27459,7 @@ void func_670() // Position - 0x25825 (153637)
 			if (iLocal_303.f_4)
 				HUD::SET_WARNING_MESSAGE_WITH_HEADER("PM_COMPL" /*Complete*/, "PM_SAVED1" /*Your Playlist has been uploaded.*/, 2, 0, false, -1, 0, 0, true, 0);
 			else
-				HUD::SET_WARNING_MESSAGE_WITH_HEADER("PM_INF_QMFT" /*Alert*/, "PM_SAVED1N" /*Failed to save your Playlist. The Rockstar game services are unavailable right now. Please try again later.*/, 2, 0, false, -1, 0, 0, true, 0);
+				HUD::SET_WARNING_MESSAGE_WITH_HEADER("PM_INF_QMFT" /*Alert*/, "PM_SAVED1N" /*Failed to save your Playlist. Rockstar Games Services are unavailable right now. Please try again later.*/, 2, 0, false, -1, 0, 0, true, 0);
 		
 			if (PAD::IS_CONTROL_JUST_RELEASED(FRONTEND_CONTROL, INPUT_FRONTEND_ACCEPT) || NETWORK::NETWORK_SESSION_IS_AWAITING_INVITE_RESPONSE())
 			{
@@ -28500,7 +28500,7 @@ void func_688(int iParam0, int iParam1, Vector3 vParam2, var uParam3, var uParam
 	{
 		num = 29;
 		func_720(iParam0, 0, iParam1, 0, "PM_PLAYERS" /*Players*/, epctParam10, epctParam11);
-		func_718(iParam0, 1, iParam1, 1, "PM_TYPE" /*Type*/, "HSWTT_TITLE", num3, num, IS_BIT_SET(iParam14, 14));
+		func_718(iParam0, 1, iParam1, 1, "PM_TYPE" /*Type*/, "HSWTT_TITLE" /*HSW Time Trial*/, num3, num, IS_BIT_SET(iParam14, 14));
 	
 		if (func_702() != -1)
 		{
@@ -29917,7 +29917,7 @@ char* func_719(ePedComponentType epctParam0, int iParam1, int iParam2, int iPara
 		else if (iParam1 == 27)
 			return "FMMC_RSTAR_STRTR" /*Street Race*/;
 		else if (iParam1 == 28 || iParam1 == 29)
-			return "FMMC_RSTAR_HSWR";
+			return "FMMC_RSTAR_HSWR" /*HSW Race*/;
 		else if (iParam1 == 30 || iParam1 == 31)
 			return "FMMC_RSTAR_DRIFR" /*Drift Race*/;
 		else if (iParam1 == 32)
@@ -30783,7 +30783,7 @@ void func_744() // Position - 0x2A1A9 (172457)
 			
 				case 0:
 					if (!NETWORK::IS_COMMERCE_STORE_OPEN())
-						if (unk_0x76A6981AEF0376EB(joaat("store"), 0))
+						if (SOCIALCLUB::SC_PAUSE_NEWS_INIT_STORY_TYPE(joaat("store"), false))
 							iLocal_1278 = 1;
 				
 					if (func_45(&uLocal_1279, 5000, false))
@@ -34085,7 +34085,7 @@ char* func_783(int iParam0) // Position - 0x2FF77 (196471)
 	switch (iParam0)
 	{
 		case -1:
-			return "UGC_FL_UNEX" /*The Rockstar game services are unavailable right now. Please try again later.*/;
+			return "UGC_FL_UNEX" /*Rockstar Games Services are unavailable right now. Please try again later.*/;
 	
 		case 0:
 			return "";
@@ -34133,7 +34133,7 @@ char* func_783(int iParam0) // Position - 0x2FF77 (196471)
 		
 	}
 
-	return "UGC_FL_UNEX" /*The Rockstar game services are unavailable right now. Please try again later.*/;
+	return "UGC_FL_UNEX" /*Rockstar Games Services are unavailable right now. Please try again later.*/;
 }
 
 char* func_784(int iParam0) // Position - 0x3004D (196685)
@@ -34161,7 +34161,7 @@ char* func_784(int iParam0) // Position - 0x3004D (196685)
 		else
 			return "CONT_FRIEN" /*Your profile only has permissions for friend content.*/;
 
-	return "CLOUD_LD_FL4" /*Unable to Join. The session you have tried to join is using content created by another player.*/;
+	return "CLOUD_LD_FL4" /*Unable to Join. There was an error loading the content in this session.*/;
 }
 
 BOOL func_785(Player plParam0) // Position - 0x30118 (196888)
@@ -35705,12 +35705,12 @@ Vector3 func_813(int iParam0) // Position - 0x321FA (205306)
 	if (DATAFILE::DATADICT_GET_TYPE(iParam0, "camp") == 3)
 		_float = DATAFILE::DATADICT_GET_FLOAT(iParam0, "camp");
 	else if (DATAFILE::DATADICT_GET_TYPE(iParam0, "camp") == 2)
-		_float = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(iParam0, "camp"));
+		_float = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(iParam0, "camp"));
 
 	if (DATAFILE::DATADICT_GET_TYPE(iParam0, "camh") == 3)
 		_float.f_2 = DATAFILE::DATADICT_GET_FLOAT(iParam0, "camh");
 	else if (DATAFILE::DATADICT_GET_TYPE(iParam0, "camh") == 2)
-		_float.f_2 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(iParam0, "camh"));
+		_float.f_2 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(iParam0, "camh"));
 
 	return _float;
 }
@@ -35729,17 +35729,17 @@ Vector3 func_814(int iParam0, char* sParam1) // Position - 0x32280 (205440)
 		dict = DATAFILE::DATADICT_GET_DICT(iParam0, sParam1);
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict, "x") == 2)
-			vector = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "x"));
+			vector = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "x"));
 		else
 			vector = DATAFILE::DATADICT_GET_FLOAT(dict, "x");
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict, "y") == 2)
-			vector.f_1 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "y"));
+			vector.f_1 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "y"));
 		else
 			vector.f_1 = DATAFILE::DATADICT_GET_FLOAT(dict, "y");
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict, "z") == 2)
-			vector.f_2 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "z"));
+			vector.f_2 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "z"));
 		else
 			vector.f_2 = DATAFILE::DATADICT_GET_FLOAT(dict, "z");
 	}
@@ -36393,15 +36393,15 @@ BOOL func_830(var uParam0, int iParam1, BOOL bParam2, int iParam3) // Position -
 				else
 				{
 					fileDict = DATAFILE::DATAFILE_GET_FILE_DICT(0);
-					Global_1922760.f_10 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "dt"));
-					Global_1922760.f_11 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "du"));
+					Global_1922760.f_10 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "dt"));
+					Global_1922760.f_11 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "du"));
 					Global_1922760.f_9 = Global_1922760.f_10 / Global_1922760.f_11;
-					Global_1922760.f_13 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "pt"));
-					Global_1922760.f_14 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "pu"));
-					Global_1057195 = SYSTEM::ROUND(Global_1922760.f_14);
+					Global_1922760.f_13 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "pt"));
+					Global_1922760.f_14 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "pu"));
+					Global_1057195 = BUILTIN::ROUND(Global_1922760.f_14);
 					Global_1922760.f_12 = Global_1922760.f_13 / Global_1922760.f_14;
-					Global_1922760.f_15 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "qt"));
-					Global_1922760.f_17 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "qu"));
+					Global_1922760.f_15 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "qt"));
+					Global_1922760.f_17 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "qu"));
 					Global_1922760.f_16 = Global_1922760.f_15 / Global_1922760.f_17;
 				}
 			
@@ -36854,7 +36854,7 @@ int func_862(float fParam0, int iParam1) // Position - 0x33F17 (212759)
 	if (iParam1 == 0)
 		return -1;
 
-	num = SYSTEM::ROUND(fParam0 * 100f);
+	num = BUILTIN::ROUND(fParam0 * 100f);
 
 	if (num < 0)
 		num = -1;
@@ -37738,7 +37738,7 @@ void func_866(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 		Global_4718592.f_111480[i] = -1;
 		Global_4718592.f_111485[i] = PV_COMP_INVALID;
 		Global_4718592.f_111500[i] = 0;
-		Global_4718592.f_111505[i] = PV_COMP_INVALID;
+		Global_4718592.f_111505[i] = -1;
 		Global_4718592.f_111418[i] = PV_COMP_HEAD;
 		Global_4718592.f_111445[i] = 0;
 		Global_4718592.f_166992[i] = 0;
@@ -38097,7 +38097,7 @@ void func_866(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 			Global_4718592.f_3605[i /*26949*/].f_952[j] = 5;
 			Global_4718592.f_3605[i /*26949*/].f_970[j] = 20;
 			Global_4718592.f_3605[i /*26949*/].f_1896[j] = -1;
-			Global_4718592.f_3605[i /*26949*/].f_26841[j] = SYSTEM::CEIL(10f);
+			Global_4718592.f_3605[i /*26949*/].f_26841[j] = BUILTIN::CEIL(10f);
 			Global_4718592.f_3605[i /*26949*/].f_26913[j] = PV_COMP_INVALID;
 			Global_4718592.f_3605[i /*26949*/].f_26895[j] = PV_COMP_HEAD;
 			Global_4718592.f_3605[i /*26949*/].f_26931[j] = PV_COMP_INVALID;
@@ -47897,7 +47897,7 @@ void func_1155(ePedComponentType epctParam0) // Position - 0x49909 (301321)
 {
 	if (Global_4980736.f_89187[epctParam0 /*1213*/].f_947.f_8 == 0f)
 		if (IS_BIT_SET(Global_4980736.f_89187[epctParam0 /*1213*/].f_561, 10) && Global_4980736.f_89187[epctParam0 /*1213*/].f_610 != -1)
-			Global_4980736.f_89187[epctParam0 /*1213*/].f_947.f_8 = SYSTEM::TO_FLOAT(Global_4980736.f_89187[epctParam0 /*1213*/].f_610);
+			Global_4980736.f_89187[epctParam0 /*1213*/].f_947.f_8 = BUILTIN::TO_FLOAT(Global_4980736.f_89187[epctParam0 /*1213*/].f_610);
 
 	if (func_614(5))
 		MISC::CLEAR_BIT(&(Global_4980736.f_89187[epctParam0 /*1213*/].f_569), 13);
@@ -48157,7 +48157,7 @@ void func_1166(int iParam0, ePedComponentType epctParam1) // Position - 0x4A23D 
 	
 		case 7:
 			if ((float)*Global_4718592.f_197524 != 0f)
-				Global_4980736.f_57169[epctParam1 /*170*/].f_106.f_10 = SYSTEM::TO_FLOAT(*Global_4718592.f_197524);
+				Global_4980736.f_57169[epctParam1 /*170*/].f_106.f_10 = BUILTIN::TO_FLOAT(*Global_4718592.f_197524);
 			break;
 	}
 
@@ -52030,7 +52030,7 @@ void func_1203(int iParam0, BOOL bParam1) // Position - 0x52D0D (339213)
 	
 		if (array39 != 0)
 			if (DATAFILE::DATAARRAY_GET_TYPE(array39, i) == 2)
-				Global_4980736.f_48744[type /*255*/].f_46.f_8 = SYSTEM::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array39, i));
+				Global_4980736.f_48744[type /*255*/].f_46.f_8 = BUILTIN::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array39, i));
 			else
 				Global_4980736.f_48744[type /*255*/].f_46.f_8 = DATAFILE::DATAARRAY_GET_FLOAT(array39, i);
 		else if (func_604())
@@ -53091,7 +53091,7 @@ void func_1214(int iParam0, BOOL bParam1) // Position - 0x55C0E (351246)
 			Global_5242880.f_1[type /*163*/].f_28 = 0;
 	
 		if (!IS_BIT_SET(*Global_4718592.f_219756, 5))
-			Global_5242880.f_1[type /*163*/].f_28 = SYSTEM::SHIFT_LEFT(Global_5242880.f_1[type /*163*/].f_28, 1);
+			Global_5242880.f_1[type /*163*/].f_28 = BUILTIN::SHIFT_LEFT(Global_5242880.f_1[type /*163*/].f_28, 1);
 	
 		if (array50 != 0 && DATAFILE::DATAARRAY_GET_TYPE(array50, i) == 3)
 			Global_5242880.f_1[type /*163*/].f_42 = DATAFILE::DATAARRAY_GET_FLOAT(array50, i);
@@ -54468,7 +54468,7 @@ void func_1221(int iParam0, BOOL bParam1) // Position - 0x575F5 (357877)
 			
 				if (array76 != 0)
 					if (DATAFILE::DATAARRAY_GET_TYPE(array76, i) == 2)
-						Global_4980736.f_67545[type /*619*/].f_141.f_8 = SYSTEM::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array76, i));
+						Global_4980736.f_67545[type /*619*/].f_141.f_8 = BUILTIN::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array76, i));
 					else
 						Global_4980736.f_67545[type /*619*/].f_141.f_8 = DATAFILE::DATAARRAY_GET_FLOAT(array76, i);
 				else if (func_604())
@@ -62936,7 +62936,7 @@ void func_1243(int iParam0, BOOL bParam1) // Position - 0x65C63 (416867)
 			
 				if (array10 != 0)
 					if (DATAFILE::DATAARRAY_GET_TYPE(array10, i) == 2)
-						Global_4980736.f_7044[type /*642*/].f_33.f_8 = SYSTEM::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array10, i));
+						Global_4980736.f_7044[type /*642*/].f_33.f_8 = BUILTIN::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array10, i));
 					else if (DATAFILE::DATAARRAY_GET_TYPE(array10, i) == 3)
 						Global_4980736.f_7044[type /*642*/].f_33.f_8 = DATAFILE::DATAARRAY_GET_FLOAT(array10, i);
 				else
@@ -66150,7 +66150,7 @@ void func_1281(int iParam0) // Position - 0x70108 (459016)
 		if (array5 != 0 && DATAFILE::DATAARRAY_GET_TYPE(array5, i) == 3)
 			Global_4718592.f_197591[i /*11*/].f_10 = DATAFILE::DATAARRAY_GET_FLOAT(array5, i);
 		else if (DATAFILE::DATAARRAY_GET_TYPE(array5, i) == 2)
-			Global_4718592.f_197591[i /*11*/].f_10 = SYSTEM::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array5, i));
+			Global_4718592.f_197591[i /*11*/].f_10 = BUILTIN::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array5, i));
 		else
 			Global_4718592.f_197591[i /*11*/].f_10 = 0f;
 	
@@ -70882,7 +70882,7 @@ void func_1319(var uParam0) // Position - 0x7B19B (504219)
 				func_561(&key, "rSPCPA", i, -1);
 				func_1141(&key, &Global_4718592.f_3605[i /*26949*/].f_26895[j], uParam0, &num33, j, 0, 0, -1);
 				func_561(&key, "rWISKST", i, -1);
-				func_1141(&key, &Global_4718592.f_3605[i /*26949*/].f_26841[j], uParam0, &num37, j, SYSTEM::CEIL(10f), SYSTEM::CEIL(10f), -1);
+				func_1141(&key, &Global_4718592.f_3605[i /*26949*/].f_26841[j], uParam0, &num37, j, BUILTIN::CEIL(10f), BUILTIN::CEIL(10f), -1);
 				func_561(&key, "rWISSSC", i, -1);
 				func_1141(&key, &Global_4718592.f_3605[i /*26949*/].f_26859[j], uParam0, &num38, j, 0, 0, -1);
 				func_561(&key, "woAIEPR", i, -1);
@@ -73124,7 +73124,7 @@ void func_1326(var uParam0) // Position - 0x80E63 (527971)
 				{
 					func_1321(&key, "icmsk3", i);
 					func_1141(&key, &value, uParam0, &num3, j, 0, 0, -1);
-					Global_4718592.f_3605[i /*26949*/].f_20169[j] = SYSTEM::TO_FLOAT(value);
+					Global_4718592.f_3605[i /*26949*/].f_20169[j] = BUILTIN::TO_FLOAT(value);
 				}
 				else
 				{
@@ -76835,7 +76835,7 @@ void func_1335(int iParam0, int iParam1, BOOL bParam2) // Position - 0x85F38 (54
 		else if (func_1360() || func_1358() && func_1357())
 		{
 			value = func_1362();
-			num = SYSTEM::TO_FLOAT(value) / SYSTEM::TO_FLOAT(Global_4718592.f_3535);
+			num = BUILTIN::TO_FLOAT(value) / BUILTIN::TO_FLOAT(Global_4718592.f_3535);
 			flag = false;
 		
 			if (Global_4718592.f_3540 == PV_COMP_UPPR)
@@ -79636,7 +79636,7 @@ BOOL func_1363() // Position - 0x913A2 (594850)
 	return IS_BIT_SET(Global_2684748.f_669.f_1, 0);
 }
 
-void func_1364(char* sParam0, int iParam1, int iParam2) // Position - 0x913B5 (594869)
+void func_1364(const char* sParam0, int iParam1, int iParam2) // Position - 0x913B5 (594869)
 {
 	if (!func_44() && !func_1376() && !func_1375(*Global_4718592.f_138116))
 	{
@@ -82234,9 +82234,9 @@ BOOL func_1422(var uParam0) // Position - 0x965E1 (615905)
 				flag = false;
 		
 			if (func_1499())
-				func_1508(4, num, iLocal_1174, i, 0, "PM_SETTING_PM" /*Disable Passive Mode*/, "", flag, SYSTEM::TO_FLOAT(Global_262145.f_157));
+				func_1508(4, num, iLocal_1174, i, 0, "PM_SETTING_PM" /*Disable Passive Mode*/, "", flag, BUILTIN::TO_FLOAT(Global_262145.f_157));
 			else
-				func_1508(4, num, iLocal_1174, i, 0, "PM_SETTING_0" /*Enable Passive Mode*/, "", flag, SYSTEM::TO_FLOAT(Global_262145.f_157));
+				func_1508(4, num, iLocal_1174, i, 0, "PM_SETTING_0" /*Enable Passive Mode*/, "", flag, BUILTIN::TO_FLOAT(Global_262145.f_157));
 		
 			num = num + 1;
 		}
@@ -82920,13 +82920,13 @@ char* func_1454(int iParam0) // Position - 0x9725A (619098)
 					return "PIM_S_MS_GAR" /*Eclipse Blvd Garage*/;
 			
 				case 27:
-					return "PIM_S_GTAP_GAR";
+					return "PIM_S_GTAP_GAR" /*The Vinewood Car Club*/;
 			
 				case 28:
 					return "PIM_S_SALVAGE" /*Salvage Yard*/;
 			
 				case 35:
-					return "PIM_S_VPG";
+					return "PIM_S_VPG" /*The Vinewood Club Garage*/;
 			
 				case 36:
 					return "PIM_S_BAOF" /*Bail Office*/;
@@ -82938,7 +82938,7 @@ char* func_1454(int iParam0) // Position - 0x9725A (619098)
 					return "PIM_S_FHAN" /*McKenzie Field Hangar*/;
 			
 				case 41:
-					return "PIM_S_CWAS";
+					return "PIM_S_CWAS" /*Hands On Car Wash*/;
 			
 				case PV_COMP_HEAD:
 				case PV_COMP_LOWR:
@@ -85320,7 +85320,7 @@ void func_1508(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4, 
 
 float func_1509() // Position - 0x9A17C (631164)
 {
-	return SYSTEM::TO_FLOAT(func_1510());
+	return BUILTIN::TO_FLOAT(func_1510());
 }
 
 int func_1510() // Position - 0x9A18C (631180)
@@ -88341,7 +88341,7 @@ void func_1578(int iParam0, int iParam1) // Position - 0x9EA2D (649773)
 	hash2 = func_1581(iParam1);
 	hash3 = func_1579(iParam0);
 	num2 = -1;
-	unk_0x9C4B3BAF947660BB(entityCoords, num, hash, hash2, hash3, num2);
+	STATS::_PLAYSTATS_PH_ACTIVITY(entityCoords, num, hash, hash2, hash3, num2);
 	return;
 }
 
@@ -91528,8 +91528,8 @@ void func_1602(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	int num;
 	Hash hash;
 	Hash hash2;
-	var unk3;
-	var unk4;
+	Any any;
+	Any any2;
 
 	if (_NETWORK_IS_PLAYER_VALID(PLAYER::PLAYER_ID(), true, false))
 		entityCoords = { ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true) };
@@ -91537,9 +91537,9 @@ void func_1602(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	num = func_1583();
 	hash = func_1607(uParam0.f_6 >= uParam0.f_2.f_2);
 	hash2 = func_1603(uParam0, uParam0.f_1, uParam0.f_2);
-	unk3 = uParam0.f_6;
-	unk4 = uParam0.f_2.f_2;
-	unk_0x9C4B3BAF947660BB(entityCoords, num, hash, hash2, unk3, unk4);
+	any = uParam0.f_6;
+	any2 = uParam0.f_2.f_2;
+	STATS::_PLAYSTATS_PH_ACTIVITY(entityCoords, num, hash, hash2, any, any2);
 	return;
 }
 
@@ -94424,7 +94424,7 @@ ePedComponentType func_1608(int iParam0, int iParam1) // Position - 0xA22BB (664
 					break;
 			
 				case 161:
-					type = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(func_146(12025, -1) / 60));
+					type = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(func_146(12025, -1) / 60));
 					break;
 			
 				case 162:
@@ -100768,7 +100768,7 @@ void func_1766() // Position - 0xAE4FF (713983)
 			if (!NETWORK::IS_COMMERCE_STORE_OPEN())
 			{
 				AUDIO::PLAY_SOUND_FRONTEND(-1, "SELECT" /*Filter List*/, "HUD_FRONTEND_DEFAULT_SOUNDSET", true);
-				NETWORK::OPEN_COMMERCE_STORE("", "", 6, 0);
+				NETWORK::OPEN_COMMERCE_STORE("", "", 6, false);
 				MISC::CLEAR_BIT(&iLocal_1275, 0);
 				MISC::SET_BIT(&iLocal_1275, 1);
 			}
@@ -101319,11 +101319,11 @@ struct<4> func_1773(int iParam0, BOOL bParam1, BOOL bParam2) // Position - 0xAFF
 	if (iParam0 > 0 || bParam2 && iParam0 == 0)
 	{
 		num5 = iParam0;
-		num = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(num5 / 3600000));
+		num = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(num5 / 3600000));
 		num5 = num5 - (num * 3600000);
-		num2 = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(num5 / 60000));
+		num2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(num5 / 60000));
 		num5 = num5 - (num2 * 60000);
-		num3 = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(num5 / 1000));
+		num3 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(num5 / 1000));
 		num5 = num5 - (num3 * 1000);
 		num4 = num5;
 	
@@ -101470,7 +101470,7 @@ void func_1775() // Position - 0xB011A (721178)
 							func_1803(0, 1, true);
 							func_1802();
 							func_1804(&unk2);
-							SYSTEM::WAIT(0);
+							BUILTIN::WAIT(0);
 							func_319(4, 0, false, true);
 						}
 					}
@@ -101503,7 +101503,7 @@ void func_1775() // Position - 0xB011A (721178)
 						}
 					
 						func_1804(&unk2);
-						SYSTEM::WAIT(0);
+						BUILTIN::WAIT(0);
 						func_319(4, 0, false, true);
 					}
 				}
@@ -101590,14 +101590,14 @@ BOOL func_1777(var uParam0, var uParam1, var uParam2, BOOL bParam3, BOOL bParam4
 			*uParam2 = 1;
 			*uParam1 = 1;
 		
-			if (MISC::ABSI(SYSTEM::TIMERA() - *uParam0) > num2)
+			if (MISC::ABSI(BUILTIN::TIMERA() - *uParam0) > num2)
 			{
 				func_1778();
 			
 				if (bParam5)
 					AUDIO::PLAY_SOUND_FRONTEND(-1, "NAV_LEFT_RIGHT", "HUD_FRONTEND_DEFAULT_SOUNDSET", true);
 			
-				*uParam0 = SYSTEM::TIMERA();
+				*uParam0 = BUILTIN::TIMERA();
 				num = 1;
 			}
 		}
@@ -101607,12 +101607,12 @@ BOOL func_1777(var uParam0, var uParam1, var uParam2, BOOL bParam3, BOOL bParam4
 			*uParam2 = 1;
 			*uParam1 = -1;
 		
-			if (MISC::ABSI(SYSTEM::TIMERA() - *uParam0) > num2)
+			if (MISC::ABSI(BUILTIN::TIMERA() - *uParam0) > num2)
 			{
 				if (bParam5)
 					AUDIO::PLAY_SOUND_FRONTEND(-1, "NAV_LEFT_RIGHT", "HUD_FRONTEND_DEFAULT_SOUNDSET", true);
 			
-				*uParam0 = SYSTEM::TIMERA();
+				*uParam0 = BUILTIN::TIMERA();
 				num = 1;
 			}
 		}
@@ -101624,9 +101624,9 @@ BOOL func_1777(var uParam0, var uParam1, var uParam2, BOOL bParam3, BOOL bParam4
 			*uParam2 = 1;
 			*uParam1 = 1;
 		
-			if (MISC::ABSI(SYSTEM::TIMERA() - *uParam0) > num2)
+			if (MISC::ABSI(BUILTIN::TIMERA() - *uParam0) > num2)
 			{
-				*uParam0 = SYSTEM::TIMERA();
+				*uParam0 = BUILTIN::TIMERA();
 			
 				if (bParam5)
 					AUDIO::PLAY_SOUND_FRONTEND(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", true);
@@ -101640,9 +101640,9 @@ BOOL func_1777(var uParam0, var uParam1, var uParam2, BOOL bParam3, BOOL bParam4
 			*uParam2 = 1;
 			*uParam1 = -1;
 		
-			if (MISC::ABSI(SYSTEM::TIMERA() - *uParam0) > num2)
+			if (MISC::ABSI(BUILTIN::TIMERA() - *uParam0) > num2)
 			{
-				*uParam0 = SYSTEM::TIMERA();
+				*uParam0 = BUILTIN::TIMERA();
 			
 				if (bParam5)
 					AUDIO::PLAY_SOUND_FRONTEND(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", true);
@@ -101680,12 +101680,12 @@ void func_1779(var uParam0, int iParam1) // Position - 0xB059D (722333)
 
 	if (iParam1 < 2011)
 	{
-		*uParam0 = *uParam0 || SYSTEM::SHIFT_LEFT(2011 - iParam1, 26);
+		*uParam0 = *uParam0 || BUILTIN::SHIFT_LEFT(2011 - iParam1, 26);
 		*uParam0 = *uParam0 | -2147483648;
 	}
 	else
 	{
-		*uParam0 = *uParam0 || SYSTEM::SHIFT_LEFT(iParam1 - 2011, 26);
+		*uParam0 = *uParam0 || BUILTIN::SHIFT_LEFT(iParam1 - 2011, 26);
 		*uParam0 = *uParam0 - *uParam0 & -2147483648;
 	}
 
@@ -101714,7 +101714,7 @@ void func_1781(var uParam0, int iParam1) // Position - 0xB0656 (722518)
 		return;
 
 	*uParam0 = *uParam0 - *uParam0 & 496;
-	*uParam0 = *uParam0 || SYSTEM::SHIFT_LEFT(iParam1, 4);
+	*uParam0 = *uParam0 || BUILTIN::SHIFT_LEFT(iParam1, 4);
 	return;
 }
 
@@ -101755,7 +101755,7 @@ int func_1782(int iParam0, int iParam1) // Position - 0xB06A7 (722599)
 
 int func_1783(int iParam0) // Position - 0xB0749 (722761)
 {
-	return (SYSTEM::SHIFT_RIGHT(iParam0, 26) & 31 * IS_BIT_SET(iParam0, 31) ? -1 : 1) + 2011;
+	return (BUILTIN::SHIFT_RIGHT(iParam0, 26) & 31 * IS_BIT_SET(iParam0, 31) ? -1 : 1) + 2011;
 }
 
 int func_1784(int iParam0) // Position - 0xB076B (722795)
@@ -101769,7 +101769,7 @@ void func_1785(var uParam0, int iParam1) // Position - 0xB0778 (722808)
 		return;
 
 	*uParam0 = *uParam0 - *uParam0 & 15872;
-	*uParam0 = *uParam0 || SYSTEM::SHIFT_LEFT(iParam1, 9);
+	*uParam0 = *uParam0 || BUILTIN::SHIFT_LEFT(iParam1, 9);
 	return;
 }
 
@@ -101779,7 +101779,7 @@ void func_1786(var uParam0, int iParam1) // Position - 0xB07B2 (722866)
 		return;
 
 	*uParam0 = *uParam0 - *uParam0 & 1032192;
-	*uParam0 = *uParam0 || SYSTEM::SHIFT_LEFT(iParam1, 14);
+	*uParam0 = *uParam0 || BUILTIN::SHIFT_LEFT(iParam1, 14);
 	return;
 }
 
@@ -101789,7 +101789,7 @@ void func_1787(var uParam0, int iParam1) // Position - 0xB07ED (722925)
 		return;
 
 	*uParam0 = *uParam0 - *uParam0 & 66060288;
-	*uParam0 = *uParam0 || SYSTEM::SHIFT_LEFT(iParam1, 20);
+	*uParam0 = *uParam0 || BUILTIN::SHIFT_LEFT(iParam1, 20);
 	return;
 }
 
@@ -102092,9 +102092,9 @@ int func_1804(var uParam0) // Position - 0xB0CF9 (724217)
 				flag = false;
 		
 			if (func_1499())
-				func_1805(4, iLocal_1191, iLocal_1174, iLocal_1191, 0, "PM_SETTING_PM" /*Disable Passive Mode*/, "", flag, SYSTEM::TO_FLOAT(Global_262145.f_157));
+				func_1805(4, iLocal_1191, iLocal_1174, iLocal_1191, 0, "PM_SETTING_PM" /*Disable Passive Mode*/, "", flag, BUILTIN::TO_FLOAT(Global_262145.f_157));
 			else
-				func_1805(4, iLocal_1191, iLocal_1174, iLocal_1191, 0, "PM_SETTING_0" /*Enable Passive Mode*/, "", flag, SYSTEM::TO_FLOAT(Global_262145.f_157));
+				func_1805(4, iLocal_1191, iLocal_1174, iLocal_1191, 0, "PM_SETTING_0" /*Enable Passive Mode*/, "", flag, BUILTIN::TO_FLOAT(Global_262145.f_157));
 		}
 		else if (iLocal_1191 == 17)
 		{
@@ -103107,7 +103107,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 				{
 					if (func_312())
 					{
-						func_320(true, 0, 3, "HUD_LOADSCR_D" /*The Rockstar game services are temporarily unavailable.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+						func_320(true, 0, 3, "HUD_LOADSCR_D" /*Rockstar Games Services are temporarily unavailable.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 						MISC::SET_BIT(&iLocal_1074, 0);
 					
 						if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103118,7 +103118,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 					}
 					else
 					{
-						func_320(true, 0, 3, "HUD_LOADMAIN" /*The Rockstar game services are temporarily unavailable due to maintenance.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+						func_320(true, 0, 3, "HUD_LOADMAIN" /*Rockstar Games Services are temporarily unavailable due to maintenance.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 						MISC::SET_BIT(&iLocal_1074, 0);
 					
 						if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103130,7 +103130,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 				}
 				else if (num == 17)
 				{
-					func_320(true, 0, 3, "SCLB_NO_ROS" /*Rockstar Games Online Services are unavailable right now. Please try again later.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+					func_320(true, 0, 3, "SCLB_NO_ROS" /*Rockstar Games Services are unavailable right now. Please try again later.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 					MISC::SET_BIT(&iLocal_1074, 0);
 				
 					if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103141,7 +103141,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 				}
 				else if (num == 18)
 				{
-					func_320(true, 0, 3, "SCLB_NO_ROS" /*Rockstar Games Online Services are unavailable right now. Please try again later.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+					func_320(true, 0, 3, "SCLB_NO_ROS" /*Rockstar Games Services are unavailable right now. Please try again later.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 					MISC::SET_BIT(&iLocal_1074, 0);
 				
 					if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103200,7 +103200,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 		{
 			if (num == 3)
 			{
-				func_320(true, 0, 3, "HUD_LOADSCR_D" /*The Rockstar game services are temporarily unavailable.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+				func_320(true, 0, 3, "HUD_LOADSCR_D" /*Rockstar Games Services are temporarily unavailable.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 				MISC::SET_BIT(&iLocal_1074, 0);
 			
 				if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103213,7 +103213,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 			{
 				if (func_312())
 				{
-					func_320(true, 0, 3, "HUD_LOADMAIN" /*The Rockstar game services are temporarily unavailable due to maintenance.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+					func_320(true, 0, 3, "HUD_LOADMAIN" /*Rockstar Games Services are temporarily unavailable due to maintenance.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 					MISC::SET_BIT(&iLocal_1074, 0);
 				
 					if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103224,7 +103224,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 				}
 				else
 				{
-					func_320(true, 0, 3, "HUD_LOADMAIN" /*The Rockstar game services are temporarily unavailable due to maintenance.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+					func_320(true, 0, 3, "HUD_LOADMAIN" /*Rockstar Games Services are temporarily unavailable due to maintenance.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 					MISC::SET_BIT(&iLocal_1074, 0);
 				
 					if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103236,7 +103236,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 			}
 			else if (num == 17)
 			{
-				func_320(true, 0, 3, "SCLB_NO_ROS" /*Rockstar Games Online Services are unavailable right now. Please try again later.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+				func_320(true, 0, 3, "SCLB_NO_ROS" /*Rockstar Games Services are unavailable right now. Please try again later.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 				MISC::SET_BIT(&iLocal_1074, 0);
 			
 				if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103247,7 +103247,7 @@ void func_1834() // Position - 0xB1EF0 (728816)
 			}
 			else if (num == 18)
 			{
-				func_320(true, 0, 3, "SCLB_NO_ROS" /*Rockstar Games Online Services are unavailable right now. Please try again later.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
+				func_320(true, 0, 3, "SCLB_NO_ROS" /*Rockstar Games Services are unavailable right now. Please try again later.*/, "PM_DOPROT" /*GTA Online*/, 0, "", "", -1, 0, false);
 				MISC::SET_BIT(&iLocal_1074, 0);
 			
 				if (!HUD::PAUSE_MENU_IS_CONTEXT_ACTIVE(joaat("HIDE_ACCEPTBUTTON")))
@@ -103351,13 +103351,13 @@ char* func_1835(int iParam0) // Position - 0xB261E (730654)
 					flag2 = true;
 		
 			if (flag3)
-				return "HUD_PERM" /*Your profile does not have the correct permissions to access this functionality.*/;
+				return "HUD_PERM" /*Your profile does not have permission to access GTA Online.*/;
 			else if (flag2)
 				return "HUD_XBGOLD";
 			else if (flag)
 				return "HUD_PSPLUS3" /*Press ~INPUT_FRONTEND_ACCEPT~ to join GTA Online.*/;
 			else
-				return "HUD_PERM" /*Your profile does not have the correct permissions to access this functionality.*/;
+				return "HUD_PERM" /*Your profile does not have permission to access GTA Online.*/;
 			break;
 	}
 
@@ -105630,40 +105630,40 @@ char* func_1865(int iParam0) // Position - 0xB6D85 (748933)
 		switch (iParam0)
 		{
 			case 2:
-				return "UI_FLOW_OP_JOINFRND_M";
+				return "UI_FLOW_OP_JOINFRND_M" /*Join Friends*/;
 		
 			case 3:
-				return "UI_FLOW_OP_JOINCRW_M";
+				return "UI_FLOW_OP_JOINCRW_M" /*Join Crew Members*/;
 		
 			case 0:
-				return "UI_FLOW_OP_QJOB_M";
+				return "UI_FLOW_OP_QJOB_M" /*Jobs*/;
 		
 			case 8:
-				return "UI_FLOW_OP_CREATOR_M";
+				return "UI_FLOW_OP_CREATOR_M" /*Rockstar Creator*/;
 		
 			case 15:
 				return "UI_FLOW_OP_NEWSESH_M" /*Find New Session*/;
 		
 			case 9:
-				return "UI_FLOW_OP_SWPCHAR_M";
+				return "UI_FLOW_OP_SWPCHAR_M" /*Manage Characters*/;
 		
 			case 21:
-				return "UI_FLOW_OP_QUITLP_M";
+				return "UI_FLOW_OP_QUITLP_M" /*Quit to Main Menu*/;
 		
 			case 20:
-				return "UI_FLOW_OP_QUITSM_M";
+				return "UI_FLOW_OP_QUITSM_M" /*Quit to Story Mode*/;
 		
 			case 23:
-				return "UI_FLOW_OP_QUITWIN_M";
+				return "UI_FLOW_OP_QUITWIN_M" /*Quit Game*/;
 		
 			case 12:
-				return "UI_FLOW_OP_SHRKCRDS_M";
+				return "UI_FLOW_OP_SHRKCRDS_M" /*Purchase Shark Cards*/;
 		
 			case 1:
-				return "UI_FLOW_OP_MIGRATE_M";
+				return "UI_FLOW_OP_MIGRATE_M" /*Migrate Profile*/;
 		
 			case 10:
-				return "UI_FLOW_OP_MIGRATE_M";
+				return "UI_FLOW_OP_MIGRATE_M" /*Migrate Profile*/;
 		
 			default:
 				goto 0x133;
@@ -105674,22 +105674,22 @@ char* func_1865(int iParam0) // Position - 0xB6D85 (748933)
 		switch (iParam0)
 		{
 			case 2:
-				return "UI_FLOW_SO_JOINFRND_M";
+				return "UI_FLOW_SO_JOINFRND_M" /*Join Friends*/;
 		
 			case 3:
-				return "UI_FLOW_SO_JOINCRW_M";
+				return "UI_FLOW_SO_JOINCRW_M" /*Join Crew Members*/;
 		
 			case 0:
 				return "UI_FLOW_SO_QJOB_M";
 		
 			case 8:
-				return "UI_FLOW_SO_CREATOR_M";
+				return "UI_FLOW_SO_CREATOR_M" /*Rockstar Creator*/;
 		
 			case 15:
 				return "UI_FLOW_SO_NEWSESH_M";
 		
 			case 17:
-				return "UI_FLOW_SO_CHARONLNE_M";
+				return "UI_FLOW_SO_CHARONLNE_M" /*Manage Characters*/;
 		
 			case 23:
 				return "UI_FLOW_SO_QUITWIN_M";
@@ -105723,7 +105723,7 @@ char* func_1865(int iParam0) // Position - 0xB6D85 (748933)
 			return "PM_PLAYLISTS" /*Playlists*/;
 	
 		case 9:
-			return "UI_FLOW_OP_SWPCHAR";
+			return "UI_FLOW_OP_SWPCHAR" /*Manage Characters*/;
 	
 		case 16:
 			return "PM_QUIT_MP" /*Leave GTA Online*/;
@@ -105735,7 +105735,7 @@ char* func_1865(int iParam0) // Position - 0xB6D85 (748933)
 			return "PM_MP_OPTIONS" /*Options*/;
 	
 		case 17:
-			return "UI_FLOW_SO_CHARONLNE_M";
+			return "UI_FLOW_SO_CHARONLNE_M" /*Manage Characters*/;
 	
 		case 18:
 			return "PM_ENTER_MP" /*Play GTA Online*/;
@@ -105747,10 +105747,10 @@ char* func_1865(int iParam0) // Position - 0xB6D85 (748933)
 			return "PM_PANE_PICK" /*Account Picker*/;
 	
 		case 1:
-			return "PM_MIGRATE" /*Character Transfer*/;
+			return "PM_MIGRATE" /*Profile Migration*/;
 	
 		case 10:
-			return "PM_MIGRATE" /*Character Transfer*/;
+			return "PM_MIGRATE" /*Profile Migration*/;
 	
 		case 23:
 			return "PM_EXIT_GAME" /*Quit Game*/;
@@ -105762,7 +105762,7 @@ char* func_1865(int iParam0) // Position - 0xB6D85 (748933)
 			return "PM_SAFEALERT" /*Safety and Alerts*/;
 	
 		case 11:
-			return "PM_GTAO_MEMB";
+			return "PM_GTAO_MEMB" /*GTA+ Membership*/;
 	
 		case 19:
 			if (Global_262145.f_9242 == 0)
@@ -105878,7 +105878,7 @@ BOOL func_1866(int iParam0) // Position - 0xB702D (749613)
 				break;
 		
 			case 17:
-				if (unk_0xA6E586C3BD772B7B())
+				if (MONEY::NETWORK_GET_MP_WINDFALL_AVAILABLE())
 					return false;
 				break;
 		}
@@ -106057,7 +106057,7 @@ void func_1873() // Position - 0xB73DE (750558)
 	if (flag)
 	{
 		if (MISC::ARE_STRINGS_EQUAL(string1, ""))
-			string1 = "UGC_FL_UNEX" /*The Rockstar game services are unavailable right now. Please try again later.*/;
+			string1 = "UGC_FL_UNEX" /*Rockstar Games Services are unavailable right now. Please try again later.*/;
 	
 		HUD::SET_WARNING_MESSAGE_WITH_HEADER("PCARD_SYNC_ERROR_TITLE" /*Alert*/, string1, 2, 0, false, -1, 0, 0, true, 0);
 	
@@ -107153,7 +107153,7 @@ void func_1881(BOOL bParam0) // Position - 0xB89C5 (756165)
 		{
 			Global_1005426.f_5895[i] = 0;
 			offset = i % 32;
-			num = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(i) / 32f);
+			num = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(i) / 32f);
 		
 			if (IS_BIT_SET(Global_1835504[num], offset))
 			{
@@ -107175,7 +107175,7 @@ void func_1881(BOOL bParam0) // Position - 0xB89C5 (756165)
 		{
 			Global_993502.f_5895[i] = 0;
 			offset = i % 32;
-			num = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(i) / 32f);
+			num = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(i) / 32f);
 		
 			if (IS_BIT_SET(Global_1835504[num], offset))
 			{
@@ -107643,17 +107643,17 @@ void func_1890(var uParam0, BOOL bParam1) // Position - 0xB9171 (758129)
 		dict3 = DATAFILE::DATADICT_GET_DICT(dict2, "cam");
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict3, "x") == 2)
-			Global_1011388.f_33[num /*95*/].f_65 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict3, "x"));
+			Global_1011388.f_33[num /*95*/].f_65 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict3, "x"));
 		else
 			Global_1011388.f_33[num /*95*/].f_65 = DATAFILE::DATADICT_GET_FLOAT(dict3, "x");
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict3, "y") == 2)
-			Global_1011388.f_33[num /*95*/].f_65.f_1 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict3, "y"));
+			Global_1011388.f_33[num /*95*/].f_65.f_1 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict3, "y"));
 		else
 			Global_1011388.f_33[num /*95*/].f_65.f_1 = DATAFILE::DATADICT_GET_FLOAT(dict3, "y");
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict3, "z") == 2)
-			Global_1011388.f_33[num /*95*/].f_65.f_2 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict3, "z"));
+			Global_1011388.f_33[num /*95*/].f_65.f_2 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict3, "z"));
 		else
 			Global_1011388.f_33[num /*95*/].f_65.f_2 = DATAFILE::DATADICT_GET_FLOAT(dict3, "z");
 	}
@@ -107866,10 +107866,10 @@ void func_1894(var uParam0, int iParam1, int iParam2, BOOL bParam3, BOOL bParam4
 	
 		if (!func_1039(uParam0->f_23, uParam0->f_24, NETWORK::UGC_GET_CONTENT_USER_ID(uParam0->f_6), NETWORK::UGC_GET_CONTENT_CATEGORY(uParam0->f_6)))
 		{
-			if (bParam5 && func_323() || unk_0xE2BCD0EFAE90D1F4())
+			if (bParam5 && func_323() || MISC::_IS_XBOXPC_VERSION())
 			{
 				offset = value % 32;
-				num = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(value) / 32f);
+				num = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(value) / 32f);
 				MISC::SET_BIT(&Global_1835504[num], offset);
 				netHandle = { GET_GAMER_HANDLE_USER(NETWORK::UGC_GET_CONTENT_USER_ID(uParam0->f_6)) };
 			
@@ -108656,7 +108656,7 @@ void func_1906(int iParam0, int iParam1, int iParam2, char* sParam3, int iParam4
 			return;
 	
 		if (iParam1 == 1)
-			if (FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("REBREATHER"), 0))
+			if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("REBREATHER"), 0))
 				MISC::SET_BIT(&(iParam0->f_6), 7);
 	
 		if (iParam1 == 12)
@@ -108687,7 +108687,7 @@ void func_1906(int iParam0, int iParam1, int iParam2, char* sParam3, int iParam4
 				MISC::SET_BIT(&(iParam0->f_6), 4);
 		}
 	
-		if (FILES::IS_CONTENT_ITEM_LOCKED(Global_2883589))
+		if (EXTRAMETADATA::IS_CONTENT_ITEM_LOCKED(Global_2883589))
 		{
 			MISC::CLEAR_BIT(&(iParam0->f_6), 1);
 			MISC::CLEAR_BIT(&(iParam0->f_6), 0);
@@ -109980,7 +109980,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 	switch (iParam1)
 	{
 		case 1:
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 0:
 					*uParam2 = 1761;
@@ -110383,7 +110383,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 100:
 					*uParam2 = 5351;
@@ -110786,7 +110786,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 200:
 					*uParam2 = 8326;
@@ -110913,7 +110913,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 231:
 					*uParam2 = 10304;
@@ -110996,7 +110996,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 251:
 					*uParam2 = 10420;
@@ -111079,7 +111079,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 271:
 					*uParam2 = 11878;
@@ -111162,7 +111162,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 291:
 					*uParam2 = 11984;
@@ -111245,7 +111245,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 311:
 					*uParam2 = 13017;
@@ -111274,7 +111274,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 			break;
 	
 		case 2:
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 0:
 					*uParam2 = 1767;
@@ -111677,7 +111677,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 100:
 					*uParam2 = 5363;
@@ -112080,7 +112080,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 200:
 					*uParam2 = 8351;
@@ -112207,7 +112207,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 231:
 					*uParam2 = 10324;
@@ -112290,7 +112290,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 251:
 					*uParam2 = 10430;
@@ -112373,7 +112373,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 271:
 					*uParam2 = 11890;
@@ -112456,7 +112456,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 291:
 					*uParam2 = 11999;
@@ -112539,7 +112539,7 @@ BOOL func_1911(ePedComponentType epctParam0, int iParam1, var uParam2, var uPara
 					break;
 			}
 		
-			switch (SYSTEM::FLOOR(SYSTEM::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
+			switch (BUILTIN::FLOOR(BUILTIN::TO_FLOAT(fmMaleShopPedApparelItemIndex) / 32f))
 			{
 				case 311:
 					*uParam2 = 13021;
@@ -112669,11 +112669,11 @@ void func_1915(int iParam0, int iParam1, int iParam2, Hash hParam3) // Position 
 	
 		if (outfitIndex >= 0)
 		{
-			num3 = FILES::SETUP_SHOP_PED_OUTFIT_QUERY(num2, false);
+			num3 = EXTRAMETADATA::SETUP_SHOP_PED_OUTFIT_QUERY(num2, false);
 		
 			if (num3 > outfitIndex)
 			{
-				FILES::GET_SHOP_PED_QUERY_OUTFIT(outfitIndex, &outfit);
+				EXTRAMETADATA::GET_SHOP_PED_QUERY_OUTFIT(outfitIndex, &outfit);
 				Global_2883588 = outfit.f_1;
 				Global_2883589 = outfit;
 				func_1906(&Global_79551[0 /*14*/], iParam0, iParam1, &(outfit.f_7), 0, 0, outfit.f_2, false, -1, 2, true);
@@ -112687,16 +112687,16 @@ void func_1915(int iParam0, int iParam1, int iParam2, Hash hParam3) // Position 
 	}
 	else if (iParam0 == 14)
 	{
-		FILES::INIT_SHOP_PED_PROP(&outProp);
+		EXTRAMETADATA::INIT_SHOP_PED_PROP(&outProp);
 		componentId = iParam1 - iParam2;
 	
 		if (componentId >= 0)
 		{
-			num5 = FILES::SETUP_SHOP_PED_APPAREL_QUERY_TU(num2, 10, -1, true, -1, -1);
+			num5 = EXTRAMETADATA::SETUP_SHOP_PED_APPAREL_QUERY_TU(num2, 10, -1, true, -1, -1);
 		
 			if (num5 > componentId)
 			{
-				FILES::GET_SHOP_PED_QUERY_PROP(componentId, &outProp);
+				EXTRAMETADATA::GET_SHOP_PED_QUERY_PROP(componentId, &outProp);
 			
 				if (outProp.f_6 == 0)
 					num4 = 9;
@@ -112721,21 +112721,21 @@ void func_1915(int iParam0, int iParam1, int iParam2, Hash hParam3) // Position 
 			
 				Global_2883588 = outProp.f_1;
 				Global_2883589 = outProp;
-				func_1906(&Global_79551[0 /*14*/], iParam0, iParam1, &(outProp.f_9), outProp.f_3, outProp.f_4, outProp.f_5, FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(outProp.f_1, joaat("OUTFIT_ONLY"), 0), num4, 2, outProp.f_1 != 0);
+				func_1906(&Global_79551[0 /*14*/], iParam0, iParam1, &(outProp.f_9), outProp.f_3, outProp.f_4, outProp.f_5, EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(outProp.f_1, joaat("OUTFIT_ONLY"), 0), num4, 2, outProp.f_1 != 0);
 				return;
 			}
 		}
 	}
 	else
 	{
-		FILES::INIT_SHOP_PED_COMPONENT(&outComponent);
+		EXTRAMETADATA::INIT_SHOP_PED_COMPONENT(&outComponent);
 	
 		if (hParam3 != -1 && Global_79749)
 		{
-			FILES::GET_SHOP_PED_COMPONENT(hParam3, &outComponent);
+			EXTRAMETADATA::GET_SHOP_PED_COMPONENT(hParam3, &outComponent);
 			Global_2883588 = outComponent.f_1;
 			Global_2883589 = outComponent;
-			func_1906(&Global_79551[0 /*14*/], iParam0, iParam1, &(outComponent.f_9), outComponent.f_3, outComponent.f_4, outComponent.f_5, FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(outComponent.f_1, joaat("OUTFIT_ONLY"), 0), -1, 2, outComponent.f_1 != 0);
+			func_1906(&Global_79551[0 /*14*/], iParam0, iParam1, &(outComponent.f_9), outComponent.f_3, outComponent.f_4, outComponent.f_5, EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(outComponent.f_1, joaat("OUTFIT_ONLY"), 0), -1, 2, outComponent.f_1 != 0);
 			return;
 		}
 	
@@ -112743,14 +112743,14 @@ void func_1915(int iParam0, int iParam1, int iParam2, Hash hParam3) // Position 
 	
 		if (componentId2 >= 0)
 		{
-			num6 = FILES::SETUP_SHOP_PED_APPAREL_QUERY_TU(num2, 10, -1, false, -1, func_1916(iParam0));
+			num6 = EXTRAMETADATA::SETUP_SHOP_PED_APPAREL_QUERY_TU(num2, 10, -1, false, -1, func_1916(iParam0));
 		
 			if (num6 > componentId2)
 			{
-				FILES::GET_SHOP_PED_QUERY_COMPONENT(componentId2, &outComponent);
+				EXTRAMETADATA::GET_SHOP_PED_QUERY_COMPONENT(componentId2, &outComponent);
 				Global_2883588 = outComponent.f_1;
 				Global_2883589 = outComponent;
-				func_1906(&Global_79551[0 /*14*/], iParam0, iParam1, &(outComponent.f_9), outComponent.f_3, outComponent.f_4, outComponent.f_5, FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(outComponent.f_1, joaat("OUTFIT_ONLY"), 0), -1, 2, outComponent.f_1 != 0);
+				func_1906(&Global_79551[0 /*14*/], iParam0, iParam1, &(outComponent.f_9), outComponent.f_3, outComponent.f_4, outComponent.f_5, EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(outComponent.f_1, joaat("OUTFIT_ONLY"), 0), -1, 2, outComponent.f_1 != 0);
 				return;
 			}
 		}
@@ -116145,7 +116145,7 @@ void func_1919(int iParam0, Hash hParam1) // Position - 0xBF951 (784721)
 			if (num7 > 8)
 				num7 = num7 - 1;
 		
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2039[num7] * Global_299575.f_20);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2039[num7] * Global_299575.f_20);
 		}
 	}
 	else if (num6 == 2)
@@ -116153,21 +116153,21 @@ void func_1919(int iParam0, Hash hParam1) // Position - 0xBF951 (784721)
 		num8 = iParam0 - 131;
 	
 		if (num8 >= 0 && num8 < 24)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2160[num8] * Global_299575.f_21);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2160[num8] * Global_299575.f_21);
 	}
 	else if (num6 == 3)
 	{
 		num9 = iParam0 - 155;
 	
 		if (num9 >= 0 && num9 < 128)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2185[num9] * Global_299575.f_44);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2185[num9] * Global_299575.f_44);
 	}
 	else if (num6 == 4)
 	{
 		num10 = iParam0 - 319;
 	
 		if (num10 >= 0 && num10 < 10)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2314[num10] * Global_299575.f_22);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2314[num10] * Global_299575.f_22);
 	}
 
 	if (iParam0 >= 327)
@@ -116176,12 +116176,12 @@ void func_1919(int iParam0, Hash hParam1) // Position - 0xBF951 (784721)
 		func_1915(num5, iParam0, 327, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			if (FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("HAT"), 1))
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_20);
-			else if (FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("GLASSES"), 1))
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_44);
-			else if (FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("WATCH"), 1))
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_22);
+			if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("HAT"), 1))
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_20);
+			else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("GLASSES"), 1))
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_44);
+			else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("WATCH"), 1))
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_22);
 	}
 	else
 	{
@@ -116767,12 +116767,12 @@ void func_1921(int iParam0, Hash hParam1) // Position - 0xC2970 (797040)
 			func_1915(num5, iParam0, 55, hParam1);
 		
 			if (Global_79551[0 /*14*/].f_7 > 0)
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_46);
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_46);
 		
 			return;
 	}
 
-	value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_299575.f_46);
+	value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_299575.f_46);
 	TEXT_LABEL_ASSIGN_STRING(&unk, "T_FMF_", 16);
 	TEXT_LABEL_APPEND_INT(&unk, num, 16);
 	TEXT_LABEL_APPEND_STRING(&unk, "_", 16);
@@ -116964,7 +116964,7 @@ void func_1922(int iParam0, Hash hParam1) // Position - 0xC314D (799053)
 			func_1915(num5, iParam0, 26, hParam1);
 		
 			if (Global_79551[0 /*14*/].f_7 > 0)
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_23);
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_23);
 		
 			return;
 	}
@@ -116976,7 +116976,7 @@ void func_1922(int iParam0, Hash hParam1) // Position - 0xC314D (799053)
 	num6 = iParam0 - 1;
 
 	if (num6 >= 0 && num6 < 26)
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2012[num6] * Global_299575.f_23);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2012[num6] * Global_299575.f_23);
 
 	func_1906(&Global_79551[0 /*14*/], num5, iParam0, &unk, num, num2, value, flag, num3, num4, false);
 	return;
@@ -118664,7 +118664,7 @@ void func_1923(int iParam0, Hash hParam1) // Position - 0xC3433 (799795)
 	num6 = iParam0;
 
 	if (num6 >= 0 && num6 < 256)
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1755[num6] * Global_299575.f_19);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1755[num6] * Global_299575.f_19);
 
 	if (iParam0 >= 256)
 	{
@@ -118672,7 +118672,7 @@ void func_1923(int iParam0, Hash hParam1) // Position - 0xC3433 (799795)
 		func_1915(num5, iParam0, 256, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_19);
+			Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_19);
 	}
 	else
 	{
@@ -120390,7 +120390,7 @@ void func_1924(int iParam0, Hash hParam1) // Position - 0xC4A5D (805469)
 	num6 = iParam0;
 
 	if (num6 >= 0 && num6 < 256)
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1241[num6] * Global_299575.f_17);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1241[num6] * Global_299575.f_17);
 
 	if (iParam0 >= 256)
 	{
@@ -120398,7 +120398,7 @@ void func_1924(int iParam0, Hash hParam1) // Position - 0xC4A5D (805469)
 		func_1915(num5, iParam0, 256, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_17);
+			Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_17);
 	}
 	else
 	{
@@ -121087,7 +121087,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 4;
 			num2 = 13;
 			value = 40;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[77]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[77]);
 			break;
 	
 		case 48:
@@ -121095,7 +121095,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 4;
 			num2 = 14;
 			value = 40;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[78]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[78]);
 			break;
 	
 		case 49:
@@ -121110,7 +121110,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 5;
 			num2 = 0;
 			value = 45;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[80]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[80]);
 			break;
 	
 		case 51:
@@ -121118,7 +121118,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 5;
 			num2 = 1;
 			value = 60;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[81]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[81]);
 			break;
 	
 		case 52:
@@ -121161,7 +121161,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 5;
 			num2 = 7;
 			value = 375;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[87]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[87]);
 			break;
 	
 		case 58:
@@ -121176,7 +121176,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 5;
 			num2 = 9;
 			value = 90;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[89]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[89]);
 			break;
 	
 		case 60:
@@ -121251,7 +121251,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 11;
 			num2 = 0;
 			value = 90;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[176]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[176]);
 			break;
 	
 		case 72:
@@ -121259,7 +121259,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 11;
 			num2 = 1;
 			value = 95;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[177]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[177]);
 			break;
 	
 		case 73:
@@ -121267,7 +121267,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 11;
 			num2 = 2;
 			value = 95;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[178]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[178]);
 			break;
 	
 		case 74:
@@ -121324,7 +121324,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 11;
 			num2 = 10;
 			value = 150;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[186]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[186]);
 			break;
 	
 		case 82:
@@ -121332,7 +121332,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 11;
 			num2 = 11;
 			value = 65;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[187]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[187]);
 			break;
 	
 		case 83:
@@ -121361,7 +121361,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 11;
 			num2 = 15;
 			value = 145;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[191]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[191]);
 			break;
 	
 		case 87:
@@ -121418,7 +121418,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 12;
 			num2 = 7;
 			value = 1560;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[199]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[199]);
 			break;
 	
 		case 95:
@@ -121426,7 +121426,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 12;
 			num2 = 8;
 			value = 195;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[200]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[200]);
 			break;
 	
 		case 96:
@@ -121434,7 +121434,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 12;
 			num2 = 9;
 			value = 200;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[201]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[201]);
 			break;
 	
 		case 97:
@@ -121484,7 +121484,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 0;
 			value = 975;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[208]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[208]);
 			break;
 	
 		case 104:
@@ -121492,7 +121492,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 1;
 			value = 2670;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[209]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[209]);
 			break;
 	
 		case 105:
@@ -121500,7 +121500,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 2;
 			value = 480;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[210]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[210]);
 			break;
 	
 		case 106:
@@ -121508,7 +121508,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 3;
 			value = 400;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[211]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[211]);
 			break;
 	
 		case 107:
@@ -121516,7 +121516,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 4;
 			value = 2500;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[212]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[212]);
 			break;
 	
 		case 108:
@@ -121524,7 +121524,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 5;
 			value = 2060;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[213]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[213]);
 			break;
 	
 		case 109:
@@ -121532,7 +121532,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 6;
 			value = 2620;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[214]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[214]);
 			break;
 	
 		case 110:
@@ -121540,7 +121540,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 7;
 			value = 475;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[215]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[215]);
 			break;
 	
 		case 111:
@@ -121548,7 +121548,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 8;
 			value = 490;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[216]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[216]);
 			break;
 	
 		case 112:
@@ -121556,7 +121556,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 9;
 			value = 2280;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[217]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[217]);
 			break;
 	
 		case 113:
@@ -121564,7 +121564,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 10;
 			value = 485;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[218]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[218]);
 			break;
 	
 		case 114:
@@ -121572,7 +121572,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 11;
 			value = 2390;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[219]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[219]);
 			break;
 	
 		case 115:
@@ -121580,7 +121580,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 12;
 			value = 2610;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[220]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[220]);
 			break;
 	
 		case 116:
@@ -121588,7 +121588,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 13;
 			value = 1450;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[221]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[221]);
 			break;
 	
 		case 117:
@@ -121596,7 +121596,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 14;
 			value = 2720;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[222]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[222]);
 			break;
 	
 		case 118:
@@ -121604,7 +121604,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 13;
 			num2 = 15;
 			value = 4995;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[223]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[223]);
 			break;
 	
 		case 119:
@@ -121617,7 +121617,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 15;
 			num2 = 0;
 			value = 325;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[240]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[240]);
 			break;
 	
 		case 121:
@@ -121639,7 +121639,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 15;
 			num2 = 3;
 			value = 130;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[243]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[243]);
 			break;
 	
 		case 124:
@@ -121689,7 +121689,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 15;
 			num2 = 10;
 			value = 450;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[250]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[250]);
 			break;
 	
 		case 131:
@@ -121697,7 +121697,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			num = 15;
 			num2 = 11;
 			value = 465;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[251]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[251]);
 			break;
 	
 		case 132:
@@ -121733,7 +121733,7 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 			func_1915(num5, iParam0, 136, hParam1);
 		
 			if (Global_79551[0 /*14*/].f_7 > 0)
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_18);
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_18);
 		
 			return;
 	}
@@ -121743,28 +121743,28 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 		if (func_1978(INPUT_VEH_FLY_YAW_LEFT, -1))
 		{
 			TEXT_LABEL_ASSIGN_STRING(&unk, "REW_RS" /*Rockstar V Neck*/, 16);
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(1250) * Global_262145.f_2898);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(1250) * Global_262145.f_2898);
 		}
 		else
 		{
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(40) * Global_262145.f_1498[4]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(40) * Global_262145.f_1498[4]);
 		}
 	}
 	else if (iParam0 == 7 || iParam0 == 23)
 	{
 		TEXT_LABEL_ASSIGN_STRING(&unk, "REW_LSB" /*Los Santos Belle V Neck*/, 16);
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(450) * Global_262145.f_2897);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(450) * Global_262145.f_2897);
 	}
 	else if (iParam0 == 9 || iParam0 == 25)
 	{
 		if (func_1978(INPUT_VEH_FLY_THROTTLE_UP, -1))
 		{
 			TEXT_LABEL_ASSIGN_STRING(&unk, "REW_REDSK" /*Red Skull V Neck*/, 16);
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(500) * Global_262145.f_2896);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(500) * Global_262145.f_2896);
 		}
 		else
 		{
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(40) * Global_262145.f_1498[9]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(40) * Global_262145.f_1498[9]);
 		}
 	}
 	else if (iParam0 >= 0 && iParam0 < 16)
@@ -121772,17 +121772,17 @@ void func_1927(int iParam0, Hash hParam1) // Position - 0xC6498 (812184)
 		num6 = iParam0;
 	
 		if (num6 >= 0 && num6 < 256)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[num6]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[num6]);
 	}
 	else if (iParam0 >= 16 && iParam0 < 32)
 	{
 		num7 = iParam0 - 16;
 	
 		if (num7 >= 0 && num7 < 256)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[num7]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[num7]);
 	}
 
-	value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_299575.f_18);
+	value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_299575.f_18);
 	func_1906(&Global_79551[0 /*14*/], num5, iParam0, &unk, num, num2, value, flag, num3, num4, false);
 	return;
 }
@@ -123520,28 +123520,28 @@ void func_1928(int iParam0, Hash hParam1) // Position - 0xC78BD (817341)
 		if (func_1978(INPUT_VEH_FLY_YAW_LEFT, -1))
 		{
 			TEXT_LABEL_ASSIGN_STRING(&unk, "REW_RS" /*Rockstar V Neck*/, 16);
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(1250) * Global_262145.f_2898 * Global_299575.f_18);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(1250) * Global_262145.f_2898 * Global_299575.f_18);
 		}
 		else
 		{
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(40) * Global_262145.f_1498[4] * Global_299575.f_18);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(40) * Global_262145.f_1498[4] * Global_299575.f_18);
 		}
 	}
 	else if (iParam0 == 7)
 	{
 		TEXT_LABEL_ASSIGN_STRING(&unk, "REW_LSB" /*Los Santos Belle V Neck*/, 16);
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(450) * Global_262145.f_2897 * Global_299575.f_18);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(450) * Global_262145.f_2897 * Global_299575.f_18);
 	}
 	else if (iParam0 == 9)
 	{
 		if (func_1978(INPUT_VEH_FLY_THROTTLE_UP, -1))
 		{
 			TEXT_LABEL_ASSIGN_STRING(&unk, "REW_REDSK" /*Red Skull V Neck*/, 16);
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(500) * Global_262145.f_2896 * Global_299575.f_18);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(500) * Global_262145.f_2896 * Global_299575.f_18);
 		}
 		else
 		{
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(40) * Global_262145.f_1498[9] * Global_299575.f_18);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(40) * Global_262145.f_1498[9] * Global_299575.f_18);
 		}
 	}
 	else
@@ -123549,7 +123549,7 @@ void func_1928(int iParam0, Hash hParam1) // Position - 0xC78BD (817341)
 		num6 = iParam0;
 	
 		if (num6 >= 0 && num6 < 256)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1498[num6] * Global_299575.f_18);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1498[num6] * Global_299575.f_18);
 	}
 
 	if (iParam0 >= 256)
@@ -123558,7 +123558,7 @@ void func_1928(int iParam0, Hash hParam1) // Position - 0xC78BD (817341)
 		func_1915(num5, iParam0, 256, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_18);
+			Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_18);
 	}
 	else
 	{
@@ -123593,42 +123593,42 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 0;
 			num2 = 0;
 			value = 500;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[0]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[0]);
 			break;
 	
 		case 1:
 			num = 1;
 			num2 = 0;
 			value = 500;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[1]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[1]);
 			break;
 	
 		case 2:
 			num = 1;
 			num2 = 1;
 			value = 495;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[2]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[2]);
 			break;
 	
 		case 3:
 			num = 1;
 			num2 = 2;
 			value = 490;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[3]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[3]);
 			break;
 	
 		case 4:
 			num = 1;
 			num2 = 3;
 			value = 485;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[4]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[4]);
 			break;
 	
 		case 5:
 			num = 1;
 			num2 = 4;
 			value = 480;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[5]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[5]);
 			break;
 	
 		case 6:
@@ -123641,35 +123641,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 2;
 			num2 = 0;
 			value = 440;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[6]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[6]);
 			break;
 	
 		case 8:
 			num = 2;
 			num2 = 1;
 			value = 435;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[7]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[7]);
 			break;
 	
 		case 9:
 			num = 2;
 			num2 = 2;
 			value = 430;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[8]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[8]);
 			break;
 	
 		case 10:
 			num = 2;
 			num2 = 3;
 			value = 425;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[9]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[9]);
 			break;
 	
 		case 11:
 			num = 2;
 			num2 = 4;
 			value = 420;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[10]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[10]);
 			break;
 	
 		case 12:
@@ -123682,70 +123682,70 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 3;
 			num2 = 0;
 			value = 190;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[11]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[11]);
 			break;
 	
 		case 14:
 			num = 3;
 			num2 = 1;
 			value = 185;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[12]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[12]);
 			break;
 	
 		case 15:
 			num = 3;
 			num2 = 2;
 			value = 180;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[13]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[13]);
 			break;
 	
 		case 16:
 			num = 3;
 			num2 = 3;
 			value = 175;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[14]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[14]);
 			break;
 	
 		case 17:
 			num = 3;
 			num2 = 4;
 			value = 170;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[15]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[15]);
 			break;
 	
 		case 18:
 			num = 4;
 			num2 = 0;
 			value = 295;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[16]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[16]);
 			break;
 	
 		case 19:
 			num = 4;
 			num2 = 1;
 			value = 290;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[17]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[17]);
 			break;
 	
 		case 20:
 			num = 4;
 			num2 = 2;
 			value = 285;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[18]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[18]);
 			break;
 	
 		case 21:
 			num = 4;
 			num2 = 3;
 			value = 280;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[19]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[19]);
 			break;
 	
 		case 22:
 			num = 4;
 			num2 = 4;
 			value = 275;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[20]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[20]);
 			break;
 	
 		case 23:
@@ -123758,35 +123758,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 5;
 			num2 = 0;
 			value = 2000;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[21]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[21]);
 			break;
 	
 		case 25:
 			num = 5;
 			num2 = 1;
 			value = 1995;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[22]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[22]);
 			break;
 	
 		case 26:
 			num = 5;
 			num2 = 2;
 			value = 1990;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[23]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[23]);
 			break;
 	
 		case 27:
 			num = 5;
 			num2 = 3;
 			value = 1985;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[24]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[24]);
 			break;
 	
 		case 28:
 			num = 5;
 			num2 = 4;
 			value = 1980;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[25]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[25]);
 			break;
 	
 		case 29:
@@ -123799,70 +123799,70 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 6;
 			num2 = 0;
 			value = 1150;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[26]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[26]);
 			break;
 	
 		case 31:
 			num = 6;
 			num2 = 1;
 			value = 1145;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[27]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[27]);
 			break;
 	
 		case 32:
 			num = 6;
 			num2 = 2;
 			value = 1140;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[28]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[28]);
 			break;
 	
 		case 33:
 			num = 6;
 			num2 = 3;
 			value = 1135;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[29]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[29]);
 			break;
 	
 		case 34:
 			num = 6;
 			num2 = 4;
 			value = 1130;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[30]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[30]);
 			break;
 	
 		case 35:
 			num = 7;
 			num2 = 0;
 			value = 550;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[31]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[31]);
 			break;
 	
 		case 36:
 			num = 7;
 			num2 = 1;
 			value = 545;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[32]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[32]);
 			break;
 	
 		case 37:
 			num = 7;
 			num2 = 2;
 			value = 540;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[33]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[33]);
 			break;
 	
 		case 38:
 			num = 7;
 			num2 = 3;
 			value = 535;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[34]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[34]);
 			break;
 	
 		case 39:
 			num = 7;
 			num2 = 4;
 			value = 530;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[35]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[35]);
 			break;
 	
 		case 40:
@@ -123875,35 +123875,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 8;
 			num2 = 0;
 			value = 580;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[36]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[36]);
 			break;
 	
 		case 42:
 			num = 8;
 			num2 = 1;
 			value = 575;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[37]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[37]);
 			break;
 	
 		case 43:
 			num = 8;
 			num2 = 2;
 			value = 570;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[38]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[38]);
 			break;
 	
 		case 44:
 			num = 8;
 			num2 = 3;
 			value = 565;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[39]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[39]);
 			break;
 	
 		case 45:
 			num = 8;
 			num2 = 4;
 			value = 560;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[40]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[40]);
 			break;
 	
 		case 46:
@@ -123916,35 +123916,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 9;
 			num2 = 0;
 			value = 1100;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[41]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[41]);
 			break;
 	
 		case 48:
 			num = 9;
 			num2 = 1;
 			value = 1095;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[42]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[42]);
 			break;
 	
 		case 49:
 			num = 9;
 			num2 = 2;
 			value = 1090;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[43]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[43]);
 			break;
 	
 		case 50:
 			num = 9;
 			num2 = 3;
 			value = 1085;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[44]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[44]);
 			break;
 	
 		case 51:
 			num = 9;
 			num2 = 4;
 			value = 1080;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[45]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[45]);
 			break;
 	
 		case 52:
@@ -123957,35 +123957,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 10;
 			num2 = 0;
 			value = 520;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[46]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[46]);
 			break;
 	
 		case 54:
 			num = 10;
 			num2 = 1;
 			value = 515;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[47]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[47]);
 			break;
 	
 		case 55:
 			num = 10;
 			num2 = 2;
 			value = 510;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[48]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[48]);
 			break;
 	
 		case 56:
 			num = 10;
 			num2 = 3;
 			value = 505;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[49]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[49]);
 			break;
 	
 		case 57:
 			num = 10;
 			num2 = 4;
 			value = 500;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[50]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[50]);
 			break;
 	
 		case 58:
@@ -124004,35 +124004,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 11;
 			num2 = 0;
 			value = 395;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[51]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[51]);
 			break;
 	
 		case 61:
 			num = 11;
 			num2 = 1;
 			value = 390;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[52]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[52]);
 			break;
 	
 		case 62:
 			num = 11;
 			num2 = 2;
 			value = 385;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[53]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[53]);
 			break;
 	
 		case 63:
 			num = 11;
 			num2 = 3;
 			value = 380;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[54]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[54]);
 			break;
 	
 		case 64:
 			num = 11;
 			num2 = 4;
 			value = 375;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[55]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[55]);
 			break;
 	
 		case 65:
@@ -124051,35 +124051,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 12;
 			num2 = 0;
 			value = 1050;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[56]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[56]);
 			break;
 	
 		case 68:
 			num = 12;
 			num2 = 1;
 			value = 1045;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[57]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[57]);
 			break;
 	
 		case 69:
 			num = 12;
 			num2 = 2;
 			value = 1040;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[58]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[58]);
 			break;
 	
 		case 70:
 			num = 12;
 			num2 = 3;
 			value = 1035;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[59]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[59]);
 			break;
 	
 		case 71:
 			num = 12;
 			num2 = 4;
 			value = 1030;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[60]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[60]);
 			break;
 	
 		case 72:
@@ -124092,35 +124092,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 13;
 			num2 = 0;
 			value = 1200;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[61]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[61]);
 			break;
 	
 		case 74:
 			num = 13;
 			num2 = 1;
 			value = 1195;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[62]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[62]);
 			break;
 	
 		case 75:
 			num = 13;
 			num2 = 2;
 			value = 1190;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[63]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[63]);
 			break;
 	
 		case 76:
 			num = 13;
 			num2 = 3;
 			value = 1185;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[64]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[64]);
 			break;
 	
 		case 77:
 			num = 13;
 			num2 = 4;
 			value = 1180;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[65]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[65]);
 			break;
 	
 		case 78:
@@ -124133,35 +124133,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 14;
 			num2 = 0;
 			value = 475;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[66]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[66]);
 			break;
 	
 		case 80:
 			num = 14;
 			num2 = 1;
 			value = 470;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[67]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[67]);
 			break;
 	
 		case 81:
 			num = 14;
 			num2 = 2;
 			value = 465;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[68]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[68]);
 			break;
 	
 		case 82:
 			num = 14;
 			num2 = 3;
 			value = 460;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[69]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[69]);
 			break;
 	
 		case 83:
 			num = 14;
 			num2 = 4;
 			value = 455;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[70]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[70]);
 			break;
 	
 		case 84:
@@ -124174,35 +124174,35 @@ void func_1929(int iParam0, Hash hParam1) // Position - 0xC9027 (823335)
 			num = 15;
 			num2 = 0;
 			value = 950;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[71]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[71]);
 			break;
 	
 		case 86:
 			num = 15;
 			num2 = 1;
 			value = 945;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[72]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[72]);
 			break;
 	
 		case 87:
 			num = 15;
 			num2 = 2;
 			value = 940;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[73]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[73]);
 			break;
 	
 		case 88:
 			num = 15;
 			num2 = 3;
 			value = 935;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[74]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[74]);
 			break;
 	
 		case 89:
 			num = 15;
 			num2 = 4;
 			value = 930;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2435[75]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2435[75]);
 			break;
 	
 		case 90:
@@ -127784,7 +127784,7 @@ void func_1935(int iParam0, Hash hParam1) // Position - 0xCA5BD (828861)
 			if (num7 > 8)
 				num7 = num7 - 1;
 		
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_950[num7] * Global_299575.f_12);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_950[num7] * Global_299575.f_12);
 		}
 	}
 	else if (num6 == 2)
@@ -127792,21 +127792,21 @@ void func_1935(int iParam0, Hash hParam1) // Position - 0xCA5BD (828861)
 		num8 = iParam0 - 131;
 	
 		if (num8 >= 0 && num8 < 24)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1071[num8] * Global_299575.f_13);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1071[num8] * Global_299575.f_13);
 	}
 	else if (num6 == 3)
 	{
 		num9 = iParam0 - 155;
 	
 		if (num9 >= 0 && num9 < 128)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1096[num9] * Global_299575.f_14);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1096[num9] * Global_299575.f_14);
 	}
 	else if (num6 == 4)
 	{
 		num10 = iParam0 - 319;
 	
 		if (num10 >= 0 && num10 < 15)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_1225[num10] * Global_299575.f_15);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_1225[num10] * Global_299575.f_15);
 	}
 
 	if (iParam0 >= 327)
@@ -127815,12 +127815,12 @@ void func_1935(int iParam0, Hash hParam1) // Position - 0xCA5BD (828861)
 		func_1915(num5, iParam0, 327, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			if (FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("HAT"), 1))
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_12);
-			else if (FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("GLASSES"), 1))
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_14);
-			else if (FILES::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("WATCH"), 1))
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_15);
+			if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("HAT"), 1))
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_12);
+			else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("GLASSES"), 1))
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_14);
+			else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("WATCH"), 1))
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_15);
 	}
 	else
 	{
@@ -128582,12 +128582,12 @@ void func_1937(int iParam0, Hash hParam1) // Position - 0xCD5E1 (841185)
 			func_1915(num5, iParam0, 92, hParam1);
 		
 			if (Global_79551[0 /*14*/].f_7 > 0)
-				Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_45);
+				Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_45);
 		
 			return;
 	}
 
-	value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_299575.f_45);
+	value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_299575.f_45);
 	TEXT_LABEL_ASSIGN_STRING(&unk, "T_FMM_", 16);
 	TEXT_LABEL_APPEND_INT(&unk, num, 16);
 	TEXT_LABEL_APPEND_STRING(&unk, "_", 16);
@@ -128787,7 +128787,7 @@ void func_1938(int iParam0, Hash hParam1) // Position - 0xCDEDA (843482)
 	num6 = iParam0 - 1;
 
 	if (num6 >= 0 && num6 < 26)
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_923[num6] * Global_299575.f_16);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_923[num6] * Global_299575.f_16);
 
 	func_1906(&Global_79551[0 /*14*/], num5, iParam0, &unk, num, num2, value, flag, num3, num4, false);
 	return;
@@ -130483,7 +130483,7 @@ void func_1939(int iParam0, Hash hParam1) // Position - 0xCE192 (844178)
 	num6 = iParam0;
 
 	if (num6 >= 0 && num6 < 256)
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_666[num6] * Global_299575.f_11);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_666[num6] * Global_299575.f_11);
 
 	TEXT_LABEL_ASSIGN_STRING(&unk, "F_FMM_", 16);
 	TEXT_LABEL_APPEND_INT(&unk, num, 16);
@@ -130496,7 +130496,7 @@ void func_1939(int iParam0, Hash hParam1) // Position - 0xCE192 (844178)
 		func_1915(num5, iParam0, 256, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_11);
+			Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_11);
 	}
 	else
 	{
@@ -132209,7 +132209,7 @@ void func_1940(int iParam0, Hash hParam1) // Position - 0xCF7D0 (849872)
 	num6 = iParam0;
 
 	if (num6 >= 0 && num6 < 256)
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_171[num6] * Global_299575.f_9);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_171[num6] * Global_299575.f_9);
 
 	if (iParam0 >= 256)
 	{
@@ -132217,7 +132217,7 @@ void func_1940(int iParam0, Hash hParam1) // Position - 0xCF7D0 (849872)
 		func_1915(num5, iParam0, 256, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_9);
+			Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_9);
 	}
 	else
 	{
@@ -133219,7 +133219,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 5;
 			num2 = 0;
 			value = 80;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[80]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[80]);
 			break;
 	
 		case 81:
@@ -133227,7 +133227,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 5;
 			num2 = 1;
 			value = 45;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[81]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[81]);
 			break;
 	
 		case 82:
@@ -133235,7 +133235,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 5;
 			num2 = 2;
 			value = 50;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[82]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[82]);
 			break;
 	
 		case 83:
@@ -133271,7 +133271,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 5;
 			num2 = 7;
 			value = 50;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[87]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[87]);
 			break;
 	
 		case 88:
@@ -134502,7 +134502,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 0;
 			value = 45;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[16]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[16]);
 			break;
 	
 		case 225:
@@ -134510,7 +134510,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 1;
 			value = 60;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[17]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[17]);
 			break;
 	
 		case 226:
@@ -134525,7 +134525,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 3;
 			value = 40;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[19]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[19]);
 			break;
 	
 		case 228:
@@ -134533,7 +134533,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 4;
 			value = 315;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[20]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[20]);
 			break;
 	
 		case 229:
@@ -134541,7 +134541,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 5;
 			value = 215;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[21]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[21]);
 			break;
 	
 		case 230:
@@ -134549,7 +134549,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 6;
 			value = 265;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[22]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[22]);
 			break;
 	
 		case 231:
@@ -134557,7 +134557,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 7;
 			value = 45;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[23]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[23]);
 			break;
 	
 		case 232:
@@ -134565,7 +134565,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 8;
 			value = 205;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[24]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[24]);
 			break;
 	
 		case 233:
@@ -134587,7 +134587,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 11;
 			value = 60;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[27]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[27]);
 			break;
 	
 		case 236:
@@ -134595,7 +134595,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 12;
 			value = 55;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[28]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[28]);
 			break;
 	
 		case 237:
@@ -134610,7 +134610,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 14;
 			num2 = 14;
 			value = 170;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[30]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[30]);
 			break;
 	
 		case 239:
@@ -134625,7 +134625,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 			num = 15;
 			num2 = 0;
 			value = 0;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[32]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[32]);
 			break;
 	}
 
@@ -134634,28 +134634,28 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 		if (func_1978(INPUT_VEH_FLY_YAW_LEFT, -1))
 		{
 			TEXT_LABEL_ASSIGN_STRING(&unk, "REW_RS" /*Rockstar V Neck*/, 16);
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(1250) * Global_262145.f_2898);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(1250) * Global_262145.f_2898);
 		}
 		else
 		{
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(45) * Global_262145.f_428[23]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(45) * Global_262145.f_428[23]);
 		}
 	}
 	else if (iParam0 == 17 || iParam0 == 225)
 	{
 		TEXT_LABEL_ASSIGN_STRING(&unk, "REW_LSB" /*Los Santos Belle V Neck*/, 16);
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(450) * Global_262145.f_2897);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(450) * Global_262145.f_2897);
 	}
 	else if (iParam0 == 28 || iParam0 == 236)
 	{
 		if (func_1978(INPUT_VEH_FLY_THROTTLE_UP, -1))
 		{
 			TEXT_LABEL_ASSIGN_STRING(&unk, "REW_REDSK" /*Red Skull V Neck*/, 16);
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(500) * Global_262145.f_2896);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(500) * Global_262145.f_2896);
 		}
 		else
 		{
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(55) * Global_262145.f_428[28]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(55) * Global_262145.f_428[28]);
 		}
 	}
 	else if (iParam0 >= 0 && iParam0 < 32)
@@ -134663,31 +134663,31 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 		num6 = iParam0;
 	
 		if (num6 >= 0 && num6 < 237)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[num6]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[num6]);
 	}
 	else if (iParam0 >= 32 && iParam0 < 48)
 	{
 		num7 = iParam0 - 32;
 	
 		if (num7 >= 0 && num7 < 237)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[num7]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[num7]);
 	}
 	else if (iParam0 >= 128 && iParam0 < 160)
 	{
 		num8 = (iParam0 - 160) + 124;
 	
 		if (num8 >= 0 && num8 < 237)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[num8]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[num8]);
 	}
 	else if (iParam0 >= 192 && iParam0 < 224)
 	{
 		num9 = (iParam0 - 160) + 188;
 	
 		if (num9 >= 0 && num9 < 237)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[num9]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[num9]);
 	}
 
-	value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_299575.f_10);
+	value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_299575.f_10);
 
 	if (iParam0 >= 241)
 	{
@@ -134695,7 +134695,7 @@ void func_1943(int iParam0, Hash hParam1) // Position - 0xD1278 (856696)
 		func_1915(num5, iParam0, 241, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_10);
+			Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_10);
 	}
 	else
 	{
@@ -136286,28 +136286,28 @@ void func_1944(int iParam0, Hash hParam1) // Position - 0xD385D (866397)
 		if (func_1978(INPUT_VEH_FLY_YAW_LEFT, -1))
 		{
 			TEXT_LABEL_ASSIGN_STRING(&unk, "REW_RS" /*Rockstar V Neck*/, 16);
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(1250) * Global_262145.f_2898 * Global_299575.f_10);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(1250) * Global_262145.f_2898 * Global_299575.f_10);
 		}
 		else
 		{
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(45) * Global_262145.f_428[23] * Global_299575.f_10);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(45) * Global_262145.f_428[23] * Global_299575.f_10);
 		}
 	}
 	else if (iParam0 == 17)
 	{
 		TEXT_LABEL_ASSIGN_STRING(&unk, "REW_LSB" /*Los Santos Belle V Neck*/, 16);
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(450) * Global_262145.f_2897 * Global_299575.f_10);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(450) * Global_262145.f_2897 * Global_299575.f_10);
 	}
 	else if (iParam0 == 28)
 	{
 		if (func_1978(INPUT_VEH_FLY_THROTTLE_UP, -1))
 		{
 			TEXT_LABEL_ASSIGN_STRING(&unk, "REW_REDSK" /*Red Skull V Neck*/, 16);
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(500) * Global_262145.f_2896 * Global_299575.f_10);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(500) * Global_262145.f_2896 * Global_299575.f_10);
 		}
 		else
 		{
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(55) * Global_262145.f_428[28] * Global_299575.f_10);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(55) * Global_262145.f_428[28] * Global_299575.f_10);
 		}
 	}
 	else
@@ -136315,7 +136315,7 @@ void func_1944(int iParam0, Hash hParam1) // Position - 0xD385D (866397)
 		num6 = iParam0;
 	
 		if (num6 >= 0 && num6 < 237)
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_428[num6] * Global_299575.f_10);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_428[num6] * Global_299575.f_10);
 	}
 
 	if (iParam0 >= 237)
@@ -136324,7 +136324,7 @@ void func_1944(int iParam0, Hash hParam1) // Position - 0xD385D (866397)
 		func_1915(num5, iParam0, 237, hParam1);
 	
 		if (Global_79551[0 /*14*/].f_7 > 0)
-			Global_79551[0 /*14*/].f_7 = SYSTEM::ROUND(SYSTEM::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_10);
+			Global_79551[0 /*14*/].f_7 = BUILTIN::ROUND(BUILTIN::TO_FLOAT(Global_79551[0 /*14*/].f_7) * Global_299575.f_10);
 	}
 	else
 	{
@@ -136359,42 +136359,42 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 0;
 			num2 = 0;
 			value = 500;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[0]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[0]);
 			break;
 	
 		case 1:
 			num = 1;
 			num2 = 0;
 			value = 190;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[1]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[1]);
 			break;
 	
 		case 2:
 			num = 1;
 			num2 = 1;
 			value = 185;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[2]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[2]);
 			break;
 	
 		case 3:
 			num = 1;
 			num2 = 2;
 			value = 180;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[3]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[3]);
 			break;
 	
 		case 4:
 			num = 1;
 			num2 = 3;
 			value = 175;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[4]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[4]);
 			break;
 	
 		case 5:
 			num = 1;
 			num2 = 4;
 			value = 170;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[5]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[5]);
 			break;
 	
 		case 6:
@@ -136407,35 +136407,35 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 2;
 			num2 = 0;
 			value = 580;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[6]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[6]);
 			break;
 	
 		case 8:
 			num = 2;
 			num2 = 1;
 			value = 575;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[7]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[7]);
 			break;
 	
 		case 9:
 			num = 2;
 			num2 = 2;
 			value = 570;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[8]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[8]);
 			break;
 	
 		case 10:
 			num = 2;
 			num2 = 3;
 			value = 565;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[9]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[9]);
 			break;
 	
 		case 11:
 			num = 2;
 			num2 = 4;
 			value = 560;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[10]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[10]);
 			break;
 	
 		case 12:
@@ -136448,35 +136448,35 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 3;
 			num2 = 0;
 			value = 1100;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[11]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[11]);
 			break;
 	
 		case 14:
 			num = 3;
 			num2 = 1;
 			value = 1095;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[12]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[12]);
 			break;
 	
 		case 15:
 			num = 3;
 			num2 = 2;
 			value = 1090;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[13]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[13]);
 			break;
 	
 		case 16:
 			num = 3;
 			num2 = 3;
 			value = 1085;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[14]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[14]);
 			break;
 	
 		case 17:
 			num = 3;
 			num2 = 4;
 			value = 1080;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[15]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[15]);
 			break;
 	
 		case 18:
@@ -136489,35 +136489,35 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 4;
 			num2 = 0;
 			value = 520;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[16]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[16]);
 			break;
 	
 		case 20:
 			num = 4;
 			num2 = 1;
 			value = 515;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[17]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[17]);
 			break;
 	
 		case 21:
 			num = 4;
 			num2 = 2;
 			value = 510;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[18]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[18]);
 			break;
 	
 		case 22:
 			num = 4;
 			num2 = 3;
 			value = 505;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[19]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[19]);
 			break;
 	
 		case 23:
 			num = 4;
 			num2 = 4;
 			value = 500;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[20]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[20]);
 			break;
 	
 		case 24:
@@ -136536,35 +136536,35 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 5;
 			num2 = 0;
 			value = 295;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[21]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[21]);
 			break;
 	
 		case 27:
 			num = 5;
 			num2 = 1;
 			value = 290;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[22]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[22]);
 			break;
 	
 		case 28:
 			num = 5;
 			num2 = 2;
 			value = 285;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[23]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[23]);
 			break;
 	
 		case 29:
 			num = 5;
 			num2 = 3;
 			value = 280;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[24]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[24]);
 			break;
 	
 		case 30:
 			num = 5;
 			num2 = 4;
 			value = 275;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[25]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[25]);
 			break;
 	
 		case 31:
@@ -136577,35 +136577,35 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 6;
 			num2 = 0;
 			value = 950;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[26]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[26]);
 			break;
 	
 		case 33:
 			num = 6;
 			num2 = 1;
 			value = 945;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[27]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[27]);
 			break;
 	
 		case 34:
 			num = 6;
 			num2 = 2;
 			value = 940;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[28]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[28]);
 			break;
 	
 		case 35:
 			num = 6;
 			num2 = 3;
 			value = 935;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[29]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[29]);
 			break;
 	
 		case 36:
 			num = 6;
 			num2 = 4;
 			value = 930;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[30]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[30]);
 			break;
 	
 		case 37:
@@ -136618,35 +136618,35 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 7;
 			num2 = 0;
 			value = 440;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[31]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[31]);
 			break;
 	
 		case 39:
 			num = 7;
 			num2 = 1;
 			value = 435;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[32]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[32]);
 			break;
 	
 		case 40:
 			num = 7;
 			num2 = 2;
 			value = 430;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[33]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[33]);
 			break;
 	
 		case 41:
 			num = 7;
 			num2 = 3;
 			value = 425;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[34]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[34]);
 			break;
 	
 		case 42:
 			num = 7;
 			num2 = 4;
 			value = 420;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[35]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[35]);
 			break;
 	
 		case 43:
@@ -136665,70 +136665,70 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 8;
 			num2 = 0;
 			value = 1150;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[36]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[36]);
 			break;
 	
 		case 46:
 			num = 8;
 			num2 = 1;
 			value = 1145;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[37]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[37]);
 			break;
 	
 		case 47:
 			num = 8;
 			num2 = 2;
 			value = 1140;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[38]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[38]);
 			break;
 	
 		case 48:
 			num = 8;
 			num2 = 3;
 			value = 1135;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[39]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[39]);
 			break;
 	
 		case 49:
 			num = 8;
 			num2 = 4;
 			value = 1130;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[40]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[40]);
 			break;
 	
 		case 50:
 			num = 9;
 			num2 = 0;
 			value = 395;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[41]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[41]);
 			break;
 	
 		case 51:
 			num = 9;
 			num2 = 1;
 			value = 390;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[42]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[42]);
 			break;
 	
 		case 52:
 			num = 9;
 			num2 = 2;
 			value = 385;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[43]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[43]);
 			break;
 	
 		case 53:
 			num = 9;
 			num2 = 3;
 			value = 380;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[44]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[44]);
 			break;
 	
 		case 54:
 			num = 9;
 			num2 = 4;
 			value = 375;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[45]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[45]);
 			break;
 	
 		case 55:
@@ -136747,35 +136747,35 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 10;
 			num2 = 0;
 			value = 500;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[46]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[46]);
 			break;
 	
 		case 58:
 			num = 10;
 			num2 = 1;
 			value = 495;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[47]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[47]);
 			break;
 	
 		case 59:
 			num = 10;
 			num2 = 2;
 			value = 490;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[48]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[48]);
 			break;
 	
 		case 60:
 			num = 10;
 			num2 = 3;
 			value = 485;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[49]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[49]);
 			break;
 	
 		case 61:
 			num = 10;
 			num2 = 4;
 			value = 480;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[50]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[50]);
 			break;
 	
 		case 62:
@@ -136788,35 +136788,35 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 11;
 			num2 = 0;
 			value = 1050;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[51]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[51]);
 			break;
 	
 		case 64:
 			num = 11;
 			num2 = 1;
 			value = 1045;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[52]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[52]);
 			break;
 	
 		case 65:
 			num = 11;
 			num2 = 2;
 			value = 1040;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[53]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[53]);
 			break;
 	
 		case 66:
 			num = 11;
 			num2 = 3;
 			value = 1035;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[54]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[54]);
 			break;
 	
 		case 67:
 			num = 11;
 			num2 = 4;
 			value = 1030;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[55]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[55]);
 			break;
 	
 		case 68:
@@ -136829,70 +136829,70 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 12;
 			num2 = 0;
 			value = 550;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[56]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[56]);
 			break;
 	
 		case 70:
 			num = 12;
 			num2 = 1;
 			value = 545;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[57]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[57]);
 			break;
 	
 		case 71:
 			num = 12;
 			num2 = 2;
 			value = 540;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[58]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[58]);
 			break;
 	
 		case 72:
 			num = 12;
 			num2 = 3;
 			value = 535;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[59]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[59]);
 			break;
 	
 		case 73:
 			num = 12;
 			num2 = 4;
 			value = 530;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[60]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[60]);
 			break;
 	
 		case 74:
 			num = 13;
 			num2 = 0;
 			value = 1200;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[61]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[61]);
 			break;
 	
 		case 75:
 			num = 13;
 			num2 = 1;
 			value = 1195;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[62]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[62]);
 			break;
 	
 		case 76:
 			num = 13;
 			num2 = 2;
 			value = 1190;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[63]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[63]);
 			break;
 	
 		case 77:
 			num = 13;
 			num2 = 3;
 			value = 1185;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[64]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[64]);
 			break;
 	
 		case 78:
 			num = 13;
 			num2 = 4;
 			value = 1180;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[65]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[65]);
 			break;
 	
 		case 79:
@@ -136905,70 +136905,70 @@ void func_1945(int iParam0, Hash hParam1) // Position - 0xD4DEE (871918)
 			num = 14;
 			num2 = 0;
 			value = 2000;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[66]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[66]);
 			break;
 	
 		case 81:
 			num = 14;
 			num2 = 1;
 			value = 1995;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[67]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[67]);
 			break;
 	
 		case 82:
 			num = 14;
 			num2 = 2;
 			value = 1990;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[68]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[68]);
 			break;
 	
 		case 83:
 			num = 14;
 			num2 = 3;
 			value = 1985;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[69]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[69]);
 			break;
 	
 		case 84:
 			num = 14;
 			num2 = 4;
 			value = 1980;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[70]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[70]);
 			break;
 	
 		case 85:
 			num = 15;
 			num2 = 0;
 			value = 475;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[71]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[71]);
 			break;
 	
 		case 86:
 			num = 15;
 			num2 = 1;
 			value = 470;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[72]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[72]);
 			break;
 	
 		case 87:
 			num = 15;
 			num2 = 2;
 			value = 465;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[73]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[73]);
 			break;
 	
 		case 88:
 			num = 15;
 			num2 = 3;
 			value = 460;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[74]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[74]);
 			break;
 	
 		case 89:
 			num = 15;
 			num2 = 4;
 			value = 455;
-			value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * Global_262145.f_2512[75]);
+			value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * Global_262145.f_2512[75]);
 			break;
 	
 		case 90:
@@ -139179,8 +139179,8 @@ ePedComponentType func_1985(ePedComponentType epctParam0, int iParam1) // Positi
 			value = num;
 		}
 	
-		value3 = ((SYSTEM::TO_FLOAT(value) - SYSTEM::TO_FLOAT(value2)) / 2f) + SYSTEM::TO_FLOAT(value2);
-		num = SYSTEM::ROUND(value3);
+		value3 = ((BUILTIN::TO_FLOAT(value) - BUILTIN::TO_FLOAT(value2)) / 2f) + BUILTIN::TO_FLOAT(value2);
+		num = BUILTIN::ROUND(value3);
 	}
 
 	return 8000;
@@ -139790,7 +139790,7 @@ void func_1991(var uParam0, BOOL bParam1) // Position - 0xD928C (889484)
 			Global_1014403[Global_1014403.f_684 /*3*/] = { func_814(dict2, "area") };
 		
 			if (DATAFILE::DATADICT_GET_TYPE(dict2, "rad") == 2)
-				Global_1014403.f_512[Global_1014403.f_684] = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict2, "rad"));
+				Global_1014403.f_512[Global_1014403.f_684] = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict2, "rad"));
 			else
 				Global_1014403.f_512[Global_1014403.f_684] = DATAFILE::DATADICT_GET_FLOAT(dict2, "rad");
 		
@@ -141374,7 +141374,7 @@ void func_2055(BOOL bParam0, Hash hParam1) // Position - 0xDBA37 (899639)
 		}
 	
 		unk7 = 1;
-		unk_0xD4E1FE520138900B(func_2056(), hParam1, 0, &unk, &unk7);
+		STATS::_PLAYSTATS_LP_SUBTILE(func_2056(), hParam1, 0, &unk, &unk7);
 	
 		if (Global_2672967.f_1023.f_5 != -1)
 			Global_2672967.f_1023.f_16 = 1;

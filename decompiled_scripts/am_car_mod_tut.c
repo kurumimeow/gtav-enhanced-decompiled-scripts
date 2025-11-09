@@ -3220,7 +3220,7 @@ void func_62(int iParam0, int iParam1) // Position - 0x3244 (12868)
 	hash2 = func_65(iParam1);
 	hash3 = func_63(iParam0);
 	num2 = -1;
-	unk_0x9C4B3BAF947660BB(entityCoords, num, hash, hash2, hash3, num2);
+	STATS::_PLAYSTATS_PH_ACTIVITY(entityCoords, num, hash, hash2, hash3, num2);
 	return;
 }
 
@@ -3489,7 +3489,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 75:
 				case 78:
 				case 80:
-					return true;
+					return 1;
 			
 				case 82:
 					return 6;
@@ -3521,7 +3521,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 86:
 				case 87:
 				case 93:
-					return true;
+					return 1;
 			
 				case 88:
 					return 5;
@@ -3556,7 +3556,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 2:
 				case 3:
 				case 7:
-					return true;
+					return 1;
 			
 				case 4:
 				case 6:
@@ -3573,7 +3573,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 98:
 				case 99:
 				case 100:
-					return true;
+					return 1;
 			
 				case 101:
 					return 5;
@@ -3613,7 +3613,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 10:
 				case 11:
 				case 14:
-					return true;
+					return 1;
 			
 				case 12:
 					return 2;
@@ -3635,7 +3635,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 114:
 				case 115:
 				case 119:
-					return true;
+					return 1;
 			
 				case 116:
 					return 250000;
@@ -3667,7 +3667,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 298:
 				case 299:
 				case 300:
-					return true;
+					return 1;
 			
 				case 301:
 					return 5;
@@ -3682,7 +3682,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 					return 5;
 			
 				case 305:
-					return true;
+					return 1;
 			}
 			break;
 	
@@ -3692,7 +3692,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 16:
 				case 17:
 				case 19:
-					return true;
+					return 1;
 			
 				case 18:
 				case 20:
@@ -3713,7 +3713,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 180:
 				case 181:
 				case 182:
-					return true;
+					return 1;
 			
 				case 183:
 					return 25;
@@ -3743,7 +3743,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 327:
 				case 328:
 				case 323:
-					return true;
+					return 1;
 			
 				case 324:
 					return 50;
@@ -3762,7 +3762,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 338:
 				case 339:
 				case 345:
-					return true;
+					return 1;
 			
 				case 340:
 					return 5;
@@ -3788,7 +3788,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 					return 6;
 			
 				case 125:
-					return true;
+					return 1;
 			
 				case 126:
 					return 10;
@@ -3829,7 +3829,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 24:
 				case 25:
 				case 27:
-					return true;
+					return 1;
 			
 				case 26:
 				case 28:
@@ -3846,7 +3846,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 32:
 				case 33:
 				case 35:
-					return true;
+					return 1;
 			
 				case 34:
 				case 36:
@@ -3863,7 +3863,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 40:
 				case 41:
 				case 43:
-					return true;
+					return 1;
 			
 				case 42:
 				case 44:
@@ -3880,7 +3880,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 48:
 				case 49:
 				case 51:
-					return true;
+					return 1;
 			
 				case 50:
 				case 52:
@@ -3897,7 +3897,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 56:
 				case 57:
 				case 59:
-					return true;
+					return 1;
 			
 				case 58:
 				case 60:
@@ -3914,7 +3914,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 64:
 				case 65:
 				case 67:
-					return true;
+					return 1;
 			
 				case 66:
 				case 68:
@@ -3936,7 +3936,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 362:
 				case 363:
 				case 364:
-					return true;
+					return 1;
 			
 				case 365:
 					return 6;
@@ -3969,7 +3969,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 139:
 				case 140:
 				case 143:
-					return true;
+					return 1;
 			
 				case 141:
 				case 142:
@@ -4000,7 +4000,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 231:
 				case 235:
 				case 236:
-					return true;
+					return 1;
 			
 				case 232:
 				case 233:
@@ -4030,7 +4030,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 257:
 				case 258:
 				case 260:
-					return true;
+					return 1;
 			
 				case 259:
 					return 10;
@@ -4064,7 +4064,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 270:
 				case 272:
 				case 275:
-					return true;
+					return 1;
 			
 				case 271:
 					return 25;
@@ -4073,7 +4073,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 					return 3;
 			
 				case 274:
-					return true;
+					return 1;
 			
 				case 276:
 					return 15;
@@ -4099,7 +4099,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 245:
 				case 246:
 				case 249:
-					return true;
+					return 1;
 			
 				case 247:
 					return 13;
@@ -4128,7 +4128,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 285:
 				case 286:
 				case 287:
-					return true;
+					return 1;
 			
 				case 288:
 					return 14;
@@ -4150,7 +4150,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 			{
 				case 306:
 				case 307:
-					return true;
+					return 1;
 			
 				case 308:
 					return 5;
@@ -4180,7 +4180,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 153:
 				case 154:
 				case 155:
-					return true;
+					return 1;
 			
 				case 152:
 					return 5;
@@ -4215,7 +4215,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 166:
 				case 168:
 				case 171:
-					return true;
+					return 1;
 			
 				case 167:
 					return 10;
@@ -4248,7 +4248,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 191:
 				case 192:
 				case 193:
-					return true;
+					return 1;
 			
 				case 194:
 					return 5;
@@ -4283,7 +4283,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 205:
 				case 206:
 				case 207:
-					return true;
+					return 1;
 			
 				case 208:
 					return 13;
@@ -4318,7 +4318,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 219:
 				case 220:
 				case 222:
-					return true;
+					return 1;
 			
 				case 221:
 					return 11;
@@ -4344,7 +4344,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 			switch (iParam1)
 			{
 				case 330:
-					return true;
+					return 1;
 			
 				case 331:
 				case 332:
@@ -4369,7 +4369,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 314:
 				case 315:
 				case 321:
-					return true;
+					return 1;
 			
 				case 316:
 					return 5;
@@ -4399,7 +4399,7 @@ BOOL func_74(int iParam0, int iParam1) // Position - 0x363F (13887)
 				case 351:
 				case 352:
 				case 353:
-					return true;
+					return 1;
 			
 				case 354:
 					return 5;
@@ -6407,8 +6407,8 @@ void func_86(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, va
 	int num;
 	Hash hash;
 	Hash hash2;
-	var unk3;
-	var unk4;
+	Any any;
+	Any any2;
 
 	if (_NETWORK_IS_PLAYER_VALID(PLAYER::PLAYER_ID(), true, false))
 		entityCoords = { ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true) };
@@ -6416,9 +6416,9 @@ void func_86(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, va
 	num = func_67();
 	hash = func_91(uParam0.f_6 >= uParam0.f_2.f_2);
 	hash2 = func_87(uParam0, uParam0.f_1, uParam0.f_2);
-	unk3 = uParam0.f_6;
-	unk4 = uParam0.f_2.f_2;
-	unk_0x9C4B3BAF947660BB(entityCoords, num, hash, hash2, unk3, unk4);
+	any = uParam0.f_6;
+	any2 = uParam0.f_2.f_2;
+	STATS::_PLAYSTATS_PH_ACTIVITY(entityCoords, num, hash, hash2, any, any2);
 	return;
 }
 
@@ -6660,7 +6660,7 @@ BOOL func_92(int iParam0, int iParam1) // Position - 0x6A57 (27223)
 
 	for (i = 0; i < Global_1985099; i = i + 1)
 	{
-		if (Global_1985099.f_1[i /*14*/] == iParam1 && Global_1985099.f_1[i /*14*/].f_1 > false)
+		if (Global_1985099.f_1[i /*14*/] == iParam1 && Global_1985099.f_1[i /*14*/].f_1 > 0)
 			return Global_1985099.f_1[i /*14*/].f_1;
 	}
 
@@ -9303,7 +9303,7 @@ BOOL func_92(int iParam0, int iParam1) // Position - 0x6A57 (27223)
 					break;
 			
 				case 161:
-					flag = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(func_16(12025, -1) / 60));
+					flag = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(func_16(12025, -1) / 60));
 					break;
 			
 				case 162:
@@ -12677,7 +12677,7 @@ int func_124() // Position - 0xE90F (59663)
 
 BOOL func_125() // Position - 0xE925 (59685)
 {
-	return func_38(526, -1) || unk_0xB233964AC562A357() && func_127() != 0 && !func_126(0);
+	return func_38(526, -1) || MISC::HAS_FINALIZED_CHOSEN_CRIMINAL_CAREER() && func_127() != 0 && !func_126(0);
 }
 
 BOOL func_126(int iParam0) // Position - 0xE955 (59733)
@@ -12690,7 +12690,7 @@ BOOL func_126(int iParam0) // Position - 0xE955 (59733)
 
 int func_127() // Position - 0xE96C (59756)
 {
-	return unk_0xA0A0D77ECEDD4136();
+	return MISC::GET_CHOSEN_CRIMINAL_CAREER();
 }
 
 void func_128(int iParam0, BOOL bParam1) // Position - 0xE978 (59768)
@@ -13249,8 +13249,8 @@ int func_145(int iParam0, int iParam1) // Position - 0xF227 (61991)
 			value = num;
 		}
 	
-		value3 = ((SYSTEM::TO_FLOAT(value) - SYSTEM::TO_FLOAT(value2)) / 2f) + SYSTEM::TO_FLOAT(value2);
-		num = SYSTEM::ROUND(value3);
+		value3 = ((BUILTIN::TO_FLOAT(value) - BUILTIN::TO_FLOAT(value2)) / 2f) + BUILTIN::TO_FLOAT(value2);
+		num = BUILTIN::ROUND(value3);
 	}
 
 	return 8000;
@@ -14812,7 +14812,7 @@ int func_188(Vehicle veParam0, BOOL bParam1) // Position - 0x10D61 (68961)
 	else
 		num4 = 75;
 
-	vehicleDirtLevel = SYSTEM::TO_FLOAT(ENTITY::GET_ENTITY_HEALTH(veParam0)) / 1000f;
+	vehicleDirtLevel = BUILTIN::TO_FLOAT(ENTITY::GET_ENTITY_HEALTH(veParam0)) / 1000f;
 
 	if (vehicleDirtLevel > 0.99f)
 		num6 = 0;
@@ -14897,9 +14897,9 @@ int func_188(Vehicle veParam0, BOOL bParam1) // Position - 0x10D61 (68961)
 
 	if (func_190(ENTITY::GET_ENTITY_MODEL(veParam0), 0))
 	{
-		value = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(value) * Global_262145.f_12014);
+		value = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(value) * Global_262145.f_12014);
 	
-		if (value > SYSTEM::FLOOR(4f * Global_262145.f_12014))
+		if (value > BUILTIN::FLOOR(4f * Global_262145.f_12014))
 		{
 			num2 = Global_262145.f_12012;
 			value = value + num2;
@@ -14910,9 +14910,9 @@ int func_188(Vehicle veParam0, BOOL bParam1) // Position - 0x10D61 (68961)
 	}
 	else if (func_189(veParam0))
 	{
-		value = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(value) * Global_262145.f_12017);
+		value = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(value) * Global_262145.f_12017);
 	
-		if (value > SYSTEM::FLOOR(4f * Global_262145.f_12017))
+		if (value > BUILTIN::FLOOR(4f * Global_262145.f_12017))
 		{
 			num2 = Global_262145.f_12015;
 			value = value + num2;
@@ -16057,8 +16057,8 @@ Vector3 func_220(float fParam0, var uParam1, var uParam2, float fParam3) // Posi
 	float num2;
 	float num3;
 
-	num2 = SYSTEM::SIN(fParam3);
-	num3 = SYSTEM::COS(fParam3);
+	num2 = BUILTIN::SIN(fParam3);
+	num3 = BUILTIN::COS(fParam3);
 	num = (fParam0 * num3) - (fParam0.f_1 * num2);
 	num.f_1 = (fParam0 * num2) + (fParam0.f_1 * num3);
 	num.f_2 = fParam0.f_2;
@@ -18567,7 +18567,7 @@ BOOL func_308() // Position - 0x165B7 (91575)
 
 void func_309() // Position - 0x165C6 (91590)
 {
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	return;
 }
 
@@ -18662,7 +18662,7 @@ BOOL func_313() // Position - 0x166E4 (91876)
 		if (func_234(&unk, 120000, true))
 			return false;
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return false;
@@ -18711,7 +18711,7 @@ int func_314(int iParam0, int iParam1, BOOL bParam2) // Position - 0x16742 (9197
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (iParam1 > -1)

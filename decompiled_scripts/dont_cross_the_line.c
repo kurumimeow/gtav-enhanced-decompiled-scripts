@@ -4512,20 +4512,20 @@ char* func_115(int iParam0, int iParam1) // Position - 0x3F6B (16235)
 
 BOOL func_116(int iParam0) // Position - 0x44A1 (17569)
 {
-	int* p_num;
 	int num;
+	int num2;
 
-	p_num = func_117(iParam0);
-	num = iParam0;
-	return IS_BIT_SET(p_num, func_99(num));
+	num = func_117(iParam0);
+	num2 = iParam0;
+	return IS_BIT_SET(num, func_99(num2));
 }
 
-int* func_117(int iParam0) // Position - 0x44BE (17598)
+int func_117(int iParam0) // Position - 0x44BE (17598)
 {
-	int* p_num;
+	var unk;
 
-	p_num = Global_2751338.f_1032[func_97(iParam0)];
-	return p_num;
+	unk = Global_2751338.f_1032[func_97(iParam0)];
+	return unk;
 }
 
 void func_118(int iParam0, BOOL bParam1, int iParam2) // Position - 0x44D9 (17625)
@@ -4766,7 +4766,7 @@ int func_123(int iParam0, Hash hParam1) // Position - 0x491E (18718)
 {
 	int tattooShopDlcItemIndex;
 
-	tattooShopDlcItemIndex = FILES::GET_TATTOO_SHOP_DLC_ITEM_INDEX(hParam1, -1, iParam0);
+	tattooShopDlcItemIndex = EXTRAMETADATA::GET_TATTOO_SHOP_DLC_ITEM_INDEX(hParam1, -1, iParam0);
 
 	if (tattooShopDlcItemIndex != -1)
 		return 129 + tattooShopDlcItemIndex;
@@ -5003,8 +5003,8 @@ float func_133(float fParam0, float fParam1, int iParam2) // Position - 0x4D6F (
 	float num;
 	float num2;
 
-	num = SYSTEM::TO_FLOAT(SYSTEM::FLOOR(fParam0 * (float)iParam2 - 1));
-	num2 = SYSTEM::TO_FLOAT(SYSTEM::FLOOR(fParam1 * (float)iParam2 - 1));
+	num = BUILTIN::TO_FLOAT(BUILTIN::FLOOR(fParam0 * (float)iParam2 - 1));
+	num2 = BUILTIN::TO_FLOAT(BUILTIN::FLOOR(fParam1 * (float)iParam2 - 1));
 	return (num * (float)iParam2) + num2;
 }
 
@@ -5107,13 +5107,13 @@ void func_135(var uParam0, int iParam1) // Position - 0x505C (20572)
 {
 	float value;
 
-	value = SYSTEM::TO_FLOAT(uParam0->[iParam1 /*80*/].f_1);
-	value = value - (300f * SYSTEM::TIMESTEP());
+	value = BUILTIN::TO_FLOAT(uParam0->[iParam1 /*80*/].f_1);
+	value = value - (300f * BUILTIN::TIMESTEP());
 
 	if (value < 0f)
 		value = 0f;
 
-	uParam0->[iParam1 /*80*/].f_1 = SYSTEM::FLOOR(value);
+	uParam0->[iParam1 /*80*/].f_1 = BUILTIN::FLOOR(value);
 	return;
 }
 
@@ -5395,7 +5395,7 @@ BOOL func_140(float fParam0, float fParam1, float fParam2, float fParam3, float 
 
 void func_141(float fParam0, var uParam1, var uParam2, int iParam3) // Position - 0x57A8 (22440)
 {
-	*uParam1 = SYSTEM::TO_FLOAT(SYSTEM::FLOOR(fParam0 / (float)iParam3));
+	*uParam1 = BUILTIN::TO_FLOAT(BUILTIN::FLOOR(fParam0 / (float)iParam3));
 	*uParam2 = fParam0 % (float)iParam3;
 	*uParam1 = *uParam1 / (float)iParam3 - 1;
 	*uParam2 = *uParam2 / (float)iParam3 - 1;
@@ -5497,19 +5497,19 @@ void func_143(var uParam0, var uParam1, int iParam2) // Position - 0x5BA0 (23456
 	switch (uParam1->[iParam2 /*80*/].f_2)
 	{
 		case 0:
-			uParam1->[iParam2 /*80*/].f_16 = uParam1->[iParam2 /*80*/].f_16 - (num2 * SYSTEM::TIMESTEP());
+			uParam1->[iParam2 /*80*/].f_16 = uParam1->[iParam2 /*80*/].f_16 - (num2 * BUILTIN::TIMESTEP());
 			break;
 	
 		case 1:
-			uParam1->[iParam2 /*80*/].f_16 = uParam1->[iParam2 /*80*/].f_16 + (num2 * SYSTEM::TIMESTEP());
+			uParam1->[iParam2 /*80*/].f_16 = uParam1->[iParam2 /*80*/].f_16 + (num2 * BUILTIN::TIMESTEP());
 			break;
 	
 		case 2:
-			uParam1->[iParam2 /*80*/].f_15 = uParam1->[iParam2 /*80*/].f_15 - (num * SYSTEM::TIMESTEP());
+			uParam1->[iParam2 /*80*/].f_15 = uParam1->[iParam2 /*80*/].f_15 - (num * BUILTIN::TIMESTEP());
 			break;
 	
 		case 3:
-			uParam1->[iParam2 /*80*/].f_15 = uParam1->[iParam2 /*80*/].f_15 + (num * SYSTEM::TIMESTEP());
+			uParam1->[iParam2 /*80*/].f_15 = uParam1->[iParam2 /*80*/].f_15 + (num * BUILTIN::TIMESTEP());
 			break;
 	}
 
@@ -7076,7 +7076,7 @@ float func_190() // Position - 0x7D1D (32029)
 	x = 0;
 	y = 0;
 	GRAPHICS::GET_ACTUAL_SCREEN_RESOLUTION(&x, &y);
-	num = SYSTEM::TO_FLOAT(x) / SYSTEM::TO_FLOAT(y);
+	num = BUILTIN::TO_FLOAT(x) / BUILTIN::TO_FLOAT(y);
 
 	if (MISC::IS_PC_VERSION())
 		if (num >= 4f)
@@ -7755,7 +7755,7 @@ BOOL func_221() // Position - 0x899A (35226)
 
 void func_222() // Position - 0x89A9 (35241)
 {
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	return;
 }
 
@@ -7816,7 +7816,7 @@ BOOL func_225() // Position - 0x8A47 (35399)
 		if (func_8(&unk, 120000, true))
 			return false;
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return false;
@@ -7877,7 +7877,7 @@ BOOL func_227(int iParam0, int iParam1, BOOL bParam2) // Position - 0x8AC9 (3552
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (iParam1 > -1)

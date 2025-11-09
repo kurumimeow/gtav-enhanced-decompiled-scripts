@@ -2091,7 +2091,7 @@ void main() // Position - 0x0 (0)
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -3120,12 +3120,12 @@ BOOL func_50(Player plParam0) // Position - 0x13AE (5038)
 	return false;
 }
 
-int func_51(BOOL bParam0) // Position - 0x13F5 (5109)
+int func_51(int iParam0) // Position - 0x13F5 (5109)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
-		case false:
-		case true:
+		case 0:
+		case 1:
 		case 2:
 		case 3:
 		case 4:
@@ -9172,7 +9172,7 @@ int func_159(int iParam0, int iParam1) // Position - 0x6691 (26257)
 		
 	}
 
-	return SYSTEM::CEIL((float)iParam1 / 2f);
+	return BUILTIN::CEIL((float)iParam1 / 2f);
 }
 
 int func_160(int iParam0, int iParam1, int iParam2, BOOL bParam3, BOOL bParam4) // Position - 0x678A (26506)
@@ -9455,13 +9455,13 @@ int func_163(int iParam0, int iParam1) // Position - 0x6B91 (27537)
 			if (iParam1 == 1)
 				return 1;
 		
-			return SYSTEM::FLOOR((float)iParam1 / 1.5f);
+			return BUILTIN::FLOOR((float)iParam1 / 1.5f);
 	
 		case 5:
 			if (iParam1 == 1)
 				return 1;
 		
-			return SYSTEM::FLOOR((float)iParam1 / 2f);
+			return BUILTIN::FLOOR((float)iParam1 / 2f);
 	
 		default:
 		
@@ -12053,7 +12053,7 @@ void func_205(int iParam0, BOOL bParam1) // Position - 0x8F6A (36714)
 				num2 = func_209(iParam0, num);
 				num3 = num3 + num2;
 				TEXT_LABEL_ASSIGN_STRING(&unk9, "HAPP_SELL_C1" /*The Buyer has offered an additional bonus of ~1~% for your collection of ~a~. Are you sure you would like to sell your stock for $~1~?*/, 16);
-				num2 = SYSTEM::ROUND(value);
+				num2 = BUILTIN::ROUND(value);
 			}
 		
 			unk13 = { func_9(iParam0) };
@@ -12123,8 +12123,8 @@ int func_209(int iParam0, int iParam1) // Position - 0x91E4 (37348)
 	float value;
 
 	num = func_210(iParam0, iParam1);
-	value = SYSTEM::TO_FLOAT(func_211(iParam0, iParam1)) * num;
-	return SYSTEM::ROUND(value);
+	value = BUILTIN::TO_FLOAT(func_211(iParam0, iParam1)) * num;
+	return BUILTIN::ROUND(value);
 }
 
 float func_210(int iParam0, int iParam1) // Position - 0x920D (37389)
@@ -12134,7 +12134,7 @@ float func_210(int iParam0, int iParam1) // Position - 0x920D (37389)
 	int value;
 
 	num = 0f;
-	num2 = SYSTEM::TO_FLOAT(Global_262145.f_22506);
+	num2 = BUILTIN::TO_FLOAT(Global_262145.f_22506);
 
 	switch (iParam0)
 	{
@@ -12144,12 +12144,12 @@ float func_210(int iParam0, int iParam1) // Position - 0x920D (37389)
 	
 		case 7:
 			num = Global_262145.f_22508;
-			num2 = SYSTEM::TO_FLOAT(Global_262145.f_22505);
+			num2 = BUILTIN::TO_FLOAT(Global_262145.f_22505);
 			break;
 	
 		case 3:
 			num = Global_262145.f_22508;
-			num2 = SYSTEM::TO_FLOAT(Global_262145.f_22505);
+			num2 = BUILTIN::TO_FLOAT(Global_262145.f_22505);
 			break;
 	
 		case 0:
@@ -12166,22 +12166,22 @@ float func_210(int iParam0, int iParam1) // Position - 0x920D (37389)
 	
 		case 6:
 			num = Global_262145.f_22510;
-			num2 = SYSTEM::TO_FLOAT(Global_262145.f_22507);
+			num2 = BUILTIN::TO_FLOAT(Global_262145.f_22507);
 			break;
 	
 		case 2:
 			num = Global_262145.f_22510;
-			num2 = SYSTEM::TO_FLOAT(Global_262145.f_22507);
+			num2 = BUILTIN::TO_FLOAT(Global_262145.f_22507);
 			break;
 	
 		case 5:
 			num = Global_262145.f_22510;
-			num2 = SYSTEM::TO_FLOAT(Global_262145.f_22507);
+			num2 = BUILTIN::TO_FLOAT(Global_262145.f_22507);
 			break;
 	}
 
-	value = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(iParam1) / num2);
-	return SYSTEM::TO_FLOAT(value) * num;
+	value = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(iParam1) / num2);
+	return BUILTIN::TO_FLOAT(value) * num;
 }
 
 int func_211(int iParam0, int iParam1) // Position - 0x9325 (37669)
@@ -12235,7 +12235,7 @@ int func_212(int iParam0) // Position - 0x9336 (37686)
 	}
 
 	if (func_213(PLAYER::PLAYER_ID()))
-		value = SYSTEM::ROUND(SYSTEM::TO_FLOAT(value) * *Global_262145.f_37330);
+		value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) * *Global_262145.f_37330);
 
 	return value;
 }
@@ -12841,7 +12841,7 @@ BOOL func_257(BOOL bParam0) // Position - 0x9DDD (40413)
 	while (!func_258(&num, bParam0, false, 0))
 	{
 		func_445();
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	func_445();
@@ -13141,11 +13141,11 @@ int func_269(Player plParam0) // Position - 0xA36E (41838)
 	return address;
 }
 
-int func_270(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xA389 (41865)
+int func_270(int iParam0, int iParam1, int iParam2) // Position - 0xA389 (41865)
 {
-	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (hParam1)
+		switch (iParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -13324,7 +13324,7 @@ int func_270(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xA389 (4186
 				return 2;
 		}
 	
-		switch (hParam1)
+		switch (iParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -13448,7 +13448,7 @@ int func_270(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xA389 (4186
 	
 		return 0;
 	}
-	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -13897,7 +13897,7 @@ void func_289(int iParam0) // Position - 0xB234 (45620)
 	value = uLocal_746[iParam0];
 	value2 = 50;
 	value3 = func_211(func_216(iParam0), value);
-	value4 = SYSTEM::ROUND(func_210(func_216(iParam0), value) * 100f);
+	value4 = BUILTIN::ROUND(func_210(func_216(iParam0), value) * 100f);
 
 	if ((float)value4 > 0f)
 	{
@@ -13910,7 +13910,7 @@ void func_289(int iParam0) // Position - 0xB234 (45620)
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iParam0);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(value);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(value2);
-	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_FLOAT(SYSTEM::TO_FLOAT(value4));
+	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_FLOAT(BUILTIN::TO_FLOAT(value4));
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(value3);
 	GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 	return;
@@ -14014,7 +14014,7 @@ int func_293() // Position - 0xB43B (46139)
 
 float func_294(int iParam0, int iParam1) // Position - 0xB44B (46155)
 {
-	return (SYSTEM::TO_FLOAT(iParam0) / SYSTEM::TO_FLOAT(iParam1)) * 100f;
+	return (BUILTIN::TO_FLOAT(iParam0) / BUILTIN::TO_FLOAT(iParam1)) * 100f;
 }
 
 int func_295() // Position - 0xB466 (46182)
@@ -14873,7 +14873,7 @@ void func_333() // Position - 0xC207 (49671)
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_LB))
 	{
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(205), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(205), -1082130432, -1082130432, -1082130432, -1082130432);
 	
 		if (iLocal_568 == 1)
 		{
@@ -14891,7 +14891,7 @@ void func_333() // Position - 0xC207 (49671)
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_RB))
 	{
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(206), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(206), -1082130432, -1082130432, -1082130432, -1082130432);
 	
 		if (iLocal_568 == 0)
 		{
@@ -14910,46 +14910,46 @@ void func_333() // Position - 0xC207 (49671)
 		func_337(FRONTEND_CONTROL, INPUT_FRONTEND_UP, true);
 	
 		if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_UP))
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(301), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(301), -1082130432, -1082130432, -1082130432, -1082130432);
 	
 		func_337(FRONTEND_CONTROL, INPUT_FRONTEND_DOWN, true);
 	
 		if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_DOWN))
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(300), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(300), -1082130432, -1082130432, -1082130432, -1082130432);
 	
 		if (PAD::IS_CONTROL_JUST_RELEASED(FRONTEND_CONTROL, INPUT_FRONTEND_DOWN))
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_RELEASE_EVENT", SYSTEM::TO_FLOAT(300), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_RELEASE_EVENT", BUILTIN::TO_FLOAT(300), -1082130432, -1082130432, -1082130432, -1082130432);
 	
 		if (PAD::IS_CONTROL_JUST_RELEASED(FRONTEND_CONTROL, INPUT_FRONTEND_UP))
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_RELEASE_EVENT", SYSTEM::TO_FLOAT(301), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_RELEASE_EVENT", BUILTIN::TO_FLOAT(301), -1082130432, -1082130432, -1082130432, -1082130432);
 	}
 	else
 	{
 		func_337(FRONTEND_CONTROL, INPUT_FRONTEND_UP, true);
 	
 		if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_UP))
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(188), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(188), -1082130432, -1082130432, -1082130432, -1082130432);
 	
 		func_337(FRONTEND_CONTROL, INPUT_FRONTEND_DOWN, true);
 	
 		if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_DOWN))
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(187), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(187), -1082130432, -1082130432, -1082130432, -1082130432);
 	}
 
 	func_337(FRONTEND_CONTROL, INPUT_FRONTEND_LEFT, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_LEFT))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(189), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(189), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_337(FRONTEND_CONTROL, INPUT_FRONTEND_RIGHT, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_RIGHT))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(190), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(190), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_337(FRONTEND_CONTROL, INPUT_FRONTEND_ACCEPT, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_ACCEPT))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(201), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(201), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_337(FRONTEND_CONTROL, INPUT_FRONTEND_CANCEL, true);
 
@@ -14967,14 +14967,14 @@ void func_333() // Position - 0xC207 (49671)
 		}
 		else
 		{
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(203), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(203), -1082130432, -1082130432, -1082130432, -1082130432);
 		}
 	}
 
 	func_337(FRONTEND_CONTROL, INPUT_FRONTEND_Y, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_Y))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(204), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(204), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	if (PAD::IS_USING_CURSOR(FRONTEND_CONTROL))
 	{
@@ -14985,7 +14985,7 @@ void func_333() // Position - 0xC207 (49671)
 		func_337(FRONTEND_CONTROL, INPUT_CURSOR_ACCEPT, true);
 	
 		if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_CURSOR_ACCEPT))
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(201), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(201), -1082130432, -1082130432, -1082130432, -1082130432);
 	
 		func_337(FRONTEND_CONTROL, INPUT_CURSOR_CANCEL, true);
 	
@@ -15069,7 +15069,7 @@ void func_335() // Position - 0xC786 (51078)
 	if (func_336())
 		func_279();
 	else
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(202), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_1285, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(202), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	AUDIO::PLAY_SOUND_FRONTEND(-1, "Click_Back", "GTAO_SMG_Hangar_Computer_Sounds", true);
 	return;
@@ -15135,7 +15135,7 @@ void func_339() // Position - 0xC86E (51310)
 		{
 			func_445();
 			func_410();
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
 		func_410();
@@ -16837,7 +16837,7 @@ void func_359(int iParam0, int iParam1) // Position - 0xE670 (58992)
 	hash2 = func_362(iParam1);
 	hash3 = func_360(iParam0);
 	num2 = -1;
-	unk_0x9C4B3BAF947660BB(entityCoords, num, hash, hash2, hash3, num2);
+	STATS::_PLAYSTATS_PH_ACTIVITY(entityCoords, num, hash, hash2, hash3, num2);
 	return;
 }
 
@@ -20024,8 +20024,8 @@ void func_383(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, v
 	int num;
 	Hash hash;
 	Hash hash2;
-	var unk3;
-	var unk4;
+	Any any;
+	Any any2;
 
 	if (_NETWORK_IS_PLAYER_VALID(PLAYER::PLAYER_ID(), true, false))
 		entityCoords = { ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true) };
@@ -20033,9 +20033,9 @@ void func_383(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, v
 	num = func_364();
 	hash = func_388(uParam0.f_6 >= uParam0.f_2.f_2);
 	hash2 = func_384(uParam0, uParam0.f_1, uParam0.f_2);
-	unk3 = uParam0.f_6;
-	unk4 = uParam0.f_2.f_2;
-	unk_0x9C4B3BAF947660BB(entityCoords, num, hash, hash2, unk3, unk4);
+	any = uParam0.f_6;
+	any2 = uParam0.f_2.f_2;
+	STATS::_PLAYSTATS_PH_ACTIVITY(entityCoords, num, hash, hash2, any, any2);
 	return;
 }
 
@@ -22920,7 +22920,7 @@ BOOL func_389(int iParam0, int iParam1) // Position - 0x12043 (73795)
 					break;
 			
 				case 161:
-					flag = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(func_150(12025, -1) / 60));
+					flag = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(func_150(12025, -1) / 60));
 					break;
 			
 				case 162:
@@ -29540,13 +29540,13 @@ void func_443() // Position - 0x1D94A (121162)
 			Global_77024 = false;
 			Global_77026 = false;
 			NETWORK::SET_LAST_VIEWED_SHOP_ITEM(Global_77027, Global_77028, 0);
-			NETWORK::OPEN_COMMERCE_STORE("", "", 4, 0);
+			NETWORK::OPEN_COMMERCE_STORE("", "", 4, false);
 			func_444(Global_77027, Global_77028, 113158192, 1);
 		
 			while (NETWORK::IS_COMMERCE_STORE_OPEN())
 			{
 				func_445();
-				SYSTEM::WAIT(0);
+				BUILTIN::WAIT(0);
 			}
 		}
 		else if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_CANCEL) || PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_CURSOR_CANCEL) && !HUD::IS_WARNING_MESSAGE_ACTIVE())
@@ -31151,7 +31151,7 @@ void func_514() // Position - 0x1F59E (128414)
 
 	while (!func_526())
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	func_450(1);

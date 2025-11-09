@@ -383,7 +383,7 @@ void main() // Position - 0x0 (0)
 		case 3:
 			while (true)
 			{
-				SYSTEM::WAIT(0);
+				BUILTIN::WAIT(0);
 			
 				if (HUD::IS_FRONTEND_READY_FOR_CONTROL())
 				{
@@ -1265,7 +1265,7 @@ BOOL func_44(float fParam0) // Position - 0x109F (4255)
 {
 	int num;
 
-	num = SYSTEM::FLOOR(fParam0);
+	num = BUILTIN::FLOOR(fParam0);
 
 	if (fParam0 - (float)num > 0f)
 		return false;
@@ -1553,9 +1553,9 @@ BOOL func_48() // Position - 0x159C (5532)
 
 	if (!IS_BIT_SET(Global_1965685.f_3, 1) || IS_BIT_SET(Global_1965685.f_3, 2) && !NETWORK::IS_COMMERCE_STORE_OPEN() && !NETWORK::IS_COMMERCE_DATA_FETCH_IN_PROGRESS())
 	{
-		if (unk_0x483F6369B8CEE24B())
+		if (NETWORK::NETWORK_HAS_SC_MEMBERSHIP_INFO())
 		{
-			unk_0x9FA18B5CD8803086(&Global_1965685);
+			NETWORK::NETWORK_GET_SC_MEMBERSHIP_INFO(&Global_1965685);
 			MISC::SET_BIT(&(Global_1965685.f_3), 1);
 		
 			if (IS_BIT_SET(Global_1965685.f_3, 2))
@@ -3823,7 +3823,7 @@ Vector3 func_131(ePedComponentType epctParam0) // Position - 0x3D63 (15715)
 	else if (HUD::DOES_BLIP_EXIST(Global_2647055.f_33[epctParam0]) && !(epctParam0 == Global_2672967))
 		vector = { func_204(Global_2647055.f_33[epctParam0]) };
 
-	if (SYSTEM::VMAG(vector) > 0f)
+	if (BUILTIN::VMAG(vector) > 0f)
 		return vector;
 
 	return func_132(epctParam0);
@@ -3841,12 +3841,12 @@ Vector3 func_132(ePedComponentType epctParam0) // Position - 0x3DD7 (15831)
 		{
 			vector = { func_202(epctParam0) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	
 		if (Global_2658019[epctParam0 /*467*/].f_75.f_11)
-			if (SYSTEM::VMAG(Global_2658019[epctParam0 /*467*/].f_75.f_12) > 0f)
+			if (BUILTIN::VMAG(Global_2658019[epctParam0 /*467*/].f_75.f_12) > 0f)
 				return Global_2658019[epctParam0 /*467*/].f_75.f_12;
 	}
 
@@ -3854,7 +3854,7 @@ Vector3 func_132(ePedComponentType epctParam0) // Position - 0x3DD7 (15831)
 	{
 		vector = { func_200(func_201(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_36)) };
 	
-		if (SYSTEM::VMAG(vector) > 0f)
+		if (BUILTIN::VMAG(vector) > 0f)
 			return vector;
 	}
 	else
@@ -3865,7 +3865,7 @@ Vector3 func_132(ePedComponentType epctParam0) // Position - 0x3DD7 (15831)
 		{
 			vector = { func_200(func_201(type)) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	}
@@ -3874,7 +3874,7 @@ Vector3 func_132(ePedComponentType epctParam0) // Position - 0x3DD7 (15831)
 	{
 		vector = { func_136(epctParam0) };
 	
-		if (SYSTEM::VMAG(vector) > 0f)
+		if (BUILTIN::VMAG(vector) > 0f)
 			return vector;
 	}
 
@@ -3886,7 +3886,7 @@ Vector3 func_132(ePedComponentType epctParam0) // Position - 0x3DD7 (15831)
 		{
 			vector = { Global_1946439.f_773[type2 /*3*/] };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	}
@@ -3897,12 +3897,12 @@ Vector3 func_132(ePedComponentType epctParam0) // Position - 0x3DD7 (15831)
 		{
 			vector = { func_202(epctParam0) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	
 		if (Global_2658019[epctParam0 /*467*/].f_75.f_11)
-			if (SYSTEM::VMAG(Global_2658019[epctParam0 /*467*/].f_75.f_12) > 0f)
+			if (BUILTIN::VMAG(Global_2658019[epctParam0 /*467*/].f_75.f_12) > 0f)
 				return Global_2658019[epctParam0 /*467*/].f_75.f_12;
 	}
 
@@ -8440,7 +8440,7 @@ char* func_291(int iParam0) // Position - 0x9FAB (40875)
 			return "DLCC_SMR23_RC" /*Charlie Reed is pulling together a new crew, the Los Santos Angels, to take on Merryweather's new recruitment drive. Launched from an Avenger, push back their operation.*/;
 	
 		case 24:
-			return "DLCC_GTAPL_RC";
+			return "DLCC_GTAPL_RC" /*Car showroom of The Vinewood Club. Members can freely borrow from an exclusive stock of high-end luxury vehicles and purchase them at discount prices.*/;
 	
 		case 25:
 			return "DLCC_CFRAI_RC" /*With the help of Officer Vincent Effenburger, raid the cartel's operation in the Cluckin' Bell factory in Paleto Bay.*/;
@@ -8449,7 +8449,7 @@ char* func_291(int iParam0) // Position - 0x9FAB (40875)
 			return "DLCC_SAL23_RC" /*With the help of Jamal Amir, steal, sell and salvage vehicles with your very own Salvage Yard.*/;
 	
 		case 27:
-			return "DLCC_VCGAR_RC";
+			return "DLCC_VCGAR_RC" /*Luxury garage for members of The Vinewood Club. Store and modify up to 100 of your most prestigious vehicles under one roof.*/;
 	
 		case 28:
 			return "DLCC_BTY24_RC" /*Join Maude Eccles and her daughter, Jenette, as they make bank catching criminals on the run. Invest in Bottom Dollar Bail Enforcement today to start your bail enforcement business.*/;
@@ -8461,15 +8461,15 @@ char* func_291(int iParam0) // Position - 0x9FAB (40875)
 			return "FHAN_ROLLOVER" /*Buckle up with co-pilot Oscar Guzman and take on one of the most infamous arms dealerships in Blaine County. But be warned, there are bigger problems than rival smugglers watching your trade routes. Much bigger...*/;
 	
 		case 31:
-			return "DLCC_TY25M_RC";
+			return "DLCC_TY25M_RC" /*Join Raf De Angelis and take control of San Andreas's biggest money laundering network.*/;
 	
 		case 33:
 		case 34:
 		case 32:
-			return "DLCC_TY25C_RC";
+			return "DLCC_TY25C_RC" /*Join Raf De Angelis and take control of San Andreas's biggest money laundering network.*/;
 	
 		case 35:
-			return "DLCC_MUSL_RC";
+			return "DLCC_MUSL_RC" /*The Music Locker offers the pure ecstasy of a sweaty all-nighter on the dancefloor with the scene's best DJs. Featuring Moodymann, Palms Trax, and Keinemusik.*/;
 	
 		default:
 		
@@ -8603,12 +8603,12 @@ char* func_293(int iParam0) // Position - 0xA1E5 (41445)
 			return "DLCC_CFRAI_TY" /*Contact Mission*/;
 	
 		case 31:
-			return "DLCC_TY25M_TY";
+			return "DLCC_TY25M_TY" /*Business*/;
 	
 		case 33:
 		case 34:
 		case 32:
-			return "DLCC_TY25C_TY";
+			return "DLCC_TY25C_TY" /*Business*/;
 	
 		default:
 		
@@ -8720,7 +8720,7 @@ char* func_294(int iParam0) // Position - 0xA3B1 (41905)
 		case 33:
 		case 34:
 		case 32:
-			return "DLCC_TY25C_WS";
+			return "DLCC_TY25C_WS" /*Maze Bank Foreclosures*/;
 	
 		default:
 		
@@ -8830,13 +8830,13 @@ char* func_295(int iParam0) // Position - 0xA57D (42365)
 			return "";
 	
 		case 33:
-			return "DLCC_TY25C_HELI";
+			return "DLCC_TY25C_HELI" /*Higgins Helitours*/;
 	
 		case 34:
-			return "DLCC_TY25C_WEED";
+			return "DLCC_TY25C_WEED" /*Smoke on the Water*/;
 	
 		case 32:
-			return "DLCC_TY25C_CAR";
+			return "DLCC_TY25C_CAR" /*Hands On Car Wash*/;
 	
 		default:
 		
@@ -8998,7 +8998,7 @@ char* func_300(int iParam0) // Position - 0xA895 (43157)
 			return "DLCC_SMR23_CT" /*Charlie Reed*/;
 	
 		case 24:
-			return "DLCC_GTAPL_CT";
+			return "DLCC_GTAPL_CT" /*The Vinewood Club*/;
 	
 		case 25:
 			return "DLCC_CFRAI_CT" /*Vincent*/;
@@ -9007,7 +9007,7 @@ char* func_300(int iParam0) // Position - 0xA895 (43157)
 			return "DLCC_SAL23_CT" /*Yusuf Amir*/;
 	
 		case 27:
-			return "DLCC_VCGAR_CT";
+			return "DLCC_VCGAR_CT" /*The Vinewood Club*/;
 	
 		case 28:
 			return "DLCC_BTY24_CT" /*Maude Eccles*/;
@@ -9019,12 +9019,12 @@ char* func_300(int iParam0) // Position - 0xA895 (43157)
 			return "CELL_OSCAR_G_N" /*Oscar*/;
 	
 		case 31:
-			return "DLCC_TY25M_CT";
+			return "DLCC_TY25M_CT" /*Martin Madrazo*/;
 	
 		case 33:
 		case 34:
 		case 32:
-			return "DLCC_TY25C_CT";
+			return "DLCC_TY25C_CT" /*Raf De Angelis*/;
 	
 		default:
 		
@@ -9225,7 +9225,7 @@ char* func_302(int iParam0) // Position - 0xAC3A (44090)
 			return "DLCC_SMR23" /*San Andreas Mercenaries*/;
 	
 		case 24:
-			return "DLCC_GTAPL";
+			return "DLCC_GTAPL" /*The Vinewood Car Club*/;
 	
 		case 25:
 			return "DLCC_CFRAI" /*The Cluckin' Bell Farm Raid*/;
@@ -9234,7 +9234,7 @@ char* func_302(int iParam0) // Position - 0xAC3A (44090)
 			return "DLCC_SAL23" /*The Chop Shop*/;
 	
 		case 27:
-			return "DLCC_VCGAR";
+			return "DLCC_VCGAR" /*The Vinewood Club Garage*/;
 	
 		case 28:
 			return "DLCC_BTY24" /*Bottom Dollar Bounties*/;
@@ -9246,15 +9246,15 @@ char* func_302(int iParam0) // Position - 0xAC3A (44090)
 			return "DLCC_FHAN" /*Oscar Guzman Flies Again*/;
 	
 		case 31:
-			return "DLCC_TY25";
+			return "DLCC_TY25" /*Money Fronts*/;
 	
 		case 33:
 		case 34:
 		case 32:
-			return "DLCC_TY25";
+			return "DLCC_TY25" /*Money Fronts*/;
 	
 		case 35:
-			return "DLCC_MUSL";
+			return "DLCC_MUSL" /*The Music Locker*/;
 	
 		default:
 		
@@ -10524,7 +10524,7 @@ void func_340(int iParam0, int iParam1, Vector3 vParam2, var uParam3, var uParam
 	{
 		num = 29;
 		func_353(iParam0, 0, iParam1, 0, "PM_PLAYERS" /*Players*/, epctParam10, epctParam11);
-		func_350(iParam0, 1, iParam1, 1, "PM_TYPE" /*Type*/, "HSWTT_TITLE", num3, num, IS_BIT_SET(iParam14, 14));
+		func_350(iParam0, 1, iParam1, 1, "PM_TYPE" /*Type*/, "HSWTT_TITLE" /*HSW Time Trial*/, num3, num, IS_BIT_SET(iParam14, 14));
 	
 		if (func_345() != -1)
 		{
@@ -11198,7 +11198,7 @@ char* func_351(int iParam0, int iParam1, int iParam2, int iParam3, BOOL bParam4,
 		else if (iParam1 == 27)
 			return "FMMC_RSTAR_STRTR" /*Street Race*/;
 		else if (iParam1 == 28 || iParam1 == 29)
-			return "FMMC_RSTAR_HSWR";
+			return "FMMC_RSTAR_HSWR" /*HSW Race*/;
 		else if (iParam1 == 30 || iParam1 == 31)
 			return "FMMC_RSTAR_DRIFR" /*Drift Race*/;
 		else if (iParam1 == 32)
@@ -11589,15 +11589,15 @@ char* func_359(int iParam0) // Position - 0xE199 (57753)
 			return "SIR_PURSUIT" /*Dodge the cops and rule the streets in a series of Pursuit Races.*/;
 	
 		case 16:
-			return "SIR_HSWRACE";
+			return "SIR_HSWRACE" /*Push Hao's Special Works vehicles to the limit in a series of breakneck HSW Races.*/;
 	
 		case 17:
 			if (*Global_262145.f_37345 == 0)
-				return "SIR_COMMUNR";
+				return "SIR_COMMUNR" /*Take on a series of the most innovative and challenging Races created by the GTA Online community and curated by Rockstar Games.*/;
 			else if (*Global_262145.f_37345 == 1)
-				return "SIR_COMMUNC";
+				return "SIR_COMMUNC" /*Battle it out with friends and foes in a selection of the best combat modes created by the GTA Online community and curated by Rockstar Games.*/;
 		
-			return "SIR_COMMUN" /*Test your skills to the limit in a series of white-knuckle races and other modes, created entirely by the Grand Theft Auto Online community. It's anyone's game...*/;
+			return "SIR_COMMUN" /*Test your skills in some of the most creative Races, Deathmatches, Survivals, and more designed entirely by the GTA Online community and curated by Rockstar Games.*/;
 	
 		case 18:
 			return "SIR_CAYO" /*Head to the beautiful, bloodstained shores of Cayo Perico for a welcome dose of sun, sea and unbridled mayhem.*/;
@@ -12174,13 +12174,13 @@ char* func_369(int iParam0) // Position - 0xEA52 (59986)
 			return "SIN_PURSUIT" /*Pursuit Series*/;
 	
 		case 16:
-			return "SIN_HSWRACE";
+			return "SIN_HSWRACE" /*HSW Race Series*/;
 	
 		case 17:
 			if (*Global_262145.f_37345 == 0)
-				return "SIN_COMMUNR";
+				return "SIN_COMMUNR" /*Community Race Series*/;
 			else if (*Global_262145.f_37345 == 1)
-				return "SIN_COMMUNC";
+				return "SIN_COMMUNC" /*Community Combat Series*/;
 		
 			return "SIN_COMMUN" /*Community Series*/;
 	
@@ -12248,7 +12248,7 @@ int func_374() // Position - 0xEC39 (60473)
 
 BOOL func_375() // Position - 0xEC4F (60495)
 {
-	return func_240(526, -1) || unk_0xB233964AC562A357() && func_377() != 0 && !func_376(0);
+	return func_240(526, -1) || MISC::HAS_FINALIZED_CHOSEN_CRIMINAL_CAREER() && func_377() != 0 && !func_376(0);
 }
 
 BOOL func_376(int iParam0) // Position - 0xEC7F (60543)
@@ -12261,7 +12261,7 @@ BOOL func_376(int iParam0) // Position - 0xEC7F (60543)
 
 int func_377() // Position - 0xEC96 (60566)
 {
-	return unk_0xA0A0D77ECEDD4136();
+	return MISC::GET_CHOSEN_CRIMINAL_CAREER();
 }
 
 int func_378(Blip blParam0) // Position - 0xECA2 (60578)
@@ -13855,7 +13855,7 @@ int func_429(eCharacter echParam0, char* sParam1, int iParam2, int iParam3, char
 		{
 			func_439(Global_21220, "SET_DATA_SLOT_EMPTY", 1f, -1082130432, -1082130432, -1082130432, -1082130432);
 			func_435(1);
-			func_439(Global_21220, "DISPLAY_VIEW", 1f, SYSTEM::TO_FLOAT(Global_21219), -1082130432, -1082130432, -1082130432);
+			func_439(Global_21220, "DISPLAY_VIEW", 1f, BUILTIN::TO_FLOAT(Global_21219), -1082130432, -1082130432, -1082130432);
 		}
 	}
 
@@ -13991,7 +13991,7 @@ void func_435(int iParam0) // Position - 0x11480 (70784)
 						
 							if (Global_2696550)
 								if (num == 14)
-									func_436(Global_21220, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(1), SYSTEM::TO_FLOAT(i), SYSTEM::TO_FLOAT(Global_9082[num /*15*/].f_10), SYSTEM::TO_FLOAT(Global_23665), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
+									func_436(Global_21220, "SET_DATA_SLOT", BUILTIN::TO_FLOAT(1), BUILTIN::TO_FLOAT(i), BUILTIN::TO_FLOAT(Global_9082[num /*15*/].f_10), BUILTIN::TO_FLOAT(Global_23665), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
 						
 							Global_9676[i] = true;
 						}
@@ -14023,7 +14023,7 @@ void func_435(int iParam0) // Position - 0x11480 (70784)
 												Global_23671 = Global_23671 + 1;
 								}
 							
-								func_436(Global_21220, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(1), SYSTEM::TO_FLOAT(i), SYSTEM::TO_FLOAT(Global_9082[num /*15*/].f_10), SYSTEM::TO_FLOAT(Global_23671), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
+								func_436(Global_21220, "SET_DATA_SLOT", BUILTIN::TO_FLOAT(1), BUILTIN::TO_FLOAT(i), BUILTIN::TO_FLOAT(Global_9082[num /*15*/].f_10), BUILTIN::TO_FLOAT(Global_23671), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
 							}
 							else if (num == 7)
 							{
@@ -14040,7 +14040,7 @@ void func_435(int iParam0) // Position - 0x11480 (70784)
 													value2 = value2 + 1;
 									}
 								
-									func_436(Global_21220, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(1), SYSTEM::TO_FLOAT(i), SYSTEM::TO_FLOAT(Global_9082[num /*15*/].f_10), SYSTEM::TO_FLOAT(value2), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
+									func_436(Global_21220, "SET_DATA_SLOT", BUILTIN::TO_FLOAT(1), BUILTIN::TO_FLOAT(i), BUILTIN::TO_FLOAT(Global_9082[num /*15*/].f_10), BUILTIN::TO_FLOAT(value2), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
 								}
 								else
 								{
@@ -14062,12 +14062,12 @@ void func_435(int iParam0) // Position - 0x11480 (70784)
 											break;
 									}
 								
-									func_436(Global_21220, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(1), SYSTEM::TO_FLOAT(i), SYSTEM::TO_FLOAT(Global_9082[num /*15*/].f_10), SYSTEM::TO_FLOAT(value3), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
+									func_436(Global_21220, "SET_DATA_SLOT", BUILTIN::TO_FLOAT(1), BUILTIN::TO_FLOAT(i), BUILTIN::TO_FLOAT(Global_9082[num /*15*/].f_10), BUILTIN::TO_FLOAT(value3), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
 								}
 							}
 							else if (num == 14)
 							{
-								func_436(Global_21220, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(1), SYSTEM::TO_FLOAT(i), SYSTEM::TO_FLOAT(Global_9082[num /*15*/].f_10), SYSTEM::TO_FLOAT(Global_23665), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
+								func_436(Global_21220, "SET_DATA_SLOT", BUILTIN::TO_FLOAT(1), BUILTIN::TO_FLOAT(i), BUILTIN::TO_FLOAT(Global_9082[num /*15*/].f_10), BUILTIN::TO_FLOAT(Global_23665), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
 							}
 							else if (num == 20)
 							{
@@ -14144,11 +14144,11 @@ void func_435(int iParam0) // Position - 0x11480 (70784)
 							{
 								value6 = 0;
 								value6 = Global_1881909.f_1;
-								func_436(Global_21220, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(1), SYSTEM::TO_FLOAT(i), SYSTEM::TO_FLOAT(Global_9082[num /*15*/].f_10), SYSTEM::TO_FLOAT(value6), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
+								func_436(Global_21220, "SET_DATA_SLOT", BUILTIN::TO_FLOAT(1), BUILTIN::TO_FLOAT(i), BUILTIN::TO_FLOAT(Global_9082[num /*15*/].f_10), BUILTIN::TO_FLOAT(value6), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
 							}
 							else
 							{
-								func_436(Global_21220, "SET_DATA_SLOT", SYSTEM::TO_FLOAT(1), SYSTEM::TO_FLOAT(i), SYSTEM::TO_FLOAT(Global_9082[num /*15*/].f_10), SYSTEM::TO_FLOAT(0), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
+								func_436(Global_21220, "SET_DATA_SLOT", BUILTIN::TO_FLOAT(1), BUILTIN::TO_FLOAT(i), BUILTIN::TO_FLOAT(Global_9082[num /*15*/].f_10), BUILTIN::TO_FLOAT(0), -1f, &Global_9082[num /*15*/], 0, 0, 0, 0);
 							}
 						
 							Global_9676[i] = true;
@@ -14167,19 +14167,19 @@ void func_435(int iParam0) // Position - 0x11480 (70784)
 void func_436(int iParam0, char* sParam1, float fParam2, float fParam3, float fParam4, float fParam5, float fParam6, char* sParam7, const char* sParam8, const char* sParam9, const char* sParam10, const char* sParam11) // Position - 0x11A07 (72199)
 {
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(iParam0, sParam1);
-	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(fParam2));
+	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(fParam2));
 
 	if (fParam3 != -1f)
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(fParam3));
+		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(fParam3));
 
 	if (fParam4 != -1f)
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(fParam4));
+		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(fParam4));
 
 	if (fParam5 != -1f)
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(fParam5));
+		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(fParam5));
 
 	if (fParam6 != -1f)
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(fParam6));
+		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(fParam6));
 
 	if (!MISC::IS_STRING_NULL_OR_EMPTY(sParam7))
 		func_81(sParam7);
@@ -14220,19 +14220,19 @@ void func_438() // Position - 0x11AC8 (72392)
 void func_439(int iParam0, char* sParam1, float fParam2, int iParam3, int iParam4, int iParam5, int iParam6) // Position - 0x11AEB (72427)
 {
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(iParam0, sParam1);
-	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(fParam2));
+	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(fParam2));
 
 	if (iParam3 != -1f)
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(iParam3));
+		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(iParam3));
 
 	if (iParam4 != -1f)
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(iParam4));
+		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(iParam4));
 
 	if (iParam5 != -1f)
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(iParam5));
+		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(iParam5));
 
 	if (iParam6 != -1f)
-		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(SYSTEM::ROUND(iParam6));
+		GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(BUILTIN::ROUND(iParam6));
 
 	GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 	return;

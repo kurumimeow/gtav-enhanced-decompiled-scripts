@@ -125,7 +125,7 @@ void main() // Position - 0x0 (0)
 			SCRIPT::TERMINATE_THIS_THREAD();
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -2517,7 +2517,7 @@ void func_47(int iParam0, int iParam1, var uParam2, var uParam3, var uParam4, va
 				
 					value = (num9 * screenWidthOfDisplayText) + num8;
 					num10 = 0.015f;
-					num11 = SYSTEM::FLOOR(MISC::ABSF(value) / num10);
+					num11 = BUILTIN::FLOOR(MISC::ABSF(value) / num10);
 					num12 = func_71(MISC::ABSF(value), num10);
 					num13 = (float)num11 * num10;
 				
@@ -3160,7 +3160,7 @@ void func_70(var uParam0) // Position - 0x68F9 (26873)
 
 float func_71(float fParam0, float fParam1) // Position - 0x6934 (26932)
 {
-	return fParam0 - ((float)SYSTEM::FLOOR(fParam0 / fParam1) * fParam1);
+	return fParam0 - ((float)BUILTIN::FLOOR(fParam0 / fParam1) * fParam1);
 }
 
 float func_72() // Position - 0x694C (26956)
@@ -3210,21 +3210,21 @@ void func_75(var uParam0, eHudColour ehcParam1, eHudColour ehcParam2, ePedCompon
 
 	if (epctParam3 / 2 > value)
 	{
-		num = SYSTEM::TO_FLOAT(value / 2) / SYSTEM::TO_FLOAT(epctParam3 / 2);
+		num = BUILTIN::TO_FLOAT(value / 2) / BUILTIN::TO_FLOAT(epctParam3 / 2);
 		HUD::GET_HUD_COLOUR(ehcParam1, &r, &g, &b, &a);
 		HUD::GET_HUD_COLOUR(ehcParam2, &r2, &g2, &b2, &a2);
 	}
 	else
 	{
-		num = SYSTEM::TO_FLOAT(value) / SYSTEM::TO_FLOAT(epctParam3);
+		num = BUILTIN::TO_FLOAT(value) / BUILTIN::TO_FLOAT(epctParam3);
 		HUD::GET_HUD_COLOUR(ehcParam2, &r, &g, &b, &a);
 		HUD::GET_HUD_COLOUR(ehcParam1, &r2, &g2, &b2, &a2);
 	}
 
-	uParam0->f_3 = SYSTEM::FLOOR(func_76(SYSTEM::TO_FLOAT(r), SYSTEM::TO_FLOAT(r2), num));
-	uParam0->f_4 = SYSTEM::FLOOR(func_76(SYSTEM::TO_FLOAT(g), SYSTEM::TO_FLOAT(g2), num));
-	uParam0->f_5 = SYSTEM::FLOOR(func_76(SYSTEM::TO_FLOAT(b), SYSTEM::TO_FLOAT(b2), num));
-	uParam0->f_6 = SYSTEM::FLOOR(func_76(SYSTEM::TO_FLOAT(a), SYSTEM::TO_FLOAT(a2), num));
+	uParam0->f_3 = BUILTIN::FLOOR(func_76(BUILTIN::TO_FLOAT(r), BUILTIN::TO_FLOAT(r2), num));
+	uParam0->f_4 = BUILTIN::FLOOR(func_76(BUILTIN::TO_FLOAT(g), BUILTIN::TO_FLOAT(g2), num));
+	uParam0->f_5 = BUILTIN::FLOOR(func_76(BUILTIN::TO_FLOAT(b), BUILTIN::TO_FLOAT(b2), num));
+	uParam0->f_6 = BUILTIN::FLOOR(func_76(BUILTIN::TO_FLOAT(a), BUILTIN::TO_FLOAT(a2), num));
 	return;
 }
 
@@ -3943,7 +3943,7 @@ float func_121() // Position - 0x7839 (30777)
 
 	aspectRatio = GRAPHICS::GET_ASPECT_RATIO(false);
 	GRAPHICS::GET_ACTUAL_SCREEN_RESOLUTION(&x, &y);
-	num = SYSTEM::TO_FLOAT(x) / SYSTEM::TO_FLOAT(y);
+	num = BUILTIN::TO_FLOAT(x) / BUILTIN::TO_FLOAT(y);
 	aspectRatio = func_122(aspectRatio, num);
 
 	if (num > 3.5f && aspectRatio > 1.7f)
@@ -5840,7 +5840,7 @@ void func_156(int iParam0, int iParam1, var uParam2, ePedComponentType epctParam
 		uParam2->[3 /*9*/] = { uParam2->[0 /*9*/] };
 		func_100(&uParam2->[1 /*9*/], epctParam3);
 		func_100(&uParam2->[3 /*9*/], epctParam3);
-		num = (SYSTEM::TO_FLOAT(iParam0) / SYSTEM::TO_FLOAT(iParam1)) * 100f;
+		num = (BUILTIN::TO_FLOAT(iParam0) / BUILTIN::TO_FLOAT(iParam1)) * 100f;
 		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(iParam5);
 		uParam2->[3 /*9*/].f_7 = 51;
 		func_92("TimerBars", "DamageBarFill_128", &uParam2->[3 /*9*/], 0, 0, iParam5, false);
@@ -7065,14 +7065,14 @@ void func_190(ePedComponentType epctParam0, int iParam1, var uParam2, ePedCompon
 			func_191(&uParam2->[1 /*9*/], epctParam3, ehcParam14, epctParam15, *uParam6);
 		}
 	
-		num = (SYSTEM::TO_FLOAT(epctParam0) / SYSTEM::TO_FLOAT(iParam1)) * 100f;
+		num = (BUILTIN::TO_FLOAT(epctParam0) / BUILTIN::TO_FLOAT(iParam1)) * 100f;
 	
 		if (iParam12 != -1f && iParam13 != -1f)
 			num = (iParam12 / iParam13) * 100f;
 		else if (iParam12 != -1f && iParam13 == -1f)
-			num = (iParam12 / SYSTEM::TO_FLOAT(iParam1)) * 100f;
+			num = (iParam12 / BUILTIN::TO_FLOAT(iParam1)) * 100f;
 		else if (iParam12 == -1f && iParam13 != -1f)
-			num = (SYSTEM::TO_FLOAT(epctParam0) / iParam13) * 100f;
+			num = (BUILTIN::TO_FLOAT(epctParam0) / iParam13) * 100f;
 	
 		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(iParam5);
 		uParam2->[3 /*9*/].f_7 = 51;
@@ -7185,7 +7185,7 @@ void func_190(ePedComponentType epctParam0, int iParam1, var uParam2, ePedCompon
 		if (iParam8 > 0 && num >= (float)iParam8)
 		{
 			func_100(&uParam2->[1 /*9*/], PV_COMP_FEET);
-			func_157(uParam2->[0 /*9*/], SYSTEM::TO_FLOAT(iParam8), &uParam2->[1 /*9*/], 1, 1, iParam4, 0, bParam23);
+			func_157(uParam2->[0 /*9*/], BUILTIN::TO_FLOAT(iParam8), &uParam2->[1 /*9*/], 1, 1, iParam4, 0, bParam23);
 			GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(iParam5);
 			func_92("TimerBars", "DamageBarFill_128", &uParam2->[1 /*9*/], 0, 0, iParam5, false);
 			GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(iParam5);
@@ -7214,21 +7214,21 @@ void func_191(var uParam0, ePedComponentType epctParam1, eHudColour ehcParam2, e
 
 	if (epctParam3 / 2 > value)
 	{
-		num = SYSTEM::TO_FLOAT(value / 2) / SYSTEM::TO_FLOAT(epctParam3 / 2);
+		num = BUILTIN::TO_FLOAT(value / 2) / BUILTIN::TO_FLOAT(epctParam3 / 2);
 		HUD::GET_HUD_COLOUR(epctParam1, &r, &g, &b, &a);
 		HUD::GET_HUD_COLOUR(ehcParam2, &r2, &g2, &b2, &a2);
 	}
 	else
 	{
-		num = SYSTEM::TO_FLOAT(value) / SYSTEM::TO_FLOAT(epctParam3);
+		num = BUILTIN::TO_FLOAT(value) / BUILTIN::TO_FLOAT(epctParam3);
 		HUD::GET_HUD_COLOUR(ehcParam2, &r, &g, &b, &a);
 		HUD::GET_HUD_COLOUR(epctParam1, &r2, &g2, &b2, &a2);
 	}
 
-	uParam0->f_4 = SYSTEM::FLOOR(func_76(SYSTEM::TO_FLOAT(r), SYSTEM::TO_FLOAT(r2), num));
-	uParam0->f_5 = SYSTEM::FLOOR(func_76(SYSTEM::TO_FLOAT(g), SYSTEM::TO_FLOAT(g2), num));
-	uParam0->f_6 = SYSTEM::FLOOR(func_76(SYSTEM::TO_FLOAT(b), SYSTEM::TO_FLOAT(b2), num));
-	uParam0->f_7 = SYSTEM::FLOOR(func_76(SYSTEM::TO_FLOAT(a), SYSTEM::TO_FLOAT(a2), num));
+	uParam0->f_4 = BUILTIN::FLOOR(func_76(BUILTIN::TO_FLOAT(r), BUILTIN::TO_FLOAT(r2), num));
+	uParam0->f_5 = BUILTIN::FLOOR(func_76(BUILTIN::TO_FLOAT(g), BUILTIN::TO_FLOAT(g2), num));
+	uParam0->f_6 = BUILTIN::FLOOR(func_76(BUILTIN::TO_FLOAT(b), BUILTIN::TO_FLOAT(b2), num));
+	uParam0->f_7 = BUILTIN::FLOOR(func_76(BUILTIN::TO_FLOAT(a), BUILTIN::TO_FLOAT(a2), num));
 	return;
 }
 
@@ -7268,14 +7268,14 @@ void func_192(ePedComponentType epctParam0, int iParam1, var uParam2, ePedCompon
 			func_191(&uParam2->[1 /*9*/], epctParam3, ehcParam11, epctParam12, *uParam7);
 		}
 	
-		num = (SYSTEM::TO_FLOAT(epctParam0) / SYSTEM::TO_FLOAT(iParam1)) * 100f;
+		num = (BUILTIN::TO_FLOAT(epctParam0) / BUILTIN::TO_FLOAT(iParam1)) * 100f;
 	
 		if (iParam9 != -1f && iParam10 != -1f)
 			num = (iParam9 / iParam10) * 100f;
 		else if (iParam9 != -1f && iParam10 == -1f)
-			num = (iParam9 / SYSTEM::TO_FLOAT(iParam1)) * 100f;
+			num = (iParam9 / BUILTIN::TO_FLOAT(iParam1)) * 100f;
 		else if (iParam9 == -1f && iParam10 != -1f)
-			num = (SYSTEM::TO_FLOAT(epctParam0) / iParam10) * 100f;
+			num = (BUILTIN::TO_FLOAT(epctParam0) / iParam10) * 100f;
 	
 		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(iParam5);
 		uParam2->[3 /*9*/].f_7 = 51;

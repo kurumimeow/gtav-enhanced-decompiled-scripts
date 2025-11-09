@@ -17,7 +17,7 @@ void main() // Position - 0x0 (0)
 	Global_1574480 = 0.276f;
 	Global_1574536 = true;
 	Global_1574632 = -1;
-	Global_1574633 = true;
+	Global_1574633 = 1;
 	Global_1574682 = PV_COMP_INVALID;
 	Global_1574683 = PV_COMP_INVALID;
 	Global_1574686 = PV_COMP_INVALID;
@@ -29,7 +29,7 @@ void main() // Position - 0x0 (0)
 	Global_1574733 = { 355.7f, 277.5f, 102.249f };
 	Global_1574847 = 1;
 	Global_1574950 = true;
-	Global_1574951 = true;
+	Global_1574951 = 1;
 	Global_1575004 = true;
 	Global_1575005 = true;
 	Global_1575007 = true;
@@ -55,8 +55,8 @@ void main() // Position - 0x0 (0)
 	Global_1577883 = -1;
 	Global_1577910 = 30;
 	Global_1577911 = 40;
-	Global_1578051 = true;
-	Global_1578052 = true;
+	Global_1578051 = 1;
+	Global_1578052 = 1;
 	Global_1579619 = 72000;
 	Global_1579622 = -1;
 	Global_1579623 = -1;

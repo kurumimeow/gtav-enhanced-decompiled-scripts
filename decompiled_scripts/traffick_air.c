@@ -6757,7 +6757,7 @@ void main() // Position - 0x0 (0)
 
 	while (true)
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 		uLocal_4267 = { ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true) };
 		func_339(uLocal_6013);
 	
@@ -6913,7 +6913,7 @@ void func_1(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, var
 
 	while (!func_5())
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (!func_4(&uLocal_4851))
@@ -7432,13 +7432,13 @@ BOOL func_21(var uParam0, var uParam1) // Position - 0x1390 (5008)
 	unk = 4;
 
 	if (bLocal_4584)
-		fLocal_4583 = SYSTEM::VDIST(uLocal_4267, uParam0->f_9);
+		fLocal_4583 = BUILTIN::VDIST(uLocal_4267, uParam0->f_9);
 
 	for (i = 0; i < uParam0->f_1160; i = i + 1)
 	{
 		if (!func_3(uParam1->[i /*3*/], 0f, 0f, 0f, false))
 		{
-			unk[i] = SYSTEM::VDIST(uLocal_4267, uParam1->[i /*3*/]);
+			unk[i] = BUILTIN::VDIST(uLocal_4267, uParam1->[i /*3*/]);
 		
 			if (unk[i] > fLocal_4580)
 				fLocal_4580 = unk[i];
@@ -8098,7 +8098,7 @@ float func_48(BOOL bParam0) // Position - 0x1F29 (7977)
 
 	if (bParam0)
 	{
-		num = SYSTEM::TO_FLOAT(MISC::GET_GAME_TIMER());
+		num = BUILTIN::TO_FLOAT(MISC::GET_GAME_TIMER());
 		num2 = num / 1000f;
 		return num2;
 	}
@@ -8106,12 +8106,12 @@ float func_48(BOOL bParam0) // Position - 0x1F29 (7977)
 	if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 	{
 		networkTime = NETWORK::GET_NETWORK_TIME();
-		num3 = SYSTEM::TO_FLOAT(networkTime);
+		num3 = BUILTIN::TO_FLOAT(networkTime);
 		num4 = num3 / 1000f;
 		return num4;
 	}
 
-	return SYSTEM::TO_FLOAT(MISC::GET_GAME_TIMER()) / 1000f;
+	return BUILTIN::TO_FLOAT(MISC::GET_GAME_TIMER()) / 1000f;
 }
 
 BOOL func_49(int* piParam0, float fParam1) // Position - 0x1F81 (8065)
@@ -8157,7 +8157,7 @@ BOOL func_53(char* sParam0, Vehicle veParam1, var uParam2) // Position - 0x1FF9 
 	switch (iLocal_3363)
 	{
 		case 0:
-			if (SYSTEM::VDIST2(entityCoords, entityCoords2) > 625f)
+			if (BUILTIN::VDIST2(entityCoords, entityCoords2) > 625f)
 			{
 				if (!bLocal_3369)
 				{
@@ -8172,7 +8172,7 @@ BOOL func_53(char* sParam0, Vehicle veParam1, var uParam2) // Position - 0x1FF9 
 			break;
 	
 		case 1:
-			if (SYSTEM::VDIST2(entityCoords, entityCoords2) > 2500f)
+			if (BUILTIN::VDIST2(entityCoords, entityCoords2) > 2500f)
 				if (MISC::GET_GAME_TIMER() - uParam2 > 20000)
 					return true;
 			break;
@@ -8829,7 +8829,7 @@ int func_60(int iParam0, int iParam1, int iParam2, int iParam3, BOOL bParam4) //
 	}
 
 	num3 = iParam0;
-	iParam3 = SYSTEM::FLOOR(num * SYSTEM::TO_FLOAT(iParam3));
+	iParam3 = BUILTIN::FLOOR(num * BUILTIN::TO_FLOAT(iParam3));
 	num4 = 0;
 	num5 = iParam3;
 
@@ -9154,10 +9154,10 @@ char* func_64(int iParam0) // Position - 0x32A9 (12969)
 	
 		default:
 			if (func_71(iParam0))
-				return "HSW_COUP";
+				return "HSW_COUP" /*One free respray, livery or spoiler.*/;
 		
 			if (func_69(iParam0))
-				return "HSWU_COUP";
+				return "HSWU_COUP" /*One free Hao's Special Works upgrade.*/;
 			break;
 	}
 
@@ -10107,8 +10107,8 @@ void func_104() // Position - 0x4020 (16416)
 	STATS::STAT_SET_INT(joaat("PERCENT_AMBIENT_MISSIONS"), Global_114114, true);
 	STATS::STAT_SET_INT(joaat("PERCENT_ODDJOBS"), Global_114115, true);
 
-	if (value > 0f && SYSTEM::FLOOR(value) < SYSTEM::FLOOR(Global_114370.f_10198.f_3853))
-		func_106(13, SYSTEM::FLOOR(Global_114370.f_10198.f_3853));
+	if (value > 0f && BUILTIN::FLOOR(value) < BUILTIN::FLOOR(Global_114370.f_10198.f_3853))
+		func_106(13, BUILTIN::FLOOR(Global_114370.f_10198.f_3853));
 
 	if (!DATAFILE::DATAFILE_IS_SAVE_PENDING())
 	{
@@ -10178,7 +10178,7 @@ BOOL func_107(var uParam0, var uParam1, float fParam2, var uParam3, var uParam4,
 		
 			if (uParam0->f_297)
 			{
-				iLocal_4248 = SYSTEM::ROUND(value);
+				iLocal_4248 = BUILTIN::ROUND(value);
 				func_174(&uLocal_3542, "DTRSHRD_MPASS", "DTRSHRD_ART", 0);
 			}
 			else
@@ -10209,11 +10209,11 @@ BOOL func_107(var uParam0, var uParam1, float fParam2, var uParam3, var uParam4,
 		
 			value2 = func_50(&(uParam0->f_209));
 			value2 = value2 * 1000f;
-			totalTimeMs = SYSTEM::ROUND(value2);
+			totalTimeMs = BUILTIN::ROUND(value2);
 			STATS::PLAYSTATS_ODDJOB_DONE(totalTimeMs, 15, false);
-			func_173(&uLocal_3542, 11, "DTRFAIR_UI03", "", SYSTEM::ROUND(value2), 0, 0, 0);
+			func_173(&uLocal_3542, 11, "DTRFAIR_UI03", "", BUILTIN::ROUND(value2), 0, 0, 0);
 			func_172(&(uParam0->f_209));
-			func_173(&uLocal_3542, 5, "DTRFAIR_UI06", "", SYSTEM::CEIL(value), 0, 0, 0);
+			func_173(&uLocal_3542, 5, "DTRFAIR_UI06", "", BUILTIN::CEIL(value), 0, 0, 0);
 			func_171(&uLocal_3542, 0, "", 0, 0, 0, 0, 0);
 			*uParam3 = 1;
 			break;
@@ -10228,13 +10228,13 @@ BOOL func_107(var uParam0, var uParam1, float fParam2, var uParam3, var uParam4,
 			if (func_167(&uLocal_3542, true, 0) && AUDIO::IS_MISSION_COMPLETE_READY_FOR_UI())
 			{
 				func_166(&uLocal_4123, "DTRSHRD_CONT", PAD::GET_CONTROL_INSTRUCTIONAL_BUTTONS_STRING(FRONTEND_CONTROL, INPUT_FRONTEND_ENDSCREEN_ACCEPT, true), true, false, 0, 365);
-				SYSTEM::SETTIMERB(0);
+				BUILTIN::SETTIMERB(0);
 				*uParam3 = 2;
 			}
 			break;
 	
 		case 2:
-			if (SYSTEM::TIMERB() > 7000 && !bLocal_4244)
+			if (BUILTIN::TIMERB() > 7000 && !bLocal_4244)
 			{
 				func_158(&uLocal_4123, 1128792064, 1, false, true, 1065353216);
 			
@@ -10244,7 +10244,7 @@ BOOL func_107(var uParam0, var uParam1, float fParam2, var uParam3, var uParam4,
 		
 			flag = func_122(&uLocal_3542, false, 1065353216, false, false, false);
 		
-			if (bLocal_4244 || SYSTEM::TIMERB() > 12000)
+			if (bLocal_4244 || BUILTIN::TIMERB() > 12000)
 			{
 				func_121(&uLocal_3542);
 			
@@ -10590,7 +10590,7 @@ BOOL func_122(var uParam0, BOOL bParam1, int iParam2, BOOL bParam3, BOOL bParam4
 	}
 
 	if (uParam0->f_562 == 0)
-		uParam0->f_562 = uParam0->f_576 + SYSTEM::FLOOR(15000f * iParam2);
+		uParam0->f_562 = uParam0->f_576 + BUILTIN::FLOOR(15000f * iParam2);
 
 	if (bParam4 && uParam0->f_576 >= uParam0->f_562 - 1500)
 		uParam0->f_562 = uParam0->f_576 + 3000;
@@ -10612,12 +10612,12 @@ BOOL func_122(var uParam0, BOOL bParam1, int iParam2, BOOL bParam3, BOOL bParam4
 	while (flag)
 	{
 		func_120(1);
-		uParam0->f_576 = uParam0->f_576 + SYSTEM::ROUND(0f + (1000f * SYSTEM::TIMESTEP()));
+		uParam0->f_576 = uParam0->f_576 + BUILTIN::ROUND(0f + (1000f * BUILTIN::TIMESTEP()));
 		func_127(uParam0, iParam2, bParam3);
 	
 		if ((float)uParam0->f_576 > (float)uParam0->f_562 + 666 - (15000f * iParam2))
 			if (uParam0->f_30 < 1f)
-				uParam0->f_30 = uParam0->f_30 + 0f + ((1f / 0.225f) * SYSTEM::TIMESTEP());
+				uParam0->f_30 = uParam0->f_30 + 0f + ((1f / 0.225f) * BUILTIN::TIMESTEP());
 	
 		uParam0->f_30 = func_126(uParam0->f_30, 0f, 1f);
 	
@@ -10634,7 +10634,7 @@ BOOL func_122(var uParam0, BOOL bParam1, int iParam2, BOOL bParam3, BOOL bParam4
 					GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 				}
 			
-				uParam0->f_547 = uParam0->f_547 - (0f + ((1f / 1.215f) * SYSTEM::TIMESTEP()));
+				uParam0->f_547 = uParam0->f_547 - (0f + ((1f / 1.215f) * BUILTIN::TIMESTEP()));
 			}
 		}
 	
@@ -10651,7 +10651,7 @@ BOOL func_122(var uParam0, BOOL bParam1, int iParam2, BOOL bParam3, BOOL bParam4
 		if (uParam0->f_576 > uParam0->f_562 - 333)
 			if (!uParam0->f_565)
 				if (uParam0->f_548 < 1f)
-					uParam0->f_548 = uParam0->f_548 + 0f + ((1f / 0.3f) * SYSTEM::TIMESTEP());
+					uParam0->f_548 = uParam0->f_548 + 0f + ((1f / 0.3f) * BUILTIN::TIMESTEP());
 	
 		uParam0->f_548 = func_126(uParam0->f_548, 0f, 1f);
 	
@@ -10699,13 +10699,13 @@ BOOL func_122(var uParam0, BOOL bParam1, int iParam2, BOOL bParam3, BOOL bParam4
 					GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 				}
 			
-				uParam0->f_563 = func_126(uParam0->f_563 + ((1f / 0.3f) * uParam0->f_577 * SYSTEM::TIMESTEP()), 0f, 1f);
+				uParam0->f_563 = func_126(uParam0->f_563 + ((1f / 0.3f) * uParam0->f_577 * BUILTIN::TIMESTEP()), 0f, 1f);
 				uParam0->f_577 = func_126(uParam0->f_577 + 0.07f, 0.75f, 1.15f);
 			}
 		}
 		else
 		{
-			uParam0->f_563 = func_126(uParam0->f_563 - ((1f / 0.3f) * uParam0->f_577 * 0.01f * SYSTEM::TIMESTEP()), 0f, 1f);
+			uParam0->f_563 = func_126(uParam0->f_563 - ((1f / 0.3f) * uParam0->f_577 * 0.01f * BUILTIN::TIMESTEP()), 0f, 1f);
 			uParam0->f_577 = func_126(uParam0->f_577 + 0.07f, 0.75f, 1.15f);
 		}
 	
@@ -10721,7 +10721,7 @@ BOOL func_122(var uParam0, BOOL bParam1, int iParam2, BOOL bParam3, BOOL bParam4
 	
 		if (bParam1)
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 		else
 		{
@@ -10842,7 +10842,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 	float screenX;
 	float screenY;
 
-	alpha = SYSTEM::ROUND(uParam0->f_547 * 255f);
+	alpha = BUILTIN::ROUND(uParam0->f_547 * 255f);
 	num = func_150() * 0.25f;
 
 	if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(uParam0->f_1))
@@ -10994,7 +10994,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 			
 				if (uParam0->f_572 < 1f)
 				{
-					uParam0->f_572 = uParam0->f_572 + 0f + ((1f / 0.166f) * SYSTEM::TIMESTEP());
+					uParam0->f_572 = uParam0->f_572 + 0f + ((1f / 0.166f) * BUILTIN::TIMESTEP());
 				
 					if (uParam0->f_572 > 1f)
 						uParam0->f_572 = 1f;
@@ -11095,7 +11095,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 	{
 		num9 = func_126(num8 / (0.6f * func_151(25f)), 0f, 1f);
 		func_148();
-		GRAPHICS::DRAW_RECT(0.5f, num - func_151(2f - 0.5f) - 0.0013888889f, width, func_142(1f), r, g, b, SYSTEM::ROUND(num9 * (float)a), false);
+		GRAPHICS::DRAW_RECT(0.5f, num - func_151(2f - 0.5f) - 0.0013888889f, width, func_142(1f), r, g, b, BUILTIN::ROUND(num9 * (float)a), false);
 	}
 	else
 	{
@@ -11116,7 +11116,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 		if (num8 >= 0f)
 		{
 			num9 = func_126(num8 / (0.8f * func_151(25f)), 0f, 1f);
-			func_139(uParam0, i, num + func_151(2f), start, end, SYSTEM::ROUND((float)alpha * num9));
+			func_139(uParam0, i, num + func_151(2f), start, end, BUILTIN::ROUND((float)alpha * num9));
 		}
 		else
 		{
@@ -11137,7 +11137,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 					num = num + func_151(2f);
 					num9 = func_126(num8 / (0.6f * func_151(25f)), 0f, 1f);
 					func_148();
-					GRAPHICS::DRAW_RECT(0.5f, num + func_151(2f * 0.5f), width, func_142(1f), r, g, b, SYSTEM::ROUND(num9 * (float)a), false);
+					GRAPHICS::DRAW_RECT(0.5f, num + func_151(2f * 0.5f), width, func_142(1f), r, g, b, BUILTIN::ROUND(num9 * (float)a), false);
 					num = num + func_151(2f * 0.3f);
 				
 					if (uParam0->f_56 > 0)
@@ -11160,7 +11160,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 			num = num + func_151(2f);
 			num9 = func_126(num8 / (0.6f * func_151(25f)), 0f, 1f);
 			func_148();
-			GRAPHICS::DRAW_RECT(0.5f, num + func_151(2f * 0.5f), width, func_142(1f), r, g, b, SYSTEM::ROUND(num9 * (float)a), false);
+			GRAPHICS::DRAW_RECT(0.5f, num + func_151(2f * 0.5f), width, func_142(1f), r, g, b, BUILTIN::ROUND(num9 * (float)a), false);
 		}
 	}
 
@@ -11172,7 +11172,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 		if (num8 >= 0f)
 		{
 			num9 = func_126(num8 / (0.8f * func_151(25f)), 0f, 1f);
-			HUD::SET_TEXT_COLOUR(r, g, b, SYSTEM::ROUND(num9 * (float)alpha));
+			HUD::SET_TEXT_COLOUR(r, g, b, BUILTIN::ROUND(num9 * (float)alpha));
 			func_131(8, false, true, &num10, &unk, false);
 			start2 = start;
 			end2 = end;
@@ -11223,7 +11223,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 			TEXT_LABEL_ASSIGN_STRING(&textureName, "MissionPassedMedal", 32);
 			end3 = end3 - ((num10 * 0.28f) + 0.006f);
 			HUD::SET_TEXT_WRAP(start2, end3);
-			HUD::SET_TEXT_COLOUR(r, g, b, SYSTEM::ROUND(num9 * (float)alpha));
+			HUD::SET_TEXT_COLOUR(r, g, b, BUILTIN::ROUND(num9 * (float)alpha));
 		
 			switch (uParam0->f_560)
 			{
@@ -11288,7 +11288,7 @@ void func_127(var uParam0, int iParam1, BOOL bParam2) // Position - 0x53A0 (2140
 			
 				width2 = width2 * 0.65f;
 				height = height * 0.65f;
-				GRAPHICS::DRAW_SPRITE(&textureDict, &textureName, screenX, screenY, width2, height, 0f, r2, g2, b2, SYSTEM::ROUND(num9 * (float)alpha), false, 0);
+				GRAPHICS::DRAW_SPRITE(&textureDict, &textureName, screenX, screenY, width2, height, 0f, r2, g2, b2, BUILTIN::ROUND(num9 * (float)alpha), false, 0);
 			}
 		
 			num = num + (func_151(30f) - 2f);
@@ -11450,27 +11450,27 @@ void func_133(BOOL bParam0, int* piParam1, int* piParam2, var uParam3) // Positi
 	}
 
 	GRAPHICS::GET_ACTUAL_SCREEN_RESOLUTION(piParam1, piParam2);
-	num = SYSTEM::TO_FLOAT(*piParam1);
-	value = SYSTEM::TO_FLOAT(*piParam2);
+	num = BUILTIN::TO_FLOAT(*piParam1);
+	value = BUILTIN::TO_FLOAT(*piParam2);
 	aspectRatio = GRAPHICS::GET_ASPECT_RATIO(false);
 
 	if (func_134(*piParam1, *piParam2))
 	{
 		*uParam3 = 1f;
-		*piParam1 = SYSTEM::ROUND(value * aspectRatio);
-		*piParam2 = SYSTEM::ROUND(value);
+		*piParam1 = BUILTIN::ROUND(value * aspectRatio);
+		*piParam2 = BUILTIN::ROUND(value);
 		return;
 	}
 
 	*uParam3 = num / value / aspectRatio;
-	*piParam1 = SYSTEM::ROUND(num / *uParam3);
-	*piParam2 = SYSTEM::ROUND(value / *uParam3);
+	*piParam1 = BUILTIN::ROUND(num / *uParam3);
+	*piParam2 = BUILTIN::ROUND(value / *uParam3);
 	return;
 }
 
 BOOL func_134(int iParam0, int iParam1) // Position - 0x6399 (25497)
 {
-	return SYSTEM::TO_FLOAT(iParam0) / SYSTEM::TO_FLOAT(iParam1) > 3.5f;
+	return BUILTIN::TO_FLOAT(iParam0) / BUILTIN::TO_FLOAT(iParam1) > 3.5f;
 }
 
 char* func_135(int iParam0, BOOL bParam1) // Position - 0x63B4 (25524)
@@ -11922,13 +11922,13 @@ void func_140(int iParam0, int iParam1, float fParam2, float fParam3, const char
 			break;
 	
 		case 3:
-			HUD::BEGIN_TEXT_COMMAND_DISPLAY_TEXT("FO_TWO_KM");
+			HUD::BEGIN_TEXT_COMMAND_DISPLAY_TEXT("FO_TWO_KM" /*~1~.~1~ km*/);
 			HUD::ADD_TEXT_COMPONENT_INTEGER(iParam0);
 			HUD::ADD_TEXT_COMPONENT_INTEGER(iParam1);
 			break;
 	
 		case 4:
-			HUD::BEGIN_TEXT_COMMAND_DISPLAY_TEXT("FO_TWO_MI");
+			HUD::BEGIN_TEXT_COMMAND_DISPLAY_TEXT("FO_TWO_MI" /*~1~.~1~ mi*/);
 			HUD::ADD_TEXT_COMPONENT_INTEGER(iParam0);
 			HUD::ADD_TEXT_COMPONENT_INTEGER(iParam1);
 			break;
@@ -12473,14 +12473,14 @@ BOOL func_167(var uParam0, BOOL bParam1, int iParam2) // Position - 0x77D4 (3067
 	{
 		while (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(uParam0->f_1) || !GRAPHICS::HAS_STREAMED_TEXTURE_DICT_LOADED("CommonMenu") || !GRAPHICS::HAS_STREAMED_TEXTURE_DICT_LOADED("MPLeaderboard") || !GRAPHICS::HAS_STREAMED_TEXTURE_DICT_LOADED("MPHud"))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
 		if (uParam0->f_566 || uParam0->f_571)
 		{
 			while (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(uParam0->f_4))
 			{
-				SYSTEM::WAIT(0);
+				BUILTIN::WAIT(0);
 			}
 		}
 	}
@@ -12715,7 +12715,7 @@ BOOL func_176(var uParam0, var uParam1, var uParam2, var uParam3, char* sParam4,
 		case 0:
 			if (func_303(uParam7, uParam3))
 			{
-				SYSTEM::SETTIMERA(0);
+				BUILTIN::SETTIMERA(0);
 				*uParam1 = 3;
 			}
 		
@@ -12766,7 +12766,7 @@ BOOL func_176(var uParam0, var uParam1, var uParam2, var uParam3, char* sParam4,
 			func_298(uParam7, uParam3, uParam0);
 			func_297(uParam7);
 		
-			if (!func_296() || SYSTEM::TIMERA() > 25000)
+			if (!func_296() || BUILTIN::TIMERA() > 25000)
 			{
 				switch (iParam16)
 				{
@@ -13186,7 +13186,7 @@ int func_185(var uParam0, var uParam1, var uParam2) // Position - 0x8720 (34592)
 				}
 				else if (ENTITY::GET_ENTITY_HEIGHT_ABOVE_GROUND(PLAYER::PLAYER_PED_ID()) > 20f)
 				{
-					SYSTEM::SETTIMERA(0);
+					BUILTIN::SETTIMERA(0);
 				
 					if (Global_101917.f_12[0] < PV_COMP_UPPR)
 						_DISPLAY_HELP_TEXT("DTRFAIR_TUTO3", -1);
@@ -13230,7 +13230,7 @@ int func_185(var uParam0, var uParam1, var uParam2) // Position - 0x8720 (34592)
 				{
 					if (func_184(PLAYER::PLAYER_PED_ID(), uParam1->[num /*3*/], true) < 1500f)
 					{
-						SYSTEM::SETTIMERA(0);
+						BUILTIN::SETTIMERA(0);
 					
 						if (Global_101917.f_12[0] < PV_COMP_UPPR)
 						{
@@ -13258,7 +13258,7 @@ int func_185(var uParam0, var uParam1, var uParam2) // Position - 0x8720 (34592)
 		
 			if (func_184(PLAYER::PLAYER_PED_ID(), uParam1->[num /*3*/], true) < 500f)
 			{
-				SYSTEM::SETTIMERA(0);
+				BUILTIN::SETTIMERA(0);
 			
 				if (!uParam0->f_293)
 				{
@@ -13269,7 +13269,7 @@ int func_185(var uParam0, var uParam1, var uParam2) // Position - 0x8720 (34592)
 				}
 				else
 				{
-					SYSTEM::SETTIMERA(1000);
+					BUILTIN::SETTIMERA(1000);
 					iLocal_4533 = 5;
 				}
 			}
@@ -13286,7 +13286,7 @@ int func_185(var uParam0, var uParam1, var uParam2) // Position - 0x8720 (34592)
 	
 		case 9:
 			_DISPLAY_HELP_TEXT("DTRFAIR_DPCG", -1);
-			SYSTEM::SETTIMERB(0);
+			BUILTIN::SETTIMERB(0);
 			iLocal_4533 = 10;
 			break;
 	
@@ -13297,7 +13297,7 @@ int func_185(var uParam0, var uParam1, var uParam2) // Position - 0x8720 (34592)
 				break;
 			}
 		
-			if (SYSTEM::TIMERB() > 8000)
+			if (BUILTIN::TIMERB() > 8000)
 			{
 				if (HUD::IS_HELP_MESSAGE_ON_SCREEN())
 					HUD::CLEAR_HELP(true);
@@ -13357,7 +13357,7 @@ int func_186(var uParam0, Vector3 vParam1, var uParam2, var uParam3, int iParam4
 	{
 		if (!func_187(uParam0->[i /*3*/]))
 		{
-			num3 = SYSTEM::VDIST2(uParam0->[i /*3*/], vParam1);
+			num3 = BUILTIN::VDIST2(uParam0->[i /*3*/], vParam1);
 		
 			if (num3 < num2 && num3 > iParam4)
 			{
@@ -14248,13 +14248,13 @@ BOOL func_217(var uParam0, var uParam1, var uParam2, var uParam3, char* sParam4,
 			if (!HUD::IS_MESSAGE_BEING_DISPLAYED())
 			{
 				if (iParam7 == 3)
-					func_287("DTRFAIR_HELP_01", SYSTEM::CEIL(uParam2->f_4), -1);
+					func_287("DTRFAIR_HELP_01", BUILTIN::CEIL(uParam2->f_4), -1);
 				else if (!MISC::IS_STRING_NULL(sLocal_4534) && !uParam0->f_52)
 					_DISPLAY_HELP_TEXT(sLocal_4534, -1);
 			
 				if (uParam0->f_52)
 				{
-					SYSTEM::SETTIMERB(0);
+					BUILTIN::SETTIMERB(0);
 					uParam1->f_229 = 1;
 				}
 				else
@@ -14267,13 +14267,13 @@ BOOL func_217(var uParam0, var uParam1, var uParam2, var uParam3, char* sParam4,
 		case 1:
 			if (Global_114370.f_19987.f_2 >= 5)
 			{
-				if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED() || SYSTEM::TIMERB() > 3000)
+				if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED() || BUILTIN::TIMERB() > 3000)
 				{
 					_CONVERSATION_ADD_LINE(&uLocal_4347, "ARMSAUD", "ARMS_A_CARPA", 9, 0, 0, 0);
 					uParam1->f_229 = 2;
 				}
 			}
-			else if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED() || SYSTEM::TIMERB() > 3000)
+			else if (!HUD::IS_HELP_MESSAGE_BEING_DISPLAYED() || BUILTIN::TIMERB() > 3000)
 			{
 				uParam1->f_229 = 2;
 			}
@@ -14884,7 +14884,7 @@ Vector3 func_227(float fParam0, var uParam1, var uParam2) // Position - 0xAE26 (
 	float num;
 	float num2;
 
-	num = SYSTEM::VMAG(fParam0);
+	num = BUILTIN::VMAG(fParam0);
 
 	if (num != 0f)
 	{
@@ -15178,7 +15178,7 @@ int func_236(var uParam0, var uParam1, int iParam2, var uParam3, var uParam4) //
 				func_246(&uParam1->f_38[iParam2 /*10*/][iLocal_4594], uParam1->f_25, &(uParam1->f_235), true, -7f);
 				uParam1->f_99[iParam2 /*10*/][iLocal_4594] = MISC::GET_GAME_TIMER();
 				func_245(uParam1);
-				SYSTEM::SETTIMERA(0);
+				BUILTIN::SETTIMERA(0);
 				iLocal_4594 = iLocal_4594 + 1;
 				func_46(&uLocal_4585);
 				fLocal_4524 = 0.55f;
@@ -15187,7 +15187,7 @@ int func_236(var uParam0, var uParam1, int iParam2, var uParam3, var uParam4) //
 				if (iLocal_4594 >= 9)
 				{
 					func_244(uParam1, iParam2);
-					SYSTEM::SETTIMERB(0);
+					BUILTIN::SETTIMERB(0);
 					iLocal_4595 = 4;
 				}
 				else
@@ -15200,18 +15200,18 @@ int func_236(var uParam0, var uParam1, int iParam2, var uParam3, var uParam4) //
 		case 3:
 			func_240(uParam1, iParam2, uParam4);
 		
-			if (SYSTEM::TIMERA() > 400)
+			if (BUILTIN::TIMERA() > 400)
 			{
 				func_246(&uParam1->f_38[iParam2 /*10*/][iLocal_4594], uParam1->f_25, &(uParam1->f_235), true, -7f);
 				uParam1->f_99[iParam2 /*10*/][iLocal_4594] = MISC::GET_GAME_TIMER();
 				func_245(uParam1);
-				SYSTEM::SETTIMERA(0);
+				BUILTIN::SETTIMERA(0);
 				iLocal_4594 = iLocal_4594 + 1;
 			
 				if (iLocal_4594 >= 9)
 				{
 					func_244(uParam1, iParam2);
-					SYSTEM::SETTIMERB(0);
+					BUILTIN::SETTIMERB(0);
 					iLocal_4595 = 4;
 				}
 				else
@@ -15225,9 +15225,9 @@ int func_236(var uParam0, var uParam1, int iParam2, var uParam3, var uParam4) //
 			func_240(uParam1, iParam2, uParam4);
 			func_245(uParam1);
 		
-			if (SYSTEM::TIMERB() > 800)
+			if (BUILTIN::TIMERB() > 800)
 			{
-				SYSTEM::SETTIMERB(0);
+				BUILTIN::SETTIMERB(0);
 				*uParam3 = { ENTITY::GET_ENTITY_COORDS(uParam1->f_25, true) };
 				uParam3->f_3 = ENTITY::GET_ENTITY_HEADING(uParam1->f_25);
 			
@@ -15251,7 +15251,7 @@ int func_236(var uParam0, var uParam1, int iParam2, var uParam3, var uParam4) //
 			if (!func_187(uLocal_4608))
 				ENTITY::SET_ENTITY_COORDS(uParam1->f_164, uLocal_4608, true, false, false, true);
 		
-			if (SYSTEM::TIMERB() < 1500)
+			if (BUILTIN::TIMERB() < 1500)
 			{
 				*uParam3 = { ENTITY::GET_ENTITY_COORDS(uParam1->f_25, true) };
 				uParam3->f_3 = ENTITY::GET_ENTITY_HEADING(uParam1->f_25);
@@ -15274,7 +15274,7 @@ int func_236(var uParam0, var uParam1, int iParam2, var uParam3, var uParam4) //
 			break;
 	
 		case 7:
-			if (SYSTEM::TIMERB() > 1000)
+			if (BUILTIN::TIMERB() > 1000)
 			{
 				ENTITY::SET_ENTITY_INVINCIBLE(uParam1->f_25, false, false);
 				bLocal_4569 = false;
@@ -15285,7 +15285,7 @@ int func_236(var uParam0, var uParam1, int iParam2, var uParam3, var uParam4) //
 
 	if (bLocal_4569)
 		if (iLocal_4595 != 7)
-			if (iLocal_4595 > 4 && iLocal_4595 < 6 && SYSTEM::TIMERB() > 2500)
+			if (iLocal_4595 > 4 && iLocal_4595 < 6 && BUILTIN::TIMERB() > 2500)
 				func_219(uParam1->f_25, uParam3, &(uParam3->f_3), 3);
 			else
 				func_218(uParam1->f_25, 13f - 1f, false, 2f, 0);
@@ -15399,7 +15399,7 @@ void func_240(var uParam0, int iParam1, var uParam2) // Position - 0xB9AA (47530
 		
 			ENTITY::HAS_ENTITY_COLLIDED_WITH_ANYTHING(uParam0->f_38[iParam1 /*10*/][i]);
 			ENTITY::GET_ENTITY_SPEED(uParam0->f_38[iParam1 /*10*/][i]) == 0f;
-			SYSTEM::TIMERB() > 30000;
+			BUILTIN::TIMERB() > 30000;
 		
 			if (func_242(uParam0, iParam1, i))
 			{
@@ -15454,7 +15454,7 @@ void func_240(var uParam0, int iParam1, var uParam2) // Position - 0xB9AA (47530
 
 	if (num || num2 || func_241(uParam0))
 	{
-		SYSTEM::SETTIMERB(0);
+		BUILTIN::SETTIMERB(0);
 		func_294(uParam0->f_165[iParam1]);
 		func_19(&(uParam0->f_235));
 	
@@ -15857,7 +15857,7 @@ BOOL func_250(var uParam0, var uParam1, var uParam2, var uParam3, int* piParam4,
 			
 				bLocal_4537 = true;
 				*uParam3 = 4;
-				SYSTEM::SETTIMERA(0);
+				BUILTIN::SETTIMERA(0);
 			}
 			break;
 	
@@ -15891,7 +15891,7 @@ BOOL func_250(var uParam0, var uParam1, var uParam2, var uParam3, int* piParam4,
 				}
 			}
 		
-			if (SYSTEM::TIMERA() > 3000 && !AUDIO::IS_SCRIPTED_CONVERSATION_ONGOING() || bLocal_4257)
+			if (BUILTIN::TIMERA() > 3000 && !AUDIO::IS_SCRIPTED_CONVERSATION_ONGOING() || bLocal_4257)
 			{
 				if (MISC::GET_GAME_TIMER() - uParam1->f_233 > 4500)
 				{
@@ -16211,7 +16211,7 @@ int func_257(var uParam0, Vector3 vParam1, var uParam2, var uParam3) // Position
 		if (!ENTITY::IS_ENTITY_DEAD(uParam0->[i], false))
 		{
 			entityCoords = { ENTITY::GET_ENTITY_COORDS(uParam0->[i], true) };
-			num3 = SYSTEM::VDIST2(entityCoords, vParam1);
+			num3 = BUILTIN::VDIST2(entityCoords, vParam1);
 		
 			if (num == -1)
 			{
@@ -16264,7 +16264,7 @@ void func_258(var uParam0) // Position - 0xCD3F (52543)
 			
 				if (!func_3(entityCoords, 0f, 0f, 0f, false))
 				{
-					if (SYSTEM::VDIST(entityCoords4, entityCoords) > 150f)
+					if (BUILTIN::VDIST(entityCoords4, entityCoords) > 150f)
 					{
 						if (ENTITY::IS_ENTITY_OCCLUDED(uParam0->f_343[i]))
 						{
@@ -16286,7 +16286,7 @@ void func_258(var uParam0) // Position - 0xCD3F (52543)
 			
 				if (!func_3(entityCoords2, 0f, 0f, 0f, false))
 				{
-					if (SYSTEM::VDIST(entityCoords5, entityCoords2) > 150f)
+					if (BUILTIN::VDIST(entityCoords5, entityCoords2) > 150f)
 					{
 						if (ENTITY::IS_ENTITY_OCCLUDED(uParam0->f_343[i]))
 						{
@@ -16308,7 +16308,7 @@ void func_258(var uParam0) // Position - 0xCD3F (52543)
 			
 				if (!func_3(entityCoords3, 0f, 0f, 0f, false))
 				{
-					if (SYSTEM::VDIST(entityCoords6, entityCoords3) > 150f)
+					if (BUILTIN::VDIST(entityCoords6, entityCoords3) > 150f)
 					{
 						if (ENTITY::IS_ENTITY_OCCLUDED(uParam0->f_343[i]))
 						{
@@ -16863,7 +16863,7 @@ BOOL func_264(var uParam0, int iParam1, var uParam2, var uParam3, var uParam4, i
 					}
 				}
 			}
-			else if (SYSTEM::VDIST(uParam4->f_51[iParam5 /*217*/].f_107, uParam2->[iParam6 /*3*/]) < 60f)
+			else if (BUILTIN::VDIST(uParam4->f_51[iParam5 /*217*/].f_107, uParam2->[iParam6 /*3*/]) < 60f)
 			{
 				func_294(uParam3->f_165[iParam6]);
 				func_294(uParam7->[iParam5]);
@@ -16984,10 +16984,10 @@ BOOL func_267(var uParam0, var uParam1, var uParam2, var uParam3, int iParam4, i
 	}
 	else if (!ENTITY::IS_ENTITY_DEAD(uParam3->f_312[iParam4], false))
 	{
-		num = SYSTEM::VDIST(uParam0->f_51[iParam4 /*217*/].f_107, uParam2->[iParam5 /*3*/]);
+		num = BUILTIN::VDIST(uParam0->f_51[iParam4 /*217*/].f_107, uParam2->[iParam5 /*3*/]);
 		num = num;
 	
-		if (SYSTEM::VDIST(uParam0->f_51[iParam4 /*217*/].f_107, uParam2->[iParam5 /*3*/]) < 22f || bLocal_4570 && iLocal_4571 == iParam4)
+		if (BUILTIN::VDIST(uParam0->f_51[iParam4 /*217*/].f_107, uParam2->[iParam5 /*3*/]) < 22f || bLocal_4570 && iLocal_4571 == iParam4)
 			return true;
 	}
 	else
@@ -17014,7 +17014,7 @@ BOOL func_268(var uParam0, int iParam1) // Position - 0xE4D1 (58577)
 
 	if (!bLocal_3535)
 	{
-		if (SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(uParam0->f_31[iParam1], true), ENTITY::GET_ENTITY_COORDS(uParam0->f_25, true)) > 16f)
+		if (BUILTIN::VDIST2(ENTITY::GET_ENTITY_COORDS(uParam0->f_31[iParam1], true), ENTITY::GET_ENTITY_COORDS(uParam0->f_25, true)) > 16f)
 		{
 			ENTITY::SET_ENTITY_COLLISION(uParam0->f_25, true, false);
 			bLocal_3535 = true;
@@ -17077,8 +17077,8 @@ Vector3 func_270(float fParam0, float fParam1, float fParam2, float fParam3) // 
 	float num2;
 	float num3;
 
-	num2 = SYSTEM::SIN(fParam3);
-	num3 = SYSTEM::COS(fParam3);
+	num2 = BUILTIN::SIN(fParam3);
+	num3 = BUILTIN::COS(fParam3);
 	num = (fParam0 * num3) - (fParam0.f_1 * num2);
 	num.f_1 = (fParam0 * num2) + (fParam0.f_1 * num3);
 	num.f_2 = fParam0.f_2;
@@ -17511,14 +17511,14 @@ void func_279(var uParam0, var uParam1, int iParam2) // Position - 0xEDE7 (60903
 											VEHICLE::OPEN_BOMB_BAY_DOORS(uParam1->f_25);
 											bLocal_4239 = true;
 											func_18("DRUG_TRAFFIC_AIR_BAY_DOOR_OPEN_MASTER", &(uParam1->f_235), false, uParam1->f_25, 0, 0, 0, 0);
-											SYSTEM::SETTIMERA(0);
+											BUILTIN::SETTIMERA(0);
 											bLocal_4243 = true;
 										}
 									}
 								
 									if (bLocal_4243)
 									{
-										if (SYSTEM::TIMERA() > 500)
+										if (BUILTIN::TIMERA() > 500)
 										{
 											bLocal_4243 = false;
 											func_280(uParam0, uParam1, iParam2, &num2, num);
@@ -17659,7 +17659,7 @@ void func_281(Entity eParam0, var uParam1, var uParam2) // Position - 0xF332 (62
 	*uParam1 = { ENTITY::GET_ENTITY_COORDS(eParam0, true) + ({ 0.5f, 0.5f, 0.5f } * fLocal_4675) };
 	STREAMING::SET_FOCUS_POS_AND_VEL(*uParam1, fLocal_4675);
 	*uParam2 = { -80f, 0f, ENTITY::GET_ENTITY_HEADING(eParam0) + 180f };
-	*uParam2 = { -SYSTEM::SIN(uParam2->f_2) * SYSTEM::COS(*uParam2), SYSTEM::COS(uParam2->f_2) * SYSTEM::COS(*uParam2), SYSTEM::SIN(*uParam2) };
+	*uParam2 = { -BUILTIN::SIN(uParam2->f_2) * BUILTIN::COS(*uParam2), BUILTIN::COS(uParam2->f_2) * BUILTIN::COS(*uParam2), BUILTIN::SIN(*uParam2) };
 	return;
 }
 
@@ -18195,9 +18195,9 @@ void func_297(var uParam0) // Position - 0xFF05 (65285)
 		{
 			if (!ENTITY::IS_ENTITY_DEAD(uParam0->f_25, false))
 			{
-				if (SYSTEM::VDIST(2131.7075f, 4790.606f, 39.97022f, ENTITY::GET_ENTITY_COORDS(uParam0->f_25, true)) > 20f)
+				if (BUILTIN::VDIST(2131.7075f, 4790.606f, 39.97022f, ENTITY::GET_ENTITY_COORDS(uParam0->f_25, true)) > 20f)
 				{
-					SYSTEM::SETTIMERA(0);
+					BUILTIN::SETTIMERA(0);
 				
 					if (func_278())
 					{
@@ -18217,7 +18217,7 @@ void func_297(var uParam0) // Position - 0xFF05 (65285)
 
 	if (bLocal_4565)
 	{
-		if (SYSTEM::TIMERA() > 300)
+		if (BUILTIN::TIMERA() > 300)
 		{
 			if (CAM::DOES_CAM_EXIST(caLocal_4659))
 			{
@@ -18811,7 +18811,7 @@ void func_311(Vehicle veParam0, int iParam1, int iParam2) // Position - 0x10F82 
 	{
 		while (Global_101912 != 6)
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
 		MISC::SET_GAME_PAUSED(false);
@@ -18833,7 +18833,7 @@ void func_311(Vehicle veParam0, int iParam1, int iParam2) // Position - 0x10F82 
 							PED::SET_PED_INTO_VEHICLE(PLAYER::PLAYER_PED_ID(), veParam0, iParam1);
 							CAM::SET_GAMEPLAY_CAM_RELATIVE_PITCH(0f, 1065353216);
 							CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0f);
-							SYSTEM::WAIT(0);
+							BUILTIN::WAIT(0);
 						}
 					}
 				}
@@ -18942,7 +18942,7 @@ int func_314() // Position - 0x11080 (69760)
 				if (!ENTITY::IS_ENTITY_DEAD(veLocal_6420, false))
 					VEHICLE::SET_VEHICLE_FORWARD_SPEED(veLocal_6420, 70f);
 			
-				SYSTEM::WAIT(0);
+				BUILTIN::WAIT(0);
 			}
 		
 			return 1;
@@ -18959,7 +18959,7 @@ BOOL func_315(int iParam0) // Position - 0x11273 (70259)
 	
 		while (!CAM::IS_SCREEN_FADED_OUT())
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
 		func_153(0);
@@ -19949,7 +19949,7 @@ void func_334(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, c
 		HUD::CLEAR_PRINTS();
 		*uParam1 = 0;
 		entityCoords = { ENTITY::GET_ENTITY_COORDS(PLAYER::GET_PLAYER_PED(PLAYER::GET_PLAYER_INDEX()), true) };
-		*uParam6 = SYSTEM::VDIST(uParam4->[0 /*3*/], entityCoords);
+		*uParam6 = BUILTIN::VDIST(uParam4->[0 /*3*/], entityCoords);
 	
 		if (bParam13)
 			_SHOW_SUBTITLE_CLEAR_EXISTING(sParam5, 7500, 1);
@@ -20167,7 +20167,7 @@ void func_338(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, c
 	{
 		if (!PLAYER::IS_PLAYER_WANTED_LEVEL_GREATER(PLAYER::GET_PLAYER_INDEX(), 0))
 		{
-			if (SYSTEM::ROUND(*uParam1) - num <= 30000)
+			if (BUILTIN::ROUND(*uParam1) - num <= 30000)
 			{
 				_CONVERSATION_ADD_LINE(uParam6, "ARMSAUD", sParam5, 9, 0, 0, 0);
 				func_408("GIVING PLAYER TIME WARNING");
@@ -20176,7 +20176,7 @@ void func_338(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, c
 		}
 	}
 
-	num2 = SYSTEM::ROUND(*uParam1) - num;
+	num2 = BUILTIN::ROUND(*uParam1) - num;
 	func_143(num2, "DTRSHRD_TIME", 0, 0, -1, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1);
 	return;
 }
@@ -20526,19 +20526,19 @@ void func_350(var uParam0) // Position - 0x14B1C (84764)
 
 	while (!HUD::HAS_ADDITIONAL_TEXT_LOADED(2) || !HUD::HAS_ADDITIONAL_TEXT_LOADED(3) || !STREAMING::HAS_ANIM_DICT_LOADED("oddjobs@towingcome_here"))
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 		func_408("WAITING ON TEXT SLOTS");
 	}
 
 	if (uParam0->f_52)
 		if (!func_351(&(uParam0->f_61), 9) || !STREAMING::HAS_ANIM_DICT_LOADED("oddjobs@arms_traffic@") && VEHICLE::HAS_VEHICLE_RECORDING_BEEN_LOADED(101, "carpetbombplane") && VEHICLE::HAS_VEHICLE_RECORDING_BEEN_LOADED(101, "carpetbombtruck") && VEHICLE::HAS_VEHICLE_RECORDING_BEEN_LOADED(101, "CarpetBombNew") && VEHICLE::HAS_VEHICLE_RECORDING_BEEN_LOADED(102, "CarpetBombNew") && VEHICLE::HAS_VEHICLE_RECORDING_BEEN_LOADED(103, "CarpetBombNew") && VEHICLE::HAS_VEHICLE_RECORDING_BEEN_LOADED(104, "CarpetBombNew"))
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 
 	if (bLocal_6400)
 	{
 		while (!func_351(&(uLocal_4851.f_1150), uLocal_4851.f_1160) || !func_351(&(uLocal_4851.f_1155), uLocal_4851.f_1160) || !STREAMING::HAS_MODEL_LOADED(hLocal_4664))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	}
 
@@ -20546,7 +20546,7 @@ void func_350(var uParam0) // Position - 0x14B1C (84764)
 	{
 		while (!func_351(&(uLocal_4851.f_1145), uLocal_4851.f_1160) || !func_351(&(uLocal_4851.f_1155), uLocal_4851.f_1160) || !func_351(&(uLocal_4851.f_1150), uLocal_4851.f_1160) || !STREAMING::HAS_MODEL_LOADED(hLocal_4664))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	}
 
@@ -20555,7 +20555,7 @@ void func_350(var uParam0) // Position - 0x14B1C (84764)
 		while (!STREAMING::HAS_MODEL_LOADED(hLocal_4665) || !STREAMING::HAS_ANIM_DICT_LOADED("p_cargo_chute_s"))
 		{
 			STREAMING::REQUEST_MODEL(hLocal_4665);
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	}
 
@@ -20563,13 +20563,13 @@ void func_350(var uParam0) // Position - 0x14B1C (84764)
 	{
 		while (!func_351(&(uLocal_4851.f_1137), 4) || !func_351(&(uLocal_4851.f_1142), 2))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	}
 
 	while (!AUDIO::REQUEST_SCRIPT_AUDIO_BANK("SCRIPT\\DRUG_TRAFFIC_AIR", false, -1) || !AUDIO::REQUEST_SCRIPT_AUDIO_BANK("SCRIPT\\TARGET_PRACTICE", false, -1) || !AUDIO::REQUEST_SCRIPT_AUDIO_BANK("SCRIPT\\DRUG_TRAFFIC_AIR_PANIC", false, -1))
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (bLocal_6405)
@@ -20577,18 +20577,18 @@ void func_350(var uParam0) // Position - 0x14B1C (84764)
 		while (!func_351(&uLocal_4331, uLocal_4851.f_1160) || !func_351(&(uLocal_4331.f_5), uLocal_4851.f_1160))
 		{
 			func_408("WAITING ON AUTHORED DATA");
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	}
 
 	while (!STREAMING::HAS_PTFX_ASSET_LOADED())
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	while (!STREAMING::HAS_MODEL_LOADED(uLocal_4851.f_8) || !bLocal_6399 || !HUD::HAS_ADDITIONAL_TEXT_LOADED(2) || !HUD::HAS_ADDITIONAL_TEXT_LOADED(3) || !STREAMING::HAS_PTFX_ASSET_LOADED() || !VEHICLE::HAS_VEHICLE_RECORDING_BEEN_LOADED(103, "AirTaxiCut"))
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -20657,7 +20657,7 @@ void func_355() // Position - 0x15248 (86600)
 {
 	while (!func_357(800))
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	TASK::CLEAR_PED_TASKS_IMMEDIATELY(PLAYER::PLAYER_PED_ID());
@@ -20669,12 +20669,12 @@ void func_355() // Position - 0x15248 (86600)
 		ENTITY::SET_ENTITY_HEADING(PLAYER::PLAYER_PED_ID(), uLocal_4851.f_3);
 	}
 
-	SYSTEM::WAIT(500);
+	BUILTIN::WAIT(500);
 	CAM::SET_GAMEPLAY_CAM_RELATIVE_HEADING(0);
 
 	while (!func_356(800))
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -20686,7 +20686,7 @@ BOOL func_356(int iParam0) // Position - 0x152BA (86714)
 
 	while (!CAM::IS_SCREEN_FADED_IN())
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return true;
@@ -20698,7 +20698,7 @@ BOOL func_357(int iParam0) // Position - 0x152D9 (86745)
 
 	while (!CAM::IS_SCREEN_FADED_OUT())
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return true;
@@ -22429,11 +22429,11 @@ void func_366(var uParam0, BOOL bParam1) // Position - 0x19EF6 (106230)
 
 	if (_GET_RANDOM_BOOL() || uParam0->f_38)
 	{
-		uParam0->f_55 = SYSTEM::TO_FLOAT(uParam0->f_4 * 85000);
+		uParam0->f_55 = BUILTIN::TO_FLOAT(uParam0->f_4 * 85000);
 		uParam0->f_38 = 1;
 	}
 
-	uParam0->f_58 = SYSTEM::TO_FLOAT(uParam0->f_4 * 80000);
+	uParam0->f_58 = BUILTIN::TO_FLOAT(uParam0->f_4 * 80000);
 	uParam0->f_5 = uParam0->f_4 + 1;
 	uParam0->f_54 = 300 * uParam0->f_4;
 
@@ -22875,7 +22875,7 @@ int func_382(const char* sParam0, int iParam1, int iParam2) // Position - 0x1A85
 	return 1;
 }
 
-int func_383(char* sParam0) // Position - 0x1A9EB (109035)
+int func_383(const char* sParam0) // Position - 0x1A9EB (109035)
 {
 	if (MISC::ARE_STRINGS_EQUAL("BailBond1", sParam0))
 		return 0;
@@ -23679,7 +23679,7 @@ int func_389() // Position - 0x1C4E6 (115942)
 	return num2;
 }
 
-int func_390(char* sParam0, BOOL bParam1) // Position - 0x1C50A (115978)
+int func_390(const char* sParam0, BOOL bParam1) // Position - 0x1C50A (115978)
 {
 	Hash hashKey;
 	int num;

@@ -408,7 +408,7 @@ void func_10() // Position - 0x359 (857)
 			func_226(false, false);
 			func_225(1, 1, 0, 0, 0);
 			func_224(1, 2, 1, 1, 1);
-			func_223("VOM_MENU_T");
+			func_223("VOM_MENU_T" /*VEHICLE ORGANIZATION*/);
 			func_84();
 			func_83(bLocal_75, true, 1);
 			func_80();
@@ -1626,7 +1626,7 @@ void func_11(BOOL bParam0, int iParam1, BOOL bParam2, BOOL bParam3, BOOL bParam4
 													num48 = 0.02f;
 													HUD::SET_TEXT_SCALE(0f, 0.35f * 0.7f);
 													HUD::SET_TEXT_COLOUR(255, 255, 255, 150);
-													GRAPHICS::DRAW_RECT(num24 - (num48 * 0.6f), num25 + (num46 * 0.75f), 0.0175f, 0.035f, SYSTEM::FLOOR(value), SYSTEM::FLOOR(value), SYSTEM::FLOOR(value), SYSTEM::FLOOR(value2), false);
+													GRAPHICS::DRAW_RECT(num24 - (num48 * 0.6f), num25 + (num46 * 0.75f), 0.0175f, 0.035f, BUILTIN::FLOOR(value), BUILTIN::FLOOR(value), BUILTIN::FLOOR(value), BUILTIN::FLOOR(value2), false);
 													HUD::BEGIN_TEXT_COMMAND_DISPLAY_TEXT(&text);
 													HUD::ADD_TEXT_COMPONENT_INTEGER(Global_24148.f_6341 + num22);
 													func_40(num24 - num48, num25 + num47, 0);
@@ -2172,7 +2172,7 @@ void func_24(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, int iParam4
 	{
 		if (bParam0)
 		{
-			HUD::SET_TEXT_COLOUR(0, 0, 0, SYSTEM::FLOOR(255f * 0.8f));
+			HUD::SET_TEXT_COLOUR(0, 0, 0, BUILTIN::FLOOR(255f * 0.8f));
 		}
 		else
 		{
@@ -3290,7 +3290,7 @@ void func_51(BOOL bParam0, BOOL bParam1) // Position - 0x4D70 (19824)
 {
 	int num;
 
-	num = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(bParam0) / 32f);
+	num = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(bParam0) / 32f);
 
 	if (bParam1)
 		MISC::SET_BIT(&Global_24148.f_6618[num], bParam0 - (num * 32));
@@ -3313,27 +3313,27 @@ void func_52(BOOL bParam0, int* piParam1, int* piParam2, var uParam3) // Positio
 	}
 
 	GRAPHICS::GET_ACTUAL_SCREEN_RESOLUTION(piParam1, piParam2);
-	num = SYSTEM::TO_FLOAT(*piParam1);
-	value = SYSTEM::TO_FLOAT(*piParam2);
+	num = BUILTIN::TO_FLOAT(*piParam1);
+	value = BUILTIN::TO_FLOAT(*piParam2);
 	aspectRatio = GRAPHICS::GET_ASPECT_RATIO(false);
 
 	if (func_53(*piParam1, *piParam2))
 	{
 		*uParam3 = 1f;
-		*piParam1 = SYSTEM::ROUND(value * aspectRatio);
-		*piParam2 = SYSTEM::ROUND(value);
+		*piParam1 = BUILTIN::ROUND(value * aspectRatio);
+		*piParam2 = BUILTIN::ROUND(value);
 		return;
 	}
 
 	*uParam3 = num / value / aspectRatio;
-	*piParam1 = SYSTEM::ROUND(num / *uParam3);
-	*piParam2 = SYSTEM::ROUND(value / *uParam3);
+	*piParam1 = BUILTIN::ROUND(num / *uParam3);
+	*piParam2 = BUILTIN::ROUND(value / *uParam3);
 	return;
 }
 
 BOOL func_53(int iParam0, int iParam1) // Position - 0x4E44 (20036)
 {
-	return SYSTEM::TO_FLOAT(iParam0) / SYSTEM::TO_FLOAT(iParam1) > 3.5f;
+	return BUILTIN::TO_FLOAT(iParam0) / BUILTIN::TO_FLOAT(iParam1) > 3.5f;
 }
 
 BOOL func_54(int iParam0, BOOL bParam1, BOOL bParam2, var uParam3, var uParam4, BOOL bParam5) // Position - 0x4E5F (20063)
@@ -3562,7 +3562,7 @@ void func_63() // Position - 0x525E (21086)
 	{
 		uLocal_125 = { func_73(-1, flag, true) };
 		displayNameFromVehicleModel = VEHICLE::GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(func_72(flag2));
-		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SNG", 16);
+		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SNG" /*Are you sure you want to move your ~a~ to this garage?*/, 16);
 		func_79(&unk, 0, 0);
 	
 		if (!MISC::IS_STRING_NULL_OR_EMPTY(&uLocal_125))
@@ -3574,7 +3574,7 @@ void func_63() // Position - 0x525E (21086)
 	{
 		uLocal_125 = { func_73(-1, flag, true) };
 		displayNameFromVehicleModel2 = VEHICLE::GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(func_72(flag2));
-		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SNF", 16);
+		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SNF" /*Are you sure you want to move your ~a~ to this floor in the garage?*/, 16);
 		func_79(&unk, 0, 0);
 	
 		if (!MISC::IS_STRING_NULL_OR_EMPTY(&uLocal_125))
@@ -3586,7 +3586,7 @@ void func_63() // Position - 0x525E (21086)
 	{
 		uLocal_125 = { func_73(-1, flag, true) };
 		displayNameFromVehicleModel3 = VEHICLE::GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(func_72(flag2));
-		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SNF", 16);
+		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SNF" /*Are you sure you want to move your ~a~ to this floor in the garage?*/, 16);
 		func_79(&unk, 0, 0);
 	
 		if (!MISC::IS_STRING_NULL_OR_EMPTY(&uLocal_125))
@@ -3600,11 +3600,11 @@ void func_63() // Position - 0x525E (21086)
 		displayNameFromVehicleModel4 = VEHICLE::GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(func_72(flag2));
 	
 		if (bLocal_62.f_4 != bLocal_62.f_5)
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SVR", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SVR" /*Are you sure you want to move your ~a~ to this slot and move this vehicle to your other garage?*/, 16);
 		else if (bLocal_62.f_9 != 2)
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SVR2", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SVR2" /*Are you sure you want to move your ~a~ to this slot and move this vehicle to the other slot?*/, 16);
 		else
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SVE", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CONFM_SVE" /*Are you sure you want to move your ~a~ to this slot in the garage?*/, 16);
 	
 		func_79(&unk, 0, 0);
 	
@@ -3620,45 +3620,45 @@ void func_63() // Position - 0x525E (21086)
 	switch (bLocal_62.f_9)
 	{
 		case 1:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_NSP", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_NSP" /*This Property is not suitable for the selected vehicle.*/, 16);
 			break;
 	
 		case 3:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_NSRS", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_NSRS" /*You can't move this vehicle until you have a suitable, available space or an occupied space that can be swapped.*/, 16);
 			break;
 	
 		case 11:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_VPG_ADD", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_VPG_ADD" /*You need a GTA+ Membership to move vehicles into The Vinewood Club Garage.*/, 16);
 			break;
 	
 		case 12:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_VPG_SWAP_G", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_VPG_SWAP_G" /*Garage is full. You need a GTA+ Membership to swap vehicles from The Vinewood Club Garage.*/, 16);
 			break;
 	
 		case 13:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_VPG_SWAP_F", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_VPG_SWAP_F" /*Floor is full. You need a GTA+ Membership to swap vehicles from The Vinewood Club Garage.*/, 16);
 			break;
 	
 		case 10:
 		case 5:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_DLVRY", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_DLVRY" /*Unavailable. Vehicle is being delivered.*/, 16);
 			break;
 	
 		case 6:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CSV", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_CSV" /*Vehicles can't be replaced with themselves.*/, 16);
 			break;
 	
 		case 7:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_ESNS", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_ESNS" /*This empty slot is not suitable for this vehicle.*/, 16);
 			break;
 	
 		case 8:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_SNS", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_SNS" /*One of the vehicles is not suitable for a slot.*/, 16);
 			break;
 	
 		case 14:
 		case 15:
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_OUT", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_OUT" /*Unavailable. Vehicle is not in garage.*/, 16);
 			break;
 	
 		case 16:
@@ -3675,38 +3675,38 @@ void func_63() // Position - 0x525E (21086)
 	if (bLocal_62.f_8 == 1)
 	{
 		if (func_64())
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SG", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SG" /*Select vehicle garage.*/, 16);
 		else
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_EMPTY_G", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_EMPTY_G" /*Garage is empty.*/, 16);
 	
 		func_79(&unk, 0, 0);
 	}
 	else if (bLocal_62.f_8 == 2)
 	{
 		if (func_64())
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SF", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SF" /*Select vehicle floor.*/, 16);
 		else
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_EMPTY_F", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_EMPTY_F" /*Floor is empty.*/, 16);
 	
 		func_79(&unk, 0, 0);
 	}
 	else if (bLocal_62.f_8 == 10)
 	{
 		if (func_64())
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SF", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SF" /*Select vehicle floor.*/, 16);
 		else if (bLocal_62.f_12)
 			TEXT_LABEL_ASSIGN_STRING(&unk, func_68(func_69(bLocal_75.f_2[bLocal_75])), 16);
 		else
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_EMPTY_F", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_EMPTY_F" /*Floor is empty.*/, 16);
 	
 		func_79(&unk, 0, 0);
 	}
 	else if (bLocal_62.f_8 == 3)
 	{
 		if (func_64())
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SV", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SV" /*Select vehicle to move.*/, 16);
 		else
-			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_EMPTY_S", 16);
+			TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_EMPTY_S" /*Slot is empty.*/, 16);
 	
 		func_79(&unk, 0, 0);
 	}
@@ -3714,7 +3714,7 @@ void func_63() // Position - 0x525E (21086)
 	{
 		uLocal_125 = { func_73(-1, flag, true) };
 		displayNameFromVehicleModel5 = VEHICLE::GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(func_72(flag2));
-		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SNG", 16);
+		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SNG" /*Move your ~a~ to this garage.*/, 16);
 		func_79(&unk, 0, 0);
 	
 		if (!MISC::IS_STRING_NULL_OR_EMPTY(&uLocal_125))
@@ -3726,7 +3726,7 @@ void func_63() // Position - 0x525E (21086)
 	{
 		uLocal_125 = { func_73(-1, flag, true) };
 		displayNameFromVehicleModel6 = VEHICLE::GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(func_72(flag2));
-		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SNF", 16);
+		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SNF" /*Move your ~a~ to this floor.*/, 16);
 		func_79(&unk, 0, 0);
 	
 		if (!MISC::IS_STRING_NULL_OR_EMPTY(&uLocal_125))
@@ -3738,7 +3738,7 @@ void func_63() // Position - 0x525E (21086)
 	{
 		uLocal_125 = { func_73(-1, flag, true) };
 		displayNameFromVehicleModel7 = VEHICLE::GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(func_72(flag2));
-		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SNG", 16);
+		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SNG" /*Move your ~a~ to this garage.*/, 16);
 		func_79(&unk, 0, 0);
 	
 		if (!MISC::IS_STRING_NULL_OR_EMPTY(&uLocal_125))
@@ -3750,7 +3750,7 @@ void func_63() // Position - 0x525E (21086)
 	{
 		uLocal_125 = { func_73(-1, flag, true) };
 		displayNameFromVehicleModel8 = VEHICLE::GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(func_72(flag2));
-		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SVR", 16);
+		TEXT_LABEL_ASSIGN_STRING(&unk, "VOM_HELP_SVR" /*Move your ~a~ to this slot.*/, 16);
 		func_79(&unk, 0, 0);
 	
 		if (!MISC::IS_STRING_NULL_OR_EMPTY(&uLocal_125))
@@ -3771,7 +3771,7 @@ BOOL func_65(BOOL bParam0) // Position - 0x5760 (22368)
 {
 	int num;
 
-	num = SYSTEM::FLOOR(SYSTEM::TO_FLOAT(bParam0) / 32f);
+	num = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(bParam0) / 32f);
 
 	if (IS_ROCKSTAR_DEV() && func_67() && func_66() == 2)
 		return 0;
@@ -3990,16 +3990,16 @@ void func_80() // Position - 0x5B84 (23428)
 	if (bLocal_62.f_8 == 1 || bLocal_62.f_8 == 2 || bLocal_62.f_8 == 3 || bLocal_62.f_8 == 6 || bLocal_62.f_8 == 4 || bLocal_62.f_8 == 5 || bLocal_62.f_8 == 10 || bLocal_62.f_8 == 11)
 	{
 		if (func_64())
-			func_81(INPUT_CELLPHONE_SELECT, "VOM_BTN_S_MV", -1);
+			func_81(INPUT_CELLPHONE_SELECT, "VOM_BTN_S_MV" /*Move vehicle*/, -1);
 	
-		func_81(INPUT_CELLPHONE_CANCEL, "VOM_BTN_BCK", -1);
+		func_81(INPUT_CELLPHONE_CANCEL, "VOM_BTN_BCK" /*Back*/, -1);
 	}
 	else if (bLocal_62.f_8 == 8 || bLocal_62.f_8 == 7 || bLocal_62.f_8 == 9 || bLocal_62.f_8 == 12)
 	{
 		if (func_64())
-			func_81(INPUT_CELLPHONE_SELECT, "VOM_BTN_ACC", -1);
+			func_81(INPUT_CELLPHONE_SELECT, "VOM_BTN_ACC" /*Move*/, -1);
 	
-		func_81(INPUT_CELLPHONE_CANCEL, "VOM_BTN_CNCL", -1);
+		func_81(INPUT_CELLPHONE_CANCEL, "VOM_BTN_CNCL" /*Cancel*/, -1);
 	}
 
 	return;
@@ -4150,20 +4150,20 @@ void func_84() // Position - 0x5F19 (24345)
 
 	if (bLocal_62.f_8 == 1)
 	{
-		flag = func_222(&num, &(bLocal_75.f_2), "VOM_T_SG", bLocal_75, false);
+		flag = func_222(&num, &(bLocal_75.f_2), "VOM_T_SG" /*Select Garage*/, bLocal_75, false);
 		bLocal_62.f_9 = 0;
 		bLocal_62.f_6 = -1;
 		bLocal_62.f_4 = -1;
 	}
 	else if (bLocal_62.f_8 == 2)
 	{
-		flag = func_221(bLocal_62.f_4, &num, "VOM_T_SF", &(bLocal_75.f_2), bLocal_75, false);
+		flag = func_221(bLocal_62.f_4, &num, "VOM_T_SF" /*Select Floor*/, &(bLocal_75.f_2), bLocal_75, false);
 		bLocal_62.f_9 = 0;
 		bLocal_62.f_2 = -1;
 	}
 	else if (bLocal_62.f_8 == 10)
 	{
-		flag = func_220(bLocal_62.f_6, &num, "VOM_T_SF", &(bLocal_75.f_2), bLocal_75, &(bLocal_62.f_12), false);
+		flag = func_220(bLocal_62.f_6, &num, "VOM_T_SF" /*Select Floor*/, &(bLocal_75.f_2), bLocal_75, &(bLocal_62.f_12), false);
 		bLocal_62.f_9 = 0;
 		bLocal_62.f_4 = -1;
 		bLocal_62.f_2 = -1;
@@ -4173,7 +4173,7 @@ void func_84() // Position - 0x5F19 (24345)
 		unk.f_4 = -1;
 		unk.f_3 = bLocal_75;
 		bLocal_62 = -1;
-		flag = func_219(&(bLocal_75.f_2), &num2, &num, "VOM_T_SV", &unk, &(bLocal_62.f_4), bLocal_75, false, bLocal_62.f_2);
+		flag = func_219(&(bLocal_75.f_2), &num2, &num, "VOM_T_SV" /*Select Vehicle*/, &unk, &(bLocal_62.f_4), bLocal_75, false, bLocal_62.f_2);
 		bLocal_62.f_9 = unk.f_2;
 	}
 	else if (bLocal_62.f_8 == 4)
@@ -4189,7 +4189,7 @@ void func_84() // Position - 0x5F19 (24345)
 		hash2.f_1 = bLocal_62;
 		hash2.f_3 = bLocal_75;
 		hash2.f_4 = -1;
-		flag = func_214(&num, &(bLocal_75.f_2), "VOM_T_SNG", &hash2, false);
+		flag = func_214(&num, &(bLocal_75.f_2), "VOM_T_SNG" /*Select New Garage*/, &hash2, false);
 		bLocal_62.f_9 = hash2.f_2;
 		bLocal_62.f_10 = hash2.f_4;
 	}
@@ -4204,7 +4204,7 @@ void func_84() // Position - 0x5F19 (24345)
 		hash4.f_1 = bLocal_62;
 		hash4.f_3 = bLocal_75;
 		hash4.f_4 = -1;
-		flag = func_211(bLocal_62.f_5, &num, "VOM_T_SNF", &(bLocal_75.f_2), &hash4, false);
+		flag = func_211(bLocal_62.f_5, &num, "VOM_T_SNF" /*Select New Floor*/, &(bLocal_75.f_2), &hash4, false);
 		bLocal_62.f_9 = hash4.f_2;
 		bLocal_62.f_10 = hash4.f_4;
 	}
@@ -4220,7 +4220,7 @@ void func_84() // Position - 0x5F19 (24345)
 		hash6.f_1 = bLocal_62;
 		hash6.f_3 = bLocal_75;
 		hash6.f_4 = -1;
-		flag = func_194(bLocal_62.f_7, &num, &(bLocal_75.f_2), "VOM_T_SNF", &hash6, &(bLocal_62.f_12), false);
+		flag = func_194(bLocal_62.f_7, &num, &(bLocal_75.f_2), "VOM_T_SNF" /*Select New Floor*/, &hash6, &(bLocal_62.f_12), false);
 		bLocal_62.f_9 = hash6.f_2;
 		bLocal_62.f_10 = hash6.f_4;
 	}
@@ -4234,7 +4234,7 @@ void func_84() // Position - 0x5F19 (24345)
 		hash8 = hash7;
 		hash8.f_1 = bLocal_62;
 		hash8.f_3 = bLocal_75;
-		flag = func_85(&(bLocal_75.f_2), &num2, &num, "VOM_T_SRV", &hash8, &(bLocal_62.f_5), false, bLocal_62.f_3);
+		flag = func_85(&(bLocal_75.f_2), &num2, &num, "VOM_T_SRV" /*Select Slot*/, &hash8, &(bLocal_62.f_5), false, bLocal_62.f_3);
 		bLocal_62.f_9 = hash8.f_2;
 	}
 	else if (bLocal_62.f_8 == 7)
@@ -4246,7 +4246,7 @@ void func_84() // Position - 0x5F19 (24345)
 		hash10 = hash9;
 		hash10.f_1 = bLocal_62;
 		hash10.f_3 = bLocal_75;
-		flag = func_214(&num, &(bLocal_75.f_2), "VOM_T_SNG", &hash10, false);
+		flag = func_214(&num, &(bLocal_75.f_2), "VOM_T_SNG" /*Select New Garage*/, &hash10, false);
 		bLocal_62.f_9 = hash10.f_2;
 	}
 	else if (bLocal_62.f_8 == 8)
@@ -4258,7 +4258,7 @@ void func_84() // Position - 0x5F19 (24345)
 		hash12 = hash11;
 		hash12.f_1 = bLocal_62;
 		hash12.f_3 = bLocal_75;
-		flag = func_211(bLocal_62.f_5, &num, "VOM_T_SNF", &(bLocal_75.f_2), &hash12, false);
+		flag = func_211(bLocal_62.f_5, &num, "VOM_T_SNF" /*Select New Floor*/, &(bLocal_75.f_2), &hash12, false);
 		bLocal_62.f_9 = hash12.f_2;
 	}
 	else if (bLocal_62.f_8 == 12)
@@ -4270,7 +4270,7 @@ void func_84() // Position - 0x5F19 (24345)
 		hash14 = hash13;
 		hash14.f_1 = bLocal_62;
 		hash14.f_3 = bLocal_75;
-		flag = func_194(bLocal_62.f_7, &num, &(bLocal_75.f_2), "VOM_T_SNF", &hash14, &(bLocal_62.f_12), false);
+		flag = func_194(bLocal_62.f_7, &num, &(bLocal_75.f_2), "VOM_T_SNF" /*Select New Floor*/, &hash14, &(bLocal_62.f_12), false);
 		bLocal_62.f_9 = hash14.f_2;
 	}
 	else if (bLocal_62.f_8 == 9)
@@ -4282,7 +4282,7 @@ void func_84() // Position - 0x5F19 (24345)
 		hash16 = hash15;
 		hash16.f_1 = bLocal_62;
 		hash16.f_3 = bLocal_75;
-		flag = func_85(&(bLocal_75.f_2), &num2, &num, "VOM_T_SRV", &hash16, &(bLocal_62.f_5), false, bLocal_62.f_3);
+		flag = func_85(&(bLocal_75.f_2), &num2, &num, "VOM_T_SRV" /*Select Slot*/, &hash16, &(bLocal_62.f_5), false, bLocal_62.f_3);
 		bLocal_62.f_9 = hash16.f_2;
 	}
 
@@ -4950,12 +4950,12 @@ int func_95(Hash hParam0, int iParam1, int iParam2) // Position - 0x714C (29004)
 	return 0;
 }
 
-BOOL func_96(int iParam0) // Position - 0x7296 (29334)
+BOOL func_96(var uParam0) // Position - 0x7296 (29334)
 {
-	switch (iParam0->f_66)
+	switch (uParam0->f_66)
 	{
 		case joaat("windsor"):
-			if (iParam0->f_67 > 0)
+			if (uParam0->f_67 > 0)
 				return true;
 			break;
 	}
@@ -4979,7 +4979,7 @@ void func_97(BOOL bParam0, int iParam1, int iParam2) // Position - 0x72BD (29373
 	return;
 }
 
-int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, BOOL bParam5) // Position - 0x7319 (29465)
+int func_98(BOOL bParam0, var uParam1, BOOL bParam2, int iParam3, BOOL bParam4, BOOL bParam5) // Position - 0x7319 (29465)
 {
 	int i;
 	int num;
@@ -4993,10 +4993,10 @@ int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, 
 
 	!bParam4;
 	num = func_117(1411, bParam0);
-	func_116(num, iParam1->f_139, iParam3);
+	func_116(num, uParam1->f_139, iParam3);
 	!bParam4;
 	num = func_117(1412, bParam0);
-	func_116(num, iParam1->f_140, iParam3);
+	func_116(num, uParam1->f_140, iParam3);
 	!bParam4;
 
 	if (func_115(bParam0))
@@ -5005,7 +5005,7 @@ int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, 
 	else
 	{
 		num = func_117(1413, bParam0);
-		func_116(num, *iParam1, iParam3);
+		func_116(num, *uParam1, iParam3);
 		!bParam4;
 	
 		for (i = 0; i < 49; i = i + 1)
@@ -5013,12 +5013,12 @@ int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, 
 			if (i < 25)
 			{
 				num = func_117(1414, bParam0) + i;
-				func_116(num, iParam1->f_9[i], iParam3);
+				func_116(num, uParam1->f_9[i], iParam3);
 			}
 			else
 			{
 				num = func_114(bParam0) + (i - 25);
-				func_116(num, iParam1->f_9[i], iParam3);
+				func_116(num, uParam1->f_9[i], iParam3);
 			}
 		}
 	
@@ -5027,18 +5027,18 @@ int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, 
 		for (i = 0; i < 2; i = i + 1)
 		{
 			num = func_117(1439, bParam0) + i;
-			func_116(num, iParam1->f_59[i], iParam3);
+			func_116(num, uParam1->f_59[i], iParam3);
 		}
 	}
 
 	num = func_117(1441, bParam0);
-	func_116(num, iParam1->f_62, iParam3);
+	func_116(num, uParam1->f_62, iParam3);
 	!bParam4;
 	num = func_117(1442, bParam0);
-	func_116(num, iParam1->f_63, iParam3);
+	func_116(num, uParam1->f_63, iParam3);
 	!bParam4;
 	num = func_117(1443, bParam0);
-	func_116(num, iParam1->f_64, iParam3);
+	func_116(num, uParam1->f_64, iParam3);
 	!bParam4;
 
 	if (func_115(bParam0))
@@ -5048,12 +5048,12 @@ int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, 
 	else
 	{
 		num = func_117(1444, bParam0);
-		func_116(num, iParam1->f_65, iParam3);
+		func_116(num, uParam1->f_65, iParam3);
 		!bParam4;
 	}
 
 	num = func_117(1445, bParam0);
-	func_116(num, iParam1->f_67, iParam3);
+	func_116(num, uParam1->f_67, iParam3);
 
 	if (func_115(bParam0))
 	{
@@ -5062,28 +5062,28 @@ int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, 
 	else
 	{
 		num = func_117(1446, bParam0);
-		func_116(num, iParam1->f_68, iParam3);
+		func_116(num, uParam1->f_68, iParam3);
 	}
 
 	num = func_117(1447, bParam0);
-	func_116(num, iParam1->f_69, iParam3);
+	func_116(num, uParam1->f_69, iParam3);
 	!bParam4;
 	num = func_117(1448, bParam0);
-	func_116(num, iParam1->f_70, -1);
+	func_116(num, uParam1->f_70, -1);
 	num = func_117(1449, bParam0);
-	func_116(num, iParam1->f_71, iParam3);
+	func_116(num, uParam1->f_71, iParam3);
 	num = func_117(1450, bParam0);
-	func_116(num, iParam1->f_72, iParam3);
+	func_116(num, uParam1->f_72, iParam3);
 	num = func_117(1451, bParam0);
-	func_116(num, iParam1->f_73, iParam3);
+	func_116(num, uParam1->f_73, iParam3);
 	num = func_117(1452, bParam0);
-	func_116(num, iParam1->f_5, iParam3);
+	func_116(num, uParam1->f_5, iParam3);
 	num = func_117(1453, bParam0);
-	func_116(num, iParam1->f_6, iParam3);
+	func_116(num, uParam1->f_6, iParam3);
 	num = func_117(1454, bParam0);
-	func_116(num, iParam1->f_7, iParam3);
+	func_116(num, uParam1->f_7, iParam3);
 	num = func_117(1455, bParam0);
-	func_116(num, iParam1->f_8, iParam3);
+	func_116(num, uParam1->f_8, iParam3);
 
 	if (func_115(bParam0))
 	{
@@ -5092,21 +5092,21 @@ int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, 
 	else
 	{
 		num = func_117(3880, bParam0);
-		func_116(num, iParam1->f_74, iParam3);
+		func_116(num, uParam1->f_74, iParam3);
 		num = func_117(3881, bParam0);
-		func_116(num, iParam1->f_75, iParam3);
+		func_116(num, uParam1->f_75, iParam3);
 		num = func_117(3882, bParam0);
-		func_116(num, iParam1->f_76, iParam3);
+		func_116(num, uParam1->f_76, iParam3);
 		num = func_113(bParam0);
-		func_116(num, iParam1->f_97, iParam3);
+		func_116(num, uParam1->f_97, iParam3);
 		num = func_112(bParam0);
-		func_116(num, iParam1->f_99, iParam3);
+		func_116(num, uParam1->f_99, iParam3);
 		num = func_111(bParam0);
-		func_116(num, iParam1->f_98, iParam3);
+		func_116(num, uParam1->f_98, iParam3);
 		num = func_107(bParam0, false);
-		func_116(num, iParam1->f_102, iParam3);
+		func_116(num, uParam1->f_102, iParam3);
 		num = func_106(bParam0);
-		_STAT_SET_PACKED_BOOL(num, IS_BIT_SET(iParam1->f_103, 0), -1);
+		_STAT_SET_PACKED_BOOL(num, IS_BIT_SET(uParam1->f_103, 0), -1);
 	}
 
 	cloudTimeAsInt = Global_2359296[func_74() /*5571*/].f_681.f_1275;
@@ -5116,22 +5116,22 @@ int func_98(BOOL bParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4, 
 
 	func_104(1629, cloudTimeAsInt, iParam3, true);
 	!bParam4;
-	func_104(func_102(1, bParam0), iParam1->f_104, iParam3, true);
+	func_104(func_102(1, bParam0), uParam1->f_104, iParam3, true);
 	!bParam4;
-	func_104(func_102(2, bParam0), iParam1->f_105, iParam3, true);
+	func_104(func_102(2, bParam0), uParam1->f_105, iParam3, true);
 	!bParam4;
-	func_104(func_102(3, bParam0), iParam1->f_106, iParam3, true);
+	func_104(func_102(3, bParam0), uParam1->f_106, iParam3, true);
 	!bParam4;
-	func_104(func_102(4, bParam0), iParam1->f_66, iParam3, true);
-	func_104(func_102(5, bParam0), iParam1->f_77, iParam3, true);
+	func_104(func_102(4, bParam0), uParam1->f_66, iParam3, true);
+	func_104(func_102(5, bParam0), uParam1->f_77, iParam3, true);
 	!bParam4;
-	func_104(func_102(7, bParam0), iParam1->f_141, iParam3, true);
+	func_104(func_102(7, bParam0), uParam1->f_141, iParam3, true);
 
 	if (!func_115(bParam0))
 	{
-		if (!MISC::IS_STRING_NULL_OR_EMPTY(&(iParam1->f_1)))
+		if (!MISC::IS_STRING_NULL_OR_EMPTY(&(uParam1->f_1)))
 		{
-			func_99(func_102(6, bParam0), &(iParam1->f_1), iParam3);
+			func_99(func_102(6, bParam0), &(uParam1->f_1), iParam3);
 			!bParam4;
 		}
 		else
@@ -18227,85 +18227,85 @@ int func_117(int iParam0, BOOL bParam1) // Position - 0x1411F (82207)
 	return num;
 }
 
-void func_118(int iParam0) // Position - 0x15A0E (88590)
+void func_118(var uParam0) // Position - 0x15A0E (88590)
 {
-	func_119(iParam0);
-	iParam0->f_104 = 0;
-	iParam0->f_105 = 0;
-	iParam0->f_106 = 0;
-	TEXT_LABEL_ASSIGN_STRING(&(iParam0->f_107), "", 64);
-	TEXT_LABEL_ASSIGN_STRING(&(iParam0->f_123), "", 64);
-	iParam0->f_139 = 0;
-	iParam0->f_140 = 0;
-	iParam0->f_141 = 0;
-	iParam0->f_142 = 0;
+	func_119(uParam0);
+	uParam0->f_104 = 0;
+	uParam0->f_105 = 0;
+	uParam0->f_106 = 0;
+	TEXT_LABEL_ASSIGN_STRING(&(uParam0->f_107), "", 64);
+	TEXT_LABEL_ASSIGN_STRING(&(uParam0->f_123), "", 64);
+	uParam0->f_139 = 0;
+	uParam0->f_140 = 0;
+	uParam0->f_141 = 0;
+	uParam0->f_142 = 0;
 	return;
 }
 
-void func_119(int iParam0) // Position - 0x15A51 (88657)
+void func_119(var uParam0) // Position - 0x15A51 (88657)
 {
-	func_120(iParam0);
-	iParam0->f_78 = -1;
-	iParam0->f_80 = 0f;
-	iParam0->f_97 = 1;
-	iParam0->f_98 = 0;
-	iParam0->f_99 = 132;
-	iParam0->f_81 = 0;
-	iParam0->f_81.f_1 = 0;
-	iParam0->f_81.f_2 = 0;
-	iParam0->f_81.f_3 = 0;
-	iParam0->f_81.f_4 = 0;
-	iParam0->f_81.f_5 = 0;
-	iParam0->f_81.f_6 = 0;
-	iParam0->f_81.f_7 = 0;
-	iParam0->f_81.f_8 = 0;
-	iParam0->f_81.f_9 = 0;
-	iParam0->f_81.f_10 = 0;
-	iParam0->f_81.f_11 = 0;
-	iParam0->f_81.f_12 = 0;
-	iParam0->f_95 = 0;
-	iParam0->f_94 = 0;
-	iParam0->f_96 = -1;
+	func_120(uParam0);
+	uParam0->f_78 = -1;
+	uParam0->f_80 = 0f;
+	uParam0->f_97 = 1;
+	uParam0->f_98 = 0;
+	uParam0->f_99 = 132;
+	uParam0->f_81 = 0;
+	uParam0->f_81.f_1 = 0;
+	uParam0->f_81.f_2 = 0;
+	uParam0->f_81.f_3 = 0;
+	uParam0->f_81.f_4 = 0;
+	uParam0->f_81.f_5 = 0;
+	uParam0->f_81.f_6 = 0;
+	uParam0->f_81.f_7 = 0;
+	uParam0->f_81.f_8 = 0;
+	uParam0->f_81.f_9 = 0;
+	uParam0->f_81.f_10 = 0;
+	uParam0->f_81.f_11 = 0;
+	uParam0->f_81.f_12 = 0;
+	uParam0->f_95 = 0;
+	uParam0->f_94 = 0;
+	uParam0->f_96 = -1;
 	return;
 }
 
-void func_120(int iParam0) // Position - 0x15AE1 (88801)
+void func_120(var uParam0) // Position - 0x15AE1 (88801)
 {
 	int i;
 
-	iParam0->f_66 = 0;
-	iParam0->f_77 = 0;
-	iParam0->f_65 = 0;
-	iParam0->f_62 = 0;
-	iParam0->f_63 = 0;
-	iParam0->f_64 = 0;
-	iParam0->f_74 = 0;
-	iParam0->f_75 = 0;
-	iParam0->f_76 = 0;
-	*iParam0 = 0;
-	TEXT_LABEL_ASSIGN_STRING(&(iParam0->f_1), "", 16);
-	iParam0->f_5 = 0;
-	iParam0->f_6 = 0;
-	iParam0->f_7 = 0;
-	iParam0->f_8 = 0;
+	uParam0->f_66 = 0;
+	uParam0->f_77 = 0;
+	uParam0->f_65 = 0;
+	uParam0->f_62 = 0;
+	uParam0->f_63 = 0;
+	uParam0->f_64 = 0;
+	uParam0->f_74 = 0;
+	uParam0->f_75 = 0;
+	uParam0->f_76 = 0;
+	*uParam0 = 0;
+	TEXT_LABEL_ASSIGN_STRING(&(uParam0->f_1), "", 16);
+	uParam0->f_5 = 0;
+	uParam0->f_6 = 0;
+	uParam0->f_7 = 0;
+	uParam0->f_8 = 0;
 
 	for (i = 0; i < 49; i = i + 1)
 	{
-		iParam0->f_9[i] = 0;
+		uParam0->f_9[i] = 0;
 	}
 
 	for (i = 0; i < 2; i = i + 1)
 	{
-		iParam0->f_59[i] = 0;
+		uParam0->f_59[i] = 0;
 	}
 
-	iParam0->f_67 = 0;
-	iParam0->f_68 = 0;
-	iParam0->f_69 = 0;
-	iParam0->f_70 = 1;
-	iParam0->f_71 = 0;
-	iParam0->f_72 = 0;
-	iParam0->f_73 = 0;
+	uParam0->f_67 = 0;
+	uParam0->f_68 = 0;
+	uParam0->f_69 = 0;
+	uParam0->f_70 = 1;
+	uParam0->f_71 = 0;
+	uParam0->f_72 = 0;
+	uParam0->f_73 = 0;
 	return;
 }
 
@@ -20467,9 +20467,9 @@ BOOL func_200() // Position - 0x187F5 (100341)
 
 	if (!IS_BIT_SET(Global_1965685.f_3, 1) || IS_BIT_SET(Global_1965685.f_3, 2) && !NETWORK::IS_COMMERCE_STORE_OPEN() && !NETWORK::IS_COMMERCE_DATA_FETCH_IN_PROGRESS())
 	{
-		if (unk_0x483F6369B8CEE24B())
+		if (NETWORK::NETWORK_HAS_SC_MEMBERSHIP_INFO())
 		{
-			unk_0x9FA18B5CD8803086(&Global_1965685);
+			NETWORK::NETWORK_GET_SC_MEMBERSHIP_INFO(&Global_1965685);
 			MISC::SET_BIT(&(Global_1965685.f_3), 1);
 		
 			if (IS_BIT_SET(Global_1965685.f_3, 2))
@@ -20651,7 +20651,7 @@ void func_204(char* sParam0, int iParam1) // Position - 0x18C7C (101500)
 	else if (iParam1 == 29)
 		TEXT_LABEL_ASSIGN_STRING(sParam0, "WIN22_GARNAME" /*Eclipse Blvd Garage*/, 24);
 	else if (iParam1 == 30)
-		TEXT_LABEL_ASSIGN_STRING(sParam0, "VPG_GARNAME", 24);
+		TEXT_LABEL_ASSIGN_STRING(sParam0, "VPG_GARNAME" /*The Vinewood Club Garage*/, 24);
 	else if (iParam1 == 31)
 		TEXT_LABEL_ASSIGN_STRING(sParam0, "BO_GARNAME" /*Bail Office*/, 24);
 	else if (iParam1 == 32)
@@ -20930,19 +20930,19 @@ char* func_212(int iParam0, int iParam1) // Position - 0x19222 (102946)
 		switch (iParam1)
 		{
 			case 0:
-				return "VPG_B1";
+				return "VPG_B1" /*Basement Level 1*/;
 		
 			case 1:
-				return "VPG_B2";
+				return "VPG_B2" /*Basement Level 2*/;
 		
 			case 2:
-				return "VPG_B3";
+				return "VPG_B3" /*Basement Level 3*/;
 		
 			case 3:
-				return "VPG_B4";
+				return "VPG_B4" /*Basement Level 4*/;
 		
 			case 4:
-				return "VPG_B5";
+				return "VPG_B5" /*Basement Level 5*/;
 		
 			default:
 				break;
@@ -22026,47 +22026,47 @@ BOOL func_229(char* sParam0, int iParam1, BOOL bParam2) // Position - 0x1A69C (1
 	return flag && flag2;
 }
 
-BOOL func_230(int* piParam0) // Position - 0x1A7A8 (108456)
+BOOL func_230(int iParam0) // Position - 0x1A7A8 (108456)
 {
-	switch (piParam0->f_9)
+	switch (iParam0->f_9)
 	{
 		case 0:
-			if (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
+			if (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
 			{
-				*piParam0 = GRAPHICS::REQUEST_SCALEFORM_MOVIE(&(piParam0->f_1));
-				piParam0->f_9 = 1;
+				*iParam0 = GRAPHICS::REQUEST_SCALEFORM_MOVIE(&(iParam0->f_1));
+				iParam0->f_9 = 1;
 			
-				if (piParam0->f_7)
+				if (iParam0->f_7)
 				{
-					if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
+					if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
 					{
-						piParam0->f_8 = MISC::GET_GAME_TIMER();
-						piParam0->f_9 = 2;
+						iParam0->f_8 = MISC::GET_GAME_TIMER();
+						iParam0->f_9 = 2;
 					}
 				}
 			}
 			else
 			{
-				piParam0->f_8 = MISC::GET_GAME_TIMER();
-				piParam0->f_9 = 2;
+				iParam0->f_8 = MISC::GET_GAME_TIMER();
+				iParam0->f_9 = 2;
 			}
 			break;
 	
 		case 1:
-			if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
+			if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
 			{
-				piParam0->f_8 = MISC::GET_GAME_TIMER();
-				piParam0->f_9 = 2;
+				iParam0->f_8 = MISC::GET_GAME_TIMER();
+				iParam0->f_9 = 2;
 			}
 			break;
 	
 		case 2:
-			if (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
-				piParam0->f_9 = 0;
+			if (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
+				iParam0->f_9 = 0;
 			break;
 	}
 
-	return piParam0->f_9 == 2;
+	return iParam0->f_9 == 2;
 }
 
 void func_231() // Position - 0x1A84A (108618)
@@ -22506,7 +22506,7 @@ void func_242(BOOL bParam0, BOOL bParam1, int iParam2, int iParam3) // Position 
 
 	flag = _NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM();
 	flag = true;
-	Global_1952992 = true;
+	Global_1952992 = 1;
 
 	if (Global_262145.f_10656)
 	{
@@ -22625,18 +22625,18 @@ void func_244(BOOL bParam0, BOOL bParam1) // Position - 0x1B31D (111389)
 	return;
 }
 
-void func_245(int iParam0, int iParam1) // Position - 0x1B37D (111485)
+void func_245(var uParam0, var uParam1) // Position - 0x1B37D (111485)
 {
-	func_246(*iParam0, iParam1);
-	iParam1->f_104 = iParam0->f_104;
-	iParam1->f_105 = iParam0->f_105;
-	iParam1->f_106 = iParam0->f_106;
-	iParam1->f_107 = { iParam0->f_107 };
-	iParam1->f_123 = { iParam0->f_123 };
-	iParam1->f_139 = iParam0->f_139;
-	iParam1->f_140 = iParam0->f_140;
-	iParam1->f_141 = iParam0->f_141;
-	iParam1->f_142 = iParam0->f_142;
+	func_246(*uParam0, uParam1);
+	uParam1->f_104 = uParam0->f_104;
+	uParam1->f_105 = uParam0->f_105;
+	uParam1->f_106 = uParam0->f_106;
+	uParam1->f_107 = { uParam0->f_107 };
+	uParam1->f_123 = { uParam0->f_123 };
+	uParam1->f_139 = uParam0->f_139;
+	uParam1->f_140 = uParam0->f_140;
+	uParam1->f_141 = uParam0->f_141;
+	uParam1->f_142 = uParam0->f_142;
 	return;
 }
 
@@ -23061,7 +23061,7 @@ void func_261(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 	if (num4 >= x && num4 <= x2 && num5 >= y && num5 <= y2)
 	{
 		num6 = num5 - y;
-		num10 = SYSTEM::FLOOR(num6 / 0.034722f);
+		num10 = BUILTIN::FLOOR(num6 / 0.034722f);
 	
 		if (Global_24148.f_6336 == -1)
 		{
@@ -23942,15 +23942,15 @@ void func_292(BOOL bParam0, int iParam1) // Position - 0x1CCAE (117934)
 	return;
 }
 
-void func_293(int* piParam0) // Position - 0x1CD73 (118131)
+void func_293(int iParam0) // Position - 0x1CD73 (118131)
 {
-	if (piParam0->f_9 != 0)
+	if (iParam0->f_9 != 0)
 	{
-		if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
-			GRAPHICS::SET_SCALEFORM_MOVIE_AS_NO_LONGER_NEEDED(piParam0);
+		if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
+			GRAPHICS::SET_SCALEFORM_MOVIE_AS_NO_LONGER_NEEDED(iParam0);
 	
-		*piParam0 = 0;
-		piParam0->f_9 = 0;
+		*iParam0 = 0;
+		iParam0->f_9 = 0;
 	}
 
 	return;
@@ -24041,7 +24041,7 @@ BOOL func_300() // Position - 0x1CEAC (118444)
 
 void func_301() // Position - 0x1CEBB (118459)
 {
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	return;
 }
 

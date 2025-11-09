@@ -4529,7 +4529,7 @@ float func_55() // Position - 0x1F88 (8072)
 		num3 = num3 + iLocal_1450[224 /*5*/].f_3;
 
 	value = MISC::ASIN(num2 / num3);
-	return 10f * SYSTEM::SIN(value);
+	return 10f * BUILTIN::SIN(value);
 }
 
 Vector3 func_56(float fParam0, int iParam1) // Position - 0x1FF7 (8183)
@@ -4929,10 +4929,10 @@ BOOL func_75(int iParam0, int iParam1, char* sParam2, int iParam3, int iParam4, 
 		if (iParam4 < 1)
 			iParam4 = 1;
 	
-		value = SYSTEM::ROUND((float)iParam3 * ((float)iParam4 + unk));
+		value = BUILTIN::ROUND((float)iParam3 * ((float)iParam4 + unk));
 		value = func_108(value);
-		value2 = SYSTEM::TO_FLOAT(value) * Global_262145.f_1;
-		value = SYSTEM::ROUND(value2);
+		value2 = BUILTIN::TO_FLOAT(value) * Global_262145.f_1;
+		value = BUILTIN::ROUND(value2);
 	
 		if (bParam10)
 			value = func_107(&value);
@@ -5318,8 +5318,8 @@ int func_92(BOOL bParam0, int iParam1) // Position - 0x2EEE (12014)
 			value = num;
 		}
 	
-		value3 = ((SYSTEM::TO_FLOAT(value) - SYSTEM::TO_FLOAT(value2)) / 2f) + SYSTEM::TO_FLOAT(value2);
-		num = SYSTEM::ROUND(value3);
+		value3 = ((BUILTIN::TO_FLOAT(value) - BUILTIN::TO_FLOAT(value2)) / 2f) + BUILTIN::TO_FLOAT(value2);
+		num = BUILTIN::ROUND(value3);
 	}
 
 	return 8000;
@@ -5727,13 +5727,13 @@ void func_98(var uParam0) // Position - 0x35BA (13754)
 	}
 
 	if (flag)
-		num2 = SYSTEM::ROUND(func_99(*uParam0, 100) * 10f * Global_262145.f_3922);
+		num2 = BUILTIN::ROUND(func_99(*uParam0, 100) * 10f * Global_262145.f_3922);
 
 	if (num > 4)
 		num = 4;
 
 	if (num >= 2)
-		num3 = SYSTEM::ROUND(func_99(*uParam0, 100) * 20f * Global_262145.f_3920);
+		num3 = BUILTIN::ROUND(func_99(*uParam0, 100) * 20f * Global_262145.f_3920);
 
 	*uParam0 = *uParam0 + num2;
 	*uParam0 = *uParam0 + num3;
@@ -5746,8 +5746,8 @@ float func_99(int iParam0, int iParam1) // Position - 0x36A6 (13990)
 	float num2;
 	float num3;
 
-	num = SYSTEM::TO_FLOAT(iParam0);
-	num2 = SYSTEM::TO_FLOAT(iParam1);
+	num = BUILTIN::TO_FLOAT(iParam0);
+	num2 = BUILTIN::TO_FLOAT(iParam1);
 	num3 = num / num2;
 	return num3;
 }
@@ -6040,13 +6040,13 @@ void func_104(BOOL bParam0, var uParam1) // Position - 0x3BC3 (15299)
 	}
 
 	if (flag)
-		num2 = SYSTEM::ROUND(func_99(*uParam1, 100) * 10f * Global_262145.f_3922);
+		num2 = BUILTIN::ROUND(func_99(*uParam1, 100) * 10f * Global_262145.f_3922);
 
 	if (num > 4)
 		num = 4;
 
 	if (num >= 1)
-		num3 = SYSTEM::ROUND(func_99(*uParam1, 100) * 20f * Global_262145.f_3920);
+		num3 = BUILTIN::ROUND(func_99(*uParam1, 100) * 20f * Global_262145.f_3920);
 
 	*uParam1 = *uParam1 + num2;
 	*uParam1 = *uParam1 + num3;
@@ -6055,7 +6055,7 @@ void func_104(BOOL bParam0, var uParam1) // Position - 0x3BC3 (15299)
 
 float func_105(Player plParam0, Player plParam1) // Position - 0x3CDB (15579)
 {
-	return SYSTEM::VDIST(_GET_PLAYER_COORDS(plParam0), _GET_PLAYER_COORDS(plParam1));
+	return BUILTIN::VDIST(_GET_PLAYER_COORDS(plParam0), _GET_PLAYER_COORDS(plParam1));
 }
 
 Vector3 _GET_PLAYER_COORDS(Player plParam0) // Position - 0x3CF7 (15607)
@@ -6070,7 +6070,7 @@ BOOL func_107(var uParam0) // Position - 0x3D0A (15626)
 	if (PAD::GET_LOCAL_PLAYER_AIM_STATE() != 3)
 		return *uParam0;
 
-	num = SYSTEM::ROUND(func_99(*uParam0, 100) * 25f);
+	num = BUILTIN::ROUND(func_99(*uParam0, 100) * 25f);
 	*uParam0 = *uParam0 + num;
 	return *uParam0;
 }
@@ -6191,16 +6191,16 @@ BOOL func_118() // Position - 0x3F85 (16261)
 	return func_119(*Global_4718592.f_138116);
 }
 
-BOOL func_119(Hash hParam0) // Position - 0x3FA9 (16297)
+BOOL func_119(int iParam0) // Position - 0x3FA9 (16297)
 {
 	int i;
 
-	if (hParam0 == 0)
+	if (iParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 16; i = i + 1)
 	{
-		if (Global_262145.f_4707[i] == hParam0)
+		if (Global_262145.f_4707[i] == iParam0)
 			return 1;
 	}
 
@@ -6759,12 +6759,12 @@ void func_144(float fParam0, var uParam1, var uParam2, var uParam3, var uParam4,
 	value = fParam0.f_1 / 2f;
 	value2 = fParam0.f_2 / 2f;
 	value3 = fParam0 / 2f;
-	num = SYSTEM::SIN(value);
-	num2 = SYSTEM::SIN(value2);
-	num3 = SYSTEM::SIN(value3);
-	num4 = SYSTEM::COS(value);
-	num5 = SYSTEM::COS(value2);
-	num6 = SYSTEM::COS(value3);
+	num = BUILTIN::SIN(value);
+	num2 = BUILTIN::SIN(value2);
+	num3 = BUILTIN::SIN(value3);
+	num4 = BUILTIN::COS(value);
+	num5 = BUILTIN::COS(value2);
+	num6 = BUILTIN::COS(value3);
 	*uParam3 = (num3 * num4 * num5) - (num6 * num * num2);
 	*uParam4 = (num6 * num * num5) + (num3 * num4 * num2);
 	*uParam5 = (num6 * num4 * num2) - (num3 * num * num5);
@@ -6780,7 +6780,7 @@ Vector3 func_145(int iParam0, int iParam1) // Position - 0x4D26 (19750)
 
 	num = { func_146(iLocal_1450[iParam1 /*5*/] - iLocal_1450[iParam0 /*5*/]) };
 	num2 = MISC::ATAN2(num, num.f_1);
-	num3 = MISC::ATAN2(num.f_2, SYSTEM::SQRT((num * num) + (num.f_1 * num.f_1)));
+	num3 = MISC::ATAN2(num.f_2, BUILTIN::SQRT((num * num) + (num.f_1 * num.f_1)));
 	return -num3, 0f, -num2 - 180f;
 }
 
@@ -6789,7 +6789,7 @@ Vector3 func_146(float fParam0, var uParam1, var uParam2) // Position - 0x4D7F (
 	float num;
 	float num2;
 
-	num = SYSTEM::VMAG(fParam0);
+	num = BUILTIN::VMAG(fParam0);
 
 	if (num != 0f)
 	{
@@ -7092,15 +7092,15 @@ BOOL func_157() // Position - 0x53DF (21471)
 	return Global_2698022;
 }
 
-void func_158(int iParam0, BOOL bParam1, int iParam2) // Position - 0x53EB (21483)
+void func_158(int iParam0, int iParam1, int iParam2) // Position - 0x53EB (21483)
 {
 	Global_101969.f_1492 = iParam0;
-	Global_101969.f_1493 = bParam1;
+	Global_101969.f_1493 = iParam1;
 	Global_101969.f_1494 = iParam2;
 	return;
 }
 
-void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, BOOL bParam1, var uParam2, BOOL bParam3, BOOL bParam4, BOOL bParam5) // Position - 0x540E (21518)
+void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, int iParam1, var uParam2, BOOL bParam3, BOOL bParam4, BOOL bParam5) // Position - 0x540E (21518)
 {
 	int num;
 
@@ -7199,8 +7199,8 @@ void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, BOOL bParam1, var uParam2, B
 		case joaat("SERVICE_SPEND_ARENA_SPECTATOR_BOX"):
 		case joaat("SERVICE_SPEND_MAKE_IT_RAIN"):
 		case 571787049:
-			if (bParam1 > false || Global_262145.f_27954)
-				func_160(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), joaat("NET_SHOP_ACTION_SPEND"), joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, bParam1, num, 7);
+			if (iParam1 > 0 || Global_262145.f_27954)
+				func_160(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), joaat("NET_SHOP_ACTION_SPEND"), joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, iParam1, num, 7);
 			break;
 	
 		case joaat("SERVICE_EARN_PICKUP"):
@@ -7314,7 +7314,7 @@ void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, BOOL bParam1, var uParam2, B
 		case joaat("SERVICE_EARN_ARENA_CAREER_TIER_PROGRESSION_3"):
 		case joaat("SERVICE_EARN_ARENA_CAREER_TIER_PROGRESSION_4"):
 		case joaat("SERVICE_EARN_SPIN_THE_WHEEL_CASH"):
-			func_160(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), 1445302971, joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, bParam1, num, 7);
+			func_160(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), 1445302971, joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, iParam1, num, 7);
 			break;
 	}
 
@@ -7352,8 +7352,8 @@ void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, BOOL bParam1, var uParam2, B
 		case joaat("SERVICE_SPEND_JUGALLO_BOSS_VEHICLE_REQUEST"):
 		case joaat("SERVICE_SPEND_SALVAGE_YARD_CLAIM_VEH"):
 		case 767920357:
-			if (bParam1 > false || Global_262145.f_27954)
-				func_160(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), joaat("NET_SHOP_ACTION_SPEND"), joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, bParam1, num, 7);
+			if (iParam1 > 0 || Global_262145.f_27954)
+				func_160(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), joaat("NET_SHOP_ACTION_SPEND"), joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, iParam1, num, 7);
 			break;
 	
 		case joaat("SERVICE_EARN_ASSASSINATE_TARGET_KILLED"):
@@ -7502,14 +7502,14 @@ void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, BOOL bParam1, var uParam2, B
 		case 1226579288:
 		case -2107356056:
 		case -428381543:
-			func_160(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), 1445302971, joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, bParam1, num, 7);
+			func_160(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), 1445302971, joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, iParam1, num, 7);
 			break;
 	}
 
 	return;
 }
 
-int func_160(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, BOOL bParam5, int iParam6, int iParam7) // Position - 0x5DA5 (23973)
+int func_160(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, int iParam5, int iParam6, int iParam7) // Position - 0x5DA5 (23973)
 {
 	BOOL flag;
 	BOOL flag2;
@@ -7557,11 +7557,11 @@ int func_160(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4,
 	*uParam0 = 15;
 	transactionId = 2147483647;
 
-	if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_BEGIN_SERVICE(&transactionId, hParam3, hParam4, hParam2, bParam5, iParam6))
+	if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_BEGIN_SERVICE(&transactionId, hParam3, hParam4, hParam2, iParam5, iParam6))
 	{
 		if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_CHECKOUT_START(transactionId))
 		{
-			*uParam0 = func_167(transactionId, iParam1, hParam4, hParam2, hParam3, bParam5, false, iParam6, iParam7, 1, true);
+			*uParam0 = func_167(transactionId, iParam1, hParam4, hParam2, hParam3, iParam5, false, iParam6, iParam7, 1, true);
 		
 			if (flag2 && !flag)
 			{
@@ -7588,7 +7588,7 @@ int func_160(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4,
 			Global_4538674 = hParam4;
 			Global_4538676 = hParam3;
 			Global_4538677 = 1;
-			Global_4538675 = bParam5;
+			Global_4538675 = iParam5;
 		}
 	
 		if (iParam7 & 8 != 0)
@@ -7596,7 +7596,7 @@ int func_160(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4,
 			Global_4538674 = hParam4;
 			Global_4538676 = hParam3;
 			Global_4538677 = 1;
-			Global_4538675 = bParam5;
+			Global_4538675 = iParam5;
 		}
 	
 		flag4 = false;
@@ -7608,13 +7608,13 @@ int func_160(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4,
 		}
 	
 		if (iParam7 & 4 != 0)
-			func_161(-1, hParam4, iParam6, bParam5, -1);
+			func_161(-1, hParam4, iParam6, iParam5, -1);
 	}
 
 	return 0;
 }
 
-void func_161(int iParam0, Hash hParam1, int iParam2, BOOL bParam3, int iParam4) // Position - 0x5F52 (24402)
+void func_161(int iParam0, Hash hParam1, int iParam2, int iParam3, int iParam4) // Position - 0x5F52 (24402)
 {
 	switch (hParam1)
 	{
@@ -7808,9 +7808,9 @@ BOOL _NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM() // Position - 0x634B (25419)
 	return false;
 }
 
-BOOL func_171(BOOL bParam0) // Position - 0x6362 (25442)
+int func_171(BOOL bParam0) // Position - 0x6362 (25442)
 {
-	BOOL vcBankBalance;
+	int vcBankBalance;
 
 	if (bParam0)
 		vcBankBalance = MONEY::NETWORK_GET_VC_BANK_BALANCE();
@@ -7915,7 +7915,7 @@ BOOL func_182(Ped pedParam0) // Position - 0x64F1 (25841)
 	if (!ENTITY::DOES_ENTITY_EXIST(pedParam0) || ENTITY::IS_ENTITY_DEAD(pedParam0, false))
 		return false;
 
-	if (FILES::DOES_CURRENT_PED_COMPONENT_HAVE_RESTRICTION_TAG(pedParam0, 11, joaat("JUGG_SUIT")))
+	if (EXTRAMETADATA::DOES_CURRENT_PED_COMPONENT_HAVE_RESTRICTION_TAG(pedParam0, 11, joaat("JUGG_SUIT")))
 		return true;
 
 	return false;
@@ -8662,7 +8662,7 @@ BOOL func_227() // Position - 0x747F (29823)
 
 void func_228() // Position - 0x748E (29838)
 {
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	return;
 }
 
@@ -9134,7 +9134,7 @@ void func_230() // Position - 0x913C (37180)
 			iLocal_1450[i /*5*/].f_3 = num;
 		
 			if (i < 224)
-				num = num + SYSTEM::VDIST(func_57(i), func_57(i + 1));
+				num = num + BUILTIN::VDIST(func_57(i), func_57(i + 1));
 		}
 		else
 		{
@@ -9297,7 +9297,7 @@ int func_241(int iParam0, int iParam1, BOOL bParam2) // Position - 0x93A1 (37793
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (iParam1 > -1)

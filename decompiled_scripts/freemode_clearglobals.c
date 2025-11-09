@@ -6412,7 +6412,7 @@ void func_67(int iParam0) // Position - 0x9B51 (39761)
 
 void func_68(int iParam0) // Position - 0x9B83 (39811)
 {
-	int src;
+	Any* src;
 
 	if (Global_2672966)
 		MISC::COPY_SCRIPT_STRUCT(&Global_1685473[iParam0], &src, 1);

@@ -55,7 +55,7 @@ void main() // Position - 0x0 (0)
 
 	while (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("initial")) > 0)
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	func_30();
@@ -87,7 +87,7 @@ void main() // Position - 0x0 (0)
 			}
 		}
 	
-		SYSTEM::WAIT(1000);
+		BUILTIN::WAIT(1000);
 	}
 
 	return;
@@ -109,7 +109,7 @@ void func_1() // Position - 0xE5 (229)
 			{
 				if (IS_BIT_SET(Global_114370.f_24983.f_3, i))
 				{
-					num2 = SYSTEM::VDIST2(_GET_PLAYER_COORDS(PLAYER::PLAYER_ID()), func_8(num, 0));
+					num2 = BUILTIN::VDIST2(_GET_PLAYER_COORDS(PLAYER::PLAYER_ID()), func_8(num, 0));
 				
 					if (num2 > 43681f)
 					{
@@ -457,7 +457,7 @@ void func_19() // Position - 0x7BE (1982)
 		
 			if (IS_BIT_SET(Global_114370.f_24980.f_2, i))
 			{
-				num2 = SYSTEM::VDIST2(_GET_PLAYER_COORDS(PLAYER::PLAYER_ID()), func_8(num, 0));
+				num2 = BUILTIN::VDIST2(_GET_PLAYER_COORDS(PLAYER::PLAYER_ID()), func_8(num, 0));
 			
 				if (num2 > 43681f)
 				{
@@ -519,7 +519,7 @@ void func_20(int iParam0, int iParam1) // Position - 0x936 (2358)
 	if (iParam0 == 235 || iParam0 == 0)
 		return;
 
-	Global_114370.f_8617[iParam0] = true;
+	Global_114370.f_8617[iParam0] = 1;
 	Global_114370.f_8617.f_236[iParam0] = MISC::GET_GAME_TIMER() + iParam1;
 	return;
 }

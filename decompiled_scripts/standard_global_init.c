@@ -295,7 +295,7 @@ void main() // Position - 0x0 (0)
 	Global_104750 = -99;
 	Global_104832 = -1;
 	Global_104913 = -1;
-	Global_111069 = true;
+	Global_111069 = 1;
 	TEXT_LABEL_ASSIGN_STRING(&Global_113010, "", 16);
 	Global_113014 = -1;
 	Global_113322 = -1;
@@ -306,7 +306,7 @@ void main() // Position - 0x0 (0)
 	Global_114359 = -1;
 	Global_114369 = -1;
 	Global_152960 = true;
-	Global_153207 = PV_COMP_INVALID;
+	Global_153207 = -1;
 	Global_153208 = -1;
 	Global_153210 = 1000;
 	Global_153252 = 1;
@@ -2624,7 +2624,7 @@ void func_28(int iParam0, int iParam1, int iParam2, int iParam3) // Position - 0
 	
 		case 1:
 			*iParam2 = *iParam2 - *iParam2 & 1073709056;
-			*iParam2 = *iParam2 || SYSTEM::SHIFT_LEFT(iParam1, 15);
+			*iParam2 = *iParam2 || BUILTIN::SHIFT_LEFT(iParam1, 15);
 			return;
 	
 		case 2:
@@ -2634,7 +2634,7 @@ void func_28(int iParam0, int iParam1, int iParam2, int iParam3) // Position - 0
 	
 		case 3:
 			*iParam3 = *iParam3 - *iParam3 & 1073709056;
-			*iParam3 = *iParam3 || SYSTEM::SHIFT_LEFT(iParam1, 15);
+			*iParam3 = *iParam3 || BUILTIN::SHIFT_LEFT(iParam1, 15);
 			return;
 	}
 

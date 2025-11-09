@@ -156,7 +156,7 @@ void main() // Position - 0x0 (0)
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	func_3(20);
@@ -491,7 +491,7 @@ BOOL func_14(int iParam0, int iParam1, int iParam2, BOOL bParam3) // Position - 
 				func_18("cellphone_flashhand");
 			
 				if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("cellphone_flashhand")) == 0)
-					Global_21236 = SYSTEM::START_NEW_SCRIPT("cellphone_flashhand", DEFAULT);
+					Global_21236 = BUILTIN::START_NEW_SCRIPT("cellphone_flashhand", DEFAULT);
 			
 				SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED("cellphone_flashhand");
 			}
@@ -500,7 +500,7 @@ BOOL func_14(int iParam0, int iParam1, int iParam2, BOOL bParam3) // Position - 
 
 	while (!Global_21221)
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	func_20();
@@ -514,9 +514,9 @@ BOOL func_14(int iParam0, int iParam1, int iParam2, BOOL bParam3) // Position - 
 	
 		if (bParam3)
 			if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(Global_9082[iParam0 /*15*/].f_9) == 0)
-				Global_21237 = SYSTEM::START_NEW_SCRIPT(&(Global_9082[iParam0 /*15*/].f_5), CONTACTS_APP);
+				Global_21237 = BUILTIN::START_NEW_SCRIPT(&(Global_9082[iParam0 /*15*/].f_5), CONTACTS_APP);
 		else if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(Global_9082[iParam0 /*15*/].f_9) == 0)
-			Global_21237 = SYSTEM::START_NEW_SCRIPT(&(Global_9082[iParam0 /*15*/].f_5), 2600);
+			Global_21237 = BUILTIN::START_NEW_SCRIPT(&(Global_9082[iParam0 /*15*/].f_5), 2600);
 	
 		SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED(&(Global_9082[iParam0 /*15*/].f_5));
 		return true;
@@ -588,7 +588,7 @@ void func_18(char* sParam0) // Position - 0xB26 (2854)
 
 	while (!SCRIPT::HAS_SCRIPT_LOADED(sParam0))
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -695,7 +695,7 @@ void func_20() // Position - 0xBE8 (3048)
 		func_16(7, "CELL_5" /*Email*/, 0, "appMPEmail", 4, 1, 1, 0, 0);
 	
 		if (func_26())
-			func_16(23, "CELL_VINEWOOD", 5, "appVinewoodMenu", 61, 1, 1, 0, 0);
+			func_16(23, "CELL_VINEWOOD" /*Vinewood Club*/, 5, "appVinewoodMenu", 61, 1, 1, 0, 0);
 		else
 			func_16(10, "CELL_16" /*Settings*/, 5, "appSettings", 24, 1, 1, 0, 0);
 	
@@ -810,7 +810,7 @@ int func_29() // Position - 0x1225 (4645)
 
 BOOL func_30() // Position - 0x123B (4667)
 {
-	return func_36(526, -1) || unk_0xB233964AC562A357() && func_35() != 0 && !func_31(0);
+	return func_36(526, -1) || MISC::HAS_FINALIZED_CHOSEN_CRIMINAL_CAREER() && func_35() != 0 && !func_31(0);
 }
 
 BOOL func_31(int iParam0) // Position - 0x126B (4715)
@@ -870,7 +870,7 @@ int func_34(int iParam0) // Position - 0x12C6 (4806)
 
 int func_35() // Position - 0x12FA (4858)
 {
-	return unk_0xA0A0D77ECEDD4136();
+	return MISC::GET_CHOSEN_CRIMINAL_CAREER();
 }
 
 BOOL func_36(int iParam0, int iParam1) // Position - 0x1306 (4870)

@@ -931,17 +931,17 @@ void func_1() // Position - 0x211 (529)
 					HUD::SET_BLIP_SCALE(blLocal_373, 0.44f);
 					HUD::SET_BLIP_PRIORITY(blLocal_373, 13 + 1);
 					HUD::SET_BLIP_HIDDEN_ON_LEGEND(blLocal_373, true);
-					HUD::SET_BLIP_ROTATION(blLocal_373, SYSTEM::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot, finalRenderedCamRot.f_1)));
+					HUD::SET_BLIP_ROTATION(blLocal_373, BUILTIN::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot, finalRenderedCamRot.f_1)));
 					HUD::SET_BLIP_HIDDEN_ON_LEGEND(blLocal_374, true);
-					HUD::SET_BLIP_ROTATION(blLocal_374, SYSTEM::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot, finalRenderedCamRot.f_1)));
+					HUD::SET_BLIP_ROTATION(blLocal_374, BUILTIN::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot, finalRenderedCamRot.f_1)));
 				}
 				else
 				{
 					HUD::SET_BLIP_COORDS(blLocal_373, finalRenderedCamCoord);
-					HUD::SET_BLIP_ROTATION(blLocal_373, SYSTEM::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot, finalRenderedCamRot.f_1)));
+					HUD::SET_BLIP_ROTATION(blLocal_373, BUILTIN::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot, finalRenderedCamRot.f_1)));
 					HUD::SET_BLIP_DISPLAY(blLocal_373, 5);
 					HUD::SET_BLIP_COORDS(blLocal_374, finalRenderedCamCoord);
-					HUD::SET_BLIP_ROTATION(blLocal_374, SYSTEM::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot, finalRenderedCamRot.f_1)));
+					HUD::SET_BLIP_ROTATION(blLocal_374, BUILTIN::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot, finalRenderedCamRot.f_1)));
 					HUD::SET_BLIP_DISPLAY(blLocal_374, 5);
 				}
 			}
@@ -1209,17 +1209,17 @@ void func_1() // Position - 0x211 (529)
 					HUD::SET_BLIP_SCALE(blLocal_373, 0.44f);
 					HUD::SET_BLIP_PRIORITY(blLocal_373, 13 + 1);
 					HUD::SET_BLIP_HIDDEN_ON_LEGEND(blLocal_373, true);
-					HUD::SET_BLIP_ROTATION(blLocal_373, SYSTEM::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot2, finalRenderedCamRot2.f_1)));
+					HUD::SET_BLIP_ROTATION(blLocal_373, BUILTIN::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot2, finalRenderedCamRot2.f_1)));
 					HUD::SET_BLIP_HIDDEN_ON_LEGEND(blLocal_374, true);
-					HUD::SET_BLIP_ROTATION(blLocal_374, SYSTEM::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot2, finalRenderedCamRot2.f_1)));
+					HUD::SET_BLIP_ROTATION(blLocal_374, BUILTIN::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot2, finalRenderedCamRot2.f_1)));
 				}
 				else
 				{
 					HUD::SET_BLIP_COORDS(blLocal_373, finalRenderedCamCoord);
-					HUD::SET_BLIP_ROTATION(blLocal_373, SYSTEM::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot2, finalRenderedCamRot2.f_1)));
+					HUD::SET_BLIP_ROTATION(blLocal_373, BUILTIN::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot2, finalRenderedCamRot2.f_1)));
 					HUD::SET_BLIP_DISPLAY(blLocal_373, 5);
 					HUD::SET_BLIP_COORDS(blLocal_374, finalRenderedCamCoord);
-					HUD::SET_BLIP_ROTATION(blLocal_374, SYSTEM::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot2, finalRenderedCamRot2.f_1)));
+					HUD::SET_BLIP_ROTATION(blLocal_374, BUILTIN::ROUND(MISC::GET_HEADING_FROM_VECTOR_2D(finalRenderedCamRot2, finalRenderedCamRot2.f_1)));
 					HUD::SET_BLIP_DISPLAY(blLocal_374, 5);
 				}
 			}
@@ -3462,7 +3462,7 @@ void func_78() // Position - 0x3FCE (16334)
 											{
 												finalRenderedCamCoord = { CAM::GET_FINAL_RENDERED_CAM_COORD() };
 												finalRenderedCamRot = { CAM::GET_FINAL_RENDERED_CAM_ROT(2) };
-												unk5 = { -SYSTEM::SIN(finalRenderedCamRot.f_2) * SYSTEM::COS(finalRenderedCamRot), SYSTEM::COS(finalRenderedCamRot.f_2) * SYSTEM::COS(finalRenderedCamRot), SYSTEM::SIN(finalRenderedCamRot) };
+												unk5 = { -BUILTIN::SIN(finalRenderedCamRot.f_2) * BUILTIN::COS(finalRenderedCamRot), BUILTIN::COS(finalRenderedCamRot.f_2) * BUILTIN::COS(finalRenderedCamRot), BUILTIN::SIN(finalRenderedCamRot) };
 												unk8 = { 10f, 10f, 10f };
 												vector = { finalRenderedCamCoord + (unk5 * unk8) };
 												MISC::SHOOT_SINGLE_BULLET_BETWEEN_COORDS_IGNORE_ENTITY_NEW(finalRenderedCamCoord, vector, damage, true, func_94(veLocal_367), PLAYER::PLAYER_PED_ID(), true, true, -1082130432, vehicleIndexFromEntityIndex, false, false, 0, true, 0, 1, 0);
@@ -3897,7 +3897,7 @@ int func_84() // Position - 0x4BA9 (19369)
 	float num4;
 
 	camRot = { CAM::GET_CAM_ROT(uLocal_72.f_32, 2) };
-	num = { -SYSTEM::SIN(camRot.f_2) * SYSTEM::COS(camRot), SYSTEM::COS(camRot.f_2) * SYSTEM::COS(camRot), SYSTEM::SIN(camRot) };
+	num = { -BUILTIN::SIN(camRot.f_2) * BUILTIN::COS(camRot), BUILTIN::COS(camRot.f_2) * BUILTIN::COS(camRot), BUILTIN::SIN(camRot) };
 	entityForwardVector = { ENTITY::GET_ENTITY_FORWARD_VECTOR(uLocal_72.f_8) };
 	num3 = MISC::ATAN2(num.f_1, num);
 	num2 = MISC::ATAN2(entityForwardVector.f_1, entityForwardVector);
@@ -4408,7 +4408,7 @@ void func_105() // Position - 0x55DF (21983)
 		{
 			finalRenderedCamCoord = { CAM::GET_FINAL_RENDERED_CAM_COORD() };
 			finalRenderedCamRot = { CAM::GET_FINAL_RENDERED_CAM_ROT(2) };
-			unk5 = { -SYSTEM::SIN(finalRenderedCamRot.f_2) * SYSTEM::COS(finalRenderedCamRot), SYSTEM::COS(finalRenderedCamRot.f_2) * SYSTEM::COS(finalRenderedCamRot), SYSTEM::SIN(finalRenderedCamRot) };
+			unk5 = { -BUILTIN::SIN(finalRenderedCamRot.f_2) * BUILTIN::COS(finalRenderedCamRot), BUILTIN::COS(finalRenderedCamRot.f_2) * BUILTIN::COS(finalRenderedCamRot), BUILTIN::SIN(finalRenderedCamRot) };
 			unk8 = { 10f, 10f, 10f };
 			unk11 = { finalRenderedCamCoord + (unk5 * unk8) };
 			Global_2658019[PLAYER::PLAYER_ID() /*467*/].f_404[offset /*3*/] = { unk11 };
@@ -4746,11 +4746,11 @@ Vector3 func_116(float fParam0, var uParam1, var uParam2) // Position - 0x5CEE (
 {
 	float num;
 
-	num = SYSTEM::COS(fParam0);
-	num.f_1 = SYSTEM::COS(fParam0.f_2);
-	num.f_2 = SYSTEM::SIN(fParam0);
+	num = BUILTIN::COS(fParam0);
+	num.f_1 = BUILTIN::COS(fParam0.f_2);
+	num.f_2 = BUILTIN::SIN(fParam0);
 	num.f_1 = num.f_1 * num;
-	num = num * -SYSTEM::SIN(fParam0.f_2);
+	num = num * -BUILTIN::SIN(fParam0.f_2);
 	return num;
 }
 
@@ -4973,7 +4973,7 @@ void func_119(var uParam0, int iParam1, int iParam2, int iParam3) // Position - 
 										{
 											if (IS_BIT_SET(uParam0->f_177[i /*10*/].f_2, 0))
 											{
-												if (SYSTEM::TIMERA() - uParam0->f_177[i /*10*/].f_1 < 500)
+												if (BUILTIN::TIMERA() - uParam0->f_177[i /*10*/].f_1 < 500)
 												{
 													func_127(uParam0, worldPositionOfEntityBone, num6, uParam0->f_177[i /*10*/].f_4, -1, -1, -1);
 													uParam0->f_177[i /*10*/].f_6 = { ENTITY::GET_ENTITY_COORDS(uParam0->f_177[i /*10*/], true) };
@@ -5016,16 +5016,16 @@ void func_119(var uParam0, int iParam1, int iParam2, int iParam3) // Position - 
 										
 											case 2:
 												if (hit == 0)
-													uParam0->f_177[i /*10*/].f_1 = SYSTEM::TIMERA();
+													uParam0->f_177[i /*10*/].f_1 = BUILTIN::TIMERA();
 												break;
 										}
 									
-										if (SYSTEM::TIMERA() - uParam0->f_177[i /*10*/].f_1 < 1500 || IS_BIT_SET(uParam0->f_177[i /*10*/].f_2, 0))
+										if (BUILTIN::TIMERA() - uParam0->f_177[i /*10*/].f_1 < 1500 || IS_BIT_SET(uParam0->f_177[i /*10*/].f_2, 0))
 										{
 											if (uParam0->f_80 / (uParam0->f_40 * distanceBetweenCoords) > 1f)
 											{
 												GRAPHICS::GET_SCREEN_COORD_FROM_WORLD_COORD(worldPositionOfEntityBone, &screenX, &screenY);
-												num3 = SYSTEM::SQRT(((screenX - 0.5f) * (screenX - 0.5f)) + ((screenY - 0.5f) * (screenY - 0.5f)));
+												num3 = BUILTIN::SQRT(((screenX - 0.5f) * (screenX - 0.5f)) + ((screenY - 0.5f) * (screenY - 0.5f)));
 											
 												if (num3 < num4)
 												{
@@ -5086,12 +5086,12 @@ void func_119(var uParam0, int iParam1, int iParam2, int iParam3) // Position - 
 											AUDIO::PLAY_SOUND_FRONTEND(uParam0->f_210, "COP_HELI_CAM_SCAN_PED_LOOP", 0, true);
 								
 									num4 = MISC::ABSF(1f - num4);
-									uParam0->f_177[uParam0->f_94 /*10*/].f_3 = uParam0->f_177[uParam0->f_94 /*10*/].f_3 + ((num4 * SYSTEM::TIMESTEP()) / 3.5f);
+									uParam0->f_177[uParam0->f_94 /*10*/].f_3 = uParam0->f_177[uParam0->f_94 /*10*/].f_3 + ((num4 * BUILTIN::TIMESTEP()) / 3.5f);
 									num6 = func_128(uParam0, uParam0->f_177[uParam0->f_94 /*10*/], uParam0->f_9);
 									width = uParam0->f_76 * num6;
 									func_125(255, 0, 0, 0.5f, true);
 								
-									if (SYSTEM::TIMERA() % 600 < 300)
+									if (BUILTIN::TIMERA() % 600 < 300)
 										func_124(0.5f, 0.68f, "scan", 1);
 								
 									num6 = func_128(uParam0, uParam0->f_177[uParam0->f_94 /*10*/], uParam0->f_9);
@@ -5154,7 +5154,7 @@ void func_119(var uParam0, int iParam1, int iParam2, int iParam3) // Position - 
 					{
 						if (!ENTITY::IS_ENTITY_DEAD(uParam0->f_177[uParam0->f_94 /*10*/], false))
 						{
-							if (SYSTEM::TIMERA() - uParam0->f_177[uParam0->f_94 /*10*/].f_1 < 500)
+							if (BUILTIN::TIMERA() - uParam0->f_177[uParam0->f_94 /*10*/].f_1 < 500)
 							{
 								if (!uParam0->f_55)
 								{
@@ -5588,8 +5588,8 @@ void func_123(var uParam0, float fParam1, float fParam2, float fParam3, float fP
 	
 		if (num > 0f && num < 0.3f)
 		{
-			num = SYSTEM::SIN(num * 600f);
-			GRAPHICS::DRAW_SPRITE("helicopterhud", "hud_line", fParam4 * (float)i, fParam5 * (float)i, fParam6 * iParam11 * 0.01f, fParam6 * iParam11 * 0.01f, MISC::GET_ANGLE_BETWEEN_2D_VECTORS(0f, 1f, fParam7 - uParam8, fParam9 - uParam10), uParam0->f_73, uParam0->f_73.f_1, uParam0->f_73.f_2, SYSTEM::FLOOR(num * 32f), true, 0);
+			num = BUILTIN::SIN(num * 600f);
+			GRAPHICS::DRAW_SPRITE("helicopterhud", "hud_line", fParam4 * (float)i, fParam5 * (float)i, fParam6 * iParam11 * 0.01f, fParam6 * iParam11 * 0.01f, MISC::GET_ANGLE_BETWEEN_2D_VECTORS(0f, 1f, fParam7 - uParam8, fParam9 - uParam10), uParam0->f_73, uParam0->f_73.f_1, uParam0->f_73.f_2, BUILTIN::FLOOR(num * 32f), true, 0);
 		}
 	}
 
@@ -5729,10 +5729,10 @@ void func_129(var uParam0, float fParam1, var uParam2, var uParam3, int iParam4,
 				value = 0f;
 		
 			num2 = func_130(camCoord, fParam1, 0);
-			value2 = MISC::ATAN2((SYSTEM::COS(camRot) * SYSTEM::SIN(value)) - (SYSTEM::SIN(camRot) * SYSTEM::COS(value) * SYSTEM::COS((num2 * -1f) - camRot.f_2)), SYSTEM::SIN((num2 * -1f) - camRot.f_2) * SYSTEM::COS(value));
+			value2 = MISC::ATAN2((BUILTIN::COS(camRot) * BUILTIN::SIN(value)) - (BUILTIN::SIN(camRot) * BUILTIN::COS(value) * BUILTIN::COS((num2 * -1f) - camRot.f_2)), BUILTIN::SIN((num2 * -1f) - camRot.f_2) * BUILTIN::COS(value));
 			uParam0->f_10 > 0f;
-			screenX2 = 0.5f - (SYSTEM::COS(value2) * 0.29f);
-			screenY = 0.5f - (SYSTEM::SIN(value2) * 0.29f);
+			screenX2 = 0.5f - (BUILTIN::COS(value2) * 0.29f);
+			screenY = 0.5f - (BUILTIN::SIN(value2) * 0.29f);
 			GRAPHICS::DRAW_SPRITE("helicopterhud", "hudArrow", screenX2, screenY, 0.02f, 0.04f, value2 - 90f, iParam4, iParam5, iParam6, 255, true, 0);
 			HUD::SET_TEXT_CENTRE(true);
 		}
@@ -6042,7 +6042,7 @@ void func_148(var uParam0) // Position - 0x7C73 (31859)
 	{
 		vehicleWeaponReloadTime = WEAPON::_GET_VEHICLE_WEAPON_RELOAD_TIME(uParam0->f_8, seat);
 		timeBeforeVehicleWeaponReloadFinishes = WEAPON::_GET_TIME_BEFORE_VEHICLE_WEAPON_RELOAD_FINISHES(uParam0->f_8, seat);
-		num = SYSTEM::TO_FLOAT(timeBeforeVehicleWeaponReloadFinishes) / vehicleWeaponReloadTime;
+		num = BUILTIN::TO_FLOAT(timeBeforeVehicleWeaponReloadFinishes) / vehicleWeaponReloadTime;
 		num = num * 100f;
 		func_140(num);
 	
@@ -6413,23 +6413,23 @@ void func_155(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 							}
 							else
 							{
-								value3 = SYSTEM::FLOOR(PAD::GET_DISABLED_CONTROL_UNBOUND_NORMAL(PLAYER_CONTROL, INPUT_SCALED_LOOK_UD) * -num4);
-								value2 = SYSTEM::FLOOR(PAD::GET_DISABLED_CONTROL_UNBOUND_NORMAL(PLAYER_CONTROL, INPUT_SCALED_LOOK_LR) * num4);
+								value3 = BUILTIN::FLOOR(PAD::GET_DISABLED_CONTROL_UNBOUND_NORMAL(PLAYER_CONTROL, INPUT_SCALED_LOOK_UD) * -num4);
+								value2 = BUILTIN::FLOOR(PAD::GET_DISABLED_CONTROL_UNBOUND_NORMAL(PLAYER_CONTROL, INPUT_SCALED_LOOK_LR) * num4);
 							}
 						
-							value = SYSTEM::FLOOR(PAD::GET_DISABLED_CONTROL_NORMAL(PLAYER_CONTROL, INPUT_SNIPER_ZOOM) * 128f);
+							value = BUILTIN::FLOOR(PAD::GET_DISABLED_CONTROL_NORMAL(PLAYER_CONTROL, INPUT_SNIPER_ZOOM) * 128f);
 						}
 					
 						if (!PAD::IS_USING_KEYBOARD_AND_MOUSE(PLAYER_CONTROL) && !bParam6)
 						{
-							num5 = SYSTEM::ROUND(iParam5 * num4);
+							num5 = BUILTIN::ROUND(iParam5 * num4);
 						
 							if (MISC::ABSI(value) < num5)
 								value = 0;
 						
 							vector2 = { (float)value3, (float)value2, 0f };
 						
-							if (SYSTEM::VMAG(vector2) < (float)num5)
+							if (BUILTIN::VMAG(vector2) < (float)num5)
 							{
 								value3 = 0;
 								value2 = 0;
@@ -6450,8 +6450,8 @@ void func_155(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 						}
 						else
 						{
-							uParam0->f_58 = SYSTEM::TO_FLOAT(value3) * uParam0->f_40 * uParam0->f_36 * SYSTEM::TIMESTEP();
-							uParam0->f_59 = SYSTEM::TO_FLOAT(value2) * uParam0->f_40 * uParam0->f_36 * num6 * SYSTEM::TIMESTEP();
+							uParam0->f_58 = BUILTIN::TO_FLOAT(value3) * uParam0->f_40 * uParam0->f_36 * BUILTIN::TIMESTEP();
+							uParam0->f_59 = BUILTIN::TO_FLOAT(value2) * uParam0->f_40 * uParam0->f_36 * num6 * BUILTIN::TIMESTEP();
 						}
 					
 						uParam0->f_59 = func_159(uParam0->f_59, iParam3, iParam4);
@@ -6459,8 +6459,8 @@ void func_155(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 						if (func_158(uParam0->f_45, 0f, 0f, 0f, false))
 						{
 							camCoord2 = { CAM::GET_CAM_COORD(uParam0->f_32) };
-							uParam0->f_45 = SYSTEM::SIN(uParam0->f_42.f_2) * 150f;
-							uParam0->f_45.f_1 = SYSTEM::COS(uParam0->f_42.f_2) * 150f;
+							uParam0->f_45 = BUILTIN::SIN(uParam0->f_42.f_2) * 150f;
+							uParam0->f_45.f_1 = BUILTIN::COS(uParam0->f_42.f_2) * 150f;
 							uParam0->f_45.f_2 = camCoord2.f_2;
 						}
 					
@@ -6844,9 +6844,9 @@ void func_155(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 								else
 									distanceBetweenCoords = MISC::GET_DISTANCE_BETWEEN_COORDS(vector3, CAM::GET_CAM_COORD(uParam0->f_32), true);
 							
-								uParam0->f_45 = SYSTEM::COS(uParam0->f_42) * distanceBetweenCoords * SYSTEM::SIN(-uParam0->f_42.f_2);
-								uParam0->f_45.f_1 = SYSTEM::COS(uParam0->f_42) * distanceBetweenCoords * SYSTEM::COS(-uParam0->f_42.f_2);
-								uParam0->f_45.f_2 = SYSTEM::SIN(uParam0->f_42) * distanceBetweenCoords;
+								uParam0->f_45 = BUILTIN::COS(uParam0->f_42) * distanceBetweenCoords * BUILTIN::SIN(-uParam0->f_42.f_2);
+								uParam0->f_45.f_1 = BUILTIN::COS(uParam0->f_42) * distanceBetweenCoords * BUILTIN::COS(-uParam0->f_42.f_2);
+								uParam0->f_45.f_2 = BUILTIN::SIN(uParam0->f_42) * distanceBetweenCoords;
 								uParam0->f_45 = { uParam0->f_45 + CAM::GET_CAM_COORD(uParam0->f_32) };
 								CAM::POINT_CAM_AT_COORD(uParam0->f_32, uParam0->f_45);
 							}
@@ -7026,7 +7026,7 @@ void func_155(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 							{
 								if (!AUDIO::HAS_SOUND_FINISHED(uParam0->f_206))
 								{
-									AUDIO::SET_VARIABLE_ON_SOUND(uParam0->f_206, "Ctrl", MISC::ABSF(SYSTEM::TO_FLOAT(value) / 128f));
+									AUDIO::SET_VARIABLE_ON_SOUND(uParam0->f_206, "Ctrl", MISC::ABSF(BUILTIN::TO_FLOAT(value) / 128f));
 								
 									if (value < 0)
 										AUDIO::SET_VARIABLE_ON_SOUND(uParam0->f_206, "Dir", -1f);
@@ -7045,9 +7045,9 @@ void func_155(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 							uParam0->f_37 = 5f;
 					
 						if (func_321(uParam0->f_8) || func_120() && !bParam6)
-							uParam0->f_40 = uParam0->f_40 + ((SYSTEM::TO_FLOAT(value) / uParam0->f_37) * SYSTEM::TIMESTEP() * (float)num15);
+							uParam0->f_40 = uParam0->f_40 + ((BUILTIN::TO_FLOAT(value) / uParam0->f_37) * BUILTIN::TIMESTEP() * (float)num15);
 						else
-							uParam0->f_40 = uParam0->f_40 + ((SYSTEM::TO_FLOAT(value) / uParam0->f_37) * SYSTEM::TIMESTEP());
+							uParam0->f_40 = uParam0->f_40 + ((BUILTIN::TO_FLOAT(value) / uParam0->f_37) * BUILTIN::TIMESTEP());
 					
 						if (uParam0->f_40 > uParam0->f_38)
 							uParam0->f_40 = uParam0->f_38;
@@ -7067,9 +7067,9 @@ void func_155(var uParam0, int iParam1, int iParam2, int iParam3, int iParam4, i
 		{
 			vector5 = { uParam0->f_161 };
 			distanceBetweenCoords2 = MISC::GET_DISTANCE_BETWEEN_COORDS(vector5, CAM::GET_CAM_COORD(uParam0->f_32), true);
-			uParam0->f_45 = SYSTEM::COS(uParam0->f_42) * distanceBetweenCoords2 * SYSTEM::SIN(-uParam0->f_42.f_2);
-			uParam0->f_45.f_1 = SYSTEM::COS(uParam0->f_42) * distanceBetweenCoords2 * SYSTEM::COS(-uParam0->f_42.f_2);
-			uParam0->f_45.f_2 = SYSTEM::SIN(uParam0->f_42) * distanceBetweenCoords2;
+			uParam0->f_45 = BUILTIN::COS(uParam0->f_42) * distanceBetweenCoords2 * BUILTIN::SIN(-uParam0->f_42.f_2);
+			uParam0->f_45.f_1 = BUILTIN::COS(uParam0->f_42) * distanceBetweenCoords2 * BUILTIN::COS(-uParam0->f_42.f_2);
+			uParam0->f_45.f_2 = BUILTIN::SIN(uParam0->f_42) * distanceBetweenCoords2;
 			uParam0->f_45 = { uParam0->f_45 + CAM::GET_CAM_COORD(uParam0->f_32) };
 			CAM::POINT_CAM_AT_COORD(uParam0->f_32, uParam0->f_45);
 			CAM::SET_CAM_FOV(uParam0->f_32, uParam0->f_40);
@@ -7093,8 +7093,8 @@ Vector3 func_156(float fParam0, float fParam1, float fParam2, float fParam3) // 
 	float num2;
 	float num3;
 
-	num2 = SYSTEM::SIN(fParam3);
-	num3 = SYSTEM::COS(fParam3);
+	num2 = BUILTIN::SIN(fParam3);
+	num3 = BUILTIN::COS(fParam3);
 	num = (fParam0 * num3) - (fParam0.f_1 * num2);
 	num.f_1 = (fParam0 * num2) + (fParam0.f_1 * num3);
 	num.f_2 = fParam0.f_2;
@@ -7205,17 +7205,17 @@ void func_162(var uParam0) // Position - 0x978B (38795)
 		if (num6 == 0)
 		{
 			approxHeightForArea = 0f;
-			num9 = SYSTEM::COS(camRot) * 50f;
+			num9 = BUILTIN::COS(camRot) * 50f;
 		
 			while (num4 < 21)
 			{
 				num4 = num4 + 1;
 				num3 = num9 * (float)num4;
-				num = SYSTEM::SIN(camRot.f_2) * num3 * -1f;
-				num2 = SYSTEM::COS(camRot.f_2) * num3;
+				num = BUILTIN::SIN(camRot.f_2) * num3 * -1f;
+				num2 = BUILTIN::COS(camRot.f_2) * num3;
 				approxHeightForArea = PATHFIND::GET_APPROX_HEIGHT_FOR_AREA((camCoord + num) - 3f, (camCoord.f_1 + num2) - 3f, camCoord + num + 3f, camCoord.f_1 + num2 + 3f);
 				approxHeightForArea = approxHeightForArea - 20f;
-				num8 = camCoord.f_2 + (SYSTEM::SIN(camRot) * 50f * (float)num4);
+				num8 = camCoord.f_2 + (BUILTIN::SIN(camRot) * 50f * (float)num4);
 			
 				if (approxHeightForArea > num8)
 				{
@@ -7255,8 +7255,8 @@ void func_162(var uParam0) // Position - 0x978B (38795)
 			}
 		}
 	
-		num = SYSTEM::SIN(camRot.f_2) * num3 * -1f;
-		num2 = SYSTEM::COS(camRot.f_2) * num3;
+		num = BUILTIN::SIN(camRot.f_2) * num3 * -1f;
+		num2 = BUILTIN::COS(camRot.f_2) * num3;
 		entityCoords = { num + camCoord, num2 + camCoord.f_1, num5 };
 	
 		for (i = 0; i < uParam0->f_177; i = i + 1)
@@ -8282,47 +8282,47 @@ BOOL func_193(char* sParam0, int iParam1, BOOL bParam2) // Position - 0xAE3E (44
 	return flag && flag2;
 }
 
-BOOL func_194(int* piParam0) // Position - 0xAF4C (44876)
+BOOL func_194(int iParam0) // Position - 0xAF4C (44876)
 {
-	switch (piParam0->f_9)
+	switch (iParam0->f_9)
 	{
 		case 0:
-			if (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
+			if (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
 			{
-				*piParam0 = GRAPHICS::REQUEST_SCALEFORM_MOVIE(&(piParam0->f_1));
-				piParam0->f_9 = 1;
+				*iParam0 = GRAPHICS::REQUEST_SCALEFORM_MOVIE(&(iParam0->f_1));
+				iParam0->f_9 = 1;
 			
-				if (piParam0->f_7)
+				if (iParam0->f_7)
 				{
-					if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
+					if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
 					{
-						piParam0->f_8 = MISC::GET_GAME_TIMER();
-						piParam0->f_9 = 2;
+						iParam0->f_8 = MISC::GET_GAME_TIMER();
+						iParam0->f_9 = 2;
 					}
 				}
 			}
 			else
 			{
-				piParam0->f_8 = MISC::GET_GAME_TIMER();
-				piParam0->f_9 = 2;
+				iParam0->f_8 = MISC::GET_GAME_TIMER();
+				iParam0->f_9 = 2;
 			}
 			break;
 	
 		case 1:
-			if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
+			if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
 			{
-				piParam0->f_8 = MISC::GET_GAME_TIMER();
-				piParam0->f_9 = 2;
+				iParam0->f_8 = MISC::GET_GAME_TIMER();
+				iParam0->f_9 = 2;
 			}
 			break;
 	
 		case 2:
-			if (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
-				piParam0->f_9 = 0;
+			if (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
+				iParam0->f_9 = 0;
 			break;
 	}
 
-	return piParam0->f_9 == 2;
+	return iParam0->f_9 == 2;
 }
 
 BOOL func_195() // Position - 0xAFEE (45038)
@@ -9327,15 +9327,15 @@ void func_235(BOOL bParam0, int iParam1) // Position - 0xC38F (50063)
 	return;
 }
 
-void func_236(int* piParam0) // Position - 0xC455 (50261)
+void func_236(int iParam0) // Position - 0xC455 (50261)
 {
-	if (piParam0->f_9 != 0)
+	if (iParam0->f_9 != 0)
 	{
-		if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam0))
-			GRAPHICS::SET_SCALEFORM_MOVIE_AS_NO_LONGER_NEEDED(piParam0);
+		if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*iParam0))
+			GRAPHICS::SET_SCALEFORM_MOVIE_AS_NO_LONGER_NEEDED(iParam0);
 	
-		*piParam0 = 0;
-		piParam0->f_9 = 0;
+		*iParam0 = 0;
+		iParam0->f_9 = 0;
 	}
 
 	return;
@@ -10509,7 +10509,7 @@ BOOL func_271() // Position - 0xDF11 (57105)
 		return false;
 
 	entityVelocity = { ENTITY::GET_ENTITY_VELOCITY(veLocal_367) };
-	num = SYSTEM::SQRT((entityVelocity * entityVelocity) + (entityVelocity.f_1 * entityVelocity.f_1) + (entityVelocity.f_2 * entityVelocity.f_2));
+	num = BUILTIN::SQRT((entityVelocity * entityVelocity) + (entityVelocity.f_1 * entityVelocity.f_1) + (entityVelocity.f_2 * entityVelocity.f_2));
 	return num >= 30f && !func_185(veLocal_367, 0, 1075838976, false);
 }
 
@@ -11348,7 +11348,7 @@ Vehicle func_312(Vehicle veParam0) // Position - 0xED93 (60819)
 
 Vector3 func_313(float fParam0, var uParam1, var uParam2) // Position - 0xED9D (60829)
 {
-	return -SYSTEM::SIN(fParam0.f_2) * SYSTEM::COS(fParam0), SYSTEM::COS(fParam0.f_2) * SYSTEM::COS(fParam0), SYSTEM::SIN(fParam0);
+	return -BUILTIN::SIN(fParam0.f_2) * BUILTIN::COS(fParam0), BUILTIN::COS(fParam0.f_2) * BUILTIN::COS(fParam0), BUILTIN::SIN(fParam0);
 }
 
 void func_314() // Position - 0xEDCA (60874)
@@ -11626,7 +11626,7 @@ void func_329(int iParam0) // Position - 0xF2D4 (62164)
 	func_332();
 
 	if (iParam0 == 0)
-		if (LOADINGSCREEN::LOBBY_AUTO_MULTIPLAYER_FREEMODE())
+		if (LOBBY::LOBBY_AUTO_MULTIPLAYER_FREEMODE())
 			return;
 
 	if (func_331() == 0 || HUD::IS_PAUSE_MENU_ACTIVE())
@@ -12146,7 +12146,7 @@ BOOL func_351() // Position - 0xFB6D (64365)
 
 void func_352() // Position - 0xFB7C (64380)
 {
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	return;
 }
 
@@ -12243,7 +12243,7 @@ BOOL func_354() // Position - 0xFD2E (64814)
 		if (func_205(&unk, 120000, true))
 			return false;
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return false;
@@ -12292,7 +12292,7 @@ int func_355(int iParam0, int iParam1, BOOL bParam2) // Position - 0xFD8C (64908
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (iParam1 > -1)

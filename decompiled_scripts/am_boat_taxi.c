@@ -2900,7 +2900,7 @@ int func_40() // Position - 0x258C (9612)
 			
 				PED::SET_PED_KEEP_TASK(NETWORK::NET_TO_PED(iLocal_62.f_3), true);
 				PED::SET_BLOCKING_OF_NON_TEMPORARY_EVENTS(NETWORK::NET_TO_PED(iLocal_62.f_3), true);
-				ENTITY::SET_ENTITY_HEALTH(NETWORK::NET_TO_PED(iLocal_62.f_3), SYSTEM::ROUND(200f * Global_262145.f_156), 0, 0);
+				ENTITY::SET_ENTITY_HEALTH(NETWORK::NET_TO_PED(iLocal_62.f_3), BUILTIN::ROUND(200f * Global_262145.f_156), 0, 0);
 				PED::SET_PED_CAN_BE_DRAGGED_OUT(NETWORK::NET_TO_PED(iLocal_62.f_3), false);
 				PED::SET_PED_CONFIG_FLAG(NETWORK::NET_TO_PED(iLocal_62.f_3), 255, true);
 			}
@@ -3072,7 +3072,7 @@ void func_44(Vector3 vParam0, var uParam1, var uParam2, float fParam3, Hash hPar
 
 	if (func_45(PLAYER::PLAYER_ID(), vParam0, hParam4) > -1)
 	{
-		if (Global_2635523.f_3231[1 /*6*/].f_5 == veParam5 && Global_2635523.f_3231[1 /*6*/].f_4 == hParam4 && SYSTEM::VDIST(Global_2635523.f_3231[1 /*6*/], vParam0) < 0.5f)
+		if (Global_2635523.f_3231[1 /*6*/].f_5 == veParam5 && Global_2635523.f_3231[1 /*6*/].f_4 == hParam4 && BUILTIN::VDIST(Global_2635523.f_3231[1 /*6*/], vParam0) < 0.5f)
 			return;
 	
 		for (i = 0; i < 2; i = i + 1)
@@ -3109,7 +3109,7 @@ int func_45(Player plParam0, var uParam1, var uParam2, var uParam3, Hash hParam4
 				if (MISC::ABSF(Global_2648932.f_461[player /*11*/][i /*5*/].f_2 - vector.f_2) < 2f)
 					vector.f_2 = Global_2648932.f_461[player /*11*/][i /*5*/].f_2;
 			
-				if (SYSTEM::VDIST(Global_2648932.f_461[player /*11*/][i /*5*/], vector) < 0.5f)
+				if (BUILTIN::VDIST(Global_2648932.f_461[player /*11*/][i /*5*/], vector) < 0.5f)
 					return i;
 			}
 		}
@@ -3308,7 +3308,7 @@ BOOL func_55(float fParam0, var uParam1, var uParam2) // Position - 0x2FCB (1223
 	return false;
 }
 
-BOOL func_56() // Position - 0x2FF5 (12277)
+var func_56() // Position - 0x2FF5 (12277)
 {
 	return Global_2684748.f_19;
 }
@@ -3449,7 +3449,7 @@ Vector3 func_66(Vector3 vParam0, var uParam1, var uParam2, float fParam3) // Pos
 	if (fParam3 == 0f)
 		return 0f, 0f, 0f;
 
-	num = SYSTEM::VMAG(vParam0);
+	num = BUILTIN::VMAG(vParam0);
 
 	if (num != 0f)
 		return vParam0 * { fParam3 / num, fParam3 / num, fParam3 / num };
@@ -5552,7 +5552,7 @@ BOOL func_146() // Position - 0x5B59 (23385)
 
 void func_147() // Position - 0x5B68 (23400)
 {
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	return;
 }
 
@@ -5685,7 +5685,7 @@ BOOL func_154() // Position - 0x5D6E (23918)
 		if (func_71(&unk, 120000, true))
 			return false;
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return false;
@@ -5734,7 +5734,7 @@ int func_155(int iParam0, int iParam1, BOOL bParam2) // Position - 0x5DCC (24012
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (iParam1 > -1)

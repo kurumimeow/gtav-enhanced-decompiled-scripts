@@ -206,7 +206,7 @@ void main() // Position - 0x0 (0)
 	Global_1984989 = true;
 	Global_1984990 = true;
 	Global_1984991 = true;
-	Global_1984994 = true;
+	Global_1984994 = 1;
 	Global_1984998 = true;
 	Global_1984999 = true;
 	Global_1985001 = true;

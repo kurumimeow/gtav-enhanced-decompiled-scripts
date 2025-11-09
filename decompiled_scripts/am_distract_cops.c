@@ -1657,7 +1657,7 @@ eHudColour func_56(Player plParam0, Player plParam1, int iParam2, BOOL bParam3, 
 		}
 		else if (Global_1836744 || Global_1836734 || Global_1845274[plParam0 /*877*/] == 0)
 		{
-			if (plParam0 == plParam1 || Global_1836744 == true && Global_1836754 == false)
+			if (plParam0 == plParam1 || Global_1836744 == true && Global_1836754 == 0)
 				return func_45(true);
 			else
 				return func_40(plParam1, true, playerTeam, bParam4);
@@ -3033,7 +3033,7 @@ void func_119(int iParam0, int iParam1, int iParam2, int iParam3) // Position - 
 	if (num > 0)
 	{
 		num3 = 100f - iParam3;
-		num2 = SYSTEM::FLOOR((float)num * (num3 / 100f));
+		num2 = BUILTIN::FLOOR((float)num * (num3 / 100f));
 	}
 	else
 	{
@@ -3270,7 +3270,7 @@ void func_133(var uParam0, BOOL bParam1) // Position - 0x38F6 (14582)
 int func_134(BOOL bParam0) // Position - 0x3928 (14632)
 {
 	if (bParam0)
-		return SYSTEM::ROUND(0.05f * 100f);
+		return BUILTIN::ROUND(0.05f * 100f);
 
 	return Global_262145.f_12847;
 }
@@ -3726,10 +3726,10 @@ int func_165(int iParam0, int iParam1, char* sParam2, int iParam3, int iParam4, 
 		if (iParam4 < 1)
 			iParam4 = 1;
 	
-		value = SYSTEM::ROUND((float)iParam3 * ((float)iParam4 + unk));
+		value = BUILTIN::ROUND((float)iParam3 * ((float)iParam4 + unk));
 		value = func_193(value);
-		value2 = SYSTEM::TO_FLOAT(value) * Global_262145.f_1;
-		value = SYSTEM::ROUND(value2);
+		value2 = BUILTIN::TO_FLOAT(value) * Global_262145.f_1;
+		value = BUILTIN::ROUND(value2);
 	
 		if (bParam10)
 			value = func_192(&value);
@@ -3911,23 +3911,23 @@ struct<13> GET_GAMER_HANDLE_PLAYER(Player plParam0) // Position - 0x4649 (17993)
 	return gamerHandle;
 }
 
-void func_174(BOOL bParam0, Hash hParam1, int iParam2) // Position - 0x4660 (18016)
+void func_174(int iParam0, Hash hParam1, int iParam2) // Position - 0x4660 (18016)
 {
 	if (func_195())
 	{
-		if (bParam0 >= 1787576850)
-			bParam0 = 1787576850;
+		if (iParam0 >= 1787576850)
+			iParam0 = 1787576850;
 	
 		if (Global_262145.f_10099 == 0 && hParam1 != joaat("XPCATEGORY_KEYS_DEBUG"))
 		{
 			if (iParam2 == 0)
 			{
-				if (bParam0 < func_184(640, -1))
+				if (iParam0 < func_184(640, -1))
 				{
-					STATS::PLAYSTATS_AWARD_XP(bParam0, joaat("XPTYPE_ERROR"), hParam1);
+					STATS::PLAYSTATS_AWARD_XP(iParam0, joaat("XPTYPE_ERROR"), hParam1);
 					return;
 				}
-				else if (bParam0 == func_184(640, -1))
+				else if (iParam0 == func_184(640, -1))
 				{
 					return;
 				}
@@ -3936,9 +3936,9 @@ void func_174(BOOL bParam0, Hash hParam1, int iParam2) // Position - 0x4660 (180
 	
 		if (Global_262145.f_10098 == 0)
 		{
-			if (bParam0 == false)
+			if (iParam0 == 0)
 			{
-				STATS::PLAYSTATS_AWARD_XP(bParam0, -1158693853, -1345423847);
+				STATS::PLAYSTATS_AWARD_XP(iParam0, -1158693853, -1345423847);
 			
 				if (iParam2 == 0)
 					return;
@@ -3947,21 +3947,21 @@ void func_174(BOOL bParam0, Hash hParam1, int iParam2) // Position - 0x4660 (180
 	
 		if (Global_262145.f_10098 == 0)
 		{
-			if (bParam0 < false)
+			if (iParam0 < 0)
 			{
-				STATS::PLAYSTATS_AWARD_XP(bParam0, joaat("XPTYPE_ERROR_NEGATIVE"), hParam1);
+				STATS::PLAYSTATS_AWARD_XP(iParam0, joaat("XPTYPE_ERROR_NEGATIVE"), hParam1);
 				return;
 			}
 		}
 	
 		if (func_183(PLAYER::PLAYER_ID()))
 		{
-			Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_198.f_1 = bParam0;
-			Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_198.f_6 = func_180(bParam0, true);
+			Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_198.f_1 = iParam0;
+			Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_198.f_6 = func_180(iParam0, true);
 		}
 	
-		func_178(640, bParam0, -1, true);
-		func_178(641, func_180(bParam0, true), -1, true);
+		func_178(640, iParam0, -1, true);
+		func_178(641, func_180(iParam0, true), -1, true);
 		func_175(-1109644434, 7, false);
 	}
 
@@ -4017,7 +4017,7 @@ BOOL func_177(int iParam0, BOOL bParam1) // Position - 0x47D4 (18388)
 	return true;
 }
 
-void func_178(int iParam0, BOOL bParam1, int iParam2, BOOL bParam3) // Position - 0x485A (18522)
+void func_178(int iParam0, int iParam1, int iParam2, BOOL bParam3) // Position - 0x485A (18522)
 {
 	Hash statName;
 
@@ -4026,7 +4026,7 @@ void func_178(int iParam0, BOOL bParam1, int iParam2, BOOL bParam3) // Position 
 		statName = func_179(iParam0, iParam2);
 	
 		if (statName != 0)
-			STATS::STAT_SET_INT(statName, bParam1, bParam3);
+			STATS::STAT_SET_INT(statName, iParam1, bParam3);
 	}
 
 	return;
@@ -4037,13 +4037,13 @@ Hash func_179(int iParam0, int iParam1) // Position - 0x4888 (18568)
 	return STATS::_GET_STAT_HASH_FOR_CHARACTER_STAT(0, iParam0, func_19(iParam1));
 }
 
-BOOL func_180(BOOL bParam0, BOOL bParam1) // Position - 0x489D (18589)
+int func_180(int iParam0, BOOL bParam1) // Position - 0x489D (18589)
 {
 	bParam1;
-	return func_181(bParam0, 0);
+	return func_181(iParam0, 0);
 }
 
-int func_181(BOOL bParam0, int iParam1) // Position - 0x48B1 (18609)
+int func_181(int iParam0, int iParam1) // Position - 0x48B1 (18609)
 {
 	int i;
 	int value;
@@ -4068,12 +4068,12 @@ int func_181(BOOL bParam0, int iParam1) // Position - 0x48B1 (18609)
 			return num;
 		}
 	
-		if (func_182(num) == bParam0)
+		if (func_182(num) == iParam0)
 		{
 			value = num;
 			value2 = num;
 		}
-		else if (func_182(num) < bParam0)
+		else if (func_182(num) < iParam0)
 		{
 			if (value2 == num)
 				value2 = value2 + 1;
@@ -4089,14 +4089,14 @@ int func_181(BOOL bParam0, int iParam1) // Position - 0x48B1 (18609)
 			value = num;
 		}
 	
-		value3 = ((SYSTEM::TO_FLOAT(value) - SYSTEM::TO_FLOAT(value2)) / 2f) + SYSTEM::TO_FLOAT(value2);
-		num = SYSTEM::ROUND(value3);
+		value3 = ((BUILTIN::TO_FLOAT(value) - BUILTIN::TO_FLOAT(value2)) / 2f) + BUILTIN::TO_FLOAT(value2);
+		num = BUILTIN::ROUND(value3);
 	}
 
 	return 8000;
 }
 
-BOOL func_182(int iParam0) // Position - 0x496C (18796)
+int func_182(int iParam0) // Position - 0x496C (18796)
 {
 	int num;
 	int num2;
@@ -4422,7 +4422,7 @@ BOOL func_183(Player plParam0) // Position - 0x4EB0 (20144)
 	return IS_BIT_SET(Global_2672967.f_1, plParam0);
 }
 
-BOOL func_184(int iParam0, int iParam1) // Position - 0x4ECF (20175)
+int func_184(int iParam0, int iParam1) // Position - 0x4ECF (20175)
 {
 	Hash statHash;
 	int outValue;
@@ -4438,7 +4438,7 @@ BOOL func_184(int iParam0, int iParam1) // Position - 0x4ECF (20175)
 	return 0;
 }
 
-BOOL func_185(Player plParam0) // Position - 0x4EFE (20222)
+int func_185(Player plParam0) // Position - 0x4EFE (20222)
 {
 	if (Global_1574634.f_9 == 0)
 		if (plParam0 > -1)
@@ -4449,7 +4449,7 @@ BOOL func_185(Player plParam0) // Position - 0x4EFE (20222)
 	else
 		return func_184(640, -1);
 
-	return false;
+	return 0;
 }
 
 void func_186(var uParam0) // Position - 0x4F55 (20309)
@@ -4488,13 +4488,13 @@ void func_186(var uParam0) // Position - 0x4F55 (20309)
 	}
 
 	if (flag)
-		num2 = SYSTEM::ROUND(func_187(*uParam0, 100) * 10f * Global_262145.f_3922);
+		num2 = BUILTIN::ROUND(func_187(*uParam0, 100) * 10f * Global_262145.f_3922);
 
 	if (num > 4)
 		num = 4;
 
 	if (num >= 2)
-		num3 = SYSTEM::ROUND(func_187(*uParam0, 100) * 20f * Global_262145.f_3920);
+		num3 = BUILTIN::ROUND(func_187(*uParam0, 100) * 20f * Global_262145.f_3920);
 
 	*uParam0 = *uParam0 + num2;
 	*uParam0 = *uParam0 + num3;
@@ -4507,8 +4507,8 @@ float func_187(int iParam0, int iParam1) // Position - 0x5041 (20545)
 	float num2;
 	float num3;
 
-	num = SYSTEM::TO_FLOAT(iParam0);
-	num2 = SYSTEM::TO_FLOAT(iParam1);
+	num = BUILTIN::TO_FLOAT(iParam0);
+	num2 = BUILTIN::TO_FLOAT(iParam1);
 	num3 = num / num2;
 	return num3;
 }
@@ -4592,13 +4592,13 @@ void func_189(BOOL bParam0, var uParam1) // Position - 0x50CF (20687)
 	}
 
 	if (flag)
-		num2 = SYSTEM::ROUND(func_187(*uParam1, 100) * 10f * Global_262145.f_3922);
+		num2 = BUILTIN::ROUND(func_187(*uParam1, 100) * 10f * Global_262145.f_3922);
 
 	if (num > 4)
 		num = 4;
 
 	if (num >= 1)
-		num3 = SYSTEM::ROUND(func_187(*uParam1, 100) * 20f * Global_262145.f_3920);
+		num3 = BUILTIN::ROUND(func_187(*uParam1, 100) * 20f * Global_262145.f_3920);
 
 	*uParam1 = *uParam1 + num2;
 	*uParam1 = *uParam1 + num3;
@@ -4607,7 +4607,7 @@ void func_189(BOOL bParam0, var uParam1) // Position - 0x50CF (20687)
 
 float func_190(Player plParam0, Player plParam1) // Position - 0x51E7 (20967)
 {
-	return SYSTEM::VDIST(_GET_PLAYER_COORDS(plParam0), _GET_PLAYER_COORDS(plParam1));
+	return BUILTIN::VDIST(_GET_PLAYER_COORDS(plParam0), _GET_PLAYER_COORDS(plParam1));
 }
 
 Vector3 _GET_PLAYER_COORDS(Player plParam0) // Position - 0x5203 (20995)
@@ -4622,7 +4622,7 @@ int func_192(var uParam0) // Position - 0x5216 (21014)
 	if (PAD::GET_LOCAL_PLAYER_AIM_STATE() != 3)
 		return *uParam0;
 
-	num = SYSTEM::ROUND(func_187(*uParam0, 100) * 25f);
+	num = BUILTIN::ROUND(func_187(*uParam0, 100) * 25f);
 	*uParam0 = *uParam0 + num;
 	return *uParam0;
 }
@@ -4633,14 +4633,14 @@ int func_193(int iParam0) // Position - 0x524D (21069)
 		if (MISC::ABSI(iParam0) > func_185(PLAYER::PLAYER_ID()))
 			iParam0 = -func_185(PLAYER::PLAYER_ID());
 
-	if (func_194(8000, false, 0) > false)
+	if (func_194(8000, false, 0) > 0)
 		if (func_194(8000, false, 0) < iParam0 + func_185(PLAYER::PLAYER_ID()))
 			iParam0 = func_194(8000, false, 0) - func_185(PLAYER::PLAYER_ID());
 
 	return iParam0;
 }
 
-BOOL func_194(int iParam0, BOOL bParam1, int iParam2) // Position - 0x52B1 (21169)
+int func_194(int iParam0, BOOL bParam1, int iParam2) // Position - 0x52B1 (21169)
 {
 	iParam2 == 0;
 	bParam1;
@@ -5267,7 +5267,7 @@ BOOL func_243(Vector3 vParam0, var uParam1, var uParam2, var uParam3, var uParam
 		}
 	}
 
-	if (SYSTEM::VMAG(vParam0) == 0f)
+	if (BUILTIN::VMAG(vParam0) == 0f)
 		return false;
 
 	return true;
@@ -5299,7 +5299,7 @@ BOOL func_246(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, v
 
 	vector = { uParam4 - uParam0 };
 
-	if (SYSTEM::VMAG(vector) + uParam3 < fParam7)
+	if (BUILTIN::VMAG(vector) + uParam3 < fParam7)
 		return true;
 
 	return false;
@@ -5767,7 +5767,7 @@ BOOL func_276() // Position - 0x68B5 (26805)
 
 void func_277() // Position - 0x68C4 (26820)
 {
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	return;
 }
 
@@ -5903,7 +5903,7 @@ BOOL func_284() // Position - 0x6B18 (27416)
 		if (func_9(&unk, 120000, true))
 			return false;
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return false;
@@ -5952,7 +5952,7 @@ int func_285(int iParam0, int iParam1, BOOL bParam2) // Position - 0x6B76 (27510
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (iParam1 > -1)

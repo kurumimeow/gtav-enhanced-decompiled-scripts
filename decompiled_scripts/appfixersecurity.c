@@ -206,7 +206,7 @@ void main() // Position - 0x0 (0)
 
 	MISC::NETWORK_SET_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
 	func_425();
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	HUD::CLEAR_HELP(true);
 
 	while (Global_78527)
@@ -236,7 +236,7 @@ void main() // Position - 0x0 (0)
 				CAM::DO_SCREEN_FADE_OUT(500);
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -1806,7 +1806,7 @@ void func_78(int iParam0) // Position - 0x1AFB (6907)
 	func_81();
 
 	if (iParam0 == 0)
-		if (LOADINGSCREEN::LOBBY_AUTO_MULTIPLAYER_FREEMODE())
+		if (LOBBY::LOBBY_AUTO_MULTIPLAYER_FREEMODE())
 			return;
 
 	if (func_80() == 0 || HUD::IS_PAUSE_MENU_ACTIVE())
@@ -1886,7 +1886,7 @@ void func_85(var uParam0, int iParam1, int iParam2, var uParam3, var uParam4, va
 	BOOL flag;
 	float amplitude;
 	BOOL flag2;
-	BOOL flag3;
+	int num;
 	var unk5;
 
 	func_163(uParam0, iParam1, 1, iParam14, true);
@@ -2021,9 +2021,9 @@ void func_85(var uParam0, int iParam1, int iParam2, var uParam3, var uParam4, va
 	}
 	else if (IS_BIT_SET(iParam16, 5))
 	{
-		flag3 = func_132(PLAYER::PLAYER_ID());
-		entityCoords = { OBJECT::GET_OFFSET_FROM_COORD_AND_HEADING_IN_WORLD_COORDS(func_131(flag3), func_130(flag3), 3.5688f, 7.9792f, 4.1641f) };
-		finalRenderedCamRot = { -21.6791f, 0f, func_130(flag3) + 40.237f };
+		num = func_132(PLAYER::PLAYER_ID());
+		entityCoords = { OBJECT::GET_OFFSET_FROM_COORD_AND_HEADING_IN_WORLD_COORDS(func_131(num), func_130(num), 3.5688f, 7.9792f, 4.1641f) };
+		finalRenderedCamRot = { -21.6791f, 0f, func_130(num) + 40.237f };
 		finalRenderedCamFov = 70f;
 	}
 	else if (IS_BIT_SET(iParam16, 6) || func_129())
@@ -3239,8 +3239,8 @@ Vector3 func_105(float fParam0, var uParam1, var uParam2, float fParam3) // Posi
 	float num2;
 	float num3;
 
-	num2 = SYSTEM::SIN(fParam3);
-	num3 = SYSTEM::COS(fParam3);
+	num2 = BUILTIN::SIN(fParam3);
+	num3 = BUILTIN::COS(fParam3);
 	num = (fParam0 * num3) - (fParam0.f_1 * num2);
 	num.f_1 = (fParam0 * num2) + (fParam0.f_1 * num3);
 	num.f_2 = fParam0.f_2;
@@ -4068,17 +4068,17 @@ BOOL func_129() // Position - 0x51C3 (20931)
 	return false;
 }
 
-float func_130(BOOL bParam0) // Position - 0x51E1 (20961)
+float func_130(int iParam0) // Position - 0x51E1 (20961)
 {
-	return Global_4280768[bParam0 /*45*/].f_7;
+	return Global_4280768[iParam0 /*45*/].f_7;
 }
 
-Vector3 func_131(BOOL bParam0) // Position - 0x51F3 (20979)
+Vector3 func_131(int iParam0) // Position - 0x51F3 (20979)
 {
-	return Global_4280768[bParam0 /*45*/].f_4;
+	return Global_4280768[iParam0 /*45*/].f_4;
 }
 
-BOOL func_132(Player plParam0) // Position - 0x5207 (20999)
+int func_132(Player plParam0) // Position - 0x5207 (20999)
 {
 	return Global_2652587[plParam0 /*3*/];
 }
@@ -5575,7 +5575,7 @@ Vector3 func_208(Player plParam0) // Position - 0x6CD8 (27864)
 	else if (HUD::DOES_BLIP_EXIST(Global_2647055.f_33[plParam0]) && !(plParam0 == Global_2672967))
 		vector = { func_275(Global_2647055.f_33[plParam0]) };
 
-	if (SYSTEM::VMAG(vector) > 0f)
+	if (BUILTIN::VMAG(vector) > 0f)
 		return vector;
 
 	return func_209(plParam0);
@@ -5593,12 +5593,12 @@ Vector3 func_209(Player plParam0) // Position - 0x6D4C (27980)
 		{
 			vector = { func_273(plParam0) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	
 		if (Global_2658019[plParam0 /*467*/].f_75.f_11)
-			if (SYSTEM::VMAG(Global_2658019[plParam0 /*467*/].f_75.f_12) > 0f)
+			if (BUILTIN::VMAG(Global_2658019[plParam0 /*467*/].f_75.f_12) > 0f)
 				return Global_2658019[plParam0 /*467*/].f_75.f_12;
 	}
 
@@ -5606,7 +5606,7 @@ Vector3 func_209(Player plParam0) // Position - 0x6D4C (27980)
 	{
 		vector = { func_271(func_272(Global_1845274[PLAYER::PLAYER_ID() /*877*/].f_260.f_36)) };
 	
-		if (SYSTEM::VMAG(vector) > 0f)
+		if (BUILTIN::VMAG(vector) > 0f)
 			return vector;
 	}
 	else
@@ -5617,7 +5617,7 @@ Vector3 func_209(Player plParam0) // Position - 0x6D4C (27980)
 		{
 			vector = { func_271(func_272(flag)) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	}
@@ -5626,7 +5626,7 @@ Vector3 func_209(Player plParam0) // Position - 0x6D4C (27980)
 	{
 		vector = { func_212(plParam0) };
 	
-		if (SYSTEM::VMAG(vector) > 0f)
+		if (BUILTIN::VMAG(vector) > 0f)
 			return vector;
 	}
 
@@ -5638,7 +5638,7 @@ Vector3 func_209(Player plParam0) // Position - 0x6D4C (27980)
 		{
 			vector = { Global_1946439.f_773[num /*3*/] };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	}
@@ -5649,12 +5649,12 @@ Vector3 func_209(Player plParam0) // Position - 0x6D4C (27980)
 		{
 			vector = { func_273(plParam0) };
 		
-			if (SYSTEM::VMAG(vector) > 0f)
+			if (BUILTIN::VMAG(vector) > 0f)
 				return vector;
 		}
 	
 		if (Global_2658019[plParam0 /*467*/].f_75.f_11)
-			if (SYSTEM::VMAG(Global_2658019[plParam0 /*467*/].f_75.f_12) > 0f)
+			if (BUILTIN::VMAG(Global_2658019[plParam0 /*467*/].f_75.f_12) > 0f)
 				return Global_2658019[plParam0 /*467*/].f_75.f_12;
 	}
 
@@ -10058,18 +10058,18 @@ void func_394() // Position - 0xC349 (49993)
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_LB, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_LB))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(205), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(205), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_RB, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_RB))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(206), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(206), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_UP, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_UP))
 	{
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(188), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(188), -1082130432, -1082130432, -1082130432, -1082130432);
 		MISC::SET_BIT(&iLocal_142, 3);
 	}
 
@@ -10077,24 +10077,24 @@ void func_394() // Position - 0xC349 (49993)
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_DOWN))
 	{
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(187), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(187), -1082130432, -1082130432, -1082130432, -1082130432);
 		MISC::SET_BIT(&iLocal_142, 3);
 	}
 
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_LEFT, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_LEFT))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(189), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(189), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_RIGHT, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_RIGHT))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(190), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(190), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_ACCEPT, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_ACCEPT))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(201), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(201), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_CANCEL, true);
 
@@ -10104,12 +10104,12 @@ void func_394() // Position - 0xC349 (49993)
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_X, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_X))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(203), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(203), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	func_397(FRONTEND_CONTROL, INPUT_FRONTEND_Y, true);
 
 	if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_FRONTEND_Y))
-		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(204), -1082130432, -1082130432, -1082130432, -1082130432);
+		GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(204), -1082130432, -1082130432, -1082130432, -1082130432);
 
 	if (PAD::IS_USING_KEYBOARD_AND_MOUSE(FRONTEND_CONTROL))
 	{
@@ -10127,7 +10127,7 @@ void func_394() // Position - 0xC349 (49993)
 		func_397(FRONTEND_CONTROL, INPUT_CURSOR_ACCEPT, true);
 	
 		if (PAD::IS_CONTROL_JUST_PRESSED(FRONTEND_CONTROL, INPUT_CURSOR_ACCEPT))
-			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(201), -1082130432, -1082130432, -1082130432, -1082130432);
+			GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(201), -1082130432, -1082130432, -1082130432, -1082130432);
 	
 		func_397(FRONTEND_CONTROL, INPUT_CURSOR_CANCEL, true);
 	
@@ -10221,7 +10221,7 @@ void func_396() // Position - 0xC7CC (51148)
 	else
 		func_435(true, false);
 
-	GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", SYSTEM::TO_FLOAT(202), -1082130432, -1082130432, -1082130432, -1082130432);
+	GRAPHICS::CALL_SCALEFORM_MOVIE_METHOD_WITH_NUMBER(iLocal_163, "SET_INPUT_EVENT", BUILTIN::TO_FLOAT(202), -1082130432, -1082130432, -1082130432, -1082130432);
 	func_342(4);
 	return;
 }
@@ -10588,7 +10588,7 @@ void func_425() // Position - 0xCDA1 (52641)
 	while (!GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(iLocal_163))
 	{
 		func_411();
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	func_403(1);

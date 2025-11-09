@@ -463,7 +463,7 @@ void main() // Position - 0x0 (0)
 
 	while (true)
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 		func_144(PLAYER::PLAYER_PED_ID());
 	
 		switch (iLocal_386)
@@ -517,7 +517,7 @@ void func_1() // Position - 0xEB (235)
 			}
 			else if (_DOES_ENTITY_EXIST_AND_IS_ALIVE(veLocal_384))
 			{
-				if (SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), ENTITY::GET_ENTITY_COORDS(veLocal_384, true)) > 62500f)
+				if (BUILTIN::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), ENTITY::GET_ENTITY_COORDS(veLocal_384, true)) > 62500f)
 				{
 					func_5();
 				}
@@ -742,7 +742,7 @@ BOOL func_11(var uParam0, var uParam1, Vector3 vParam2, var uParam3, var uParam4
 	{
 		if (!func_12(&(uParam0->f_1), i))
 		{
-			num = SYSTEM::VDIST2(vParam2, uParam1->[i /*11*/].f_3);
+			num = BUILTIN::VDIST2(vParam2, uParam1->[i /*11*/].f_3);
 		
 			if (num2 == -1f || num < num2)
 			{
@@ -859,7 +859,7 @@ BOOL func_14(int iParam0, int iParam1, int iParam2, BOOL bParam3) // Position - 
 				func_18("cellphone_flashhand");
 			
 				if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("cellphone_flashhand")) == 0)
-					Global_21236 = SYSTEM::START_NEW_SCRIPT("cellphone_flashhand", DEFAULT);
+					Global_21236 = BUILTIN::START_NEW_SCRIPT("cellphone_flashhand", DEFAULT);
 			
 				SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED("cellphone_flashhand");
 			}
@@ -868,7 +868,7 @@ BOOL func_14(int iParam0, int iParam1, int iParam2, BOOL bParam3) // Position - 
 
 	while (!Global_21221)
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	func_27();
@@ -882,9 +882,9 @@ BOOL func_14(int iParam0, int iParam1, int iParam2, BOOL bParam3) // Position - 
 	
 		if (bParam3)
 			if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(Global_9082[iParam0 /*15*/].f_9) == 0)
-				Global_21237 = SYSTEM::START_NEW_SCRIPT(&(Global_9082[iParam0 /*15*/].f_5), CONTACTS_APP);
+				Global_21237 = BUILTIN::START_NEW_SCRIPT(&(Global_9082[iParam0 /*15*/].f_5), CONTACTS_APP);
 		else if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(Global_9082[iParam0 /*15*/].f_9) == 0)
-			Global_21237 = SYSTEM::START_NEW_SCRIPT(&(Global_9082[iParam0 /*15*/].f_5), 2600);
+			Global_21237 = BUILTIN::START_NEW_SCRIPT(&(Global_9082[iParam0 /*15*/].f_5), 2600);
 	
 		SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED(&(Global_9082[iParam0 /*15*/].f_5));
 		return true;
@@ -956,7 +956,7 @@ void func_18(char* sParam0) // Position - 0xADA (2778)
 
 	while (!SCRIPT::HAS_SCRIPT_LOADED(sParam0))
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -1161,7 +1161,7 @@ void func_27() // Position - 0xD86 (3462)
 		func_16(7, "CELL_5" /*Email*/, 0, "appMPEmail", 4, 1, 1, 0, 0);
 	
 		if (func_33())
-			func_16(23, "CELL_VINEWOOD", 5, "appVinewoodMenu", 61, 1, 1, 0, 0);
+			func_16(23, "CELL_VINEWOOD" /*Vinewood Club*/, 5, "appVinewoodMenu", 61, 1, 1, 0, 0);
 		else
 			func_16(10, "CELL_16" /*Settings*/, 5, "appSettings", 24, 1, 1, 0, 0);
 	
@@ -1276,7 +1276,7 @@ int func_36() // Position - 0x13C3 (5059)
 
 BOOL func_37() // Position - 0x13D9 (5081)
 {
-	return func_43(526, -1) || unk_0xB233964AC562A357() && func_42() != 0 && !func_38(0);
+	return func_43(526, -1) || MISC::HAS_FINALIZED_CHOSEN_CRIMINAL_CAREER() && func_42() != 0 && !func_38(0);
 }
 
 BOOL func_38(int iParam0) // Position - 0x1409 (5129)
@@ -1336,7 +1336,7 @@ int func_41(int iParam0) // Position - 0x1464 (5220)
 
 int func_42() // Position - 0x1498 (5272)
 {
-	return unk_0xA0A0D77ECEDD4136();
+	return MISC::GET_CHOSEN_CRIMINAL_CAREER();
 }
 
 BOOL func_43(int iParam0, int iParam1) // Position - 0x14A4 (5284)
@@ -1824,8 +1824,8 @@ void func_67() // Position - 0x1A0C (6668)
 	STATS::STAT_SET_INT(joaat("PERCENT_AMBIENT_MISSIONS"), Global_114114, true);
 	STATS::STAT_SET_INT(joaat("PERCENT_ODDJOBS"), Global_114115, true);
 
-	if (value > 0f && SYSTEM::FLOOR(value) < SYSTEM::FLOOR(Global_114370.f_10198.f_3853))
-		func_70(13, SYSTEM::FLOOR(Global_114370.f_10198.f_3853));
+	if (value > 0f && BUILTIN::FLOOR(value) < BUILTIN::FLOOR(Global_114370.f_10198.f_3853))
+		func_70(13, BUILTIN::FLOOR(Global_114370.f_10198.f_3853));
 
 	if (!DATAFILE::DATAFILE_IS_SAVE_PENDING())
 	{
@@ -2136,18 +2136,18 @@ Hash func_73(int iParam0, int iParam1) // Position - 0x2036 (8246)
 	return joaat("PROP_BOUGHT_TOWI");
 }
 
-void func_74(eCharacter echParam0, int iParam1, int iParam2, BOOL bParam3, BOOL bParam4) // Position - 0x2414 (9236)
+void func_74(int iParam0, int iParam1, int iParam2, BOOL bParam3, BOOL bParam4) // Position - 0x2414 (9236)
 {
 	int outValue;
 	Hash statHash;
 
-	if (func_94(echParam0) == 3)
+	if (func_94(iParam0) == 3)
 		return;
 
-	if (func_94(echParam0) == 4)
+	if (func_94(iParam0) == 4)
 		return;
 
-	func_75(func_94(echParam0), 1, iParam1, iParam2, false);
+	func_75(func_94(iParam0), 1, iParam1, iParam2, false);
 
 	if (bParam3)
 	{
@@ -2155,17 +2155,17 @@ void func_74(eCharacter echParam0, int iParam1, int iParam2, BOOL bParam3, BOOL 
 	
 		if (bParam4)
 		{
-			switch (echParam0)
+			switch (iParam0)
 			{
-				case CHAR_MICHAEL:
+				case 0:
 					statHash = joaat("SP0_MONEY_MADE_FROM_RANDOM_PEDS");
 					break;
 			
-				case CHAR_FRANKLIN:
+				case 1:
 					statHash = joaat("SP1_MONEY_MADE_FROM_RANDOM_PEDS");
 					break;
 			
-				case CHAR_TREVOR:
+				case 2:
 					statHash = joaat("SP2_MONEY_MADE_FROM_RANDOM_PEDS");
 					break;
 			
@@ -2175,17 +2175,17 @@ void func_74(eCharacter echParam0, int iParam1, int iParam2, BOOL bParam3, BOOL 
 		}
 		else
 		{
-			switch (echParam0)
+			switch (iParam0)
 			{
-				case CHAR_MICHAEL:
+				case 0:
 					statHash = joaat("SP0_MONEY_MADE_FROM_MISSIONS");
 					break;
 			
-				case CHAR_FRANKLIN:
+				case 1:
 					statHash = joaat("SP1_MONEY_MADE_FROM_MISSIONS");
 					break;
 			
-				case CHAR_TREVOR:
+				case 2:
 					statHash = joaat("SP2_MONEY_MADE_FROM_MISSIONS");
 					break;
 			
@@ -2449,7 +2449,7 @@ int func_75(int iParam0, int iParam1, int iParam2, int iParam3, BOOL bParam4) //
 	}
 
 	num3 = iParam0;
-	iParam3 = SYSTEM::FLOOR(num * SYSTEM::TO_FLOAT(iParam3));
+	iParam3 = BUILTIN::FLOOR(num * BUILTIN::TO_FLOAT(iParam3));
 	num4 = 0;
 	num5 = iParam3;
 
@@ -2774,10 +2774,10 @@ char* func_79(int iParam0) // Position - 0x2F8D (12173)
 	
 		default:
 			if (func_86(iParam0))
-				return "HSW_COUP";
+				return "HSW_COUP" /*One free respray, livery or spoiler.*/;
 		
 			if (func_84(iParam0))
-				return "HSWU_COUP";
+				return "HSWU_COUP" /*One free Hao's Special Works upgrade.*/;
 			break;
 	}
 
@@ -3184,9 +3184,9 @@ void func_93() // Position - 0x366A (13930)
 	return;
 }
 
-int func_94(eCharacter echParam0) // Position - 0x36DF (14047)
+int func_94(int iParam0) // Position - 0x36DF (14047)
 {
-	return Global_2241[echParam0 /*29*/].f_17;
+	return Global_2241[iParam0 /*29*/].f_17;
 }
 
 int func_95(int iParam0) // Position - 0x36F0 (14064)
@@ -3588,7 +3588,7 @@ void func_110(int iParam0, BOOL bParam1) // Position - 0x3DDA (15834)
 	{
 		if (!bParam1 && !ENTITY::IS_ENTITY_DEAD(PLAYER::PLAYER_PED_ID(), false))
 		{
-			if (SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), iLocal_53[iParam0 /*11*/].f_3) < 100f * 100f)
+			if (BUILTIN::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), iLocal_53[iParam0 /*11*/].f_3) < 100f * 100f)
 			{
 				if (func_111(&num))
 				{
@@ -3600,7 +3600,7 @@ void func_110(int iParam0, BOOL bParam1) // Position - 0x3DDA (15834)
 	}
 	else if (!ENTITY::IS_ENTITY_DEAD(PLAYER::PLAYER_PED_ID(), false))
 	{
-		if (SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), iLocal_53[iParam0 /*11*/].f_3) > 105f * 105f)
+		if (BUILTIN::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), iLocal_53[iParam0 /*11*/].f_3) > 105f * 105f)
 		{
 			if (uLocal_393[iParam0] >= 0 && uLocal_393[iParam0] < 8)
 			{
@@ -3658,7 +3658,7 @@ BOOL func_113(var uParam0, var uParam1, Vector3 vParam2, var uParam3, var uParam
 
 	if (OBJECT::DOES_PICKUP_EXIST(uParam1->[num /*11*/].f_1))
 	{
-		if (SYSTEM::VDIST2(vParam2, OBJECT::GET_PICKUP_COORDS(uParam1->[num /*11*/].f_1)) > 60f * 60f || func_17(13) || func_17(14))
+		if (BUILTIN::VDIST2(vParam2, OBJECT::GET_PICKUP_COORDS(uParam1->[num /*11*/].f_1)) > 60f * 60f || func_17(13) || func_17(14))
 		{
 			func_114(&(uParam1->[num /*11*/].f_1));
 			uParam1->[num /*11*/].f_1 = 0;
@@ -3920,7 +3920,7 @@ BOOL func_125(Pickup pkParam0) // Position - 0x4437 (17463)
 			entityModel = ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn);
 		
 			if (entityModel == joaat("submersible") || entityModel == joaat("submersible2"))
-				if (SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), OBJECT::GET_PICKUP_COORDS(pkParam0)) < 5f * 5f || ENTITY::IS_ENTITY_TOUCHING_ENTITY(PLAYER::PLAYER_PED_ID(), OBJECT::GET_PICKUP_OBJECT(pkParam0)))
+				if (BUILTIN::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), OBJECT::GET_PICKUP_COORDS(pkParam0)) < 5f * 5f || ENTITY::IS_ENTITY_TOUCHING_ENTITY(PLAYER::PLAYER_PED_ID(), OBJECT::GET_PICKUP_OBJECT(pkParam0)))
 					return true;
 		}
 	}
@@ -3940,14 +3940,14 @@ void func_126(var uParam0, Hash hParam1, Hash hParam2, BOOL bParam3, BOOL bParam
 			{
 				if (!OBJECT::DOES_PICKUP_EXIST(uParam0->f_1))
 				{
-					if (SYSTEM::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), uParam0->f_3) <= 50f * 50f)
+					if (BUILTIN::VDIST2(ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), true), uParam0->f_3) <= 50f * 50f)
 					{
 						STREAMING::REQUEST_MODEL(hParam1);
 					
 						while (!STREAMING::HAS_MODEL_LOADED(hParam1))
 						{
 							STREAMING::REQUEST_MODEL(hParam1);
-							SYSTEM::WAIT(0);
+							BUILTIN::WAIT(0);
 						}
 					
 						if (bParam3)
@@ -3994,10 +3994,10 @@ void func_127(Vector3 vParam0, var uParam1, var uParam2) // Position - 0x45DC (1
 	
 		while (!INTERIOR::IS_INTERIOR_READY(interiorAtCoords))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 		INTERIOR::UNPIN_INTERIOR(interiorAtCoords);
 	}
 

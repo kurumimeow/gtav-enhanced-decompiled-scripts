@@ -146,16 +146,16 @@ void main() // Position - 0x0 (0)
 								if (entityCoords.f_2 > 39f && entityCoords.f_2 < 43f)
 									iLocal_35 = 1;
 								else
-									SYSTEM::WAIT(100);
+									BUILTIN::WAIT(100);
 							else
-								SYSTEM::WAIT(100);
+								BUILTIN::WAIT(100);
 						else
-							SYSTEM::WAIT(1500);
+							BUILTIN::WAIT(1500);
 					}
 				}
 				else
 				{
-					SYSTEM::WAIT(1500);
+					BUILTIN::WAIT(1500);
 				}
 				break;
 		
@@ -169,7 +169,7 @@ void main() // Position - 0x0 (0)
 				break;
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -204,7 +204,7 @@ void func_2() // Position - 0x230 (560)
 {
 	func_6(-815326385);
 	func_3("SHI_T_SANDY_2" /*Planes you purchase from websites or that you land inside will be stored at ~HUD_COLOUR_TREVOR~~BLIP_HANGAR~~s~~n~Ground vehicles too large for a garage will also be stored here.*/, 0, 0, -1, 10000, 7, 0, 0, 0);
-	SYSTEM::WAIT(0);
+	BUILTIN::WAIT(0);
 	func_3("SHI_T_SANDY_3" /*Helicopters purchased from websites or that you land on the helipad will be stored at ~HUD_COLOUR_TREVOR~~BLIP_HELIPAD~*/, 0, 0, -1, 10000, 7, 0, 0, 0);
 	iLocal_35 = 2;
 	return;
@@ -496,7 +496,7 @@ void func_12(int iParam0) // Position - 0x995 (2453)
 
 int func_13(int iParam0) // Position - 0xA51 (2641)
 {
-	int num;
+	eCharacter character;
 
 	if (Global_120[iParam0 /*10*/].f_8 != 187)
 	{
@@ -506,8 +506,8 @@ int func_13(int iParam0) // Position - 0xA51 (2641)
 		
 			if (func_17(iParam0, Global_21239) == 0)
 			{
-				num = Global_21239;
-				func_14(iParam0, num);
+				character = Global_21239;
+				func_14(iParam0, character);
 			}
 		
 			return 1;
@@ -521,76 +521,76 @@ int func_13(int iParam0) // Position - 0xA51 (2641)
 	return 0;
 }
 
-void func_14(int iParam0, int iParam1) // Position - 0xAA7 (2727)
+void func_14(int iParam0, eCharacter echParam1) // Position - 0xAA7 (2727)
 {
-	int num;
+	eCharacter character;
 
 	if (Global_120[iParam0 /*10*/].f_8 != 187)
 	{
-		if (iParam1 > 3)
+		if (echParam1 > CHAR_MULTIPLAYER)
 		{
 		}
 		else
 		{
-			num = iParam1;
-			func_16(iParam0, num, 0);
-			func_15(iParam0, num, 0);
+			character = echParam1;
+			func_16(iParam0, character, 0);
+			func_15(iParam0, character, 0);
 		}
 	}
 
 	return;
 }
 
-void func_15(int iParam0, int iParam1, int iParam2) // Position - 0xADC (2780)
+void func_15(int iParam0, eCharacter echParam1, int iParam2) // Position - 0xADC (2780)
 {
-	if (iParam1 < 0 || iParam1 > 4)
+	if (echParam1 < CHAR_MICHAEL || echParam1 > CHAR_ALL_PLAYERS_CONF)
 		return;
 
-	Global_2241[iParam0 /*29*/].f_24[iParam1] = iParam2;
+	Global_2241[iParam0 /*29*/].f_24[echParam1] = iParam2;
 
 	if (iParam0 < 162)
-		Global_114370.f_28055[iParam0 /*29*/].f_24[iParam1] = iParam2;
+		Global_114370.f_28055[iParam0 /*29*/].f_24[echParam1] = iParam2;
 
 	return;
 }
 
-void func_16(int iParam0, int iParam1, int iParam2) // Position - 0xB21 (2849)
+void func_16(int iParam0, eCharacter echParam1, int iParam2) // Position - 0xB21 (2849)
 {
-	if (iParam1 < 0 || iParam1 > 4)
+	if (echParam1 < CHAR_MICHAEL || echParam1 > CHAR_ALL_PLAYERS_CONF)
 		return;
 
-	Global_2241[iParam0 /*29*/].f_12[iParam1] = iParam2;
+	Global_2241[iParam0 /*29*/].f_12[echParam1] = iParam2;
 
 	if (iParam0 < 162)
-		Global_114370.f_28055[iParam0 /*29*/].f_12[iParam1] = iParam2;
+		Global_114370.f_28055[iParam0 /*29*/].f_12[echParam1] = iParam2;
 
 	return;
 }
 
-int func_17(int iParam0, int iParam1) // Position - 0xB66 (2918)
+int func_17(int iParam0, eCharacter echParam1) // Position - 0xB66 (2918)
 {
-	if (iParam1 < 0 || iParam1 > 4)
+	if (echParam1 < CHAR_MICHAEL || echParam1 > CHAR_ALL_PLAYERS_CONF)
 		return 0;
 
-	return Global_2241[iParam0 /*29*/].f_24[iParam1];
+	return Global_2241[iParam0 /*29*/].f_24[echParam1];
 }
 
-void func_18(int iParam0, int iParam1, int iParam2) // Position - 0xB90 (2960)
+void func_18(int iParam0, eCharacter echParam1, int iParam2) // Position - 0xB90 (2960)
 {
-	Global_2241[iParam0 /*29*/].f_19[iParam1] = iParam2;
+	Global_2241[iParam0 /*29*/].f_19[echParam1] = iParam2;
 
 	if (iParam0 < 162)
-		Global_114370.f_28055[iParam0 /*29*/].f_19[iParam1] = iParam2;
+		Global_114370.f_28055[iParam0 /*29*/].f_19[echParam1] = iParam2;
 
 	return;
 }
 
-int func_19(int iParam0, int iParam1) // Position - 0xBC1 (3009)
+int func_19(int iParam0, eCharacter echParam1) // Position - 0xBC1 (3009)
 {
-	if (iParam1 < 0 || iParam1 > 4)
+	if (echParam1 < CHAR_MICHAEL || echParam1 > CHAR_ALL_PLAYERS_CONF)
 		return 0;
 
-	return Global_2241[iParam0 /*29*/].f_19[iParam1];
+	return Global_2241[iParam0 /*29*/].f_19[echParam1];
 }
 
 void func_20(eCharacter echParam0) // Position - 0xBEB (3051)
@@ -788,17 +788,17 @@ void func_31(var uParam0) // Position - 0xFCE (4046)
 		uParam0->f_47 = { uParam0->f_47 + uParam0->[i /*3*/] };
 	}
 
-	uParam0->f_47 = { uParam0->f_47 / F2V(SYSTEM::TO_FLOAT(i)) };
+	uParam0->f_47 = { uParam0->f_47 / F2V(BUILTIN::TO_FLOAT(i)) };
 
 	for (i = 0; i < uParam0->f_46; i = i + 1)
 	{
-		num = SYSTEM::VDIST2(uParam0->f_47, uParam0->[i /*3*/]);
+		num = BUILTIN::VDIST2(uParam0->f_47, uParam0->[i /*3*/]);
 	
 		if (num > uParam0->f_50)
 			uParam0->f_50 = num;
 	}
 
-	uParam0->f_50 = SYSTEM::SQRT(uParam0->f_50);
+	uParam0->f_50 = BUILTIN::SQRT(uParam0->f_50);
 	uParam0->f_51 = 0;
 	return;
 }

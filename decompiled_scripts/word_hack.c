@@ -861,7 +861,7 @@ void main() // Position - 0x0 (0)
 
 	while (true)
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 		func_1(&uScriptParam_0, &Global_1985593, &uLocal_49, &uLocal_106);
 	}
 
@@ -3003,7 +3003,7 @@ void func_112(int* piParam0, int* piParam1) // Position - 0x2880 (10368)
 		piParam1->f_46 = 0;
 	}
 
-	AUDIO::SET_VARIABLE_ON_SOUND(piParam1->f_56, "TimeRemaining", SYSTEM::TO_FLOAT(piParam1->f_46) / 1000f);
+	AUDIO::SET_VARIABLE_ON_SOUND(piParam1->f_56, "TimeRemaining", BUILTIN::TO_FLOAT(piParam1->f_46) / 1000f);
 	return;
 }
 
@@ -3263,7 +3263,7 @@ void func_126(int* piParam0) // Position - 0x2D0F (11535)
 
 	while (num2 != 0)
 	{
-		num = SYSTEM::FLOOR(MISC::GET_RANDOM_FLOAT_IN_RANGE(0, 1065353216) * (float)num2);
+		num = BUILTIN::FLOOR(MISC::GET_RANDOM_FLOAT_IN_RANGE(0, 1065353216) * (float)num2);
 		num2 = num2 - 1;
 		unk = piParam0->f_23[num2];
 		piParam0->f_23[num2] = piParam0->f_23[num];

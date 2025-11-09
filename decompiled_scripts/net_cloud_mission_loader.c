@@ -297,7 +297,7 @@ void main() // Position - 0x0 (0)
 
 	while (true)
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 		bLocal_253 = false;
 		flag = func_791();
 		Global_2625267.f_3 = 0;
@@ -837,7 +837,7 @@ void func_6(var uParam0, BOOL bParam1) // Position - 0x6F3 (1779)
 			Global_1014403[Global_1014403.f_684 /*3*/] = { func_99(dict2, "area") };
 		
 			if (DATAFILE::DATADICT_GET_TYPE(dict2, "rad") == 2)
-				Global_1014403.f_512[Global_1014403.f_684] = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict2, "rad"));
+				Global_1014403.f_512[Global_1014403.f_684] = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict2, "rad"));
 			else
 				Global_1014403.f_512[Global_1014403.f_684] = DATAFILE::DATADICT_GET_FLOAT(dict2, "rad");
 		
@@ -1519,8 +1519,8 @@ ePedComponentType func_19(ePedComponentType epctParam0, int iParam1) // Position
 			value = num;
 		}
 	
-		value3 = ((SYSTEM::TO_FLOAT(value) - SYSTEM::TO_FLOAT(value2)) / 2f) + SYSTEM::TO_FLOAT(value2);
-		num = SYSTEM::ROUND(value3);
+		value3 = ((BUILTIN::TO_FLOAT(value) - BUILTIN::TO_FLOAT(value2)) / 2f) + BUILTIN::TO_FLOAT(value2);
+		num = BUILTIN::ROUND(value3);
 	}
 
 	return 8000;
@@ -3172,7 +3172,7 @@ int func_95(float fParam0, int iParam1) // Position - 0x3C40 (15424)
 	if (iParam1 == 0)
 		return -1;
 
-	num = SYSTEM::ROUND(fParam0 * 100f);
+	num = BUILTIN::ROUND(fParam0 * 100f);
 
 	if (num < 0)
 		num = -1;
@@ -3200,12 +3200,12 @@ Vector3 func_98(int iParam0) // Position - 0x3C95 (15509)
 	if (DATAFILE::DATADICT_GET_TYPE(iParam0, "camp") == 3)
 		_float = DATAFILE::DATADICT_GET_FLOAT(iParam0, "camp");
 	else if (DATAFILE::DATADICT_GET_TYPE(iParam0, "camp") == 2)
-		_float = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(iParam0, "camp"));
+		_float = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(iParam0, "camp"));
 
 	if (DATAFILE::DATADICT_GET_TYPE(iParam0, "camh") == 3)
 		_float.f_2 = DATAFILE::DATADICT_GET_FLOAT(iParam0, "camh");
 	else if (DATAFILE::DATADICT_GET_TYPE(iParam0, "camh") == 2)
-		_float.f_2 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(iParam0, "camh"));
+		_float.f_2 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(iParam0, "camh"));
 
 	return _float;
 }
@@ -3224,17 +3224,17 @@ Vector3 func_99(int iParam0, char* sParam1) // Position - 0x3D13 (15635)
 		dict = DATAFILE::DATADICT_GET_DICT(iParam0, sParam1);
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict, "x") == 2)
-			vector = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "x"));
+			vector = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "x"));
 		else
 			vector = DATAFILE::DATADICT_GET_FLOAT(dict, "x");
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict, "y") == 2)
-			vector.f_1 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "y"));
+			vector.f_1 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "y"));
 		else
 			vector.f_1 = DATAFILE::DATADICT_GET_FLOAT(dict, "y");
 	
 		if (DATAFILE::DATADICT_GET_TYPE(dict, "z") == 2)
-			vector.f_2 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "z"));
+			vector.f_2 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(dict, "z"));
 		else
 			vector.f_2 = DATAFILE::DATADICT_GET_FLOAT(dict, "z");
 	}
@@ -6195,15 +6195,15 @@ BOOL func_207(var uParam0, int iParam1, BOOL bParam2, int iParam3) // Position -
 				else
 				{
 					fileDict = DATAFILE::DATAFILE_GET_FILE_DICT(0);
-					Global_1922760.f_10 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "dt"));
-					Global_1922760.f_11 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "du"));
+					Global_1922760.f_10 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "dt"));
+					Global_1922760.f_11 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "du"));
 					Global_1922760.f_9 = Global_1922760.f_10 / Global_1922760.f_11;
-					Global_1922760.f_13 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "pt"));
-					Global_1922760.f_14 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "pu"));
-					Global_1057195 = SYSTEM::ROUND(Global_1922760.f_14);
+					Global_1922760.f_13 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "pt"));
+					Global_1922760.f_14 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "pu"));
+					Global_1057195 = BUILTIN::ROUND(Global_1922760.f_14);
 					Global_1922760.f_12 = Global_1922760.f_13 / Global_1922760.f_14;
-					Global_1922760.f_15 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "qt"));
-					Global_1922760.f_17 = SYSTEM::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "qu"));
+					Global_1922760.f_15 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "qt"));
+					Global_1922760.f_17 = BUILTIN::TO_FLOAT(DATAFILE::DATADICT_GET_INT(fileDict, "qu"));
 					Global_1922760.f_16 = Global_1922760.f_15 / Global_1922760.f_17;
 				}
 			
@@ -10472,7 +10472,7 @@ void func_335(ePedComponentType epctParam0) // Position - 0x10088 (65672)
 {
 	if (Global_4980736.f_89187[epctParam0 /*1213*/].f_947.f_8 == 0f)
 		if (IS_BIT_SET(Global_4980736.f_89187[epctParam0 /*1213*/].f_561, 10) && Global_4980736.f_89187[epctParam0 /*1213*/].f_610 != -1)
-			Global_4980736.f_89187[epctParam0 /*1213*/].f_947.f_8 = SYSTEM::TO_FLOAT(Global_4980736.f_89187[epctParam0 /*1213*/].f_610);
+			Global_4980736.f_89187[epctParam0 /*1213*/].f_947.f_8 = BUILTIN::TO_FLOAT(Global_4980736.f_89187[epctParam0 /*1213*/].f_610);
 
 	if (func_255(5))
 		MISC::CLEAR_BIT(&(Global_4980736.f_89187[epctParam0 /*1213*/].f_569), 13);
@@ -10732,7 +10732,7 @@ void func_346(int iParam0, ePedComponentType epctParam1) // Position - 0x109BE (
 	
 		case 7:
 			if ((float)*Global_4718592.f_197524 != 0f)
-				Global_4980736.f_57169[epctParam1 /*170*/].f_106.f_10 = SYSTEM::TO_FLOAT(*Global_4718592.f_197524);
+				Global_4980736.f_57169[epctParam1 /*170*/].f_106.f_10 = BUILTIN::TO_FLOAT(*Global_4718592.f_197524);
 			break;
 	}
 
@@ -14624,7 +14624,7 @@ void func_385(int iParam0, BOOL bParam1) // Position - 0x194C9 (103625)
 	
 		if (array39 != 0)
 			if (DATAFILE::DATAARRAY_GET_TYPE(array39, i) == 2)
-				Global_4980736.f_48744[type /*255*/].f_46.f_8 = SYSTEM::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array39, i));
+				Global_4980736.f_48744[type /*255*/].f_46.f_8 = BUILTIN::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array39, i));
 			else
 				Global_4980736.f_48744[type /*255*/].f_46.f_8 = DATAFILE::DATAARRAY_GET_FLOAT(array39, i);
 		else if (func_505())
@@ -15717,7 +15717,7 @@ void func_400(int iParam0, BOOL bParam1) // Position - 0x1C4C7 (115911)
 			Global_5242880.f_1[type /*163*/].f_28 = 0;
 	
 		if (!IS_BIT_SET(*Global_4718592.f_219756, 5))
-			Global_5242880.f_1[type /*163*/].f_28 = SYSTEM::SHIFT_LEFT(Global_5242880.f_1[type /*163*/].f_28, 1);
+			Global_5242880.f_1[type /*163*/].f_28 = BUILTIN::SHIFT_LEFT(Global_5242880.f_1[type /*163*/].f_28, 1);
 	
 		if (array50 != 0 && DATAFILE::DATAARRAY_GET_TYPE(array50, i) == 3)
 			Global_5242880.f_1[type /*163*/].f_42 = DATAFILE::DATAARRAY_GET_FLOAT(array50, i);
@@ -17094,7 +17094,7 @@ void func_407(int iParam0, BOOL bParam1) // Position - 0x1DEAE (122542)
 			
 				if (array76 != 0)
 					if (DATAFILE::DATAARRAY_GET_TYPE(array76, i) == 2)
-						Global_4980736.f_67545[type /*619*/].f_141.f_8 = SYSTEM::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array76, i));
+						Global_4980736.f_67545[type /*619*/].f_141.f_8 = BUILTIN::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array76, i));
 					else
 						Global_4980736.f_67545[type /*619*/].f_141.f_8 = DATAFILE::DATAARRAY_GET_FLOAT(array76, i);
 				else if (func_505())
@@ -29688,7 +29688,7 @@ void func_432(int iParam0, BOOL bParam1) // Position - 0x305B8 (198072)
 			
 				if (array10 != 0)
 					if (DATAFILE::DATAARRAY_GET_TYPE(array10, i) == 2)
-						Global_4980736.f_7044[type /*642*/].f_33.f_8 = SYSTEM::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array10, i));
+						Global_4980736.f_7044[type /*642*/].f_33.f_8 = BUILTIN::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array10, i));
 					else if (DATAFILE::DATAARRAY_GET_TYPE(array10, i) == 3)
 						Global_4980736.f_7044[type /*642*/].f_33.f_8 = DATAFILE::DATAARRAY_GET_FLOAT(array10, i);
 				else
@@ -33137,7 +33137,7 @@ void func_476(int iParam0) // Position - 0x3AEEB (241387)
 		if (array5 != 0 && DATAFILE::DATAARRAY_GET_TYPE(array5, i) == 3)
 			Global_4718592.f_197591[i /*11*/].f_10 = DATAFILE::DATAARRAY_GET_FLOAT(array5, i);
 		else if (DATAFILE::DATAARRAY_GET_TYPE(array5, i) == 2)
-			Global_4718592.f_197591[i /*11*/].f_10 = SYSTEM::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array5, i));
+			Global_4718592.f_197591[i /*11*/].f_10 = BUILTIN::TO_FLOAT(DATAFILE::DATAARRAY_GET_INT(array5, i));
 		else
 			Global_4718592.f_197591[i /*11*/].f_10 = 0f;
 	
@@ -37885,7 +37885,7 @@ void func_516(var uParam0) // Position - 0x45E30 (286256)
 				func_348(&key, "rSPCPA", i, -1);
 				func_318(&key, &Global_4718592.f_3605[i /*26949*/].f_26895[j], uParam0, &num33, j, 0, 0, -1);
 				func_348(&key, "rWISKST", i, -1);
-				func_318(&key, &Global_4718592.f_3605[i /*26949*/].f_26841[j], uParam0, &num37, j, SYSTEM::CEIL(10f), SYSTEM::CEIL(10f), -1);
+				func_318(&key, &Global_4718592.f_3605[i /*26949*/].f_26841[j], uParam0, &num37, j, BUILTIN::CEIL(10f), BUILTIN::CEIL(10f), -1);
 				func_348(&key, "rWISSSC", i, -1);
 				func_318(&key, &Global_4718592.f_3605[i /*26949*/].f_26859[j], uParam0, &num38, j, 0, 0, -1);
 				func_348(&key, "woAIEPR", i, -1);
@@ -40127,7 +40127,7 @@ void func_523(var uParam0) // Position - 0x4B9DD (309725)
 				{
 					func_518(&key, "icmsk3", i);
 					func_318(&key, &value, uParam0, &num3, j, 0, 0, -1);
-					Global_4718592.f_3605[i /*26949*/].f_20169[j] = SYSTEM::TO_FLOAT(value);
+					Global_4718592.f_3605[i /*26949*/].f_20169[j] = BUILTIN::TO_FLOAT(value);
 				}
 				else
 				{
@@ -43838,7 +43838,7 @@ void func_532(int iParam0, int iParam1, BOOL bParam2) // Position - 0x5099A (330
 		else if (func_558() || func_556() && func_555())
 		{
 			value = func_560();
-			num = SYSTEM::TO_FLOAT(value) / SYSTEM::TO_FLOAT(Global_4718592.f_3535);
+			num = BUILTIN::TO_FLOAT(value) / BUILTIN::TO_FLOAT(Global_4718592.f_3535);
 			flag = false;
 		
 			if (Global_4718592.f_3540 == PV_COMP_UPPR)
@@ -46654,7 +46654,7 @@ const char* func_562() // Position - 0x5BE7B (376443)
 	return HUD::GET_FILENAME_FOR_AUDIO_CONVERSATION("CREATOR_NO_T" /*No translation.*/);
 }
 
-void func_563(char* sParam0, int iParam1, int iParam2) // Position - 0x5BE8B (376459)
+void func_563(const char* sParam0, int iParam1, int iParam2) // Position - 0x5BE8B (376459)
 {
 	if (!func_125() && !func_575() && !func_574(*Global_4718592.f_138116))
 	{
@@ -49671,7 +49671,7 @@ void func_620(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 		Global_4718592.f_111480[i] = -1;
 		Global_4718592.f_111485[i] = PV_COMP_INVALID;
 		Global_4718592.f_111500[i] = 0;
-		Global_4718592.f_111505[i] = PV_COMP_INVALID;
+		Global_4718592.f_111505[i] = -1;
 		Global_4718592.f_111418[i] = PV_COMP_HEAD;
 		Global_4718592.f_111445[i] = 0;
 		Global_4718592.f_166992[i] = 0;
@@ -50030,7 +50030,7 @@ void func_620(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 			Global_4718592.f_3605[i /*26949*/].f_952[j] = 5;
 			Global_4718592.f_3605[i /*26949*/].f_970[j] = 20;
 			Global_4718592.f_3605[i /*26949*/].f_1896[j] = -1;
-			Global_4718592.f_3605[i /*26949*/].f_26841[j] = SYSTEM::CEIL(10f);
+			Global_4718592.f_3605[i /*26949*/].f_26841[j] = BUILTIN::CEIL(10f);
 			Global_4718592.f_3605[i /*26949*/].f_26913[j] = PV_COMP_INVALID;
 			Global_4718592.f_3605[i /*26949*/].f_26895[j] = PV_COMP_HEAD;
 			Global_4718592.f_3605[i /*26949*/].f_26931[j] = PV_COMP_INVALID;

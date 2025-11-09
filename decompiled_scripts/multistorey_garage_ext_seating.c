@@ -307,7 +307,7 @@ void main() // Position - 0x0 (0)
 
 	while (true)
 	{
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	
 		if (func_73())
 			func_87();
@@ -766,7 +766,7 @@ void func_14(var uParam0) // Position - 0xA1C (2588)
 	if (uParam0->f_13 == 6)
 	{
 		vector = { PAD::GET_CONTROL_NORMAL(PLAYER_CONTROL, INPUT_SCRIPT_LEFT_AXIS_X), PAD::GET_CONTROL_NORMAL(PLAYER_CONTROL, INPUT_SCRIPT_LEFT_AXIS_Y), 0f };
-		num = SYSTEM::VMAG(vector);
+		num = BUILTIN::VMAG(vector);
 	
 		if (uParam0->f_13 == 6 && !ENTITY::HAS_ANIM_EVENT_FIRED(PLAYER::PLAYER_PED_ID(), MISC::GET_HASH_KEY("BLOCK_INTERRUPT")) && !func_24(&(uParam0->f_7), 12))
 			if (num >= 0.35f && !Global_2711388 && !Global_2711393)
@@ -2544,7 +2544,7 @@ BOOL func_100(Player plParam0, int iParam1) // Position - 0x29FA (10746)
 		return false;
 
 	if (plParam0 == PLAYER::PLAYER_ID())
-		flag = func_101(-1, false) == CHAR_MIKE_FRANK_CONF;
+		flag = func_101(-1, false) == 8;
 	else
 		flag = Global_1845274[plParam0 /*877*/].f_198 == 8;
 
@@ -2555,28 +2555,28 @@ BOOL func_100(Player plParam0, int iParam1) // Position - 0x29FA (10746)
 	return flag;
 }
 
-eCharacter func_101(int iParam0, BOOL bParam1) // Position - 0x2A53 (10835)
+int func_101(int iParam0, BOOL bParam1) // Position - 0x2A53 (10835)
 {
-	eCharacter character;
 	int num;
+	int num2;
 
-	num = iParam0;
+	num2 = iParam0;
 
-	if (num == -1)
-		num = func_102();
+	if (num2 == -1)
+		num2 = func_102();
 
-	if (Global_1575068[num] == true)
+	if (Global_1575068[num2] == true)
 	{
 		bParam1;
-		character = CHAR_MIKE_FRANK_CONF;
+		num = 8;
 	}
 	else
 	{
-		character = Global_1574921[num];
+		num = Global_1574921[num2];
 		bParam1;
 	}
 
-	return character;
+	return num;
 }
 
 int func_102() // Position - 0x2A94 (10900)
@@ -2664,8 +2664,8 @@ Vector3 func_109(float fParam0, var uParam1, var uParam2, float fParam3) // Posi
 	float num2;
 	float num3;
 
-	num2 = SYSTEM::SIN(fParam3);
-	num3 = SYSTEM::COS(fParam3);
+	num2 = BUILTIN::SIN(fParam3);
+	num3 = BUILTIN::COS(fParam3);
 	num = (fParam0 * num3) - (fParam0.f_1 * num2);
 	num.f_1 = (fParam0 * num2) + (fParam0.f_1 * num3);
 	num.f_2 = fParam0.f_2;
@@ -2773,7 +2773,7 @@ int func_113(int iParam0, int iParam1, BOOL bParam2) // Position - 0x2D8C (11660
 			}
 		}
 	
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	if (iParam1 > -1)

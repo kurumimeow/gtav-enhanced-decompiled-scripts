@@ -178,7 +178,7 @@ void main() // Position - 0x0 (0)
 	MISC::NETWORK_SET_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
 	num = 0;
 	num2 = num;
-	SYSTEM::SETTIMERA(0);
+	BUILTIN::SETTIMERA(0);
 	Global_45350 = false;
 	func_41();
 	TEXT_LABEL_ASSIGN_STRING(&Global_45351, "CC_SUBSTR" /*~INPUT_CONTEXT~*/, 16);
@@ -208,7 +208,7 @@ void main() // Position - 0x0 (0)
 		
 			while (STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS())
 			{
-				SYSTEM::WAIT(2000);
+				BUILTIN::WAIT(2000);
 			}
 		}
 	
@@ -340,7 +340,7 @@ void main() // Position - 0x0 (0)
 				}
 				else
 				{
-					if (SYSTEM::TIMERA() > 5000)
+					if (BUILTIN::TIMERA() > 5000)
 					{
 						Global_45156[num3 /*32*/].f_7 = 1;
 						num = 0;
@@ -401,7 +401,7 @@ void main() // Position - 0x0 (0)
 		if (num != num2)
 		{
 			num2 = num;
-			SYSTEM::SETTIMERA(0);
+			BUILTIN::SETTIMERA(0);
 			flag3 = false;
 		}
 	
@@ -410,7 +410,7 @@ void main() // Position - 0x0 (0)
 		Global_45355 = false;
 		Global_45356 = false;
 		func_1();
-		SYSTEM::WAIT(0);
+		BUILTIN::WAIT(0);
 	}
 
 	return;
@@ -964,10 +964,10 @@ void func_27(int iParam0, int iParam1) // Position - 0xB97 (2967)
 	
 		while (!SCRIPT::HAS_SCRIPT_LOADED("appSecuroServ"))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
-		SYSTEM::START_NEW_SCRIPT("appSecuroServ", APP_INTERNET);
+		BUILTIN::START_NEW_SCRIPT("appSecuroServ", APP_INTERNET);
 		SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED("appSecuroServ");
 	}
 	else if (flag2)
@@ -977,10 +977,10 @@ void func_27(int iParam0, int iParam1) // Position - 0xB97 (2967)
 	
 		while (!SCRIPT::HAS_SCRIPT_LOADED("appBikerBusiness"))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
-		SYSTEM::START_NEW_SCRIPT("appBikerBusiness", APP_INTERNET);
+		BUILTIN::START_NEW_SCRIPT("appBikerBusiness", APP_INTERNET);
 		SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED("appBikerBusiness");
 	}
 	else if (flag3)
@@ -990,10 +990,10 @@ void func_27(int iParam0, int iParam1) // Position - 0xB97 (2967)
 	
 		while (!SCRIPT::HAS_SCRIPT_LOADED("appImportExport"))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
-		SYSTEM::START_NEW_SCRIPT("appImportExport", APP_INTERNET);
+		BUILTIN::START_NEW_SCRIPT("appImportExport", APP_INTERNET);
 		SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED("appImportExport");
 	}
 	else
@@ -1003,10 +1003,10 @@ void func_27(int iParam0, int iParam1) // Position - 0xB97 (2967)
 	
 		while (!SCRIPT::HAS_SCRIPT_LOADED("appInternet"))
 		{
-			SYSTEM::WAIT(0);
+			BUILTIN::WAIT(0);
 		}
 	
-		SYSTEM::START_NEW_SCRIPT("appInternet", APP_INTERNET);
+		BUILTIN::START_NEW_SCRIPT("appInternet", APP_INTERNET);
 		SCRIPT::SET_SCRIPT_AS_NO_LONGER_NEEDED("appInternet");
 	}
 
