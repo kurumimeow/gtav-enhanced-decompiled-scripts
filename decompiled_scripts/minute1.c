@@ -48770,7 +48770,7 @@ int func_541(int iParam0, BOOL bParam1) // Position - 0x3A6E7 (239335)
 	if (Global_1575072[num2] == true)
 	{
 		bParam1;
-		num = CHAR_MIKE_FRANK_CONF;
+		num = 8;
 	}
 	else
 	{

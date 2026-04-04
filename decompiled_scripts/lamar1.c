@@ -59559,53 +59559,53 @@ BOOL func_519(Hash hParam0, var uParam1, var uParam2, var uParam3, int iParam4) 
 				break;
 		
 			case 1:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_2);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_2);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_2);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_2);
 				break;
 		
 			case 2:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_2);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_2);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_2);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_2);
 				break;
 		
 			case 3:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_2);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_2);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_2);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_2);
 				break;
 		
 			case 4:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_2);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_2);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_2);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_2);
 				break;
 		
 			case 5:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_2);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_2);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_2);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_2);
 				break;
 		
 			case 6:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_2);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_2);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_2);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_2);
 				break;
 		
 			case 7:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_6);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_6);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_6);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_6);
 				break;
 		
 			case 8:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_4);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_4);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_4);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_4);
 				break;
 		
 			case 9:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_2);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_2);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_2);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_2);
 				break;
 		
 			case 10:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_2);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_2);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_2);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_2);
 				break;
 		
 			case 11:
@@ -59624,25 +59624,25 @@ BOOL func_519(Hash hParam0, var uParam1, var uParam2, var uParam3, int iParam4) 
 				break;
 		
 			case 16:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131);
 				break;
 		
 			case 17:
 			case 21:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_6);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_6);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_6);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_6);
 				break;
 		
 			case 18:
 			case 20:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_4);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_4);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_4);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_4);
 				break;
 		
 			case 99:
-				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300129.f_7);
-				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300129.f_7);
+				*uParam1 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam1) * Global_300131.f_7);
+				*uParam2 = BUILTIN::FLOOR(BUILTIN::TO_FLOAT(*uParam2) * Global_300131.f_7);
 				break;
 		}
 	}

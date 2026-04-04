@@ -4172,10 +4172,11 @@ void func_87() // Position - 0x9C32 (39986)
 	DECORATOR::DECOR_REGISTER("Player_Field_Duster", INT);
 	DECORATOR::DECOR_REGISTER("Player_Mansion_Heli", INT);
 	DECORATOR::DECOR_REGISTER("Mansion_Spawned_Heli", BOOL);
+	DECORATOR::DECOR_REGISTER("Mansion_Carmod_Vehicle", BOOL);
 	return;
 }
 
-void func_88() // Position - 0x9F7F (40831)
+void func_88() // Position - 0x9F88 (40840)
 {
 	DECORATOR::DECOR_REGISTER("PHOTO_TAKEN", BOOL);
 	DECORATOR::DECOR_REGISTER("doe_elk", BOOL);
@@ -4197,7 +4198,7 @@ void func_88() // Position - 0x9F7F (40831)
 	return;
 }
 
-void func_89() // Position - 0xA020 (40992)
+void func_89() // Position - 0xA029 (41001)
 {
 	if (MISC::GET_INDEX_OF_CURRENT_LEVEL() == LEVEL_GTA5)
 	{

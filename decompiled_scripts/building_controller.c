@@ -482,12 +482,12 @@ BOOL func_11(Player plParam0, BOOL bParam1) // Position - 0x627 (1575)
 	return false;
 }
 
-int func_12(BOOL bParam0) // Position - 0x676 (1654)
+int func_12(int iParam0) // Position - 0x676 (1654)
 {
-	switch (bParam0)
+	switch (iParam0)
 	{
-		case false:
-		case true:
+		case 0:
+		case 1:
 		case 2:
 		case 3:
 		case 4:
@@ -1729,10 +1729,10 @@ BOOL func_24(Player plParam0, int iParam1) // Position - 0x229A (8858)
 
 BOOL func_25() // Position - 0x22F7 (8951)
 {
-	if (*Global_262145.f_37968)
+	if (*Global_262145.f_37970)
 		return false;
 
-	if (func_43(PLAYER::PLAYER_ID()) || NETWORK::NETWORK_IS_ACTIVITY_SESSION() && !_IS_FMMC_ACTIVE() || !func_26() || *Global_262145.f_37967)
+	if (func_43(PLAYER::PLAYER_ID()) || NETWORK::NETWORK_IS_ACTIVITY_SESSION() && !_IS_FMMC_ACTIVE() || !func_26() || *Global_262145.f_37969)
 		return true;
 
 	return false;

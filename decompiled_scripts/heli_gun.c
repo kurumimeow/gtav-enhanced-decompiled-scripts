@@ -12196,7 +12196,7 @@ void func_355() // Position - 0xFC95 (64661)
 
 void func_356(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, var uParam5, var uParam6, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12, var uParam13, var uParam14, var uParam15, var uParam16, var uParam17, var uParam18, var uParam19, var uParam20) // Position - 0xFCA2 (64674)
 {
-	func_360(func_361(uParam0), uParam0);
+	func_362(func_363(uParam0), uParam0);
 	func_358(0, -1, false);
 	NETWORK::NETWORK_REGISTER_HOST_BROADCAST_VARIABLES(&iLocal_377, 1, 0);
 	NETWORK::NETWORK_REGISTER_PLAYER_BROADCAST_VARIABLES(&uLocal_378, 5, 0);
@@ -12359,11 +12359,33 @@ int func_358(int iParam0, int iParam1, BOOL bParam2) // Position - 0xFEA5 (65189
 
 BOOL func_359(BOOL bParam0) // Position - 0xFFBB (65467)
 {
-	bParam0;
+	if (bParam0 && Global_1575064)
+		if (func_360())
+			return false;
+		else
+			return true;
+
 	return Global_1575064;
 }
 
-void func_360(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4, var uParam5, var uParam6, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12, var uParam13, var uParam14, var uParam15, var uParam16, var uParam17, var uParam18, var uParam19, var uParam20, var uParam21) // Position - 0xFFCC (65484)
+BOOL func_360() // Position - 0xFFE7 (65511)
+{
+	if (func_361())
+		return true;
+
+	return Global_1575067;
+}
+
+BOOL func_361() // Position - 0x10003 (65539)
+{
+	if (Global_1575064 || Global_1575070)
+		if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_deathmatch_controler")) != 0)
+			return true;
+
+	return false;
+}
+
+void func_362(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4, var uParam5, var uParam6, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12, var uParam13, var uParam14, var uParam15, var uParam16, var uParam17, var uParam18, var uParam19, var uParam20, var uParam21) // Position - 0x1002E (65582)
 {
 	if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 		func_345();
@@ -12372,7 +12394,7 @@ void func_360(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4, v
 	return;
 }
 
-int func_361(int iParam0) // Position - 0xFFEB (65515)
+int func_363(int iParam0) // Position - 0x1004D (65613)
 {
 	switch (iParam0)
 	{
@@ -12917,7 +12939,7 @@ int func_361(int iParam0) // Position - 0xFFEB (65515)
 		
 	}
 
-	switch (func_362(func_363(iParam0, true)))
+	switch (func_364(func_365(iParam0, true)))
 	{
 		case 0:
 			return 8;
@@ -12935,7 +12957,7 @@ int func_361(int iParam0) // Position - 0xFFEB (65515)
 	return 0;
 }
 
-int func_362(int iParam0) // Position - 0x107CD (67533)
+int func_364(int iParam0) // Position - 0x10821 (67617)
 {
 	switch (iParam0)
 	{
@@ -13234,7 +13256,7 @@ int func_362(int iParam0) // Position - 0x107CD (67533)
 	return -1;
 }
 
-int func_363(int iParam0, BOOL bParam1) // Position - 0x10B9D (68509)
+int func_365(int iParam0, BOOL bParam1) // Position - 0x10BF1 (68593)
 {
 	switch (iParam0)
 	{

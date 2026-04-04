@@ -25192,13 +25192,13 @@ void func_495(var uParam0) // Position - 0x1E8D4 (125140)
 
 void func_496(var uParam0) // Position - 0x1E983 (125315)
 {
-	if (func_518() == -1)
+	if (func_520() == -1)
 		func_489();
 
 	if (uParam0->f_4 == -1)
 		func_489();
 
-	NETWORK::NETWORK_SET_THIS_SCRIPT_IS_NETWORK_SCRIPT(32, false, func_518());
+	NETWORK::NETWORK_SET_THIS_SCRIPT_IS_NETWORK_SCRIPT(32, false, func_520());
 	func_516(0, -1, false);
 	NETWORK::NETWORK_REGISTER_HOST_BROADCAST_VARIABLES(&uLocal_1177, 1, 0);
 	func_515(&(iLocal_144.f_1));
@@ -25682,11 +25682,33 @@ int func_516(int iParam0, int iParam1, BOOL bParam2) // Position - 0x1F20B (1274
 
 BOOL func_517(BOOL bParam0) // Position - 0x1F321 (127777)
 {
-	bParam0;
+	if (bParam0 && Global_1575064)
+		if (func_518())
+			return false;
+		else
+			return true;
+
 	return Global_1575064;
 }
 
-Player func_518() // Position - 0x1F332 (127794)
+BOOL func_518() // Position - 0x1F34D (127821)
+{
+	if (func_519())
+		return true;
+
+	return Global_1575067;
+}
+
+BOOL func_519() // Position - 0x1F368 (127848)
+{
+	if (Global_1575064 || Global_1575070)
+		if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_deathmatch_controler")) != 0)
+			return true;
+
+	return false;
+}
+
+Player func_520() // Position - 0x1F393 (127891)
 {
 	Player player;
 

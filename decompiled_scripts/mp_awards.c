@@ -2119,16 +2119,16 @@ void func_15(var uParam0) // Position - 0xE97 (3735)
 					if (!*Global_262145.f_37479)
 						num = num + 3;
 				
-					if (!*Global_262145.f_37820)
+					if (!*Global_262145.f_37822)
 						num = num + 2;
 				
-					if (!*Global_262145.f_37821)
-						num = num + 1;
-				
-					if (!*Global_262145.f_37822)
-						num = num + 1;
-				
 					if (!*Global_262145.f_37823)
+						num = num + 1;
+				
+					if (!*Global_262145.f_37824)
+						num = num + 1;
+				
+					if (!*Global_262145.f_37825)
 						num = num + 2;
 				
 					iLocal_110 = iLocal_110 - num;
@@ -2402,16 +2402,16 @@ void func_15(var uParam0) // Position - 0xE97 (3735)
 					iLocal_109 = 1;
 					iLocal_110 = 12;
 				
-					if (!*Global_262145.f_37820)
+					if (!*Global_262145.f_37822)
 						iLocal_110 = iLocal_110 - 2;
 				
-					if (!*Global_262145.f_37821)
-						iLocal_110 = iLocal_110 - 1;
-				
-					if (!*Global_262145.f_37822)
-						iLocal_110 = iLocal_110 - 1;
-				
 					if (!*Global_262145.f_37823)
+						iLocal_110 = iLocal_110 - 1;
+				
+					if (!*Global_262145.f_37824)
+						iLocal_110 = iLocal_110 - 1;
+				
+					if (!*Global_262145.f_37825)
 						iLocal_110 = iLocal_110 - 2;
 					break;
 			
@@ -3125,19 +3125,19 @@ void func_15(var uParam0) // Position - 0xE97 (3735)
 							func_181(159, 8, num2, &uLocal_111);
 							func_181(160, 8, num2, &uLocal_111);
 						
-							if (*Global_262145.f_37820)
+							if (*Global_262145.f_37822)
 							{
 								func_181(161, 8, num2, &uLocal_111);
 								func_169(224, 8, num2, &uLocal_111);
 							}
 						
-							if (*Global_262145.f_37821)
+							if (*Global_262145.f_37823)
 								func_181(162, 8, num2, &uLocal_111);
 						
-							if (*Global_262145.f_37822)
+							if (*Global_262145.f_37824)
 								func_181(163, 8, num2, &uLocal_111);
 						
-							if (*Global_262145.f_37823)
+							if (*Global_262145.f_37825)
 							{
 								func_181(164, 8, num2, &uLocal_111);
 								func_169(225, 8, num2, &uLocal_111);
@@ -4144,19 +4144,19 @@ void func_15(var uParam0) // Position - 0xE97 (3735)
 					func_181(159, 8, num2, &uLocal_111);
 					func_181(160, 8, num2, &uLocal_111);
 				
-					if (*Global_262145.f_37820)
+					if (*Global_262145.f_37822)
 					{
 						func_181(161, 8, num2, &uLocal_111);
 						func_169(224, 8, num2, &uLocal_111);
 					}
 				
-					if (*Global_262145.f_37821)
+					if (*Global_262145.f_37823)
 						func_181(162, 8, num2, &uLocal_111);
 				
-					if (*Global_262145.f_37822)
+					if (*Global_262145.f_37824)
 						func_181(163, 8, num2, &uLocal_111);
 				
-					if (*Global_262145.f_37823)
+					if (*Global_262145.f_37825)
 					{
 						func_181(164, 8, num2, &uLocal_111);
 						func_169(225, 8, num2, &uLocal_111);

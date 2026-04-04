@@ -1153,7 +1153,7 @@ BOOL func_28(Player plParam0, BOOL bParam1) // Position - 0xC58 (3160)
 	return func_30(plParam0, bParam1) >= func_29(bParam1);
 }
 
-int func_29(BOOL bParam0) // Position - 0xC6F (3183)
+BOOL func_29(BOOL bParam0) // Position - 0xC6F (3183)
 {
 	switch (bParam0)
 	{
@@ -1177,12 +1177,12 @@ int func_29(BOOL bParam0) // Position - 0xC6F (3183)
 	return 0;
 }
 
-int func_30(Player plParam0, BOOL bParam1) // Position - 0xCCB (3275)
+BOOL func_30(Player plParam0, BOOL bParam1) // Position - 0xCCB (3275)
 {
 	int i;
 
 	if (plParam0 == _INVALID_PLAYER_INDEX())
-		return 0;
+		return false;
 
 	if (func_6(bParam1) && func_31(bParam1))
 	{
@@ -1193,7 +1193,7 @@ int func_30(Player plParam0, BOOL bParam1) // Position - 0xCCB (3275)
 		}
 	}
 
-	return 0;
+	return false;
 }
 
 BOOL func_31(BOOL bParam0) // Position - 0xD30 (3376)
@@ -1330,7 +1330,7 @@ int func_33(Player plParam0, BOOL bParam1) // Position - 0xE90 (3728)
 int func_34(Player plParam0, BOOL bParam1) // Position - 0xEFA (3834)
 {
 	int value;
-	int value2;
+	BOOL value2;
 	float value3;
 
 	if (plParam0 == _INVALID_PLAYER_INDEX())
@@ -22782,136 +22782,136 @@ void func_343(var uParam0, int iParam1) // Position - 0x17E3B (97851)
 
 BOOL func_344() // Position - 0x17E50 (97872)
 {
+	BOOL flag;
 	int num;
-	int num2;
 
-	num2 = 0;
-	num = func_17(2828, -1);
+	num = 0;
+	flag = func_17(2828, -1);
 
 	if (_STAT_GET_PACKED_BOOL(42002, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 19))
+	else if (IS_BIT_SET(flag, 19))
 	{
 		_STAT_SET_PACKED_BOOL(42002, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42003, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 20))
+	else if (IS_BIT_SET(flag, 20))
 	{
 		_STAT_SET_PACKED_BOOL(42003, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42006, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 21))
+	else if (IS_BIT_SET(flag, 21))
 	{
 		_STAT_SET_PACKED_BOOL(42006, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42007, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 22))
+	else if (IS_BIT_SET(flag, 22))
 	{
 		_STAT_SET_PACKED_BOOL(42007, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42005, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 23))
+	else if (IS_BIT_SET(flag, 23))
 	{
 		_STAT_SET_PACKED_BOOL(42005, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42004, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 24))
+	else if (IS_BIT_SET(flag, 24))
 	{
 		_STAT_SET_PACKED_BOOL(42004, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
-	num = func_17(5631, -1);
+	flag = func_17(5631, -1);
 
 	if (_STAT_GET_PACKED_BOOL(42012, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 5))
+	else if (IS_BIT_SET(flag, 5))
 	{
 		_STAT_SET_PACKED_BOOL(42012, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42011, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 6))
+	else if (IS_BIT_SET(flag, 6))
 	{
 		_STAT_SET_PACKED_BOOL(42011, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42008, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 7))
+	else if (IS_BIT_SET(flag, 7))
 	{
 		_STAT_SET_PACKED_BOOL(42008, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42013, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 8))
+	else if (IS_BIT_SET(flag, 8))
 	{
 		_STAT_SET_PACKED_BOOL(42013, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42009, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 9))
+	else if (IS_BIT_SET(flag, 9))
 	{
 		_STAT_SET_PACKED_BOOL(42009, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
 	if (_STAT_GET_PACKED_BOOL(42010, -1))
 	{
-		num2 = num2 + 1;
+		num = num + 1;
 	}
-	else if (IS_BIT_SET(num, 10))
+	else if (IS_BIT_SET(flag, 10))
 	{
 		_STAT_SET_PACKED_BOOL(42010, true, -1);
-		num2 = num2 + 1;
+		num = num + 1;
 	}
 
-	func_334(41247, num2, -1);
-	return num2;
+	func_334(41247, num, -1);
+	return num;
 }
 
 BOOL func_345(BOOL bParam0) // Position - 0x18097 (98455)
@@ -24840,17 +24840,17 @@ int func_347(int iParam0, int iParam1, int iParam2) // Position - 0x18121 (98593
 int func_348(int iParam0) // Position - 0x1A32D (107309)
 {
 	int num;
+	BOOL flag;
 	int num2;
-	int num3;
 	int i;
 
 	num = func_309(iParam0);
-	num2 = func_17(num, -1);
-	num3 = func_307(iParam0, 0);
+	flag = func_17(num, -1);
+	num2 = func_307(iParam0, 0);
 
 	for (i = 0; i < 4; i = i + 1)
 	{
-		if (!IS_BIT_SET(num2, num3 + i))
+		if (!IS_BIT_SET(flag, num2 + i))
 			return i;
 	}
 
@@ -26742,7 +26742,7 @@ int func_366(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Position
 				value = BUILTIN::FLOOR((float)value * *Global_262145.f_32951);
 		
 			if (func_368(flag))
-				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37613);
+				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37615);
 			break;
 	
 		case 6:
@@ -26755,7 +26755,7 @@ int func_366(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Position
 				value = value / 2;
 		
 			if (func_368(flag))
-				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37618);
+				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37620);
 			break;
 	
 		case 3:
@@ -26771,7 +26771,7 @@ int func_366(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Position
 				value = BUILTIN::FLOOR((float)value * *Global_262145.f_32952);
 		
 			if (func_368(flag))
-				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37612);
+				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37614);
 			break;
 	
 		case 4:
@@ -26787,7 +26787,7 @@ int func_366(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Position
 				value = BUILTIN::FLOOR((float)value * *Global_262145.f_32953);
 		
 			if (func_368(flag))
-				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37614);
+				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37616);
 			break;
 	
 		case 0:
@@ -26803,7 +26803,7 @@ int func_366(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Position
 				value = BUILTIN::FLOOR((float)value * *Global_262145.f_32954);
 		
 			if (func_368(flag))
-				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37616);
+				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37618);
 			break;
 	
 		case 2:
@@ -26819,7 +26819,7 @@ int func_366(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Position
 				value = BUILTIN::FLOOR((float)value * *Global_262145.f_32955);
 		
 			if (func_368(flag))
-				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37615);
+				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37617);
 			break;
 	
 		case 5:
@@ -26850,7 +26850,7 @@ int func_366(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Position
 				value = value * 2;
 		
 			if (func_368(flag))
-				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37617);
+				value = BUILTIN::ROUND(BUILTIN::TO_FLOAT(value) / *Global_262145.f_37619);
 			break;
 	}
 
@@ -28068,7 +28068,7 @@ BOOL func_394() // Position - 0x1E107 (123143)
 	{
 		if (num > 0)
 		{
-			while (!func_409(5, 1, -num, &iLocal_157, true))
+			while (!func_409(5, true, -num, &iLocal_157, true))
 			{
 				func_583();
 			
@@ -28197,7 +28197,7 @@ BOOL func_398(int iParam0, var uParam1) // Position - 0x1E3E9 (123881)
 {
 	Hash hash;
 	Hash hash2;
-	int num;
+	BOOL flag;
 
 	if (*uParam1 != 0 && *uParam1 != 1)
 		*uParam1 = 0;
@@ -28210,10 +28210,10 @@ BOOL func_398(int iParam0, var uParam1) // Position - 0x1E3E9 (123881)
 		
 			hash = func_407(iParam0, true);
 			hash2 = joaat("CF_ATTACKED");
-			num = func_30(PLAYER::PLAYER_ID(), func_51(PLAYER::PLAYER_ID()));
+			flag = func_30(PLAYER::PLAYER_ID(), func_51(PLAYER::PLAYER_ID()));
 		
-			if (func_404(78225582, joaat("CATEGORY_CONTRABAND_QNTY"), hash, -788753717, num, 0, 1, 4, 0, 3))
-				if (func_404(78225582, joaat("CATEGORY_CONTRABAND_FLAGS"), hash2, -788753717, 1, 0, 0, 4, hash, 3))
+			if (func_404(78225582, joaat("CATEGORY_CONTRABAND_QNTY"), hash, -788753717, flag, 0, 1, 4, 0, 3))
+				if (func_404(78225582, joaat("CATEGORY_CONTRABAND_FLAGS"), hash2, -788753717, true, 0, 0, 4, hash, 3))
 					*uParam1 = 1;
 				else
 					*uParam1 = 3;
@@ -28341,11 +28341,11 @@ int func_402(int iParam0) // Position - 0x1E6AA (124586)
 	return -1;
 }
 
-int func_403(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x1E6D1 (124625)
+int func_403(int iParam0, int iParam1, int iParam2) // Position - 0x1E6D1 (124625)
 {
-	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (hParam1)
+		switch (iParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -28524,7 +28524,7 @@ int func_403(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x1E6D1 (124
 				return 2;
 		}
 	
-		switch (hParam1)
+		switch (iParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -28656,7 +28656,7 @@ int func_403(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x1E6D1 (124
 	
 		return 0;
 	}
-	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -28664,7 +28664,7 @@ int func_403(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x1E6D1 (124
 	return 1;
 }
 
-BOOL func_404(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4, int iParam5, int iParam6, int iParam7, Hash hParam8, int iParam9) // Position - 0x1EE10 (126480)
+BOOL func_404(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, BOOL bParam4, int iParam5, int iParam6, int iParam7, Hash hParam8, int iParam9) // Position - 0x1EE10 (126480)
 {
 	BOOL flag;
 	int num;
@@ -28723,7 +28723,7 @@ BOOL func_404(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4
 		Global_4515413[num /*84*/].f_65.f_15 = itemData;
 		Global_4515413[num /*84*/].f_65.f_16 = itemData.f_1;
 	
-		if (flag || NETSHOPPING::NET_GAMESERVER_BASKET_ADD_ITEM(&itemData, iParam4))
+		if (flag || NETSHOPPING::NET_GAMESERVER_BASKET_ADD_ITEM(&itemData, bParam4))
 			return true;
 	}
 
@@ -28883,7 +28883,7 @@ int func_408() // Position - 0x1F16D (127341)
 	return -1;
 }
 
-BOOL func_409(int iParam0, int iParam1, int iParam2, var uParam3, BOOL bParam4) // Position - 0x1F1A8 (127400)
+BOOL func_409(int iParam0, BOOL bParam1, BOOL bParam2, var uParam3, BOOL bParam4) // Position - 0x1F1A8 (127400)
 {
 	Hash hash;
 	Hash hash2;
@@ -28907,8 +28907,8 @@ BOOL func_409(int iParam0, int iParam1, int iParam2, var uParam3, BOOL bParam4) 
 				hash = func_407(iParam0, bParam4);
 				hash2 = func_410(iParam0);
 			
-				if (func_404(78225582, joaat("CATEGORY_CONTRABAND_QNTY"), hash2, -886368739, iParam2, 0, 1, 4, 0, 3))
-					if (func_404(78225582, joaat("CATEGORY_CONTRABAND_QNTY"), hash, -886368739, iParam1, 0, 1, 4, 0, 3))
+				if (func_404(78225582, joaat("CATEGORY_CONTRABAND_QNTY"), hash2, -886368739, bParam2, 0, 1, 4, 0, 3))
+					if (func_404(78225582, joaat("CATEGORY_CONTRABAND_QNTY"), hash, -886368739, bParam1, 0, 1, 4, 0, 3))
 						*uParam3 = 1;
 					else
 						*uParam3 = 3;
@@ -29341,7 +29341,7 @@ BOOL func_426(int iParam0) // Position - 0x1F946 (129350)
 	{
 		flag = false;
 	
-		while (!func_427(joaat("CATEGORY_INVENTORY_WAREHOUSE_INTERIOR"), 235173372, hashKey, 1, num, &iLocal_141, hash, 3, 0, 0, false))
+		while (!func_427(joaat("CATEGORY_INVENTORY_WAREHOUSE_INTERIOR"), 235173372, hashKey, true, num, &iLocal_141, hash, 3, 0, 0, false))
 		{
 			BUILTIN::WAIT(0);
 			func_583();
@@ -29384,7 +29384,7 @@ BOOL func_426(int iParam0) // Position - 0x1F946 (129350)
 	return false;
 }
 
-BOOL func_427(Hash hParam0, Hash hParam1, Hash hParam2, int iParam3, int iParam4, var uParam5, Hash hParam6, int iParam7, Hash hParam8, int iParam9, BOOL bParam10) // Position - 0x1FA39 (129593)
+BOOL func_427(Hash hParam0, Hash hParam1, Hash hParam2, BOOL bParam3, int iParam4, var uParam5, Hash hParam6, int iParam7, Hash hParam8, int iParam9, BOOL bParam10) // Position - 0x1FA39 (129593)
 {
 	if (*uParam5 != 0 && *uParam5 != 1)
 		*uParam5 = 0;
@@ -29392,7 +29392,7 @@ BOOL func_427(Hash hParam0, Hash hParam1, Hash hParam2, int iParam3, int iParam4
 	switch (*uParam5)
 	{
 		case 0:
-			if (func_404(78225582, hParam0, hParam2, hParam1, iParam3, iParam4, 1, 4, hParam6, iParam7))
+			if (func_404(78225582, hParam0, hParam2, hParam1, bParam3, iParam4, 1, 4, hParam6, iParam7))
 			{
 				if (func_401())
 				{
@@ -31031,7 +31031,7 @@ int func_496(int iParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam4
 
 void func_497(int iParam0, BOOL bParam1) // Position - 0x2161F (136735)
 {
-	int address;
+	BOOL address;
 
 	address = func_17(3976, -1);
 
@@ -31048,7 +31048,7 @@ void func_497(int iParam0, BOOL bParam1) // Position - 0x2161F (136735)
 void func_498() // Position - 0x21659 (136793)
 {
 	int num;
-	int num2;
+	BOOL flag;
 
 	if (_NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM())
 	{
@@ -31069,11 +31069,11 @@ void func_498() // Position - 0x21659 (136793)
 		{
 			iLocal_157 = 0;
 			iLocal_156 = 0;
-			num2 = func_17(5444, -1);
+			flag = func_17(5444, -1);
 		
-			if (num2 > 0)
+			if (flag > false)
 			{
-				while (!func_512(5, num2, 0, 0, &iLocal_156, 0, 4))
+				while (!func_512(5, flag, 0, 0, &iLocal_156, 0, 4))
 				{
 					BUILTIN::WAIT(0);
 					func_583();
@@ -31082,7 +31082,7 @@ void func_498() // Position - 0x21659 (136793)
 				func_583();
 			}
 		
-			if (iLocal_156 == 2 || num2 <= 0)
+			if (iLocal_156 == 2 || flag <= false)
 			{
 				func_504(PLAYER::PLAYER_ID(), bLocal_152, true, false, false, true);
 				func_499(5, false, 0);
@@ -31436,7 +31436,7 @@ int func_511(int iParam0) // Position - 0x21BB7 (138167)
 	return 7628;
 }
 
-BOOL func_512(int iParam0, int iParam1, int iParam2, int iParam3, var uParam4, int iParam5, int iParam6) // Position - 0x21C1E (138270)
+BOOL func_512(int iParam0, BOOL bParam1, int iParam2, int iParam3, var uParam4, int iParam5, int iParam6) // Position - 0x21C1E (138270)
 {
 	BOOL flag;
 	int num;
@@ -31484,9 +31484,9 @@ BOOL func_512(int iParam0, int iParam1, int iParam2, int iParam3, var uParam4, i
 					break;
 			}
 		
-			if (iParam3 == 0 || func_404(78225582, joaat("CATEGORY_INVENTORY_CONTRABAND_MISSION"), hash2, -788753717, 1, 0, 1, iParam6, hash, 3))
-				if (func_404(78225582, joaat("CATEGORY_CONTRABAND_QNTY"), hash3, -788753717, iParam1, 0, 1, iParam6, 0, 3))
-					if (func_404(78225582, joaat("CATEGORY_CONTRABAND_FLAGS"), hash4, -788753717, 1, iParam2, 0, iParam6, hash3, 3))
+			if (iParam3 == 0 || func_404(78225582, joaat("CATEGORY_INVENTORY_CONTRABAND_MISSION"), hash2, -788753717, true, 0, 1, iParam6, hash, 3))
+				if (func_404(78225582, joaat("CATEGORY_CONTRABAND_QNTY"), hash3, -788753717, bParam1, 0, 1, iParam6, 0, 3))
+					if (func_404(78225582, joaat("CATEGORY_CONTRABAND_FLAGS"), hash4, -788753717, true, iParam2, 0, iParam6, hash3, 3))
 						*uParam4 = 1;
 					else
 						*uParam4 = 3;
@@ -33429,7 +33429,7 @@ BOOL _CONVERSATION_ADD_LINE(var uParam0, char* sParam1, char* sParam2, int iPara
 
 	Global_23007 = false;
 	Global_23009 = 0;
-	Global_23014 = 0;
+	Global_23014 = false;
 	Global_23991 = 0;
 	Global_23993 = 0;
 	Global_23997 = 0;

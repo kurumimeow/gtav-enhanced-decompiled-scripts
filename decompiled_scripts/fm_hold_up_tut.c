@@ -20417,7 +20417,7 @@ void func_397() // Position - 0x17879 (96377)
 
 void func_398(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, var uParam5, var uParam6, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12, var uParam13, var uParam14, var uParam15, var uParam16, var uParam17, var uParam18, var uParam19, var uParam20) // Position - 0x17886 (96390)
 {
-	func_402(func_403(uParam0), uParam0);
+	func_404(func_405(uParam0), uParam0);
 	func_400(0, -1, false);
 	NETWORK::NETWORK_REGISTER_HOST_BROADCAST_VARIABLES(&iLocal_64, 79, 0);
 	NETWORK::NETWORK_REGISTER_PLAYER_BROADCAST_VARIABLES(&uLocal_144, 33, 0);
@@ -20532,11 +20532,33 @@ int func_400(int iParam0, int iParam1, BOOL bParam2) // Position - 0x1795B (9660
 
 BOOL func_401(BOOL bParam0) // Position - 0x17A71 (96881)
 {
-	bParam0;
+	if (bParam0 && Global_1575064)
+		if (func_402())
+			return false;
+		else
+			return true;
+
 	return Global_1575064;
 }
 
-void func_402(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4, var uParam5, var uParam6, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12, var uParam13, var uParam14, var uParam15, var uParam16, var uParam17, var uParam18, var uParam19, var uParam20, var uParam21) // Position - 0x17A82 (96898)
+BOOL func_402() // Position - 0x17A9D (96925)
+{
+	if (func_403())
+		return true;
+
+	return Global_1575067;
+}
+
+BOOL func_403() // Position - 0x17AB8 (96952)
+{
+	if (Global_1575064 || Global_1575070)
+		if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_deathmatch_controler")) != 0)
+			return true;
+
+	return false;
+}
+
+void func_404(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4, var uParam5, var uParam6, var uParam7, var uParam8, var uParam9, var uParam10, var uParam11, var uParam12, var uParam13, var uParam14, var uParam15, var uParam16, var uParam17, var uParam18, var uParam19, var uParam20, var uParam21) // Position - 0x17AE3 (96995)
 {
 	if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 		func_388();
@@ -20545,7 +20567,7 @@ void func_402(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4, v
 	return;
 }
 
-int func_403(int iParam0) // Position - 0x17AA1 (96929)
+int func_405(int iParam0) // Position - 0x17B02 (97026)
 {
 	switch (iParam0)
 	{
@@ -21090,7 +21112,7 @@ int func_403(int iParam0) // Position - 0x17AA1 (96929)
 		
 	}
 
-	switch (func_404(func_405(iParam0, true)))
+	switch (func_406(func_407(iParam0, true)))
 	{
 		case 0:
 			return 8;
@@ -21108,7 +21130,7 @@ int func_403(int iParam0) // Position - 0x17AA1 (96929)
 	return 0;
 }
 
-int func_404(int iParam0) // Position - 0x18277 (98935)
+int func_406(int iParam0) // Position - 0x182D6 (99030)
 {
 	switch (iParam0)
 	{
@@ -21407,7 +21429,7 @@ int func_404(int iParam0) // Position - 0x18277 (98935)
 	return -1;
 }
 
-int func_405(int iParam0, BOOL bParam1) // Position - 0x18647 (99911)
+int func_407(int iParam0, BOOL bParam1) // Position - 0x186A6 (100006)
 {
 	switch (iParam0)
 	{

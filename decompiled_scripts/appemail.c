@@ -4883,7 +4883,7 @@ BOOL func_95() // Position - 0x5B7E (23422)
 	{
 		if (Global_21627.f_1 == 10 || Global_21627.f_1 == 9)
 			if (Global_21570 == false)
-				if (Global_8778 != 128)
+				if (Global_8778 != _CHAR_DETONATEBOMB_2)
 					if (!PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), false))
 						Global_23000 != 2;
 	

@@ -51492,10 +51492,10 @@ void func_667() // Position - 0x3C80D (247821)
 	return;
 }
 
-void func_668(BOOL bParam0, BOOL bParam1) // Position - 0x3C85A (247898)
+void func_668(int iParam0, int iParam1) // Position - 0x3C85A (247898)
 {
-	Global_99736 = bParam0;
-	Global_99737 = bParam1;
+	Global_99736 = iParam0;
+	Global_99737 = iParam1;
 	return;
 }
 
