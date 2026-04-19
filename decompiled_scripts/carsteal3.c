@@ -101433,7 +101433,7 @@ BOOL func_624(Vehicle veParam0) // Position - 0x7D630 (513584)
 		if (DECORATOR::DECOR_IS_REGISTERED_AS_TYPE("Player_Vehicle", INT))
 			if (DECORATOR::DECOR_EXIST_ON(veParam0, "Player_Vehicle"))
 				if (DECORATOR::DECOR_GET_INT(veParam0, "Player_Vehicle") == NETWORK::NETWORK_HASH_FROM_PLAYER_HANDLE(PLAYER::PLAYER_ID()))
-					if (func_626() != -1 && func_626() < 607)
+					if (func_626() != PV_COMP_INVALID && func_626() < 607)
 						if (!func_625(veParam0) || ENTITY::GET_ENTITY_MODEL(veParam0) != Global_1583772[func_626() /*143*/].f_66)
 							return true;
 						else if (ENTITY::GET_ENTITY_MODEL(veParam0) == joaat("caddy3"))
@@ -101453,7 +101453,7 @@ BOOL func_625(Vehicle veParam0) // Position - 0x7D741 (513857)
 	return false;
 }
 
-BOOL func_626() // Position - 0x7D75A (513882)
+ePedComponentType func_626() // Position - 0x7D75A (513882)
 {
 	return Global_2359296[func_627() /*5574*/].f_681.f_2;
 }
@@ -102118,7 +102118,7 @@ BOOL _NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM() // Position - 0x7E87C (518268)
 	return false;
 }
 
-BOOL func_647(ePedComponentType epctParam0, int iParam1) // Position - 0x7E893 (518291)
+BOOL func_647(Hash hParam0, int iParam1) // Position - 0x7E893 (518291)
 {
 	int cloudTimeAsInt;
 	int num;
@@ -102134,7 +102134,7 @@ BOOL func_647(ePedComponentType epctParam0, int iParam1) // Position - 0x7E893 (
 	cloudTimeAsInt = NETWORK::GET_CLOUD_TIME_AS_INT();
 	num = 0;
 
-	switch (epctParam0)
+	switch (hParam0)
 	{
 		case 1730644782:
 			num = Global_262145.f_36257[0];
@@ -102202,7 +102202,7 @@ BOOL func_647(ePedComponentType epctParam0, int iParam1) // Position - 0x7E893 (
 
 	for (i = 0; i < 10; i = i + 1)
 	{
-		if (epctParam0 == Global_1835471[i])
+		if (hParam0 == Global_1835471[i])
 			return true;
 	}
 

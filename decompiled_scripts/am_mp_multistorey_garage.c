@@ -32793,7 +32793,7 @@ int func_319(BOOL bParam0, BOOL bParam1, int iParam2, int iParam3) // Position -
 
 	flag = _NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM();
 	flag = true;
-	Global_1957359 = 1;
+	Global_1957359 = true;
 
 	if (Global_262145.f_10745)
 	{
@@ -52973,7 +52973,7 @@ void func_564() // Position - 0x3EABB (256699)
 				func_312(false, false, true, false, true, false, false);
 		
 			Global_1950687 = false;
-			Global_1950688 = 0;
+			Global_1950688 = false;
 		}
 	
 		MISC::SET_BIT(&iLocal_214, 14);
@@ -57609,7 +57609,7 @@ void func_674(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPara
 		func_676(true, bParam3, bParam2, false);
 		Global_65033 = 1;
 		Global_77362 = true;
-		Global_80303 = 1;
+		Global_80303 = true;
 	}
 	else
 	{
@@ -57630,7 +57630,7 @@ void func_674(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPara
 		else if (!PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()) && !func_510(PLAYER::PLAYER_ID()) && !bParam4 && !bParam5)
 			ENTITY::SET_ENTITY_INVINCIBLE(PLAYER::PLAYER_PED_ID(), false, false);
 	
-		Global_80303 = 0;
+		Global_80303 = false;
 	}
 
 	return;

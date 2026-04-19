@@ -130054,14 +130054,14 @@ void func_1321(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	return;
 }
 
-int func_1322(Hash hParam0, Hash hParam1, ePedComponentType epctParam2) // Position - 0xA3EF3 (671475)
+int func_1322(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xA3EF3 (671475)
 {
 	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
 		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
-				if (epctParam2 >= 10000)
+				if (iParam2 >= 10000)
 					return 1;
 				else
 					return 0;
@@ -130073,7 +130073,7 @@ int func_1322(Hash hParam0, Hash hParam1, ePedComponentType epctParam2) // Posit
 			case joaat("SERVICE_EARN_DEATHMATCH_BOUNTY"):
 			case joaat("SERVICE_EARN_CASHING_OUT"):
 			case joaat("SERVICE_EARN_REFUND_ARENA_SPEC_BOX_ENTRY"):
-				if (epctParam2 >= 1000)
+				if (iParam2 >= 1000)
 					return 1;
 				else
 					return 2;
@@ -130356,7 +130356,7 @@ int func_1322(Hash hParam0, Hash hParam1, ePedComponentType epctParam2) // Posit
 			case 1496037489:
 			case -804351832:
 			case 1570992221:
-				if (epctParam2 == PV_COMP_HEAD)
+				if (iParam2 == 0)
 					return 0;
 			
 				return 1;

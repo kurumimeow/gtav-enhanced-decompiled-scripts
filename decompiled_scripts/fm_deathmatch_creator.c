@@ -60132,7 +60132,7 @@ void func_242(var uParam0) // Position - 0x1F362 (127842)
 	
 		for (j = 1; j <= 20; j = j + 1)
 		{
-			if (Global_4980736.f_57917[i /*172*/].f_84[j] != 76 && Global_4980736.f_57917[i /*172*/].f_84[j] != 123 && Global_4980736.f_57917[i /*172*/].f_84[j] != PV_COMP_INVALID)
+			if (Global_4980736.f_57917[i /*172*/].f_84[j] != 76 && Global_4980736.f_57917[i /*172*/].f_84[j] != 123 && Global_4980736.f_57917[i /*172*/].f_84[j] != -1)
 				DATAFILE::DATAARRAY_ADD_INT(uParam0->f_3622[i], Global_4980736.f_57917[i /*172*/].f_84[j]);
 			else
 				DATAFILE::DATAARRAY_ADD_INT(uParam0->f_3622[i], 76);
@@ -306505,7 +306505,7 @@ void func_2469(ePedComponentType epctParam0) // Position - 0x17E7E6 (1566694)
 			else
 			{
 				func_1223(&Global_2686095.f_4357.f_260[45 /*2*/], true, false);
-				Global_2686095.f_4357.f_433[45] = 0;
+				Global_2686095.f_4357.f_433[45] = PV_COMP_HEAD;
 			}
 		
 			if (func_835(4))
@@ -317289,7 +317289,7 @@ void func_2803() // Position - 0x193329 (1651497)
 	int j;
 	int num;
 	ePedComponentType weaponTypeFromPickupType;
-	int num2;
+	ePedComponentType num2;
 
 	for (i = 0; i < SCRIPT::GET_NUMBER_OF_EVENTS(SCRIPT_EVENT_QUEUE_NETWORK); i = i + 1)
 	{
@@ -317327,7 +317327,7 @@ void func_2803() // Position - 0x193329 (1651497)
 				
 					if (flag)
 					{
-						num2 = -1;
+						num2 = PV_COMP_INVALID;
 					
 						if (eventData.f_2 == joaat("PICKUP_CUSTOM_SCRIPT"))
 							num2 = Global_4980736.f_57917[num /*172*/].f_23;
@@ -317567,7 +317567,7 @@ void func_2814(int iParam0) // Position - 0x193881 (1652865)
 	return;
 }
 
-char* func_2815(Hash hParam0, int iParam1, int iParam2) // Position - 0x1938BA (1652922)
+char* func_2815(Hash hParam0, ePedComponentType epctParam1, int iParam2) // Position - 0x1938BA (1652922)
 {
 	ePedComponentType weaponTypeFromPickupType;
 	char* str;
@@ -317626,17 +317626,17 @@ char* func_2815(Hash hParam0, int iParam1, int iParam2) // Position - 0x1938BA (
 		case joaat("PICKUP_VEHICLE_CUSTOM_SCRIPT_LOW_GLOW"):
 			if (iParam2 != -1)
 				return func_2816(iParam2);
-			else if (iParam1 == 0)
+			else if (epctParam1 == 0)
 				return "WT_BOOST" /*Boost*/;
-			else if (iParam1 == 1)
+			else if (epctParam1 == 1)
 				return "WT_SPIKE" /*Spike*/;
-			else if (iParam1 == 2)
+			else if (epctParam1 == 2)
 				return "WT_V_SPACERKT" /*Rockets*/;
-			else if (iParam1 == 3)
+			else if (epctParam1 == 3)
 				return "WT_V_SPACERKT_H" /*Homing Missiles*/;
-			else if (iParam1 == 4)
+			else if (epctParam1 == 4)
 				return "WT_V_SPACERKT_N" /*Non-homing Missiles*/;
-			else if (iParam1 == 5)
+			else if (epctParam1 == 5)
 				return "WT_V_PLRBUL" /*Machine Gun*/;
 			else
 				return "WT_PARA" /*Parachute*/;
@@ -317822,7 +317822,7 @@ char* func_2815(Hash hParam0, int iParam1, int iParam2) // Position - 0x1938BA (
 			return "WT_SWTCHBLDE" /*Switchblade*/;
 	
 		case joaat("PICKUP_CUSTOM_SCRIPT"):
-			switch (iParam1)
+			switch (epctParam1)
 			{
 				case 15:
 					return "FMMC_RAC15";
@@ -393135,7 +393135,7 @@ void func_4347(int* piParam0) // Position - 0x2147B9 (2181049)
 		TEXT_LABEL_APPEND_INT(&unk, i + 1, 16);
 		func_3499(i, &unk, 0, true, false, false, false);
 	
-		if (Global_4718592.f_111541[i] != PV_COMP_INVALID)
+		if (Global_4718592.f_111541[i] != -1)
 		{
 			type = Global_4718592.f_111541[i];
 			func_3499(i, func_1020(type, false), 0, true, false, false, false);
@@ -483535,7 +483535,7 @@ void func_6018() // Position - 0x2C7383 (2913155)
 				}
 				else
 				{
-					func_6038(PV_COMP_HEAD);
+					func_6038(false);
 					func_6037("FMMC_SPP");
 				}
 			}
@@ -485655,14 +485655,14 @@ void func_6037(char* sParam0) // Position - 0x2CB405 (2929669)
 	return;
 }
 
-void func_6038(ePedComponentType epctParam0) // Position - 0x2CB466 (2929766)
+void func_6038(BOOL bParam0) // Position - 0x2CB466 (2929766)
 {
 	if (Global_24546.f_5320 >= 3 || Global_24546.f_5319 >= 4)
 		return;
 
 	Global_24546.f_5253[Global_24546.f_5319] = 2;
 	Global_24546.f_5319 = Global_24546.f_5319 + 1;
-	Global_24546.f_5258[Global_24546.f_5320] = epctParam0;
+	Global_24546.f_5258[Global_24546.f_5320] = bParam0;
 	Global_24546.f_5320 = Global_24546.f_5320 + 1;
 	return;
 }
@@ -512594,7 +512594,7 @@ Vector3 func_6462(BOOL bParam0) // Position - 0x2FB3CC (3126220)
 		case 3:
 			switch (Global_4718592.f_192086.f_1)
 			{
-				case PV_COMP_HAIR:
+				case 2:
 					num = num + 45f;
 					break;
 			}

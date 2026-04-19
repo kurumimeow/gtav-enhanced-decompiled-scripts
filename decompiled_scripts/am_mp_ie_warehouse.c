@@ -142984,7 +142984,7 @@ void func_1420(BOOL bParam0, BOOL bParam1) // Position - 0xB564D (742989)
 
 	for (i = 0; i < 256; i = i + 1)
 	{
-		Global_24546.f_4469[i] = 0;
+		Global_24546.f_4469[i] = false;
 	}
 
 	for (i = 0; i < 128; i = i + 1)
@@ -211864,7 +211864,7 @@ void func_3524(var uParam0, var uParam1) // Position - 0x119095 (1151125)
 
 	OBJECT::DELETE_OBJECT(&uParam1->f_189[0]);
 	OBJECT::DELETE_OBJECT(&uParam1->f_189[1]);
-	Global_1983879 = 0;
+	Global_1983879 = false;
 	return;
 }
 
@@ -212269,7 +212269,7 @@ int func_3537(int iParam0, int* piParam1) // Position - 0x11989E (1153182)
 		MISC::CLEAR_BIT(piParam1, 0);
 		MISC::CLEAR_BIT(piParam1, 1);
 		MISC::CLEAR_BIT(piParam1, 2);
-		Global_1983879 = 1;
+		Global_1983879 = true;
 		return 1;
 	}
 

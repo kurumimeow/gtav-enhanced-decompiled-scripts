@@ -12680,7 +12680,7 @@ BOOL func_261(ePedComponentType epctParam0) // Position - 0xDC42 (56386)
 	player = epctParam0;
 
 	if (player != -1)
-		return Global_1892798[player /*615*/] != PV_COMP_INVALID;
+		return Global_1892798[player /*615*/] != -1;
 
 	return false;
 }
@@ -22277,7 +22277,7 @@ ePedComponentType func_473(Player plParam0) // Position - 0x20669 (132713)
 	if (player != -1)
 		return Global_1892798[player /*615*/];
 
-	return PV_COMP_INVALID;
+	return -1;
 }
 
 BOOL func_474() // Position - 0x20688 (132744)
@@ -93950,9 +93950,9 @@ int func_1333(ePedComponentType epctParam0, BOOL bParam1) // Position - 0x700FB 
 	return 0;
 }
 
-int func_1334(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Position - 0x704BF (459967)
+BOOL func_1334(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Position - 0x704BF (459967)
 {
-	int num;
+	BOOL num;
 
 	if (bParam2)
 		return Global_262145.f_18668;
@@ -93963,13 +93963,13 @@ int func_1334(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Posit
 			return BUILTIN::ROUND((float)Global_262145.f_13053 * Global_262145.f_13058);
 	
 		case 157:
-			return 0;
+			return false;
 	
 		case 159:
 			return BUILTIN::ROUND((float)Global_262145.f_13003 * Global_262145.f_13008);
 	
 		case 151:
-			return 0;
+			return false;
 	
 		case 148:
 			return BUILTIN::ROUND((float)Global_262145.f_13030 * Global_262145.f_13034);
@@ -94011,7 +94011,7 @@ int func_1334(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Posit
 			return Global_262145.f_15511;
 	
 		case 166:
-			return 0;
+			return false;
 	
 		case 167:
 			return Global_262145.f_17506;
@@ -94031,7 +94031,7 @@ int func_1334(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Posit
 			return Global_262145.f_18554;
 	
 		case 182:
-			return 0;
+			return false;
 	
 		case 183:
 			return Global_262145.f_18562;
@@ -94040,40 +94040,40 @@ int func_1334(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Posit
 			return Global_262145.f_18571;
 	
 		case 186:
-			return 0;
+			return false;
 	
 		case 189:
 			return Global_262145.f_18755;
 	
 		case 190:
-			return 0;
+			return false;
 	
 		case 191:
-			return 0;
+			return false;
 	
 		case 192:
-			return 0;
+			return false;
 	
 		case 193:
 			return Global_262145.f_18771;
 	
 		case 194:
-			return 0;
+			return false;
 	
 		case 195:
-			return 0;
+			return false;
 	
 		case 197:
 			return Global_262145.f_18631;
 	
 		case 198:
-			return 0;
+			return false;
 	
 		case 199:
 			return Global_262145.f_18800;
 	
 		case 200:
-			return 0;
+			return false;
 	
 		case 201:
 			return Global_262145.f_18688;
@@ -94082,13 +94082,13 @@ int func_1334(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Posit
 			return Global_262145.f_18788;
 	
 		case 207:
-			return 0;
+			return false;
 	
 		case 208:
 			return Global_262145.f_18659;
 	
 		case 209:
-			return 0;
+			return false;
 	
 		case 210:
 			return Global_262145.f_18783;
@@ -94265,7 +94265,7 @@ int func_1334(ePedComponentType epctParam0, BOOL bParam1, BOOL bParam2) // Posit
 			break;
 	}
 
-	return 0;
+	return false;
 }
 
 void func_1335(ePedComponentType epctParam0, var uParam1, var uParam2) // Position - 0x70CF6 (462070)

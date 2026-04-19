@@ -38531,7 +38531,7 @@ void func_265(int iParam0, BOOL bParam1, int iParam2, int iParam3) // Position -
 			}
 		}
 	
-		if (Global_102506.f_1437 >= false)
+		if (Global_102506.f_1437 >= PV_COMP_HEAD)
 		{
 			if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 			{
@@ -87781,30 +87781,30 @@ BOOL func_637(eCharacter echParam0, int iParam1) // Position - 0x7852E (492846)
 	return false;
 }
 
-ePedComponentType func_638(ePedComponentType epctParam0) // Position - 0x78562 (492898)
+BOOL func_638(ePedComponentType epctParam0) // Position - 0x78562 (492898)
 {
 	switch (epctParam0)
 	{
 		case joaat("WEAPON_PISTOL"):
-			return PV_COMP_HEAD;
+			return false;
 	
 		case joaat("WEAPON_KNIFE"):
-			return PV_COMP_HEAD;
+			return false;
 	
 		case joaat("WEAPON_MICROSMG"):
-			return PV_COMP_HAND;
+			return 5;
 	
 		case joaat("WEAPON_ASSAULTSMG"):
 			return 29;
 	
 		case joaat("WEAPON_NIGHTSTICK"):
-			return PV_COMP_UPPR;
+			return 3;
 	
 		case joaat("WEAPON_COMBATPISTOL"):
-			return PV_COMP_TASK;
+			return 9;
 	
 		case joaat("WEAPON_SMG"):
-			return PV_COMP_JBIB;
+			return 11;
 	
 		case joaat("WEAPON_ASSAULTRIFLE"):
 			return 24;
@@ -87813,7 +87813,7 @@ ePedComponentType func_638(ePedComponentType epctParam0) // Position - 0x78562 (
 			return 21;
 	
 		case joaat("WEAPON_STICKYBOMB"):
-			return PV_COMP_HEAD;
+			return false;
 	
 		case joaat("WEAPON_PETROLCAN"):
 			return 20;
@@ -87825,14 +87825,14 @@ ePedComponentType func_638(ePedComponentType epctParam0) // Position - 0x78562 (
 			return 33;
 	
 		case joaat("WEAPON_SMOKEGRENADE"):
-			return PV_COMP_HEAD;
+			return false;
 	
 		case joaat("WEAPON_GRENADE"):
-			return PV_COMP_HEAD;
+			return false;
 	
 		case joaat("WEAPON_CARBINERIFLE"):
 			if (_STAT_GET_PACKED_BOOL(3741, -1))
-				return PV_COMP_HEAD;
+				return false;
 			else
 				return 42;
 			break;
@@ -87842,7 +87842,7 @@ ePedComponentType func_638(ePedComponentType epctParam0) // Position - 0x78562 (
 	
 		case joaat("WEAPON_MOLOTOV"):
 			if (_STAT_GET_PACKED_BOOL(3741, -1))
-				return PV_COMP_HEAD;
+				return false;
 			else
 				return 31;
 			break;
@@ -87869,19 +87869,19 @@ ePedComponentType func_638(ePedComponentType epctParam0) // Position - 0x78562 (
 			return 120;
 	
 		case joaat("WEAPON_SAWNOFFSHOTGUN"):
-			return PV_COMP_HEAD;
+			return false;
 	
 		case joaat("WEAPON_GOLFCLUB"):
-			return PV_COMP_HEAD;
+			return false;
 	
 		case joaat("WEAPON_CROWBAR"):
-			return PV_COMP_HEAD;
+			return false;
 	
 		case joaat("WEAPON_BAT"):
-			return PV_COMP_HEAD;
+			return false;
 	}
 
-	return PV_COMP_HEAD;
+	return false;
 }
 
 BOOL func_639() // Position - 0x78721 (493345)

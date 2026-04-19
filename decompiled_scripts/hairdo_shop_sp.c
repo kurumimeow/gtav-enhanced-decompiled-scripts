@@ -4570,12 +4570,12 @@ void func_23(var uParam0) // Position - 0x45A0 (17824)
 											if (unk37.f_9 == 0)
 												if (unk37.f_8 == -99)
 													flag = false;
-												else if (func_490(unk37.f_8) == PV_COMP_HEAD)
+												else if (func_490(unk37.f_8) == false)
 													flag = false;
 											else if (unk37.f_9 == 1 || unk37.f_9 == 2)
 												if (unk37.f_10 == -1)
 													flag = false;
-												else if (func_487(unk37.f_10) == PV_COMP_HEAD)
+												else if (func_487(unk37.f_10) == false)
 													flag = false;
 									
 										if (!flag)
@@ -67496,42 +67496,42 @@ int func_486(int iParam0) // Position - 0x6226F (402031)
 	return 29;
 }
 
-ePedComponentType func_487(int iParam0) // Position - 0x62648 (403016)
+BOOL func_487(int iParam0) // Position - 0x62648 (403016)
 {
 	switch (iParam0)
 	{
 		case 28:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 29:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 30:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 31:
-			return PV_COMP_LOWR;
+			return 4;
 	
 		case 32:
-			return PV_COMP_FEET;
+			return 6;
 	
 		case 33:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 34:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 35:
-			return PV_COMP_DECL;
+			return 10;
 	
 		case 36:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 37:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 38:
-			return PV_COMP_MAX;
+			return 12;
 	
 		case 39:
 			return 14;
@@ -67546,19 +67546,19 @@ ePedComponentType func_487(int iParam0) // Position - 0x62648 (403016)
 			return 20;
 	
 		case 43:
-			return PV_COMP_ACCS;
+			return 8;
 	
 		case 44:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 45:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 46:
-			return PV_COMP_TEEF;
+			return 7;
 	
 		case 47:
-			return PV_COMP_HAND;
+			return 5;
 	
 		case 48:
 			return 21;
@@ -67570,25 +67570,25 @@ ePedComponentType func_487(int iParam0) // Position - 0x62648 (403016)
 			return 17;
 	
 		case 51:
-			return PV_COMP_HEAD;
+			return false;
 	
 		case 52:
-			return PV_COMP_HEAD;
+			return false;
 	
 		case 53:
-			return PV_COMP_HEAD;
+			return false;
 	
 		case 54:
-			return PV_COMP_HEAD;
+			return false;
 	
 		case 55:
-			return PV_COMP_TASK;
+			return 9;
 	
 		case 56:
 			return 13;
 	
 		case 57:
-			return PV_COMP_JBIB;
+			return 11;
 	
 		case 58:
 			return 15;
@@ -67600,115 +67600,115 @@ ePedComponentType func_487(int iParam0) // Position - 0x62648 (403016)
 			return 25;
 	
 		case 91:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 92:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 93:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 94:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 95:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 96:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 97:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 98:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 99:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 100:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 101:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 102:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 103:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 104:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 105:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 106:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 107:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 108:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 109:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 110:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 111:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 112:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 113:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 114:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 115:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 116:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 117:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 118:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 119:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 120:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 121:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 122:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 61:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 62:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 63:
-			return PV_COMP_FEET;
+			return 6;
 	
 		case 64:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 65:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 66:
 			return 22;
@@ -67717,22 +67717,22 @@ ePedComponentType func_487(int iParam0) // Position - 0x62648 (403016)
 			return 14;
 	
 		case 68:
-			return PV_COMP_ACCS;
+			return 8;
 	
 		case 69:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 70:
 			return 20;
 	
 		case 71:
-			return PV_COMP_DECL;
+			return 10;
 	
 		case 72:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 73:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 74:
 			return 18;
@@ -67741,7 +67741,7 @@ ePedComponentType func_487(int iParam0) // Position - 0x62648 (403016)
 			return 16;
 	
 		case 76:
-			return PV_COMP_MAX;
+			return 12;
 	
 		case 77:
 			return 24;
@@ -67750,109 +67750,109 @@ ePedComponentType func_487(int iParam0) // Position - 0x62648 (403016)
 			return 26;
 	
 		case 80:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 81:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 82:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 83:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 84:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 85:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 86:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 87:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 88:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 89:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 90:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 149:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 150:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 151:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 152:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 153:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 154:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 155:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 156:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 157:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 158:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 159:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 160:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 161:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 162:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 163:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 164:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 165:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 166:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 167:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 168:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 169:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 170:
-			return PV_COMP_BERD;
+			return true;
 	
 		case 171:
-			return PV_COMP_BERD;
+			return true;
 	}
 
-	return PV_COMP_HEAD;
+	return false;
 }
 
 int func_488(int iParam0) // Position - 0x62C63 (404579)
@@ -67959,102 +67959,102 @@ int func_488(int iParam0) // Position - 0x62C63 (404579)
 	return 61;
 }
 
-void func_489(ePedComponentType epctParam0) // Position - 0x62DC9 (404937)
+void func_489(BOOL bParam0) // Position - 0x62DC9 (404937)
 {
 	if (Global_24546.f_5320 >= 3 || Global_24546.f_5319 >= 4)
 		return;
 
 	Global_24546.f_5253[Global_24546.f_5319] = 2;
 	Global_24546.f_5319 = Global_24546.f_5319 + 1;
-	Global_24546.f_5258[Global_24546.f_5320] = epctParam0;
+	Global_24546.f_5258[Global_24546.f_5320] = bParam0;
 	Global_24546.f_5320 = Global_24546.f_5320 + 1;
 	return;
 }
 
 // Unhandled jump detected. Output should be considered invalid
-ePedComponentType func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
+BOOL func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
 {
 	if (!func_88())
 	{
 		switch (epctParam0)
 		{
 			case PV_COMP_HEAD:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_BERD:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_HAIR:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_UPPR:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_LOWR:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_HAND:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_TEEF:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_ACCS:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_TASK:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_DECL:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_JBIB:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 13:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 14:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 15:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 16:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 17:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 19:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 20:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 21:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 22:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 23:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 26:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 27:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 28:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 29:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 30:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 32:
 				return 18;
@@ -68072,34 +68072,34 @@ ePedComponentType func_490(ePedComponentType epctParam0) // Position - 0x62E28 (
 				return 18;
 		
 			case 38:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 39:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 40:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 41:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 42:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 45:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 46:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 47:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 48:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 49:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 50:
 				return 14;
@@ -68162,19 +68162,19 @@ ePedComponentType func_490(ePedComponentType epctParam0) // Position - 0x62E28 (
 				return 22;
 		
 			case 74:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 75:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 76:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 77:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 78:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 80:
 				return 20;
@@ -68192,19 +68192,19 @@ ePedComponentType func_490(ePedComponentType epctParam0) // Position - 0x62E28 (
 				return 20;
 		
 			case 85:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 86:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 87:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 88:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 89:
-				return PV_COMP_FEET;
+				return 6;
 		
 			default:
 				goto 0x65A;
@@ -68215,169 +68215,169 @@ ePedComponentType func_490(ePedComponentType epctParam0) // Position - 0x62E28 (
 		switch (epctParam0)
 		{
 			case PV_COMP_BERD:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_HAIR:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_UPPR:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_LOWR:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_HAND:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_TEEF:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_ACCS:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_TASK:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_DECL:
-				return PV_COMP_BERD;
+				return true;
 		
 			case PV_COMP_JBIB:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 13:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 14:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 15:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 16:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 17:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 24:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 25:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 26:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 27:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 28:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 35:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 36:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 37:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 38:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 39:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 60:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 61:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 62:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 63:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 64:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 85:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 86:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 87:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 88:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 89:
-				return PV_COMP_BERD;
+				return true;
 		
 			case 41:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 42:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 43:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 44:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 45:
-				return PV_COMP_FEET;
+				return 6;
 		
 			case 79:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 80:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 81:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 82:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 83:
-				return PV_COMP_ACCS;
+				return 8;
 		
 			case 18:
-				return PV_COMP_DECL;
+				return 10;
 		
 			case 19:
-				return PV_COMP_DECL;
+				return 10;
 		
 			case 20:
-				return PV_COMP_DECL;
+				return 10;
 		
 			case 21:
-				return PV_COMP_DECL;
+				return 10;
 		
 			case 22:
-				return PV_COMP_DECL;
+				return 10;
 		
 			case 67:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 68:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 69:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 70:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 71:
-				return PV_COMP_MAX;
+				return 12;
 		
 			case 53:
 				return 14;
@@ -68447,7 +68447,7 @@ ePedComponentType func_490(ePedComponentType epctParam0) // Position - 0x62E28 (
 		}
 	}
 
-	return PV_COMP_HEAD;
+	return false;
 }
 
 void func_491(char* sParam0, int iParam1, int iParam2) // Position - 0x63486 (406662)

@@ -121778,7 +121778,7 @@ void func_919(BOOL bParam0, BOOL bParam1, BOOL bParam2) // Position - 0xA250D (6
 
 	Global_114931.f_7695.f_924 = MISC::GET_GAME_TIMER();
 
-	if (Global_80568 == CHAR_MAUDE || Global_80569 == 62)
+	if (Global_80568 == 62 || Global_80569 == 62)
 		func_815(2, true);
 
 	if (!bParam0)

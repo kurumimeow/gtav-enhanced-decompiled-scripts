@@ -55117,9 +55117,9 @@ BOOL func_280(Hash hParam0, int iParam1, ePedComponentType epctParam2) // Positi
 
 BOOL func_281(Ped pedParam0, BOOL bParam1) // Position - 0x427EF (272367)
 {
-	ePedComponentType flag;
+	BOOL flag;
 	BOOL flag2;
-	ePedComponentType flag3;
+	BOOL flag3;
 
 	if (Global_105311 != -99)
 	{
@@ -55153,27 +55153,27 @@ BOOL func_281(Ped pedParam0, BOOL bParam1) // Position - 0x427EF (272367)
 	return -99;
 }
 
-BOOL func_282(Hash hParam0, ePedComponentType epctParam1, Hash hParam2) // Position - 0x428C1 (272577)
+BOOL func_282(Hash hParam0, BOOL bParam1, Hash hParam2) // Position - 0x428C1 (272577)
 {
 	switch (hParam0)
 	{
 		case joaat("MP_M_Freemode_01"):
-			if (epctParam1 >= 48 && epctParam1 < 64 || epctParam1 >= 64 && epctParam1 < 80 || epctParam1 >= 96 && epctParam1 < 108 || epctParam1 >= 108 && epctParam1 < 124 || epctParam1 >= 156 && epctParam1 < 172)
+			if (bParam1 >= 48 && bParam1 < 64 || bParam1 >= 64 && bParam1 < 80 || bParam1 >= 96 && bParam1 < 108 || bParam1 >= 108 && bParam1 < 124 || bParam1 >= 156 && bParam1 < 172)
 				return true;
 		
-			if (hParam2 == -1 && epctParam1 >= 237)
-				hParam2 = func_133(hParam0, epctParam1, 11, 3);
+			if (hParam2 == -1 && bParam1 >= 237)
+				hParam2 = func_133(hParam0, bParam1, 11, 3);
 		
 			if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hParam2, joaat("JACKET"), 0))
 				return true;
 			break;
 	
 		case joaat("MP_F_Freemode_01"):
-			if (epctParam1 >= 16 && epctParam1 < 32 || epctParam1 >= 96 && epctParam1 < 112 || epctParam1 >= 112 && epctParam1 < 128 || epctParam1 >= 128 && epctParam1 < 144 || epctParam1 >= 160 && epctParam1 < 176)
+			if (bParam1 >= 16 && bParam1 < 32 || bParam1 >= 96 && bParam1 < 112 || bParam1 >= 112 && bParam1 < 128 || bParam1 >= 128 && bParam1 < 144 || bParam1 >= 160 && bParam1 < 176)
 				return true;
 		
-			if (hParam2 == -1 && epctParam1 >= 256)
-				hParam2 = func_133(hParam0, epctParam1, 11, 4);
+			if (hParam2 == -1 && bParam1 >= 256)
+				hParam2 = func_133(hParam0, bParam1, 11, 4);
 		
 			if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hParam2, joaat("JACKET"), 0))
 				return true;
@@ -108700,7 +108700,7 @@ BOOL _NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM() // Position - 0x86CCC (552140)
 	return false;
 }
 
-BOOL func_737(ePedComponentType epctParam0, int iParam1) // Position - 0x86CE3 (552163)
+BOOL func_737(Hash hParam0, int iParam1) // Position - 0x86CE3 (552163)
 {
 	int cloudTimeAsInt;
 	int num;
@@ -108716,7 +108716,7 @@ BOOL func_737(ePedComponentType epctParam0, int iParam1) // Position - 0x86CE3 (
 	cloudTimeAsInt = NETWORK::GET_CLOUD_TIME_AS_INT();
 	num = 0;
 
-	switch (epctParam0)
+	switch (hParam0)
 	{
 		case 1730644782:
 			num = Global_262145.f_36257[0];
@@ -108784,7 +108784,7 @@ BOOL func_737(ePedComponentType epctParam0, int iParam1) // Position - 0x86CE3 (
 
 	for (i = 0; i < 10; i = i + 1)
 	{
-		if (epctParam0 == Global_1835471[i])
+		if (hParam0 == Global_1835471[i])
 			return true;
 	}
 

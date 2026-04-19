@@ -4301,16 +4301,16 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 	var unk;
 	int num;
 	char* str;
-	ePedComponentType type;
-	ePedComponentType type2;
-	ePedComponentType type3;
+	BOOL flag;
+	BOOL flag2;
+	BOOL flag3;
 	var unk5;
 
 	num = func_117(uParam0);
 	str = "";
-	type = PV_COMP_INVALID;
-	type2 = PV_COMP_INVALID;
-	type3 = PV_COMP_INVALID;
+	flag = -1;
+	flag2 = -1;
+	flag3 = -1;
 
 	if (IS_BIT_SET(uParam0->f_5, 6))
 	{
@@ -4336,8 +4336,8 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				if (IS_BIT_SET(uParam0->f_5, 5))
 				{
 					TEXT_LABEL_APPEND_STRING(&unk, "A", 16);
-					type2 = func_109(uParam0, num);
-					type3 = type2 * uParam0->f_13;
+					flag2 = func_109(uParam0, num);
+					flag3 = flag2 * uParam0->f_13;
 				}
 				else
 				{
@@ -4347,15 +4347,15 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				str = "SDM_COKE" /*Cocaine*/;
 			
 				if (IS_BIT_SET(uParam0->f_5, 4))
-					type = uParam0->f_13;
+					flag = uParam0->f_13;
 				break;
 		
 			case 3:
 				if (IS_BIT_SET(uParam0->f_5, 5))
 				{
 					TEXT_LABEL_APPEND_STRING(&unk, "A", 16);
-					type2 = func_109(uParam0, num);
-					type3 = type2 * uParam0->f_14;
+					flag2 = func_109(uParam0, num);
+					flag3 = flag2 * uParam0->f_14;
 				}
 				else
 				{
@@ -4365,15 +4365,15 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				str = "SDM_METH" /*Meth*/;
 			
 				if (IS_BIT_SET(uParam0->f_5, 4))
-					type = uParam0->f_14;
+					flag = uParam0->f_14;
 				break;
 		
 			case 4:
 				if (IS_BIT_SET(uParam0->f_5, 5))
 				{
 					TEXT_LABEL_APPEND_STRING(&unk, "A", 16);
-					type2 = func_109(uParam0, num);
-					type3 = type2 * uParam0->f_15;
+					flag2 = func_109(uParam0, num);
+					flag3 = flag2 * uParam0->f_15;
 				}
 				else
 				{
@@ -4383,15 +4383,15 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				str = "SDM_WEED" /*Weed*/;
 			
 				if (IS_BIT_SET(uParam0->f_5, 4))
-					type = uParam0->f_15;
+					flag = uParam0->f_15;
 				break;
 		
 			case 7:
 				if (IS_BIT_SET(uParam0->f_5, 5))
 				{
 					TEXT_LABEL_APPEND_STRING(&unk, "A", 16);
-					type2 = func_109(uParam0, num);
-					type3 = type2 * uParam0->f_16;
+					flag2 = func_109(uParam0, num);
+					flag3 = flag2 * uParam0->f_16;
 				}
 				else
 				{
@@ -4401,7 +4401,7 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				str = "SDM_ACID" /*Acid*/;
 			
 				if (IS_BIT_SET(uParam0->f_5, 4))
-					type = uParam0->f_16;
+					flag = uParam0->f_16;
 				break;
 		}
 	}
@@ -4418,8 +4418,8 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				if (func_108(uParam0))
 				{
 					TEXT_LABEL_APPEND_STRING(&unk, "A", 16);
-					type2 = func_109(uParam0, num);
-					type3 = type2 * uParam0->f_13;
+					flag2 = func_109(uParam0, num);
+					flag3 = flag2 * uParam0->f_13;
 				}
 				else
 				{
@@ -4427,15 +4427,15 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				}
 			
 				str = "SDM_COKE" /*Cocaine*/;
-				type = uParam0->f_13;
+				flag = uParam0->f_13;
 				break;
 		
 			case 3:
 				if (func_107(uParam0))
 				{
 					TEXT_LABEL_APPEND_STRING(&unk, "A", 16);
-					type2 = func_109(uParam0, num);
-					type3 = type2 * uParam0->f_14;
+					flag2 = func_109(uParam0, num);
+					flag3 = flag2 * uParam0->f_14;
 				}
 				else
 				{
@@ -4443,15 +4443,15 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				}
 			
 				str = "SDM_METH" /*Meth*/;
-				type = uParam0->f_14;
+				flag = uParam0->f_14;
 				break;
 		
 			case 4:
 				if (func_106(uParam0))
 				{
 					TEXT_LABEL_APPEND_STRING(&unk, "A", 16);
-					type2 = func_109(uParam0, num);
-					type3 = type2 * uParam0->f_15;
+					flag2 = func_109(uParam0, num);
+					flag3 = flag2 * uParam0->f_15;
 				}
 				else
 				{
@@ -4459,15 +4459,15 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				}
 			
 				str = "SDM_WEED" /*Weed*/;
-				type = uParam0->f_15;
+				flag = uParam0->f_15;
 				break;
 		
 			case 7:
 				if (func_83(uParam0))
 				{
 					TEXT_LABEL_APPEND_STRING(&unk, "A", 16);
-					type2 = func_109(uParam0, num);
-					type3 = type2 * uParam0->f_16;
+					flag2 = func_109(uParam0, num);
+					flag3 = flag2 * uParam0->f_16;
 				}
 				else
 				{
@@ -4475,7 +4475,7 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 				}
 			
 				str = "SDM_ACID" /*Acid*/;
-				type = uParam0->f_16;
+				flag = uParam0->f_16;
 				break;
 		}
 	}
@@ -4487,38 +4487,38 @@ void func_79(var uParam0) // Position - 0x5E40 (24128)
 		if (!MISC::IS_STRING_NULL_OR_EMPTY(str))
 			func_81(str);
 	
-		if (type > PV_COMP_INVALID)
-			func_80(type);
+		if (flag > -1)
+			func_80(flag);
 	
-		if (type2 > PV_COMP_INVALID)
-			func_80(type2);
+		if (flag2 > -1)
+			func_80(flag2);
 	
-		if (type3 > PV_COMP_INVALID)
-			func_80(type3);
+		if (flag3 > -1)
+			func_80(flag3);
 	}
 	else if (IS_BIT_SET(uParam0->f_5, 5))
 	{
-		func_80(type2);
+		func_80(flag2);
 		func_81(str);
-		func_80(type3);
+		func_80(flag3);
 	}
 	else if (IS_BIT_SET(uParam0->f_5, 4))
 	{
 		func_81(str);
-		func_80(type);
+		func_80(flag);
 	}
 
 	return;
 }
 
-void func_80(ePedComponentType epctParam0) // Position - 0x61D9 (25049)
+void func_80(BOOL bParam0) // Position - 0x61D9 (25049)
 {
 	if (Global_24546.f_5320 >= 3 || Global_24546.f_5319 >= 4)
 		return;
 
 	Global_24546.f_5253[Global_24546.f_5319] = 2;
 	Global_24546.f_5319 = Global_24546.f_5319 + 1;
-	Global_24546.f_5258[Global_24546.f_5320] = epctParam0;
+	Global_24546.f_5258[Global_24546.f_5320] = bParam0;
 	Global_24546.f_5320 = Global_24546.f_5320 + 1;
 	return;
 }
@@ -5051,7 +5051,7 @@ BOOL func_108(var uParam0) // Position - 0x6B1C (27420)
 	return 0;
 }
 
-ePedComponentType func_109(var uParam0, int iParam1) // Position - 0x6B3E (27454)
+BOOL func_109(var uParam0, int iParam1) // Position - 0x6B3E (27454)
 {
 	int num;
 	int num2;

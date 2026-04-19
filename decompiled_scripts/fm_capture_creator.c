@@ -64073,11 +64073,11 @@ void func_220() // Position - 0x1CED2 (118482)
 	var unk;
 	int i;
 
-	if (Global_2699543 != false)
+	if (Global_2699543 != PV_COMP_HEAD)
 	{
 		if (Global_2673274.f_2591[0 /*80*/].f_1 == 86)
 		{
-			Global_2699543 = false;
+			Global_2699543 = PV_COMP_HEAD;
 		
 			if (MISC::IS_PC_VERSION())
 				if (Global_262145.f_4393)
@@ -64088,7 +64088,7 @@ void func_220() // Position - 0x1CED2 (118482)
 			_STOPWATCH_DESTROY(&Global_2697463);
 		}
 	
-		if (Global_2699543 != false)
+		if (Global_2699543 != PV_COMP_HEAD)
 		{
 			if (_STOPWATCH_IS_INITIALIZED(&Global_2697463))
 			{
@@ -64104,14 +64104,14 @@ void func_220() // Position - 0x1CED2 (118482)
 						else if (Global_262145.f_4394)
 							HUD::USE_FAKE_MP_CASH(false);
 				
-					Global_2699543 = false;
+					Global_2699543 = PV_COMP_HEAD;
 					_STOPWATCH_DESTROY(&Global_2697463);
 				}
 				else if (Global_2673274.f_2591[0 /*80*/].f_2 != 5)
 				{
 					if (MISC::IS_PC_VERSION())
 					{
-						if (Global_2699543 != false)
+						if (Global_2699543 != PV_COMP_HEAD)
 						{
 							if (Global_262145.f_4395)
 								HUD::USE_FAKE_MP_CASH(true);
@@ -64123,7 +64123,7 @@ void func_220() // Position - 0x1CED2 (118482)
 							HUD::CHANGE_FAKE_MP_CASH(0, Global_2699543);
 						}
 					}
-					else if (Global_2699543 != false)
+					else if (Global_2699543 != PV_COMP_HEAD)
 					{
 						HUD::CHANGE_FAKE_MP_CASH(Global_2699543, 0);
 						HUD::SET_MULTIPLAYER_WALLET_CASH();
@@ -64149,7 +64149,7 @@ void func_220() // Position - 0x1CED2 (118482)
 		case 2:
 			if (func_352(&Global_2673274.f_2591[0 /*80*/]))
 			{
-				if (Global_2699543 != false)
+				if (Global_2699543 != PV_COMP_HEAD)
 					if (func_351(Global_2673274.f_2591[0 /*80*/].f_1) || func_350(Global_2673274.f_2591[0 /*80*/].f_1))
 						func_349(&Global_2697463, false, false);
 			
@@ -218527,7 +218527,7 @@ BOOL func_1623(var uParam0, BOOL bParam1, BOOL bParam2, int iParam3) // Position
 	switch (*uParam0)
 	{
 		case 0:
-			Global_1836525 = 1;
+			Global_1836525 = true;
 			MISC::SET_BIT(&Global_1574953, 3);
 			func_16();
 		
@@ -221022,7 +221022,7 @@ void func_1688(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 	}
 
 	func_186();
-	Global_1836525 = 0;
+	Global_1836525 = false;
 	uParam0->f_37 = 0;
 	func_1689(uParam0, 0);
 	uParam0->f_1 = 0;
@@ -333128,7 +333128,7 @@ void func_3655(int* piParam0) // Position - 0x1E5CE1 (1989857)
 
 	func_85(PV_COMP_HEAD, "SC_VEH_MOD", 0, true, false, false, false);
 
-	if (Global_4718592.f_200715.f_2824[piParam0->f_3898 /*4*/][piParam0->f_3904] == 0)
+	if (Global_4718592.f_200715.f_2824[piParam0->f_3898 /*4*/][piParam0->f_3904] == PV_COMP_HEAD)
 		TEXT_LABEL_ASSIGN_STRING(&unk, "SC_NONE", 16);
 	else
 		TEXT_LABEL_ASSIGN_STRING(&unk, func_2640(Global_4718592.f_200715.f_2824[piParam0->f_3898 /*4*/][piParam0->f_3904]), 16);
@@ -386776,7 +386776,7 @@ BOOL func_4688(var uParam0, char* sParam1, int iParam2, BOOL bParam3, BOOL bPara
 				{
 					func_4716();
 					func_840(uParam0, true, false);
-					Global_1924065 = 1;
+					Global_1924065 = true;
 					func_5314();
 					*uParam0 = 1;
 					return true;
@@ -389093,7 +389093,7 @@ void func_4765(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positi
 	{
 		Global_4718592.f_168505[i /*3*/][0] = 0;
 		Global_4718592.f_168505[i /*3*/][1] = 0;
-		Global_4718592.f_168524[i] = -1;
+		Global_4718592.f_168524[i] = PV_COMP_INVALID;
 	}
 
 	Global_4718592.f_168531 = 0;
@@ -389439,7 +389439,7 @@ void func_4765(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positi
 		Global_4718592.f_132331[i] = 1001;
 	}
 
-	Global_1924065 = 0;
+	Global_1924065 = false;
 	Global_4718592.f_7 = 0;
 	Global_4718592.f_139419 = 0;
 	Global_4718592.f_139462 = 0;
@@ -420211,32 +420211,32 @@ void func_5182(int iParam0, int iParam1, BOOL bParam2) // Position - 0x29BDE2 (2
 	if (dict != 0 && DATAFILE::DATADICT_GET_TYPE(dict, "vsclout") == 2)
 		Global_4718592.f_168524[0] = DATAFILE::DATADICT_GET_INT(dict, "vsclout");
 	else
-		Global_4718592.f_168524[0] = -1;
+		Global_4718592.f_168524[0] = PV_COMP_INVALID;
 
 	if (dict != 0 && DATAFILE::DATADICT_GET_TYPE(dict, "vsthout") == 2)
 		Global_4718592.f_168524[1] = DATAFILE::DATADICT_GET_INT(dict, "vsthout");
 	else
-		Global_4718592.f_168524[1] = -1;
+		Global_4718592.f_168524[1] = PV_COMP_INVALID;
 
 	if (dict != 0 && DATAFILE::DATADICT_GET_TYPE(dict, "vshwout") == 2)
 		Global_4718592.f_168524[3] = DATAFILE::DATADICT_GET_INT(dict, "vshwout");
 	else
-		Global_4718592.f_168524[3] = -1;
+		Global_4718592.f_168524[3] = PV_COMP_INVALID;
 
 	if (dict != 0 && DATAFILE::DATADICT_GET_TYPE(dict, "vsenout") == 2)
 		Global_4718592.f_168524[2] = DATAFILE::DATADICT_GET_INT(dict, "vsenout");
 	else
-		Global_4718592.f_168524[2] = -1;
+		Global_4718592.f_168524[2] = PV_COMP_INVALID;
 
 	if (dict != 0 && DATAFILE::DATADICT_GET_TYPE(dict, "vstgout") == 2)
 		Global_4718592.f_168524[4] = DATAFILE::DATADICT_GET_INT(dict, "vstgout");
 	else
-		Global_4718592.f_168524[4] = -1;
+		Global_4718592.f_168524[4] = PV_COMP_INVALID;
 
 	if (dict != 0 && DATAFILE::DATADICT_GET_TYPE(dict, "vsbsout") == 2)
 		Global_4718592.f_168524[5] = DATAFILE::DATADICT_GET_INT(dict, "vsbsout");
 	else
-		Global_4718592.f_168524[5] = -1;
+		Global_4718592.f_168524[5] = PV_COMP_INVALID;
 
 	if (dict != 0 && DATAFILE::DATADICT_GET_TYPE(dict, "alfutvs") == 2)
 		Global_4718592.f_168531 = DATAFILE::DATADICT_GET_INT(dict, "alfutvs");
@@ -423208,11 +423208,11 @@ struct<16> func_5210() // Position - 0x2A74A3 (2782371)
 
 	TEXT_LABEL_ASSIGN_STRING(&unk, HUD::GET_FILENAME_FOR_AUDIO_CONVERSATION("FMMC_CH_DN" /*The Diamond Casino Heist*/), 64);
 
-	if (Global_1973197 == 1)
+	if (Global_1973197 == PV_COMP_BERD)
 		TEXT_LABEL_ASSIGN_STRING(&unk, HUD::GET_FILENAME_FOR_AUDIO_CONVERSATION("FMMC_CH_SS" /*The Diamond Casino Heist – Silent & Sneaky*/), 64);
-	else if (Global_1973197 == 2)
+	else if (Global_1973197 == PV_COMP_HAIR)
 		TEXT_LABEL_ASSIGN_STRING(&unk, HUD::GET_FILENAME_FOR_AUDIO_CONVERSATION("FMMC_CH_BC" /*The Diamond Casino Heist – The Big Con*/), 64);
-	else if (Global_1973197 == 3)
+	else if (Global_1973197 == PV_COMP_UPPR)
 		TEXT_LABEL_ASSIGN_STRING(&unk, HUD::GET_FILENAME_FOR_AUDIO_CONVERSATION("FMMC_CH_AG" /*The Diamond Casino Heist – Aggressive*/), 64);
 
 	return unk;
@@ -434249,7 +434249,7 @@ void func_5458(var uParam0, BOOL bParam1) // Position - 0x2BEC92 (2878610)
 	Global_1011388.f_33[num /*95*/].f_75 = DATAFILE::DATADICT_GET_INT(dict2, "min");
 	Global_1011388.f_33[num /*95*/].f_77 = DATAFILE::DATADICT_GET_INT(dict2, "num");
 
-	if (Global_1011388.f_33[num /*95*/].f_77 == -1)
+	if (Global_1011388.f_33[num /*95*/].f_77 == PV_COMP_INVALID)
 		Global_1011388.f_33[num /*95*/].f_77 = func_5227();
 
 	TEXT_LABEL_ASSIGN_STRING(&(Global_1011388.f_33[num /*95*/].f_22), NETWORK::UGC_GET_CONTENT_NAME(uParam0->f_6), 64);

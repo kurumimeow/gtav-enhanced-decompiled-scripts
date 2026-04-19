@@ -225618,19 +225618,19 @@ void func_4071(var uParam0) // Position - 0x131683 (1250947)
 	return;
 }
 
-void func_4072(int iParam0, int iParam1, int iParam2) // Position - 0x1316B4 (1250996)
+void func_4072(int iParam0, ePedComponentType epctParam1, int iParam2) // Position - 0x1316B4 (1250996)
 {
 	if (iParam2 != -1)
 		Global_2686095.f_4357.f_433[iParam0] = Global_2686095.f_4357.f_433[iParam0] + iParam2;
-	else if (iParam1 != -1)
-		Global_2686095.f_4357.f_433[iParam0] = iParam1;
+	else if (epctParam1 != -1)
+		Global_2686095.f_4357.f_433[iParam0] = epctParam1;
 	else
 		Global_2686095.f_4357.f_433[iParam0] = func_4073(iParam0);
 
 	return;
 }
 
-int func_4073(int iParam0) // Position - 0x131711 (1251089)
+ePedComponentType func_4073(int iParam0) // Position - 0x131711 (1251089)
 {
 	switch (iParam0)
 	{
@@ -225638,7 +225638,7 @@ int func_4073(int iParam0) // Position - 0x131711 (1251089)
 			return 300000;
 	
 		case 1:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 2:
 			return 600000;
@@ -225674,13 +225674,13 @@ int func_4073(int iParam0) // Position - 0x131711 (1251089)
 			return 300000;
 	
 		case 14:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 15:
 			return 180000;
 	
 		case 16:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 17:
 			return 180000;
@@ -225722,7 +225722,7 @@ int func_4073(int iParam0) // Position - 0x131711 (1251089)
 			return 180000;
 	
 		case 81:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 45:
 		case 7:
@@ -225781,16 +225781,16 @@ int func_4073(int iParam0) // Position - 0x131711 (1251089)
 			return Global_262145.f_21665;
 	
 		case 39:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 40:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 41:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 42:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 50:
 			return 1800000;
@@ -225838,10 +225838,10 @@ int func_4073(int iParam0) // Position - 0x131711 (1251089)
 			return *Global_262145.f_37829;
 	}
 
-	return 0;
+	return PV_COMP_HEAD;
 }
 
-int func_4074() // Position - 0x131B66 (1252198)
+ePedComponentType func_4074() // Position - 0x131B66 (1252198)
 {
 	if (NETWORK::NETWORK_IS_SCRIPT_ACTIVE(func_4075(46), -1, false, 0) || func_703(PLAYER::PLAYER_ID()) == 194)
 		return Global_262145.f_12035;
@@ -226715,7 +226715,7 @@ BOOL func_4080() // Position - 0x132AFE (1256190)
 	return false;
 }
 
-int func_4081() // Position - 0x132B22 (1256226)
+ePedComponentType func_4081() // Position - 0x132B22 (1256226)
 {
 	if (NETWORK::NETWORK_IS_SCRIPT_ACTIVE(func_4075(46), -1, false, 0) || func_703(PLAYER::PLAYER_ID()) == 194)
 		return Global_262145.f_11801;
@@ -310037,7 +310037,7 @@ void func_6046(var uParam0) // Position - 0x1B4EB6 (1789622)
 {
 	Global_2733138.f_587 = 1;
 	func_6047(true);
-	func_4072(49, -1, -1);
+	func_4072(49, PV_COMP_INVALID, -1);
 	return;
 }
 
@@ -382918,7 +382918,7 @@ void func_7238(ePedComponentType epctParam0) // Position - 0x22E97B (2287995)
 			else
 			{
 				func_20(&Global_2686095.f_4357.f_260[45 /*2*/], true, false);
-				Global_2686095.f_4357.f_433[45] = 0;
+				Global_2686095.f_4357.f_433[45] = PV_COMP_HEAD;
 			}
 		
 			if (func_681(4))

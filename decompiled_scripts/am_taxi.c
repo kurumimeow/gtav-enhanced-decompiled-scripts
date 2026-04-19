@@ -10794,7 +10794,7 @@ BOOL func_240(int iParam0, BOOL bParam1) // Position - 0x988A (39050)
 
 	if (num > -1 && num < 6)
 	{
-		if (Global_45660[num /*32*/] == true && Global_45660[num /*32*/].f_4 == true)
+		if (Global_45660[num /*32*/] == true && Global_45660[num /*32*/].f_4 == 1)
 		{
 			if (bParam1)
 				if (Global_45660[num /*32*/].f_29)

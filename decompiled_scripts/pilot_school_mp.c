@@ -169766,9 +169766,9 @@ int func_1932(int iParam0) // Position - 0xD0789 (853897)
 	return num;
 }
 
-void func_1933(int iParam0) // Position - 0xD08FF (854271)
+void func_1933(BOOL bParam0) // Position - 0xD08FF (854271)
 {
-	Global_114016 = Global_114016 - Global_114016 && iParam0;
+	Global_114016 = Global_114016 - Global_114016 && bParam0;
 	return;
 }
 
@@ -169816,9 +169816,9 @@ Hash func_1938() // Position - 0xD09B0 (854448)
 	return Global_2686095.f_1.f_2823;
 }
 
-BOOL func_1939(int iParam0) // Position - 0xD09C1 (854465)
+BOOL func_1939(BOOL bParam0) // Position - 0xD09C1 (854465)
 {
-	return Global_114016 && iParam0 != false;
+	return Global_114016 && bParam0 != false;
 }
 
 BOOL func_1940(BOOL bParam0) // Position - 0xD09D2 (854482)

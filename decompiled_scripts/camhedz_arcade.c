@@ -5294,12 +5294,12 @@ BOOL func_10(Player plParam0) // Position - 0x645 (1605)
 	return false;
 }
 
-int func_11(int iParam0) // Position - 0x67A (1658)
+int func_11(BOOL bParam0) // Position - 0x67A (1658)
 {
-	switch (iParam0)
+	switch (bParam0)
 	{
-		case 0:
-		case 1:
+		case false:
+		case true:
 		case 2:
 		case 3:
 		case 4:
@@ -5556,7 +5556,7 @@ int func_11(int iParam0) // Position - 0x67A (1658)
 	return -1;
 }
 
-int func_12(Player plParam0) // Position - 0xBE3 (3043)
+BOOL func_12(Player plParam0) // Position - 0xBE3 (3043)
 {
 	if (plParam0 != _INVALID_PLAYER_INDEX())
 		if (_NETWORK_IS_PLAYER_VALID(plParam0, true, true))
@@ -84739,17 +84739,17 @@ int func_559(int iParam0) // Position - 0x64E30 (413232)
 
 int func_560() // Position - 0x64E47 (413255)
 {
-	int num;
+	BOOL flag;
 
-	num = func_561();
+	flag = func_561();
 
-	if (num == -1)
+	if (flag == -1)
 		return -1;
 
-	return func_11(num);
+	return func_11(flag);
 }
 
-int func_561() // Position - 0x64E65 (413285)
+BOOL func_561() // Position - 0x64E65 (413285)
 {
 	return Global_2658294[PLAYER::PLAYER_ID() /*468*/].f_325.f_8;
 }

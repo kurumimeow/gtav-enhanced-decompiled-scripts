@@ -60644,12 +60644,12 @@ BOOL func_831() // Position - 0x44FD3 (282579)
 	return Global_4196257;
 }
 
-BOOL func_832() // Position - 0x44FDF (282591)
+int func_832() // Position - 0x44FDF (282591)
 {
 	if (Global_2635562.f_3189 > -1)
-		return true;
+		return 1;
 
-	return false;
+	return 0;
 }
 
 BOOL func_833(Player plParam0) // Position - 0x44FF7 (282615)

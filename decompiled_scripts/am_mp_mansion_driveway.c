@@ -188461,7 +188461,7 @@ void func_3081(var uParam0, var uParam1) // Position - 0xF951E (1021214)
 
 	OBJECT::DELETE_OBJECT(&uParam1->f_189[0]);
 	OBJECT::DELETE_OBJECT(&uParam1->f_189[1]);
-	Global_1983879 = 0;
+	Global_1983879 = false;
 	return;
 }
 
@@ -188866,7 +188866,7 @@ int func_3094(int iParam0, int* piParam1) // Position - 0xF9D27 (1023271)
 		MISC::CLEAR_BIT(piParam1, 0);
 		MISC::CLEAR_BIT(piParam1, 1);
 		MISC::CLEAR_BIT(piParam1, 2);
-		Global_1983879 = 1;
+		Global_1983879 = true;
 		return 1;
 	}
 
@@ -363368,7 +363368,7 @@ int func_7123(Player plParam0) // Position - 0x20D298 (2151064)
 	if (plParam0 != -1)
 		return Global_1984461[plParam0 /*149*/].f_27.f_10;
 
-	return 0;
+	return false;
 }
 
 BOOL func_7124() // Position - 0x20D2B6 (2151094)

@@ -237185,7 +237185,7 @@ BOOL func_3503(int iParam0) // Position - 0x132273 (1254003)
 		if (Global_2711405[iParam0 /*113*/].f_111)
 			return false;
 	
-		return Global_2711405[iParam0 /*113*/].f_66 != PV_COMP_HEAD;
+		return Global_2711405[iParam0 /*113*/].f_66 != 0;
 	}
 
 	return false;
@@ -288433,19 +288433,19 @@ void func_5087(var uParam0) // Position - 0x18007C (1572988)
 	return;
 }
 
-void func_5088(int iParam0, int iParam1, int iParam2) // Position - 0x1800AD (1573037)
+void func_5088(int iParam0, ePedComponentType epctParam1, int iParam2) // Position - 0x1800AD (1573037)
 {
 	if (iParam2 != -1)
 		Global_2686095.f_4357.f_433[iParam0] = Global_2686095.f_4357.f_433[iParam0] + iParam2;
-	else if (iParam1 != -1)
-		Global_2686095.f_4357.f_433[iParam0] = iParam1;
+	else if (epctParam1 != -1)
+		Global_2686095.f_4357.f_433[iParam0] = epctParam1;
 	else
 		Global_2686095.f_4357.f_433[iParam0] = func_5089(iParam0);
 
 	return;
 }
 
-int func_5089(int iParam0) // Position - 0x18010A (1573130)
+ePedComponentType func_5089(int iParam0) // Position - 0x18010A (1573130)
 {
 	switch (iParam0)
 	{
@@ -288453,7 +288453,7 @@ int func_5089(int iParam0) // Position - 0x18010A (1573130)
 			return 300000;
 	
 		case 1:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 2:
 			return 600000;
@@ -288489,13 +288489,13 @@ int func_5089(int iParam0) // Position - 0x18010A (1573130)
 			return 300000;
 	
 		case 14:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 15:
 			return 180000;
 	
 		case 16:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 17:
 			return 180000;
@@ -288537,7 +288537,7 @@ int func_5089(int iParam0) // Position - 0x18010A (1573130)
 			return 180000;
 	
 		case 81:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 45:
 		case 7:
@@ -288596,16 +288596,16 @@ int func_5089(int iParam0) // Position - 0x18010A (1573130)
 			return Global_262145.f_21665;
 	
 		case 39:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 40:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 41:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 42:
-			return 0;
+			return PV_COMP_HEAD;
 	
 		case 50:
 			return 1800000;
@@ -288653,10 +288653,10 @@ int func_5089(int iParam0) // Position - 0x18010A (1573130)
 			return *Global_262145.f_37829;
 	}
 
-	return 0;
+	return PV_COMP_HEAD;
 }
 
-int func_5090() // Position - 0x18055F (1574239)
+ePedComponentType func_5090() // Position - 0x18055F (1574239)
 {
 	if (NETWORK::NETWORK_IS_SCRIPT_ACTIVE(func_5091(46), -1, false, 0) || func_31(PLAYER::PLAYER_ID()) == 194)
 		return Global_262145.f_12035;
@@ -289517,7 +289517,7 @@ BOOL func_5094() // Position - 0x181498 (1578136)
 	return false;
 }
 
-int func_5095() // Position - 0x1814BC (1578172)
+ePedComponentType func_5095() // Position - 0x1814BC (1578172)
 {
 	if (NETWORK::NETWORK_IS_SCRIPT_ACTIVE(func_5091(46), -1, false, 0) || func_31(PLAYER::PLAYER_ID()) == 194)
 		return Global_262145.f_11801;
@@ -353935,7 +353935,7 @@ void func_6589(var uParam0, Vehicle veParam1, var uParam2) // Position - 0x1E4BF
 	}
 
 	if (func_6590(veParam1, true))
-		Global_2712221 = true;
+		Global_2712221 = 1;
 
 	return;
 }
@@ -370260,7 +370260,7 @@ void func_6927(var uParam0, Vehicle veParam1, var uParam2) // Position - 0x20021
 	}
 
 	if (func_6590(veParam1, true))
-		Global_2712221 = true;
+		Global_2712221 = 1;
 
 	return;
 }
@@ -371982,7 +371982,7 @@ void func_6988(var uParam0) // Position - 0x202F25 (2109221)
 {
 	Global_2733138.f_587 = 1;
 	func_6989(true);
-	func_5088(49, -1, -1);
+	func_5088(49, PV_COMP_INVALID, -1);
 	return;
 }
 
@@ -400477,7 +400477,7 @@ BOOL func_7615(Player plParam0, BOOL bParam1, int iParam2) // Position - 0x231A4
 
 BOOL func_7616(Player plParam0, BOOL bParam1, int iParam2) // Position - 0x231A9F (2300575)
 {
-	if (Global_1845299[plParam0 /*883*/].f_260.f_409 >= PV_COMP_HEAD)
+	if (Global_1845299[plParam0 /*883*/].f_260.f_409 >= 0)
 		if (bParam1 != -1 && Global_1845299[plParam0 /*883*/].f_260.f_410 == bParam1)
 			return 1;
 		else if (iParam2 != -1 && Global_1845299[plParam0 /*883*/].f_260.f_411 == iParam2)
@@ -466000,7 +466000,7 @@ void func_8901() // Position - 0x29A890 (2730128)
 void func_8902() // Position - 0x29A9E2 (2730466)
 {
 	int i;
-	ePedComponentType flag;
+	BOOL flag;
 	int num;
 	ePedComponentType type;
 

@@ -3158,7 +3158,7 @@ void func_4(var uParam0, int* piParam1, int* piParam2, var uParam3) // Position 
 
 void func_5(int* piParam0, int* piParam1) // Position - 0x8E0 (2272)
 {
-	Global_34063 = 0;
+	Global_34063 = false;
 	Global_34064 = false;
 	func_22(false);
 	func_8(piParam1);
@@ -4298,7 +4298,7 @@ BOOL func_56(int* piParam0, var uParam1, var uParam2, BOOL bParam3) // Position 
 			{
 				if (NETWORK::CAN_REGISTER_MISSION_ENTITIES(0, 0, 1, 0))
 				{
-					if (func_66(PLAYER::PLAYER_ID(), false) >= 0)
+					if (func_66(PLAYER::PLAYER_ID(), false) >= false)
 					{
 						func_64(func_66(PLAYER::PLAYER_ID(), false), 421, &unk, false);
 						uParam1->f_9 = { unk };
@@ -4321,7 +4321,7 @@ BOOL func_56(int* piParam0, var uParam1, var uParam2, BOOL bParam3) // Position 
 			{
 				if (NETWORK::CAN_REGISTER_MISSION_ENTITIES(0, 0, 1, 0))
 				{
-					if (func_66(PLAYER::PLAYER_ID(), false) >= 0)
+					if (func_66(PLAYER::PLAYER_ID(), false) >= false)
 					{
 						func_64(func_66(PLAYER::PLAYER_ID(), false), 420, &unk7, false);
 						uParam1->f_12 = { unk7 };
@@ -4344,7 +4344,7 @@ BOOL func_56(int* piParam0, var uParam1, var uParam2, BOOL bParam3) // Position 
 			{
 				if (NETWORK::CAN_REGISTER_MISSION_ENTITIES(0, 0, 1, 0))
 				{
-					if (func_66(PLAYER::PLAYER_ID(), false) >= 0)
+					if (func_66(PLAYER::PLAYER_ID(), false) >= false)
 					{
 						func_64(func_66(PLAYER::PLAYER_ID(), false), 586, &unk13, false);
 						uParam1->f_15 = { unk13 };
@@ -4367,7 +4367,7 @@ BOOL func_56(int* piParam0, var uParam1, var uParam2, BOOL bParam3) // Position 
 			{
 				if (NETWORK::CAN_REGISTER_MISSION_ENTITIES(0, 0, 1, 0))
 				{
-					if (func_66(PLAYER::PLAYER_ID(), false) >= 0)
+					if (func_66(PLAYER::PLAYER_ID(), false) >= false)
 					{
 						func_64(func_66(PLAYER::PLAYER_ID(), false), 585, &unk19, false);
 						uParam1->f_18 = { unk19 };
@@ -7105,7 +7105,7 @@ struct<6> func_65(int iParam0) // Position - 0x6217 (25111)
 	return unk;
 }
 
-int func_66(Player plParam0, BOOL bParam1) // Position - 0x690D (26893)
+BOOL func_66(Player plParam0, BOOL bParam1) // Position - 0x690D (26893)
 {
 	if (_NETWORK_IS_PLAYER_VALID(plParam0, false, true))
 		if (!bParam1)
@@ -16877,7 +16877,7 @@ BOOL func_385(int* piParam0, var uParam1, int iParam2, int* piParam3) // Positio
 			piParam3->f_789 = "idle_a";
 			piParam3->f_790 = "button_press";
 			piParam3->f_791 = "exit";
-			Global_34063 = 1;
+			Global_34063 = true;
 			return true;
 		}
 		else if (func_68() && ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), 363.88956f, 4826.5337f, -59.991413f, 363.90433f, 4827.5083f, -58.010437f, 1.5f, false, true, 0))
@@ -16890,11 +16890,11 @@ BOOL func_385(int* piParam0, var uParam1, int iParam2, int* piParam3) // Positio
 			piParam3->f_789 = "idle_a";
 			piParam3->f_790 = "button_press";
 			piParam3->f_791 = "exit";
-			Global_34063 = 1;
+			Global_34063 = true;
 			return true;
 		}
 	
-		Global_34063 = 0;
+		Global_34063 = false;
 		return false;
 	}
 
@@ -17312,13 +17312,13 @@ BOOL func_385(int* piParam0, var uParam1, int iParam2, int* piParam3) // Positio
 		{
 			if (ENTITY::IS_ENTITY_IN_ANGLED_AREA(PLAYER::PLAYER_PED_ID(), num, num.f_3, width, false, true, 0) && func_386(iParam2))
 			{
-				Global_34063 = 1;
+				Global_34063 = true;
 				return true;
 			}
 			else
 			{
 				num2 = 0;
-				Global_34063 = 0;
+				Global_34063 = false;
 				MISC::CLEAR_BIT(piParam0, 5);
 				piParam3->f_784 = { 0f, 0f, 0f };
 				piParam3->f_783 = 0;

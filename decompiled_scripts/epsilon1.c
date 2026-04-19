@@ -441,7 +441,7 @@ void main() // Position - 0x0 (0)
 
 	if (func_329())
 	{
-		Global_80551 = 1;
+		Global_80551 = true;
 		iLocal_77 = 0;
 	
 		while (!func_324(&uLocal_81))
@@ -449,7 +449,7 @@ void main() // Position - 0x0 (0)
 			BUILTIN::WAIT(0);
 		}
 	
-		Global_80551 = 0;
+		Global_80551 = false;
 	}
 
 	if (ENTITY::DOES_ENTITY_EXIST(uLocal_81.f_35[0]))

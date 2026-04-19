@@ -8081,13 +8081,13 @@ void func_189() // Position - 0x8DC4 (36292)
 	return;
 }
 
-void func_190(eCharacter echParam0, char* sParam1, int iParam2, int iParam3, int iParam4) // Position - 0x8DDB (36315)
+void func_190(int iParam0, char* sParam1, int iParam2, int iParam3, int iParam4) // Position - 0x8DDB (36315)
 {
 	if (Global_114931.f_9092)
 	{
-		if (!(Global_80308 && Global_80310 == echParam0))
+		if (!(Global_80308 && Global_80310 == iParam0))
 		{
-			Global_80310 = echParam0;
+			Global_80310 = iParam0;
 			TEXT_LABEL_ASSIGN_STRING(&Global_80311, sParam1, 24);
 			Global_80317[0] = iParam2;
 			Global_80317[1] = iParam3;
@@ -102589,32 +102589,32 @@ void func_688() // Position - 0x7E8D1 (518353)
 		PED::SET_SYNCHRONIZED_SCENE_LOOPED(iLocal_1294, true);
 	}
 
-	func_190(CHAR_AGENT14, "BS_1_INT", 252, 248, 0);
+	func_190(76, "BS_1_INT", 252, 248, 0);
 
 	if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_TREVOR)
 		func_689(76, "Trevor", PLAYER::PLAYER_PED_ID());
 
 	if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_MICHAEL)
 	{
-		func_689(CHAR_AGENT14, "Trevor", Global_98926.f_9[0]);
-		func_689(CHAR_AGENT14, "Michael", PLAYER::PLAYER_PED_ID());
+		func_689(76, "Trevor", Global_98926.f_9[0]);
+		func_689(76, "Michael", PLAYER::PLAYER_PED_ID());
 	}
 
 	if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_FRANKLIN)
 	{
-		func_689(CHAR_AGENT14, "Trevor", Global_98926.f_9[0]);
-		func_689(CHAR_AGENT14, "Michael", Global_98926.f_9[1]);
-		func_689(CHAR_AGENT14, "Franklin", PLAYER::PLAYER_PED_ID());
+		func_689(76, "Trevor", Global_98926.f_9[0]);
+		func_689(76, "Michael", Global_98926.f_9[1]);
+		func_689(76, "Franklin", PLAYER::PLAYER_PED_ID());
 	}
 
 	return;
 }
 
-void func_689(eCharacter echParam0, char* sParam1, Ped pedParam2) // Position - 0x7EBBF (519103)
+void func_689(int iParam0, char* sParam1, Ped pedParam2) // Position - 0x7EBBF (519103)
 {
 	int num;
 
-	if (Global_80310 == echParam0)
+	if (Global_80310 == iParam0)
 	{
 		if (Global_80504 < 5)
 		{
@@ -103274,7 +103274,7 @@ void func_715() // Position - 0x7FB8C (523148)
 void func_716() // Position - 0x7FBD1 (523217)
 {
 	iLocal_2131 = 0;
-	func_190(CHAR_SASQUATCH, "TRV_5_INT", -1, -1, 0);
+	func_190(65, "TRV_5_INT", -1, -1, 0);
 	func_717(135, 0, 0, true, 0);
 	func_717(136, 0, false, true, 0);
 	func_717(137, 0, false, true, 0);
@@ -105367,29 +105367,29 @@ void func_727() // Position - 0x840CA (540874)
 			
 				if (func_94(num4, num5))
 				{
-					func_190(CHAR_ONEIL, "FBI_5_INT", 191, 191, 188);
+					func_190(39, "FBI_5_INT", 191, 191, 188);
 					Global_98886 = false;
 				}
 				else
 				{
-					func_190(CHAR_ONEIL, "FBI_5_INT", 255, 255, 252);
+					func_190(39, "FBI_5_INT", 255, 255, 252);
 					Global_98886 = true;
 				}
 			
 				if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_MICHAEL)
-					func_689(CHAR_ONEIL, "Michael", PLAYER::PLAYER_PED_ID());
+					func_689(39, "Michael", PLAYER::PLAYER_PED_ID());
 			
 				if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_FRANKLIN)
 				{
-					func_689(CHAR_ONEIL, "Michael", Global_98926.f_9[0]);
-					func_689(CHAR_ONEIL, "Franklin", PLAYER::PLAYER_PED_ID());
+					func_689(39, "Michael", Global_98926.f_9[0]);
+					func_689(39, "Franklin", PLAYER::PLAYER_PED_ID());
 				}
 			
 				if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_TREVOR)
 				{
-					func_689(CHAR_ONEIL, "Michael", Global_98926.f_9[0]);
-					func_689(CHAR_ONEIL, "Franklin", Global_98926.f_9[1]);
-					func_689(CHAR_ONEIL, "Trevor", PLAYER::PLAYER_PED_ID());
+					func_689(39, "Michael", Global_98926.f_9[0]);
+					func_689(39, "Franklin", Global_98926.f_9[1]);
+					func_689(39, "Trevor", PLAYER::PLAYER_PED_ID());
 				}
 			
 				MISC::SET_BIT(&(Global_98926.f_358), 0);
@@ -105413,29 +105413,29 @@ void func_727() // Position - 0x840CA (540874)
 			
 				if (func_94(num6, num7))
 				{
-					func_190(CHAR_ONEIL, "FBI_5_INT", 191, 190, 184);
+					func_190(39, "FBI_5_INT", 191, 190, 184);
 					Global_98886 = false;
 				}
 				else
 				{
-					func_190(CHAR_ONEIL, "FBI_5_INT", 255, 254, 248);
+					func_190(39, "FBI_5_INT", 255, 254, 248);
 					Global_98886 = true;
 				}
 			
 				if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_MICHAEL)
-					func_689(CHAR_ONEIL, "Michael", PLAYER::PLAYER_PED_ID());
+					func_689(39, "Michael", PLAYER::PLAYER_PED_ID());
 			
 				if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_FRANKLIN)
 				{
-					func_689(CHAR_ONEIL, "Michael", Global_98926.f_9[0]);
-					func_689(CHAR_ONEIL, "Franklin", PLAYER::PLAYER_PED_ID());
+					func_689(39, "Michael", Global_98926.f_9[0]);
+					func_689(39, "Franklin", PLAYER::PLAYER_PED_ID());
 				}
 			
 				if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_TREVOR)
 				{
-					func_689(CHAR_ONEIL, "Michael", Global_98926.f_9[0]);
-					func_689(CHAR_ONEIL, "Franklin", Global_98926.f_9[1]);
-					func_689(CHAR_ONEIL, "Trevor", PLAYER::PLAYER_PED_ID());
+					func_689(39, "Michael", Global_98926.f_9[0]);
+					func_689(39, "Franklin", Global_98926.f_9[1]);
+					func_689(39, "Trevor", PLAYER::PLAYER_PED_ID());
 				}
 			
 				MISC::SET_BIT(&(Global_98926.f_358), 1);
@@ -107157,7 +107157,7 @@ void func_802() // Position - 0x86E7F (552575)
 		}
 	}
 
-	func_190(CHAR_MP_MORS_MUTUAL, "RBHS_INT", 126, -1, 0);
+	func_190(91, "RBHS_INT", 126, -1, 0);
 	bLocal_1568 = false;
 	fLocal_1567 = 0f;
 	TASK::USE_WAYPOINT_RECORDING_AS_ASSISTED_MOVEMENT_ROUTE("paletoleadin", true, 1f, 0.8f);
@@ -107336,7 +107336,7 @@ void func_825() // Position - 0x871E2 (553442)
 
 void func_826() // Position - 0x871EE (553454)
 {
-	func_190(CHAR_TRACEY, "EXILE_2_INT", 0, -1, 0);
+	func_190(15, "EXILE_2_INT", 0, -1, 0);
 	return;
 }
 
@@ -108184,7 +108184,7 @@ void func_857() // Position - 0x88600 (558592)
 
 	Global_98926[2] = VEHICLE::CREATE_VEHICLE(joaat("fusilade"), 1404.8268f, 1118.405f, 113.838f, 90.5742f, true, true, false);
 	VEHICLE::SET_VEHICLE_COLOURS(Global_98926[2], 112, 112);
-	func_190(CHAR_MOLLY, "MARTIN_1_INT", 0, -1, 252);
+	func_190(45, "MARTIN_1_INT", 0, -1, 252);
 
 	if (_GET_CURRENT_PLAYER_CHARACTER_0() == CHAR_MICHAEL)
 	{
@@ -110987,10 +110987,10 @@ int func_914() // Position - 0x8D3D4 (578516)
 				{
 					if (!Global_80322)
 					{
-						func_190(CHAR_MIKE_FRANK_CONF, "CAR_1_INT_CONCAT", 8, 14, 12);
-						func_689(CHAR_MIKE_FRANK_CONF, "DEVIN", Global_98926.f_9[0]);
+						func_190(8, "CAR_1_INT_CONCAT", 8, 14, 12);
+						func_689(8, "DEVIN", Global_98926.f_9[0]);
 						func_916(8, "DEVIN", 8, 1, 0);
-						func_689(CHAR_MIKE_FRANK_CONF, "MOLLY", Global_98926.f_9[1]);
+						func_689(8, "MOLLY", Global_98926.f_9[1]);
 						MISC::SET_BIT(&iLocal_488, 2);
 					}
 				}
@@ -111007,10 +111007,10 @@ int func_914() // Position - 0x8D3D4 (578516)
 				{
 					if (!Global_80322)
 					{
-						func_190(CHAR_MIKE_FRANK_CONF, "CAR_1_INT_CONCAT", 8, 15, 12);
-						func_689(CHAR_MIKE_FRANK_CONF, "DEVIN", Global_98926.f_9[0]);
+						func_190(8, "CAR_1_INT_CONCAT", 8, 15, 12);
+						func_689(8, "DEVIN", Global_98926.f_9[0]);
 						func_916(CHAR_MIKE_FRANK_CONF, "DEVIN", 8, 1, 0);
-						func_689(CHAR_MIKE_FRANK_CONF, "MOLLY", Global_98926.f_9[1]);
+						func_689(8, "MOLLY", Global_98926.f_9[1]);
 						MISC::SET_BIT(&iLocal_488, 1);
 					}
 				}
@@ -111019,10 +111019,10 @@ int func_914() // Position - 0x8D3D4 (578516)
 			{
 				if (!Global_80322)
 				{
-					func_190(CHAR_MIKE_FRANK_CONF, "CAR_1_INT_CONCAT", 8, 14, 12);
-					func_689(CHAR_MIKE_FRANK_CONF, "DEVIN", Global_98926.f_9[0]);
+					func_190(8, "CAR_1_INT_CONCAT", 8, 14, 12);
+					func_689(8, "DEVIN", Global_98926.f_9[0]);
 					func_916(CHAR_MIKE_FRANK_CONF, "DEVIN", 8, 1, 0);
-					func_689(CHAR_MIKE_FRANK_CONF, "MOLLY", Global_98926.f_9[1]);
+					func_689(8, "MOLLY", Global_98926.f_9[1]);
 					MISC::SET_BIT(&iLocal_488, 2);
 				}
 			}
@@ -111952,7 +111952,7 @@ void func_985() // Position - 0x8EEDB (585435)
 {
 	Global_98926.f_43 = PED::ADD_SCENARIO_BLOCKING_AREA({ 8.2495f, -947.0913f, -1509.8623f } + { 2f, 2f, 2f }, { 8.2495f, -947.0913f, -1509.8623f } - { 2f, 2f, 2f }, false, true, true, true, 1);
 	MISC::CLEAR_AREA(-1509.8623f, -947.0913f, 6.2495f, 20f, true, false, false, false);
-	func_190(CHAR_MULTIPLAYER, "ASS_INT_2_ALT1", -1, 0, -1);
+	func_190(3, "ASS_INT_2_ALT1", -1, 0, -1);
 	return;
 }
 

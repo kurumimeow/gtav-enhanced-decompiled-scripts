@@ -49316,7 +49316,7 @@ int func_679(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x3858B (230
 	return 1;
 }
 
-BOOL func_680(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4, BOOL bParam5, int iParam6, int iParam7, Hash hParam8, int iParam9) // Position - 0x38CCA (232650)
+BOOL func_680(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4, int iParam5, int iParam6, int iParam7, Hash hParam8, int iParam9) // Position - 0x38CCA (232650)
 {
 	BOOL flag;
 	int num;
@@ -49360,14 +49360,14 @@ BOOL func_680(int iParam0, Hash hParam1, Hash hParam2, Hash hParam3, int iParam4
 		{
 			itemData = hParam8;
 			itemData.f_1 = hParam2;
-			itemData.f_2 = bParam5;
+			itemData.f_2 = iParam5;
 			itemData.f_3 = iParam6;
 		}
 		else
 		{
 			itemData = hParam2;
 			itemData.f_1 = hParam8;
-			itemData.f_2 = bParam5;
+			itemData.f_2 = iParam5;
 			itemData.f_3 = iParam6;
 		}
 	
@@ -150623,7 +150623,7 @@ int func_1774() // Position - 0xB8E1C (757276)
 			if (func_79(PLAYER::PLAYER_ID()) != -1 || func_1802())
 				return 5;
 	
-		if (Global_1989840.f_11 > false && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1989840.f_11, false, true, false, -1, 0))
+		if (Global_1989840.f_11 > 0 && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1989840.f_11, false, true, false, -1, 0))
 			return 6;
 	}
 
@@ -157844,7 +157844,7 @@ int func_1979() // Position - 0xC1DFA (794106)
 			if (func_79(PLAYER::PLAYER_ID()) != -1 || func_1802())
 				return 5;
 	
-		if (Global_1989840.f_11 > false && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1989840.f_11, false, true, false, -1, 0))
+		if (Global_1989840.f_11 > 0 && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1989840.f_11, false, true, false, -1, 0))
 			return 6;
 	}
 
@@ -160926,7 +160926,7 @@ int func_2124() // Position - 0xC5E04 (810500)
 			if (func_79(PLAYER::PLAYER_ID()) != -1 || func_1802())
 				return 5;
 	
-		if (Global_1989840.f_11 > false && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1989840.f_11, false, true, false, -1, 0))
+		if (Global_1989840.f_11 > 0 && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1989840.f_11, false, true, false, -1, 0))
 			return 6;
 	}
 
@@ -194084,7 +194084,7 @@ int func_2988(function funcParam0, function funcParam1) // Position - 0xF8B48 (1
 			if (func_79(PLAYER::PLAYER_ID()) != -1 || func_1802())
 				return 5;
 	
-		if (Global_1989840.f_11 > false && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1989840.f_11, false, true, false, -1, 0))
+		if (Global_1989840.f_11 > 0 && !MONEY::NETWORK_CAN_SPEND_MONEY(Global_1989840.f_11, false, true, false, -1, 0))
 			return 6;
 	}
 
@@ -194741,7 +194741,7 @@ void func_3017(int iParam0, BOOL bParam1, BOOL bParam2, Hash hParam3, BOOL bPara
 	
 		if (NETSHOPPING::NET_GAMESERVER_CATALOG_ITEM_KEY_IS_VALID(MISC::GET_HASH_KEY(sParam5)) && NETSHOPPING::NET_GAMESERVER_CATALOG_ITEM_KEY_IS_VALID(MISC::GET_HASH_KEY(sParam6)))
 		{
-			if (func_680(78225582, hParam3, MISC::GET_HASH_KEY(sParam5), 235173372, 1, false, 1, 4, MISC::GET_HASH_KEY(sParam6), 3))
+			if (func_680(78225582, hParam3, MISC::GET_HASH_KEY(sParam5), 235173372, 1, 0, 1, 4, MISC::GET_HASH_KEY(sParam6), 3))
 			{
 			}
 			else
@@ -411942,7 +411942,7 @@ BOOL func_7908(Vector3 vParam0, var uParam1, var uParam2, int iParam3, int iPara
 void func_7909(int iParam0, var uParam1, var uParam2, var uParam3, int iParam4) // Position - 0x246ECE (2387662)
 {
 	var unk;
-	float num;
+	int num;
 	Vector3 vector;
 
 	unk = { func_7902(iParam0) };
@@ -411985,7 +411985,7 @@ void func_7910(var uParam0, float fParam1, float fParam2, float fParam3) // Posi
 	return;
 }
 
-float func_7911(int iParam0) // Position - 0x247055 (2388053)
+int func_7911(int iParam0) // Position - 0x247055 (2388053)
 {
 	return Global_4280768[iParam0 /*45*/].f_7;
 }
@@ -430741,7 +430741,7 @@ void func_8295(int iParam0, var uParam1, BOOL bParam2) // Position - 0x26A302 (2
 
 float func_8296(int iParam0, float fParam1) // Position - 0x26A3A4 (2532260)
 {
-	float num;
+	int num;
 
 	num = func_7911(iParam0);
 

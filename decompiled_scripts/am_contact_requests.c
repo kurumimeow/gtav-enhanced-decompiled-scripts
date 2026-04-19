@@ -26393,7 +26393,7 @@ BOOL func_804(int iParam0, int iParam1) // Position - 0x1FE37 (130615)
 
 	for (i = 0; i < Global_1989528; i = i + 1)
 	{
-		if (Global_1989528.f_1[i /*14*/] == iParam1 && Global_1989528.f_1[i /*14*/].f_2 > 0)
+		if (Global_1989528.f_1[i /*14*/] == iParam1 && Global_1989528.f_1[i /*14*/].f_2 > false)
 			return Global_1989528.f_1[i /*14*/].f_2;
 	}
 

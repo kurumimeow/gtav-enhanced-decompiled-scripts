@@ -96038,9 +96038,9 @@ int func_632(eCharacter echParam0, char* sParam1, int iParam2, int iParam3, cons
 
 	if (IS_BIT_SET(Global_9463, 10))
 	{
-		Global_114931.f_14148[Global_24068 /*104*/].f_99[0] = true;
-		Global_114931.f_14148[Global_24068 /*104*/].f_99[1] = true;
-		Global_114931.f_14148[Global_24068 /*104*/].f_99[2] = true;
+		Global_114931.f_14148[Global_24068 /*104*/].f_99[0] = 1;
+		Global_114931.f_14148[Global_24068 /*104*/].f_99[1] = 1;
+		Global_114931.f_14148[Global_24068 /*104*/].f_99[2] = 1;
 		Global_10203 = 4;
 		func_643(0);
 		func_643(2);
@@ -96053,19 +96053,19 @@ int func_632(eCharacter echParam0, char* sParam1, int iParam2, int iParam3, cons
 		switch (iParam16)
 		{
 			case 3:
-				Global_114931.f_14148[Global_24068 /*104*/].f_99[Global_21627] = true;
+				Global_114931.f_14148[Global_24068 /*104*/].f_99[Global_21627] = 1;
 				break;
 		
 			case 0:
-				Global_114931.f_14148[Global_24068 /*104*/].f_99[0] = true;
+				Global_114931.f_14148[Global_24068 /*104*/].f_99[0] = 1;
 				break;
 		
 			case 2:
-				Global_114931.f_14148[Global_24068 /*104*/].f_99[2] = true;
+				Global_114931.f_14148[Global_24068 /*104*/].f_99[2] = 1;
 				break;
 		
 			case 1:
-				Global_114931.f_14148[Global_24068 /*104*/].f_99[1] = true;
+				Global_114931.f_14148[Global_24068 /*104*/].f_99[1] = 1;
 				break;
 		}
 	
@@ -96347,7 +96347,7 @@ void func_638(int iParam0) // Position - 0x692FB (430843)
 								{
 									if (Global_114931.f_14148[j /*104*/].f_24 != 0)
 										if (Global_114931.f_14148[j /*104*/].f_28 == 0)
-											if (Global_114931.f_14148[j /*104*/].f_99[Global_21627] == true)
+											if (Global_114931.f_14148[j /*104*/].f_99[Global_21627] == 1)
 												Global_24069 = Global_24069 + 1;
 								}
 							
@@ -96731,9 +96731,9 @@ int func_647() // Position - 0x69C34 (433204)
 	if (Global_24068 == 34)
 		return 0;
 
-	Global_114931.f_14148[Global_24068 /*104*/].f_99[0] = false;
-	Global_114931.f_14148[Global_24068 /*104*/].f_99[1] = false;
-	Global_114931.f_14148[Global_24068 /*104*/].f_99[2] = false;
+	Global_114931.f_14148[Global_24068 /*104*/].f_99[0] = 0;
+	Global_114931.f_14148[Global_24068 /*104*/].f_99[1] = 0;
+	Global_114931.f_14148[Global_24068 /*104*/].f_99[2] = 0;
 	return 1;
 }
 
@@ -145427,7 +145427,7 @@ int func_910(int iParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position -
 		case 292:
 			if (Global_262145.f_17454 || func_912(24))
 			{
-				if (Global_262145.f_17503 == false)
+				if (Global_262145.f_17503 == 0)
 				{
 					return func_920(hash2, func_911(iParam1), bParam2);
 				}

@@ -90253,13 +90253,13 @@ void func_388(BOOL bParam0) // Position - 0x674FA (423162)
 
 	switch (bParam0)
 	{
-		case 0:
+		case false:
 			TEXT_LABEL_ASSIGN_STRING(&unk, "TORSO_P0_0_0" /*Gray Jacket*/, 16);
 			num2 = 0;
 			num3 = 0;
 			break;
 	
-		case 1:
+		case true:
 			TEXT_LABEL_ASSIGN_STRING(&unk, "TORSO_P0_0_0" /*Gray Jacket*/, 16);
 			num2 = 0;
 			num3 = 1;
@@ -90687,13 +90687,13 @@ void func_389(BOOL bParam0) // Position - 0x67BB8 (424888)
 
 	switch (bParam0)
 	{
-		case 0:
+		case false:
 			TEXT_LABEL_ASSIGN_STRING(&unk, "HAIR_P0_0_0" /*Lexington*/, 16);
 			num2 = 0;
 			num3 = 0;
 			break;
 	
-		case 1:
+		case true:
 			TEXT_LABEL_ASSIGN_STRING(&unk, "HAIR_P0_1_0" /*The Wood*/, 16);
 			num2 = 1;
 			num3 = 0;
@@ -90754,13 +90754,13 @@ void func_390(BOOL bParam0) // Position - 0x67CA4 (425124)
 
 	switch (bParam0)
 	{
-		case 0:
+		case false:
 			TEXT_LABEL_ASSIGN_STRING(&unk, "NO_LABEL", 16);
 			num2 = 0;
 			num3 = 0;
 			break;
 	
-		case 1:
+		case true:
 			TEXT_LABEL_ASSIGN_STRING(&unk, "NO_LABEL", 16);
 			num2 = 0;
 			num3 = 1;

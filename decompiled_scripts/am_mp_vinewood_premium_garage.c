@@ -119834,45 +119834,45 @@ Player func_1163(Vehicle veParam0) // Position - 0x9F1C9 (651721)
 	return func_1153(_int, false, true, 0);
 }
 
-void func_1164(Vehicle veParam0, int iParam1) // Position - 0x9F1F6 (651766)
+void func_1164(Vehicle veParam0, var uParam1) // Position - 0x9F1F6 (651766)
 {
 	int i;
 
 	if (VEHICLE::IS_VEHICLE_DRIVEABLE(veParam0, false))
 	{
-		func_171(iParam1);
-		iParam1->f_66 = ENTITY::GET_ENTITY_MODEL(veParam0);
-		TEXT_LABEL_ASSIGN_STRING(&(iParam1->f_1), VEHICLE::GET_VEHICLE_NUMBER_PLATE_TEXT(veParam0), 16);
-		*iParam1 = VEHICLE::GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(veParam0);
-		VEHICLE::GET_VEHICLE_COLOURS(veParam0, &(iParam1->f_5), &(iParam1->f_6));
-		VEHICLE::GET_VEHICLE_EXTRA_COLOURS(veParam0, &(iParam1->f_7), &(iParam1->f_8));
-		VEHICLE::GET_VEHICLE_TYRE_SMOKE_COLOR(veParam0, &(iParam1->f_62), &(iParam1->f_63), &(iParam1->f_64));
-		iParam1->f_65 = VEHICLE::GET_VEHICLE_WINDOW_TINT(veParam0);
-		iParam1->f_67 = VEHICLE::GET_VEHICLE_LIVERY(veParam0);
-		iParam1->f_69 = VEHICLE::GET_VEHICLE_WHEEL_TYPE(veParam0);
-		iParam1->f_70 = VEHICLE::GET_VEHICLE_DOOR_LOCK_STATUS(veParam0);
-		VEHICLE::GET_VEHICLE_CUSTOM_SECONDARY_COLOUR(veParam0, &(iParam1->f_71), &(iParam1->f_72), &(iParam1->f_73));
-		VEHICLE::GET_VEHICLE_NEON_COLOUR(veParam0, &(iParam1->f_74), &(iParam1->f_75), &(iParam1->f_76));
+		func_171(uParam1);
+		uParam1->f_66 = ENTITY::GET_ENTITY_MODEL(veParam0);
+		TEXT_LABEL_ASSIGN_STRING(&(uParam1->f_1), VEHICLE::GET_VEHICLE_NUMBER_PLATE_TEXT(veParam0), 16);
+		*uParam1 = VEHICLE::GET_VEHICLE_NUMBER_PLATE_TEXT_INDEX(veParam0);
+		VEHICLE::GET_VEHICLE_COLOURS(veParam0, &(uParam1->f_5), &(uParam1->f_6));
+		VEHICLE::GET_VEHICLE_EXTRA_COLOURS(veParam0, &(uParam1->f_7), &(uParam1->f_8));
+		VEHICLE::GET_VEHICLE_TYRE_SMOKE_COLOR(veParam0, &(uParam1->f_62), &(uParam1->f_63), &(uParam1->f_64));
+		uParam1->f_65 = VEHICLE::GET_VEHICLE_WINDOW_TINT(veParam0);
+		uParam1->f_67 = VEHICLE::GET_VEHICLE_LIVERY(veParam0);
+		uParam1->f_69 = VEHICLE::GET_VEHICLE_WHEEL_TYPE(veParam0);
+		uParam1->f_70 = VEHICLE::GET_VEHICLE_DOOR_LOCK_STATUS(veParam0);
+		VEHICLE::GET_VEHICLE_CUSTOM_SECONDARY_COLOUR(veParam0, &(uParam1->f_71), &(uParam1->f_72), &(uParam1->f_73));
+		VEHICLE::GET_VEHICLE_NEON_COLOUR(veParam0, &(uParam1->f_74), &(uParam1->f_75), &(uParam1->f_76));
 	
 		if (VEHICLE::GET_VEHICLE_NEON_ENABLED(veParam0, 2))
-			MISC::SET_BIT(&(iParam1->f_77), 28);
+			MISC::SET_BIT(&(uParam1->f_77), 28);
 	
 		if (VEHICLE::GET_VEHICLE_NEON_ENABLED(veParam0, 3))
-			MISC::SET_BIT(&(iParam1->f_77), 29);
+			MISC::SET_BIT(&(uParam1->f_77), 29);
 	
 		if (VEHICLE::GET_VEHICLE_NEON_ENABLED(veParam0, 0))
-			MISC::SET_BIT(&(iParam1->f_77), 30);
+			MISC::SET_BIT(&(uParam1->f_77), 30);
 	
 		if (VEHICLE::GET_VEHICLE_NEON_ENABLED(veParam0, 1))
-			MISC::SET_BIT(&(iParam1->f_77), 31);
+			MISC::SET_BIT(&(uParam1->f_77), 31);
 	
-		if (iParam1->f_65 == -1 && !func_117(iParam1->f_66))
-			iParam1->f_65 = 0;
+		if (uParam1->f_65 == -1 && !func_117(uParam1->f_66))
+			uParam1->f_65 = 0;
 	
 		if (VEHICLE::IS_VEHICLE_A_CONVERTIBLE(veParam0, false))
-			iParam1->f_68 = VEHICLE::GET_CONVERTIBLE_ROOF_STATE(veParam0);
+			uParam1->f_68 = VEHICLE::GET_CONVERTIBLE_ROOF_STATE(veParam0);
 	
-		if (VEHICLE::IS_THIS_MODEL_A_PLANE(iParam1->f_66))
+		if (VEHICLE::IS_THIS_MODEL_A_PLANE(uParam1->f_66))
 		{
 			if (VEHICLE::IS_PLANE_LANDING_GEAR_INTACT(veParam0))
 			{
@@ -119880,59 +119880,59 @@ void func_1164(Vehicle veParam0, int iParam1) // Position - 0x9F1F6 (651766)
 				{
 					case 3:
 					case 0:
-						MISC::CLEAR_BIT(&(iParam1->f_77), 23);
-						MISC::SET_BIT(&(iParam1->f_77), 22);
+						MISC::CLEAR_BIT(&(uParam1->f_77), 23);
+						MISC::SET_BIT(&(uParam1->f_77), 22);
 						break;
 				
 					case 4:
 					case 1:
-						MISC::CLEAR_BIT(&(iParam1->f_77), 23);
-						MISC::CLEAR_BIT(&(iParam1->f_77), 22);
+						MISC::CLEAR_BIT(&(uParam1->f_77), 23);
+						MISC::CLEAR_BIT(&(uParam1->f_77), 22);
 						break;
 				
 					case 5:
-						MISC::SET_BIT(&(iParam1->f_77), 23);
+						MISC::SET_BIT(&(uParam1->f_77), 23);
 						break;
 				}
 			}
 			else
 			{
-				MISC::SET_BIT(&(iParam1->f_77), 23);
+				MISC::SET_BIT(&(uParam1->f_77), 23);
 			}
 		}
 	
 		if (!VEHICLE::GET_VEHICLE_TYRES_CAN_BURST(veParam0))
-			MISC::SET_BIT(&(iParam1->f_77), 9);
+			MISC::SET_BIT(&(uParam1->f_77), 9);
 	
 		if (VEHICLE::IS_VEHICLE_STOLEN(veParam0))
-			MISC::SET_BIT(&(iParam1->f_77), 10);
+			MISC::SET_BIT(&(uParam1->f_77), 10);
 	
 		if (VEHICLE::GET_IS_VEHICLE_PRIMARY_COLOUR_CUSTOM(veParam0))
 		{
-			MISC::SET_BIT(&(iParam1->f_77), 13);
-			VEHICLE::GET_VEHICLE_CUSTOM_PRIMARY_COLOUR(veParam0, &(iParam1->f_71), &(iParam1->f_72), &(iParam1->f_73));
+			MISC::SET_BIT(&(uParam1->f_77), 13);
+			VEHICLE::GET_VEHICLE_CUSTOM_PRIMARY_COLOUR(veParam0, &(uParam1->f_71), &(uParam1->f_72), &(uParam1->f_73));
 		}
 	
 		if (VEHICLE::GET_IS_VEHICLE_SECONDARY_COLOUR_CUSTOM(veParam0))
-			MISC::SET_BIT(&(iParam1->f_77), 12);
+			MISC::SET_BIT(&(uParam1->f_77), 12);
 	
-		func_1165(&veParam0, &(iParam1->f_9), &(iParam1->f_59));
+		func_1165(&veParam0, &(uParam1->f_9), &(uParam1->f_59));
 	
 		for (i = 0; i <= 11; i = i + 1)
 		{
 			if (VEHICLE::IS_VEHICLE_EXTRA_TURNED_ON(veParam0, i + 1))
-				MISC::SET_BIT(&(iParam1->f_77), func_122(i + 1));
+				MISC::SET_BIT(&(uParam1->f_77), func_122(i + 1));
 		}
 	
 		if (GRAPHICS::DOES_VEHICLE_HAVE_CREW_EMBLEM(veParam0, 0))
-			MISC::SET_BIT(&(iParam1->f_77), 11);
+			MISC::SET_BIT(&(uParam1->f_77), 11);
 		else
-			MISC::CLEAR_BIT(&(iParam1->f_77), 11);
+			MISC::CLEAR_BIT(&(uParam1->f_77), 11);
 	
 		if (DECORATOR::DECOR_EXIST_ON(veParam0, "IgnoredByQuickSave") && DECORATOR::DECOR_GET_BOOL(veParam0, "IgnoredByQuickSave"))
-			MISC::SET_BIT(&(iParam1->f_77), 27);
+			MISC::SET_BIT(&(uParam1->f_77), 27);
 		else
-			MISC::CLEAR_BIT(&(iParam1->f_77), 27);
+			MISC::CLEAR_BIT(&(uParam1->f_77), 27);
 	}
 
 	return;

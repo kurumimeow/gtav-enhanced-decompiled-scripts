@@ -57595,41 +57595,41 @@ BOOL func_179(int iParam0) // Position - 0x15270 (86640)
 	return iParam0 == 36;
 }
 
-Hash func_180(int iParam0, int iParam1) // Position - 0x1527D (86653)
+Hash func_180(ePedComponentType epctParam0, int iParam1) // Position - 0x1527D (86653)
 {
-	switch (iParam0)
+	switch (epctParam0)
 	{
-		case 0:
+		case PV_COMP_HEAD:
 			return joaat("prop_ex_b_shark");
 	
-		case 1:
+		case PV_COMP_BERD:
 			return joaat("prop_ex_bmd");
 	
-		case 2:
+		case PV_COMP_HAIR:
 			return joaat("prop_mk_thermal");
 	
-		case 3:
+		case PV_COMP_UPPR:
 			return joaat("prop_ex_swap");
 	
-		case 4:
+		case PV_COMP_LOWR:
 			return joaat("prop_ex_weed");
 	
-		case 5:
+		case PV_COMP_HAND:
 			return joaat("prop_mk_s_time");
 	
-		case 6:
+		case PV_COMP_FEET:
 			return joaat("prop_ex_b_time");
 	
-		case 7:
+		case PV_COMP_TEEF:
 			return joaat("prop_ex_hidden");
 	
-		case 10:
+		case PV_COMP_DECL:
 			return func_184(iParam1);
 	
-		case 11:
+		case PV_COMP_JBIB:
 			return func_183(iParam1);
 	
-		case 12:
+		case PV_COMP_MAX:
 			return func_182(iParam1);
 	
 		case 14:
@@ -64318,11 +64318,11 @@ void func_272() // Position - 0x1C780 (116608)
 	var unk;
 	int i;
 
-	if (Global_2699543 != false)
+	if (Global_2699543 != PV_COMP_HEAD)
 	{
 		if (Global_2673274.f_2591[0 /*80*/].f_1 == 86)
 		{
-			Global_2699543 = false;
+			Global_2699543 = PV_COMP_HEAD;
 		
 			if (MISC::IS_PC_VERSION())
 				if (Global_262145.f_4393)
@@ -64333,7 +64333,7 @@ void func_272() // Position - 0x1C780 (116608)
 			_STOPWATCH_DESTROY(&Global_2697463);
 		}
 	
-		if (Global_2699543 != false)
+		if (Global_2699543 != PV_COMP_HEAD)
 		{
 			if (_STOPWATCH_IS_INITIALIZED(&Global_2697463))
 			{
@@ -64349,14 +64349,14 @@ void func_272() // Position - 0x1C780 (116608)
 						else if (Global_262145.f_4394)
 							HUD::USE_FAKE_MP_CASH(false);
 				
-					Global_2699543 = false;
+					Global_2699543 = PV_COMP_HEAD;
 					_STOPWATCH_DESTROY(&Global_2697463);
 				}
 				else if (Global_2673274.f_2591[0 /*80*/].f_2 != 5)
 				{
 					if (MISC::IS_PC_VERSION())
 					{
-						if (Global_2699543 != false)
+						if (Global_2699543 != PV_COMP_HEAD)
 						{
 							if (Global_262145.f_4395)
 								HUD::USE_FAKE_MP_CASH(true);
@@ -64368,7 +64368,7 @@ void func_272() // Position - 0x1C780 (116608)
 							HUD::CHANGE_FAKE_MP_CASH(0, Global_2699543);
 						}
 					}
-					else if (Global_2699543 != false)
+					else if (Global_2699543 != PV_COMP_HEAD)
 					{
 						HUD::CHANGE_FAKE_MP_CASH(Global_2699543, 0);
 						HUD::SET_MULTIPLAYER_WALLET_CASH();
@@ -64394,7 +64394,7 @@ void func_272() // Position - 0x1C780 (116608)
 		case 2:
 			if (func_402(&Global_2673274.f_2591[0 /*80*/]))
 			{
-				if (Global_2699543 != false)
+				if (Global_2699543 != PV_COMP_HEAD)
 					if (func_401(Global_2673274.f_2591[0 /*80*/].f_1) || func_400(Global_2673274.f_2591[0 /*80*/].f_1))
 						func_399(&Global_2697463, false, false);
 			
@@ -100189,16 +100189,16 @@ void func_951(var uParam0, BOOL bParam1) // Position - 0x6ED3E (453950)
 	return;
 }
 
-Hash func_952(ePedComponentType epctParam0, BOOL bParam1, ePedComponentType epctParam2, int iParam3, int iParam4, ePedComponentType epctParam5, int iParam6) // Position - 0x6EEF3 (454387)
+Hash func_952(ePedComponentType epctParam0, BOOL bParam1, ePedComponentType epctParam2, ePedComponentType epctParam3, int iParam4, ePedComponentType epctParam5, int iParam6) // Position - 0x6EEF3 (454387)
 {
 	if (epctParam2 == PV_COMP_TEEF)
 		return func_171();
 
-	if (bParam1 || iParam4 > -1 || iParam3 > -1)
+	if (bParam1 || iParam4 > -1 || epctParam3 > PV_COMP_INVALID)
 	{
-		if (epctParam0 == joaat("PICKUP_CUSTOM_SCRIPT") && iParam3 > -1)
+		if (epctParam0 == joaat("PICKUP_CUSTOM_SCRIPT") && epctParam3 > PV_COMP_INVALID)
 		{
-			return func_180(iParam3, iParam6);
+			return func_180(epctParam3, iParam6);
 		}
 		else if (iParam4 > -1 || epctParam0 == joaat("PICKUP_VEHICLE_CUSTOM_SCRIPT"))
 		{
@@ -106819,7 +106819,7 @@ void func_1105(var uParam0, BOOL bParam1) // Position - 0x78B60 (494432)
 	return;
 }
 
-void func_1106(int iParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4) // Position - 0x78B8E (494478)
+void func_1106(ePedComponentType epctParam0, ePedComponentType epctParam1, BOOL bParam2, int iParam3, BOOL bParam4) // Position - 0x78B8E (494478)
 {
 	int idOfThisThread;
 	BOOL flag;
@@ -106830,15 +106830,15 @@ void func_1106(int iParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4
 	idOfThisThread = SCRIPT::GET_ID_OF_THIS_THREAD();
 
 	if (NETWORK::NETWORK_IS_THREAD_A_NETWORK_SCRIPT(idOfThisThread) && NETWORK::NETWORK_IS_HOST_OF_THIS_SCRIPT())
-		if (*iParam1 != Global_4718592.f_192086.f_2)
-			*iParam1 = Global_4718592.f_192086.f_2;
+		if (*epctParam1 != Global_4718592.f_192086.f_2)
+			*epctParam1 = Global_4718592.f_192086.f_2;
 
-	if (func_332() && *iParam1 > -1)
+	if (func_332() && *epctParam1 > -1)
 	{
-		if (Global_4718592.f_192086.f_2 != *iParam1)
+		if (Global_4718592.f_192086.f_2 != *epctParam1)
 		{
-			Global_4718592.f_192086.f_2 = *iParam1;
-			iParam0 = *iParam1;
+			Global_4718592.f_192086.f_2 = *epctParam1;
+			epctParam0 = *epctParam1;
 		}
 	}
 
@@ -106861,69 +106861,69 @@ void func_1106(int iParam0, int iParam1, BOOL bParam2, int iParam3, BOOL bParam4
 	
 		if (bParam2)
 		{
-			switch (iParam0)
+			switch (epctParam0)
 			{
-				case 0:
+				case PV_COMP_HEAD:
 					clockHours = 0;
 					weatherType = "CLOUDS";
 					flag = true;
 					break;
 			
-				case 1:
+				case PV_COMP_BERD:
 					clockHours = 23;
 					weatherType = "CLOUDS";
 					flag = true;
 					break;
 			
-				case 2:
+				case PV_COMP_HAIR:
 					clockHours = 18;
 					weatherType = "SMOG";
 					flag = true;
 					break;
 			
-				case 3:
+				case PV_COMP_UPPR:
 					clockHours = 7;
 					weatherType = "HALLOWEEN";
 					flag = true;
 					break;
 			
-				case 4:
+				case PV_COMP_LOWR:
 					clockHours = 15;
 					weatherType = "EXTRASUNNY";
 					flag = true;
 					break;
 			
-				case 5:
+				case PV_COMP_HAND:
 					clockHours = 10;
 					weatherType = "CLOUDS";
 					flag = true;
 					break;
 			
-				case 6:
+				case PV_COMP_FEET:
 					clockHours = 0;
 					weatherType = "SMOG";
 					flag = true;
 					break;
 			
-				case 7:
+				case PV_COMP_TEEF:
 					clockHours = 18;
 					weatherType = "CLOUDS";
 					flag = true;
 					break;
 			
-				case 8:
+				case PV_COMP_ACCS:
 					clockHours = 10;
 					weatherType = "OVERCAST";
 					flag = true;
 					break;
 			
-				case 9:
+				case PV_COMP_TASK:
 					clockHours = 0;
 					weatherType = "CLEAR";
 					flag = true;
 					break;
 			
-				case 10:
+				case PV_COMP_DECL:
 					clockHours = 12;
 					weatherType = "OVERCAST";
 					flag = true;
@@ -106992,45 +106992,45 @@ void func_1107(BOOL bParam0) // Position - 0x78E06 (495110)
 	return;
 }
 
-char* func_1108(int iParam0) // Position - 0x78E3F (495167)
+char* func_1108(ePedComponentType epctParam0) // Position - 0x78E3F (495167)
 {
-	switch (iParam0)
+	switch (epctParam0)
 	{
-		case 0:
+		case PV_COMP_HEAD:
 			return "";
 	
-		case 1:
+		case PV_COMP_BERD:
 			return "MP_Arena_theme_atlantis";
 	
-		case 2:
+		case PV_COMP_HAIR:
 			return "MP_Arena_theme_evening";
 	
-		case 3:
+		case PV_COMP_UPPR:
 			return "MP_Arena_theme_hell";
 	
-		case 4:
+		case PV_COMP_LOWR:
 			return "MP_Arena_theme_midday";
 	
-		case 5:
+		case PV_COMP_HAND:
 			return "MP_Arena_theme_morning";
 	
-		case 6:
+		case PV_COMP_FEET:
 			if (*Global_4718592.f_192086 == 2)
 				return "MP_Arena_theme_scifi_night";
 			else
 				return "MP_Arena_theme_night";
 			break;
 	
-		case 7:
+		case PV_COMP_TEEF:
 			return "MP_Arena_theme_saccharine";
 	
-		case 8:
+		case PV_COMP_ACCS:
 			return "MP_Arena_theme_sandstorm";
 	
-		case 9:
+		case PV_COMP_TASK:
 			return "MP_Arena_theme_storm";
 	
-		case 10:
+		case PV_COMP_DECL:
 			return "MP_Arena_theme_toxic";
 	}
 
@@ -107095,24 +107095,24 @@ BOOL func_1115() // Position - 0x78FD4 (495572)
 
 void func_1116(var uParam0, BOOL bParam1) // Position - 0x78FF3 (495603)
 {
-	func_1103(uParam0, "Set_Lights_atlantis", bParam1 && Global_4718592.f_192086.f_2 == 1);
-	func_1103(uParam0, "Set_Lights_evening", bParam1 && Global_4718592.f_192086.f_2 == 2);
-	func_1103(uParam0, "Set_Lights_hell", bParam1 && Global_4718592.f_192086.f_2 == 3);
-	func_1103(uParam0, "Set_Lights_midday", bParam1 && Global_4718592.f_192086.f_2 == 4);
-	func_1103(uParam0, "Set_Lights_morning", bParam1 && Global_4718592.f_192086.f_2 == 5);
-	func_1103(uParam0, "Set_Lights_night", bParam1 && Global_4718592.f_192086.f_2 == 6 && *Global_4718592.f_192086 != 2);
-	func_1103(uParam0, "set_lights_sfnight", bParam1 && Global_4718592.f_192086.f_2 == 6 && *Global_4718592.f_192086 == 2);
-	func_1103(uParam0, "Set_Lights_saccharine", bParam1 && Global_4718592.f_192086.f_2 == 7);
-	func_1103(uParam0, "Set_Lights_sandstorm", bParam1 && Global_4718592.f_192086.f_2 == 8);
-	func_1103(uParam0, "Set_Lights_storm", bParam1 && Global_4718592.f_192086.f_2 == 9);
-	func_1103(uParam0, "Set_Lights_toxic", bParam1 && Global_4718592.f_192086.f_2 == 10);
+	func_1103(uParam0, "Set_Lights_atlantis", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_BERD);
+	func_1103(uParam0, "Set_Lights_evening", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_HAIR);
+	func_1103(uParam0, "Set_Lights_hell", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_UPPR);
+	func_1103(uParam0, "Set_Lights_midday", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_LOWR);
+	func_1103(uParam0, "Set_Lights_morning", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_HAND);
+	func_1103(uParam0, "Set_Lights_night", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_FEET && *Global_4718592.f_192086 != 2);
+	func_1103(uParam0, "set_lights_sfnight", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_FEET && *Global_4718592.f_192086 == 2);
+	func_1103(uParam0, "Set_Lights_saccharine", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_TEEF);
+	func_1103(uParam0, "Set_Lights_sandstorm", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_ACCS);
+	func_1103(uParam0, "Set_Lights_storm", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_TASK);
+	func_1103(uParam0, "Set_Lights_toxic", bParam1 && Global_4718592.f_192086.f_2 == PV_COMP_DECL);
 	return;
 }
 
 void func_1117(var uParam0, BOOL bParam1) // Position - 0x79175 (495989)
 {
 	int i;
-	int j;
+	ePedComponentType j;
 	var unk;
 
 	i = 0;
@@ -168189,45 +168189,45 @@ BOOL func_1887(ePedComponentType epctParam0) // Position - 0xE90E5 (954597)
 	return false;
 }
 
-eBlipSprite func_1888(ePedComponentType epctParam0, ePedComponentType epctParam1, int iParam2) // Position - 0xE9151 (954705)
+eBlipSprite func_1888(ePedComponentType epctParam0, ePedComponentType epctParam1, ePedComponentType epctParam2) // Position - 0xE9151 (954705)
 {
 	epctParam0 = OBJECT::CONVERT_OLD_PICKUP_TYPE_TO_NEW(epctParam0);
 
-	if (iParam2 > -1)
+	if (epctParam2 > PV_COMP_INVALID)
 	{
-		switch (iParam2)
+		switch (epctParam2)
 		{
-			case 0:
+			case PV_COMP_HEAD:
 				return BLIP_TESTOSTERONE;
 		
-			case 1:
+			case PV_COMP_BERD:
 				return BLIP_PICKUP_BEAST;
 		
-			case 2:
+			case PV_COMP_HAIR:
 				return BLIP_PICKUP_THERMAL;
 		
-			case 3:
+			case PV_COMP_UPPR:
 				return BLIP_PICKUP_SWAP;
 		
-			case 4:
+			case PV_COMP_LOWR:
 				return BLIP_PICKUP_WEED;
 		
-			case 5:
+			case PV_COMP_HAND:
 				return BLIP_PICKUP_SLOW_TIME;
 		
-			case 6:
+			case PV_COMP_FEET:
 				return BLIP_PICKUP_ZONED;
 		
-			case 7:
+			case PV_COMP_TEEF:
 				return BLIP_PICKUP_HIDDEN;
 		
-			case 8:
+			case PV_COMP_ACCS:
 				return BLIP_PICKUP_RANDOM;
 		
-			case 10:
+			case PV_COMP_DECL:
 				return BLIP_WEAPON_LIVES;
 		
-			case 11:
+			case PV_COMP_JBIB:
 				return BLIP_NHP_BAG;
 		
 			case 15:
@@ -193706,7 +193706,7 @@ void func_2309(int iParam0) // Position - 0x11A0AF (1155247)
 					num = 1f;
 			
 				func_961(&iLocal_3523.f_65[i], ENTITY::GET_ENTITY_COORDS(iLocal_3523.f_1[i], true), HUD_COLOUR_GREEN, "", num, false, false, INVALID);
-				HUD::SET_BLIP_SPRITE(iLocal_3523.f_65[i], func_1888(Global_4980736.f_57917[i /*172*/].f_15, Global_4980736.f_57917[i /*172*/].f_6, -1));
+				HUD::SET_BLIP_SPRITE(iLocal_3523.f_65[i], func_1888(Global_4980736.f_57917[i /*172*/].f_15, Global_4980736.f_57917[i /*172*/].f_6, PV_COMP_INVALID));
 			}
 		
 			func_170(true, &iLocal_3523);
@@ -195998,14 +195998,14 @@ void func_2368(char* sParam0) // Position - 0x11E4DF (1172703)
 	return;
 }
 
-void func_2369(ePedComponentType epctParam0) // Position - 0x11E540 (1172800)
+void func_2369(BOOL bParam0) // Position - 0x11E540 (1172800)
 {
 	if (Global_24546.f_5320 >= 3 || Global_24546.f_5319 >= 4)
 		return;
 
 	Global_24546.f_5253[Global_24546.f_5319] = 2;
 	Global_24546.f_5319 = Global_24546.f_5319 + 1;
-	Global_24546.f_5258[Global_24546.f_5320] = epctParam0;
+	Global_24546.f_5258[Global_24546.f_5320] = bParam0;
 	Global_24546.f_5320 = Global_24546.f_5320 + 1;
 	return;
 }
@@ -268707,7 +268707,7 @@ BOOL func_3776() // Position - 0x19F32A (1700650)
 void func_3777(int* piParam0) // Position - 0x19F343 (1700675)
 {
 	ePedComponentType i;
-	int value;
+	ePedComponentType value;
 	float num;
 
 	func_2607(piParam0);
@@ -268728,7 +268728,7 @@ void func_3777(int* piParam0) // Position - 0x19F343 (1700675)
 		{
 			value = Global_4718592.f_213876[piParam0->f_7614 /*301*/].f_277[i];
 		
-			if (value == 0)
+			if (value == PV_COMP_HEAD)
 			{
 				func_2630(i, func_3770(i, false), "DM_WEP_OHK", true, false, PV_COMP_INVALID);
 			}
@@ -277315,11 +277315,11 @@ void func_4029(int* piParam0, BOOL bParam1) // Position - 0x1B34FB (1783035)
 
 void func_4030() // Position - 0x1B35B2 (1783218)
 {
-	int num;
-	int num2;
+	ePedComponentType type;
+	ePedComponentType type2;
 
-	num = 0;
-	num2 = 0;
+	type = 0;
+	type2 = 0;
 
 	if (*Global_4718592.f_192086 == 0 || *Global_4718592.f_192086 == -1)
 		Global_4718592.f_192086 = 1;
@@ -277327,26 +277327,26 @@ void func_4030() // Position - 0x1B35B2 (1783218)
 	switch (*Global_4718592.f_192086)
 	{
 		case 1:
-			num = 0;
-			num2 = 17;
+			type = 0;
+			type2 = 17;
 			break;
 	
 		case 2:
-			num = 0;
-			num2 = 10;
+			type = 0;
+			type2 = 10;
 			break;
 	
 		case 3:
-			num = 0;
-			num2 = 10;
+			type = 0;
+			type2 = 10;
 			break;
 	}
 
-	if (Global_4718592.f_192086.f_1 < num)
-		Global_4718592.f_192086.f_1 = num;
+	if (Global_4718592.f_192086.f_1 < type)
+		Global_4718592.f_192086.f_1 = type;
 
-	if (Global_4718592.f_192086.f_1 > num2)
-		Global_4718592.f_192086.f_1 = num2;
+	if (Global_4718592.f_192086.f_1 > type2)
+		Global_4718592.f_192086.f_1 = type2;
 
 	if (Global_4718592.f_192086.f_2 == PV_COMP_HEAD)
 		Global_4718592.f_192086.f_2 = 4;

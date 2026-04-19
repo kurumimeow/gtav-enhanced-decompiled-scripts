@@ -5194,7 +5194,7 @@ BOOL func_192(int iParam0) // Position - 0x659D (26013)
 BOOL func_193(ePedComponentType epctParam0, BOOL bParam1) // Position - 0x65AF (26031)
 {
 	if (func_113(epctParam0))
-		if (Global_1892798[epctParam0 /*615*/].f_10.f_34 != PV_COMP_INVALID || bParam1 && Global_1892798[epctParam0 /*615*/].f_10.f_33 != PV_COMP_INVALID)
+		if (Global_1892798[epctParam0 /*615*/].f_10.f_34 != -1 || bParam1 && Global_1892798[epctParam0 /*615*/].f_10.f_33 != PV_COMP_INVALID)
 			return true;
 
 	return false;
@@ -23947,9 +23947,9 @@ BOOL func_493(ePedComponentType epctParam0, int iParam1) // Position - 0x1D456 (
 	return false;
 }
 
-int func_494(ePedComponentType epctParam0) // Position - 0x1D480 (119936)
+int func_494(int iParam0) // Position - 0x1D480 (119936)
 {
-	switch (epctParam0)
+	switch (iParam0)
 	{
 		case 153:
 		case 154:
@@ -25091,20 +25091,20 @@ BOOL func_529(ePedComponentType epctParam0, int iParam1) // Position - 0x1E963 (
 {
 	int num;
 	ePedComponentType type;
+	ePedComponentType num2;
 	ePedComponentType type2;
-	ePedComponentType type3;
 
-	type3 = epctParam0;
+	type2 = epctParam0;
 
-	if (type3 != PV_COMP_INVALID)
+	if (type2 != PV_COMP_INVALID)
 	{
 		if (func_532(iParam1))
 		{
 			num = func_524(iParam1);
-			type = Global_1882717[type3 /*315*/].f_43.f_24;
-			type2 = Global_1882717[type3 /*315*/].f_43.f_25;
+			type = Global_1882717[type2 /*315*/].f_43.f_24;
+			num2 = Global_1882717[type2 /*315*/].f_43.f_25;
 		
-			if (IS_BIT_SET(type, num) && IS_BIT_SET(type2, num))
+			if (IS_BIT_SET(type, num) && IS_BIT_SET(num2, num))
 				return true;
 		}
 	}
@@ -43269,9 +43269,9 @@ void func_894() // Position - 0x31E60 (204384)
 	return;
 }
 
-ePedComponentType func_895(int iParam0, BOOL bParam1) // Position - 0x3209B (204955)
+int func_895(int iParam0, BOOL bParam1) // Position - 0x3209B (204955)
 {
-	ePedComponentType value;
+	int value;
 
 	if (func_896(*Global_4718592.f_199277))
 		return 20000;
@@ -43416,7 +43416,7 @@ ePedComponentType func_895(int iParam0, BOOL bParam1) // Position - 0x3209B (204
 			break;
 	
 		case 20:
-			value = PV_COMP_HEAD;
+			value = 0;
 			break;
 	
 		case 21:

@@ -516877,7 +516877,7 @@ BOOL func_9610(BOOL bParam0, BOOL bParam1) // Position - 0x2DA9B4 (2992564)
 	return flag;
 }
 
-BOOL func_9611() // Position - 0x2DAB79 (2993017)
+int func_9611() // Position - 0x2DAB79 (2993017)
 {
 	return Global_262145.f_9212;
 }

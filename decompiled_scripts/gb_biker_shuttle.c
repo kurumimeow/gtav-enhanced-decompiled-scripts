@@ -52233,7 +52233,7 @@ var func_366() // Position - 0x35B2E (219950)
 	return unk;
 }
 
-float func_367(Vector3 vParam0, var uParam1, var uParam2, float fParam3, float fParam4) // Position - 0x35B49 (219977)
+float func_367(Vector3 vParam0, var uParam1, var uParam2, var uParam3, var uParam4) // Position - 0x35B49 (219977)
 {
 	float distanceBetweenCoords;
 	float num;
@@ -52244,23 +52244,23 @@ float func_367(Vector3 vParam0, var uParam1, var uParam2, float fParam3, float f
 
 	if (distanceBetweenCoords < 5f)
 	{
-		*fParam3 = 0.402f;
-		*fParam4 = 0.476f;
+		*uParam3 = 0.402f;
+		*uParam4 = 0.476f;
 		return 0f;
 	}
 
 	if (distanceBetweenCoords > 20f)
 	{
-		*fParam3 = 0.212f;
-		*fParam4 = 0.286f;
+		*uParam3 = 0.212f;
+		*uParam4 = 0.286f;
 		return 1f;
 	}
 
 	num = 1f - ((distanceBetweenCoords - 5f) / (20f - 5f));
 	num2 = num * (0.402f - 0.212f);
 	num3 = num * (0.476f - 0.286f);
-	*fParam3 = num2 + 0.212f;
-	*fParam4 = num3 + 0.286f;
+	*uParam3 = num2 + 0.212f;
+	*uParam4 = num3 + 0.286f;
 	return num;
 }
 
@@ -53467,16 +53467,16 @@ BOOL func_406() // Position - 0x371BC (225724)
 	return func_407(*Global_4718592.f_139000);
 }
 
-BOOL func_407(ePedComponentType epctParam0) // Position - 0x371E0 (225760)
+BOOL func_407(Hash hParam0) // Position - 0x371E0 (225760)
 {
 	int i;
 
-	if (epctParam0 == 0)
+	if (hParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 16; i = i + 1)
 	{
-		if (Global_262145.f_4708[i] == epctParam0)
+		if (Global_262145.f_4708[i] == hParam0)
 			return 1;
 	}
 
@@ -54832,16 +54832,16 @@ BOOL func_453() // Position - 0x38B1A (232218)
 	return func_454(*Global_4718592.f_139000);
 }
 
-BOOL func_454(ePedComponentType epctParam0) // Position - 0x38B30 (232240)
+BOOL func_454(Hash hParam0) // Position - 0x38B30 (232240)
 {
 	int i;
 
-	if (epctParam0 == 0)
+	if (hParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 8; i = i + 1)
 	{
-		if (Global_262145.f_30473[i] == epctParam0)
+		if (Global_262145.f_30473[i] == hParam0)
 			return 1;
 	}
 
@@ -61230,7 +61230,7 @@ ePedComponentType func_522(int iParam0, int iParam1) // Position - 0x3E8E0 (2562
 					break;
 			
 				case 333:
-					if (func_532(48, -1) >= PV_COMP_DECL)
+					if (func_532(48, -1) >= 10)
 						type = PV_COMP_BERD;
 					break;
 			
@@ -64628,14 +64628,14 @@ var func_531(BOOL bParam0, var uParam1, var uParam2) // Position - 0x44BD9 (2815
 ePedComponentType func_532(int iParam0, int iParam1) // Position - 0x44BF0 (281584)
 {
 	Hash statHash;
-	ePedComponentType outValue;
+	BOOL outValue;
 
 	statHash = func_533(iParam0, iParam1);
 
 	if (STATS::STAT_GET_INT(statHash, &outValue, -1))
 		return outValue;
 
-	return PV_COMP_HEAD;
+	return false;
 }
 
 Hash func_533(int iParam0, int iParam1) // Position - 0x44C14 (281620)
@@ -69380,7 +69380,7 @@ BOOL func_611(int iParam0) // Position - 0x4A429 (304169)
 	return false;
 }
 
-void func_612(ePedComponentType epctParam0, BOOL bParam1) // Position - 0x4A44B (304203)
+void func_612(int iParam0, BOOL bParam1) // Position - 0x4A44B (304203)
 {
 	int i;
 
@@ -69389,11 +69389,11 @@ void func_612(ePedComponentType epctParam0, BOOL bParam1) // Position - 0x4A44B 
 
 	for (i = 0; i < 1; i = i + 1)
 	{
-		if (Global_2732069[i /*6*/] == epctParam0)
+		if (Global_2732069[i /*6*/] == iParam0)
 		{
-			if (Global_1574750.f_4[i] == PV_COMP_INVALID)
+			if (Global_1574750.f_4[i] == -1)
 			{
-				Global_1574750.f_4[i] = epctParam0;
+				Global_1574750.f_4[i] = iParam0;
 				Global_1574750.f_1 = 1;
 				Global_1574750 = bParam1;
 				return;
@@ -74644,15 +74644,15 @@ void func_717(int iParam0) // Position - 0x5064A (329290)
 	return;
 }
 
-void func_718(BOOL bParam0) // Position - 0x50701 (329473)
+void func_718(var uParam0) // Position - 0x50701 (329473)
 {
-	*bParam0 = 0;
-	bParam0->f_1 = _INVALID_PLAYER_INDEX();
-	bParam0->f_2 = 0;
-	bParam0->f_4 = 0;
+	*uParam0 = 0;
+	uParam0->f_1 = _INVALID_PLAYER_INDEX();
+	uParam0->f_2 = 0;
+	uParam0->f_4 = 0;
 
 	if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
-		bParam0->f_3 = NETWORK::GET_NETWORK_TIME();
+		uParam0->f_3 = NETWORK::GET_NETWORK_TIME();
 
 	return;
 }
@@ -78494,7 +78494,7 @@ void func_882(BOOL bParam0) // Position - 0x5547B (349307)
 	return;
 }
 
-void func_883(ePedComponentType epctParam0) // Position - 0x554E7 (349415)
+void func_883(int iParam0) // Position - 0x554E7 (349415)
 {
 	int i;
 
@@ -78503,12 +78503,12 @@ void func_883(ePedComponentType epctParam0) // Position - 0x554E7 (349415)
 
 	for (i = 0; i < 3; i = i + 1)
 	{
-		if (Global_2359296[func_884() /*5574*/].f_681.f_4248[i /*3*/] == epctParam0)
+		if (Global_2359296[func_884() /*5574*/].f_681.f_4248[i /*3*/] == iParam0)
 		{
-			if (Global_1574745.f_1[i] == PV_COMP_INVALID)
+			if (Global_1574745.f_1[i] == -1)
 			{
-				Global_1574745.f_1[i] = epctParam0;
-				Global_1574745 = true;
+				Global_1574745.f_1[i] = iParam0;
+				Global_1574745 = 1;
 				return;
 			}
 		}
@@ -79525,7 +79525,7 @@ void func_905(int iParam0) // Position - 0x566E1 (354017)
 									{
 										if (Global_4521275[k /*296*/].f_24 != 0)
 											if (Global_4521275[k /*296*/].f_28 == 0)
-												if (Global_4521275[k /*296*/].f_291[Global_21627] == true)
+												if (Global_4521275[k /*296*/].f_291[Global_21627] == 1)
 													value2 = value2 + 1;
 									}
 								
@@ -80651,19 +80651,19 @@ int func_953(eCharacter echParam0, const char* sParam1, int iParam2, int iParam3
 	switch (iParam16)
 	{
 		case 3:
-			Global_4521275[Global_4524828 /*296*/].f_291[Global_21627] = true;
+			Global_4521275[Global_4524828 /*296*/].f_291[Global_21627] = 1;
 			break;
 	
 		case 0:
-			Global_4521275[Global_4524828 /*296*/].f_291[0] = true;
+			Global_4521275[Global_4524828 /*296*/].f_291[0] = 1;
 			break;
 	
 		case 2:
-			Global_4521275[Global_4524828 /*296*/].f_291[2] = true;
+			Global_4521275[Global_4524828 /*296*/].f_291[2] = 1;
 			break;
 	
 		case 1:
-			Global_4521275[Global_4524828 /*296*/].f_291[1] = true;
+			Global_4521275[Global_4524828 /*296*/].f_291[1] = 1;
 			break;
 	}
 
@@ -80931,9 +80931,9 @@ int func_958() // Position - 0x5839A (361370)
 	if (Global_4524828 == 11)
 		return 0;
 
-	Global_4521275[Global_4524828 /*296*/].f_291[0] = false;
-	Global_4521275[Global_4524828 /*296*/].f_291[1] = false;
-	Global_4521275[Global_4524828 /*296*/].f_291[2] = false;
+	Global_4521275[Global_4524828 /*296*/].f_291[0] = 0;
+	Global_4521275[Global_4524828 /*296*/].f_291[1] = 0;
+	Global_4521275[Global_4524828 /*296*/].f_291[2] = 0;
 	return 1;
 }
 
@@ -82933,7 +82933,7 @@ BOOL func_1071(ePedComponentType epctParam0) // Position - 0x5A8AD (370861)
 	return func_931() == epctParam0;
 }
 
-void func_1072(int iParam0, ePedComponentType epctParam1, BOOL bParam2, ePedComponentType epctParam3, BOOL bParam4, BOOL bParam5) // Position - 0x5A8BC (370876)
+void func_1072(int iParam0, ePedComponentType epctParam1, BOOL bParam2, int iParam3, BOOL bParam4, BOOL bParam5) // Position - 0x5A8BC (370876)
 {
 	int num;
 	int num2;
@@ -82973,8 +82973,8 @@ void func_1072(int iParam0, ePedComponentType epctParam1, BOOL bParam2, ePedComp
 
 	if (bParam2 || func_181(num) || num == 293 || num == 291)
 	{
-		if (epctParam3 != -1 && bParam2)
-			num = epctParam3;
+		if (iParam3 != -1 && bParam2)
+			num = iParam3;
 	
 		Global_1948281 = num;
 	
@@ -83105,7 +83105,7 @@ void func_1072(int iParam0, ePedComponentType epctParam1, BOOL bParam2, ePedComp
 	}
 	else if (func_189(num))
 	{
-		epctParam3 != PV_COMP_INVALID && bParam2;
+		iParam3 != -1 && bParam2;
 		Global_1948337 = num;
 		Global_1948281.f_1 = 1;
 	
@@ -97562,9 +97562,9 @@ BOOL func_1112(int iParam0) // Position - 0x69875 (432245)
 	return false;
 }
 
-BOOL func_1113(ePedComponentType epctParam0) // Position - 0x69919 (432409)
+BOOL func_1113(int iParam0) // Position - 0x69919 (432409)
 {
-	switch (epctParam0)
+	switch (iParam0)
 	{
 		case 258:
 			return true;
@@ -98176,15 +98176,15 @@ int func_1152(Player plParam0) // Position - 0x6A363 (435043)
 	return num;
 }
 
-BOOL func_1153(ePedComponentType epctParam0) // Position - 0x6A3C2 (435138)
+BOOL func_1153(int iParam0) // Position - 0x6A3C2 (435138)
 {
-	if (epctParam0 == 250 || epctParam0 == 238 || epctParam0 == 242 || epctParam0 == 244 || epctParam0 == 248 || epctParam0 == 241 || epctParam0 == 239 || epctParam0 == 240 || epctParam0 == 249)
+	if (iParam0 == 250 || iParam0 == 238 || iParam0 == 242 || iParam0 == 244 || iParam0 == 248 || iParam0 == 241 || iParam0 == 239 || iParam0 == 240 || iParam0 == 249)
 		return true;
 
-	if (epctParam0 == 237 && func_288(func_303(PLAYER::PLAYER_ID())))
+	if (iParam0 == 237 && func_288(func_303(PLAYER::PLAYER_ID())))
 		return true;
 
-	if (epctParam0 == 299 || epctParam0 == 300 || epctParam0 == 301)
+	if (iParam0 == 299 || iParam0 == 300 || iParam0 == 301)
 		return true;
 
 	return false;
@@ -108053,7 +108053,7 @@ int func_1574() // Position - 0x77481 (488577)
 
 void func_1575() // Position - 0x7748F (488591)
 {
-	Global_2698884 = true;
+	Global_2698884 = 1;
 	return;
 }
 
@@ -108431,7 +108431,7 @@ void func_1580(BOOL bParam0, BOOL bParam1) // Position - 0x774E6 (488678)
 	Global_1935968.f_1.f_12 = 0;
 	Global_2685153.f_872 = 0;
 	Global_2698723 = false;
-	Global_2698726 = false;
+	Global_2698726 = 0;
 	Global_2686095.f_6628 = -1;
 	Global_2685153.f_897 = 1;
 	j = 0;
@@ -108448,8 +108448,8 @@ void func_1580(BOOL bParam0, BOOL bParam1) // Position - 0x774E6 (488678)
 	Global_80280 = -1;
 	Global_80281 = -1;
 	Global_80285 = -1;
-	Global_1964629 = false;
-	Global_1964657 = false;
+	Global_1964629 = 0;
+	Global_1964657 = 0;
 	Global_2686095.f_6783 = 0;
 	Global_2686095.f_6785 = { unk106 };
 	Global_2686095.f_6798 = 0;
@@ -127790,7 +127790,7 @@ BOOL func_1829(int iParam0) // Position - 0x9B6F8 (636664)
 	return false;
 }
 
-ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position - 0x9B721 (636705)
+BOOL func_1830(int iParam0, int iParam1, int iParam2) // Position - 0x9B721 (636705)
 {
 	iParam2 == 0;
 
@@ -127800,16 +127800,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -127826,16 +127826,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -127852,16 +127852,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -127878,16 +127878,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -127904,13 +127904,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 30;
@@ -127930,16 +127930,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -127956,22 +127956,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 3:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 4:
-					return PV_COMP_LOWR;
+					return 4;
 			
 				case 5:
-					return PV_COMP_HAND;
+					return 5;
 			
 				default:
 					break;
@@ -127982,22 +127982,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 3:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 4:
-					return PV_COMP_LOWR;
+					return 4;
 			
 				case 5:
-					return PV_COMP_HAND;
+					return 5;
 			
 				default:
 					break;
@@ -128008,22 +128008,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 4:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 5:
-					return PV_COMP_LOWR;
+					return 4;
 			
 				default:
 					break;
@@ -128034,22 +128034,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 4:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 5:
-					return PV_COMP_LOWR;
+					return 4;
 			
 				default:
 					break;
@@ -128060,13 +128060,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -128086,13 +128086,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -128112,16 +128112,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -128138,16 +128138,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128164,16 +128164,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128190,16 +128190,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -128216,16 +128216,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128242,13 +128242,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -128268,13 +128268,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -128294,16 +128294,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -128320,13 +128320,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -128346,13 +128346,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -128372,16 +128372,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -128398,16 +128398,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -128424,16 +128424,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -128450,13 +128450,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -128476,13 +128476,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -128502,16 +128502,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128528,16 +128528,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128554,16 +128554,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128580,16 +128580,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128606,13 +128606,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -128632,13 +128632,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -128658,16 +128658,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128684,16 +128684,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128710,16 +128710,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128736,16 +128736,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128762,16 +128762,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128788,16 +128788,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128814,16 +128814,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128840,16 +128840,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128866,16 +128866,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128892,16 +128892,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128918,16 +128918,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -128944,16 +128944,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -128970,16 +128970,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -128996,16 +128996,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129022,16 +129022,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129048,13 +129048,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -129074,13 +129074,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 100;
@@ -129100,16 +129100,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129126,16 +129126,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129152,10 +129152,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 1000;
@@ -129178,22 +129178,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 3:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 4:
-					return PV_COMP_TEEF;
+					return 7;
 			
 				case 5:
-					return PV_COMP_DECL;
+					return 10;
 			
 				default:
 					break;
@@ -129204,16 +129204,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129230,16 +129230,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129256,13 +129256,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 250;
@@ -129282,16 +129282,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129308,16 +129308,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129334,16 +129334,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129360,16 +129360,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129386,16 +129386,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129412,13 +129412,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -129438,13 +129438,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -129464,13 +129464,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -129490,16 +129490,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129516,16 +129516,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129542,16 +129542,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129568,16 +129568,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129594,16 +129594,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129620,16 +129620,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129646,16 +129646,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129672,13 +129672,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -129698,16 +129698,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129724,13 +129724,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -129750,16 +129750,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129776,16 +129776,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129802,16 +129802,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -129828,16 +129828,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129854,16 +129854,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -129880,13 +129880,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -129906,10 +129906,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_24938;
@@ -129932,10 +129932,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_24938;
@@ -129958,10 +129958,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_24938;
@@ -129984,10 +129984,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_24938;
@@ -130010,13 +130010,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 25;
@@ -130036,22 +130036,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 4:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 5:
-					return PV_COMP_DECL;
+					return 10;
 			
 				default:
 					break;
@@ -130062,22 +130062,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 4:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 5:
-					return PV_COMP_DECL;
+					return 10;
 			
 				default:
 					break;
@@ -130088,16 +130088,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -130114,16 +130114,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -130140,16 +130140,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -130166,22 +130166,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 4:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 5:
-					return PV_COMP_DECL;
+					return 10;
 			
 				default:
 					break;
@@ -130192,22 +130192,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 4:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 5:
-					return PV_COMP_DECL;
+					return 10;
 			
 				default:
 					break;
@@ -130218,22 +130218,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 4:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 5:
-					return PV_COMP_DECL;
+					return 10;
 			
 				default:
 					break;
@@ -130244,16 +130244,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -130270,16 +130270,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -130296,16 +130296,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -130322,13 +130322,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -130348,13 +130348,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 20;
@@ -130374,10 +130374,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 100000;
@@ -130400,13 +130400,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -130426,10 +130426,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 1000;
@@ -130452,13 +130452,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -130478,16 +130478,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -130504,16 +130504,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -130530,16 +130530,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -130556,10 +130556,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 25000;
@@ -130582,13 +130582,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 20;
@@ -130608,10 +130608,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28315;
@@ -130634,10 +130634,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28498;
@@ -130660,10 +130660,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28526;
@@ -130686,10 +130686,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28530;
@@ -130712,10 +130712,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28246;
@@ -130738,10 +130738,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28502;
@@ -130764,13 +130764,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 15;
@@ -130790,16 +130790,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -130816,10 +130816,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 50000;
@@ -130842,13 +130842,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 15;
@@ -130868,13 +130868,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 15;
@@ -130894,13 +130894,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 15;
@@ -130920,10 +130920,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 1000000;
@@ -130946,16 +130946,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -130972,13 +130972,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 25;
@@ -130998,16 +130998,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -131024,16 +131024,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -131050,16 +131050,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -131076,16 +131076,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -131102,16 +131102,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131128,13 +131128,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 25;
@@ -131154,16 +131154,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131180,10 +131180,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 30;
@@ -131206,13 +131206,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 25;
@@ -131232,13 +131232,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 15;
@@ -131258,13 +131258,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 15;
@@ -131284,13 +131284,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 15;
@@ -131310,22 +131310,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 4:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 5:
-					return PV_COMP_HAND;
+					return 5;
 			
 				default:
 					break;
@@ -131336,16 +131336,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131362,16 +131362,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131388,16 +131388,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131414,16 +131414,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131440,22 +131440,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 4:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 5:
-					return PV_COMP_HAND;
+					return 5;
 			
 				default:
 					break;
@@ -131466,13 +131466,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
 					return 15;
@@ -131492,16 +131492,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131518,16 +131518,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131544,16 +131544,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131570,10 +131570,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -131596,10 +131596,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -131622,16 +131622,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131648,16 +131648,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131674,16 +131674,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131700,10 +131700,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -131726,10 +131726,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -131752,16 +131752,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131778,16 +131778,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131804,19 +131804,19 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 3:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 4:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 5:
 					return 20;
@@ -131830,16 +131830,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131856,19 +131856,19 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_TEEF;
+					return 7;
 			
 				case 4:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 5:
 					return 15;
@@ -131882,16 +131882,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131908,16 +131908,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 20;
@@ -131934,10 +131934,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -131960,10 +131960,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 5000;
@@ -131986,22 +131986,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 4:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 5:
-					return PV_COMP_HAND;
+					return 5;
 			
 				default:
 					break;
@@ -132012,22 +132012,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 4:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 5:
-					return PV_COMP_ACCS;
+					return 8;
 			
 				default:
 					break;
@@ -132038,16 +132038,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -132064,22 +132064,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_BERD;
+					return true;
 			
 				case 3:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 4:
-					return PV_COMP_UPPR;
+					return 3;
 			
 				case 5:
-					return PV_COMP_LOWR;
+					return 4;
 			
 				default:
 					break;
@@ -132090,16 +132090,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -132116,10 +132116,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -132142,10 +132142,10 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
 					return 50000;
@@ -132168,16 +132168,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -132194,16 +132194,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -132220,19 +132220,19 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_TEEF;
+					return 7;
 			
 				case 4:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 5:
 					return 15;
@@ -132246,16 +132246,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 30;
@@ -132272,16 +132272,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -132298,16 +132298,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 25;
@@ -132324,13 +132324,13 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 3:
 					return 50;
@@ -132350,22 +132350,22 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAIR;
+					return 2;
 			
 				case 3:
-					return PV_COMP_LOWR;
+					return 4;
 			
 				case 4:
-					return PV_COMP_FEET;
+					return 6;
 			
 				case 5:
-					return PV_COMP_DECL;
+					return 10;
 			
 				default:
 					break;
@@ -132376,16 +132376,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -132402,16 +132402,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -132428,16 +132428,16 @@ ePedComponentType func_1830(int iParam0, int iParam1, int iParam2) // Position -
 			switch (iParam1)
 			{
 				case 0:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 1:
-					return PV_COMP_HEAD;
+					return false;
 			
 				case 2:
-					return PV_COMP_HAND;
+					return 5;
 			
 				case 3:
-					return PV_COMP_DECL;
+					return 10;
 			
 				case 4:
 					return 15;
@@ -146669,7 +146669,7 @@ void func_1899(Hash hParam0, int iParam1, ePedComponentType epctParam2, BOOL bPa
 {
 	int shopPedApparelVariantComponentCount;
 	int i;
-	ePedComponentType nameHash;
+	Hash nameHash;
 	ePedComponentType enumValue;
 	ePedComponentType componentType;
 	int num;
@@ -146712,7 +146712,7 @@ void func_1899(Hash hParam0, int iParam1, ePedComponentType epctParam2, BOOL bPa
 				{
 					if (num < Global_4519747)
 					{
-						Global_4519747[num] = PV_COMP_INVALID;
+						Global_4519747[num] = -1;
 						Global_4519758[num] = PV_COMP_INVALID;
 					}
 				
@@ -146748,7 +146748,7 @@ void func_1899(Hash hParam0, int iParam1, ePedComponentType epctParam2, BOOL bPa
 					for (i = 0; i < num; i = i + 1)
 					{
 						if (i < Global_4519747)
-							if (Global_4519747[i] != PV_COMP_INVALID)
+							if (Global_4519747[i] != -1)
 								if (hParam0 == joaat("MP_M_Freemode_01"))
 									func_1899(hParam0, func_284(Global_4519758[i]), func_279(hParam0, Global_4519747[i], func_284(Global_4519758[i]), 3), true);
 								else
@@ -147363,7 +147363,7 @@ ePedComponentType func_1900(Hash hParam0, ePedComponentType epctParam1, int iPar
 	return type;
 }
 
-void func_1901(ePedComponentType epctParam0, int iParam1, BOOL bParam2, BOOL bParam3, int iParam4) // Position - 0xB6B87 (748423)
+void func_1901(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3, int iParam4) // Position - 0xB6B87 (748423)
 {
 	int num;
 	int offset;
@@ -147375,7 +147375,7 @@ void func_1901(ePedComponentType epctParam0, int iParam1, BOOL bParam2, BOOL bPa
 	if (iParam4 != -1)
 		num = iParam4;
 
-	if (func_234(epctParam0, iParam1, &num2, &offset, bParam2, bParam3))
+	if (func_234(hParam0, iParam1, &num2, &offset, bParam2, bParam3))
 	{
 		address = func_129(num2, num);
 		MISC::SET_BIT(&address, offset);
@@ -205733,7 +205733,7 @@ void func_2639(BOOL bParam0) // Position - 0x10090A (1050890)
 	return;
 }
 
-BOOL func_2640(ePedComponentType epctParam0, var uParam1, BOOL bParam2, BOOL bParam3) // Position - 0x10093B (1050939)
+BOOL func_2640(int iParam0, var uParam1, BOOL bParam2, BOOL bParam3) // Position - 0x10093B (1050939)
 {
 	int i;
 	int j;
@@ -205746,7 +205746,7 @@ BOOL func_2640(ePedComponentType epctParam0, var uParam1, BOOL bParam2, BOOL bPa
 	ePedComponentType type2;
 
 	unk = 8;
-	func_2647(&unk, epctParam0);
+	func_2647(&unk, iParam0);
 	func_2646(uParam1);
 	type = _INVALID_PLAYER_INDEX();
 
@@ -205765,13 +205765,13 @@ BOOL func_2640(ePedComponentType epctParam0, var uParam1, BOOL bParam2, BOOL bPa
 
 	for (i = 0; i < 36; i = i + 1)
 	{
-		if (func_2645(i, epctParam0))
+		if (func_2645(i, iParam0))
 		{
 			type2 = func_1114(i, -1);
 		
 			if (type2 != PV_COMP_HEAD)
 			{
-				if (func_2643(type2, epctParam0))
+				if (func_2643(type2, iParam0))
 				{
 					unk11[num] = type2;
 					num = num + 1;
@@ -210021,7 +210021,7 @@ BOOL func_2778(BOOL bParam0) // Position - 0x106532 (1074482)
 	if (!func_2779(32))
 		return false;
 
-	if (Global_1950714.f_5212 != PV_COMP_INVALID)
+	if (Global_1950714.f_5212 != -1)
 		return false;
 
 	if (!PLAYER::IS_PLAYER_CONTROL_ON(Global_2673274.f_4.f_16))
@@ -211328,7 +211328,7 @@ void func_2829() // Position - 0x107BA4 (1080228)
 
 void func_2830() // Position - 0x107C3B (1080379)
 {
-	Global_1983764 = true;
+	Global_1983764 = 1;
 	return;
 }
 
@@ -212515,16 +212515,16 @@ BOOL func_2864() // Position - 0x1092DD (1086173)
 	return func_2865(*Global_4718592.f_139000);
 }
 
-BOOL func_2865(ePedComponentType epctParam0) // Position - 0x109301 (1086209)
+BOOL func_2865(Hash hParam0) // Position - 0x109301 (1086209)
 {
 	int i;
 
-	if (epctParam0 == 0)
+	if (hParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 21; i = i + 1)
 	{
-		if (Global_262145.f_6059[i] == epctParam0)
+		if (Global_262145.f_6059[i] == hParam0)
 			return 1;
 	}
 
@@ -243253,7 +243253,7 @@ void func_3737() // Position - 0x136E42 (1273410)
 	func_3740(false);
 	func_3739(false);
 
-	if (Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_410 != PV_COMP_INVALID)
+	if (Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_410 != -1)
 	{
 		Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_410 = -1;
 		Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_411 = -1;
@@ -244323,39 +244323,39 @@ int func_3779(int iParam0, var uParam1) // Position - 0x1387FF (1279999)
 	return 4;
 }
 
-BOOL func_3780(ePedComponentType epctParam0, ePedComponentType epctParam1) // Position - 0x13885F (1280095)
+BOOL func_3780(ePedComponentType epctParam0, int iParam1) // Position - 0x13885F (1280095)
 {
 	if (epctParam0 != _INVALID_PLAYER_INDEX())
-		if (Global_1845299[epctParam0 /*883*/].f_260.f_504 == epctParam1)
+		if (Global_1845299[epctParam0 /*883*/].f_260.f_504 == iParam1)
 			return 1;
 
 	return 0;
 }
 
-ePedComponentType func_3781(BOOL bParam0) // Position - 0x138889 (1280137)
+int func_3781(BOOL bParam0) // Position - 0x138889 (1280137)
 {
 	switch (bParam0)
 	{
 		case 162:
-			return PV_COMP_BERD;
+			return 1;
 	
 		case 163:
-			return PV_COMP_HAIR;
+			return 2;
 	
 		case 164:
-			return PV_COMP_UPPR;
+			return 3;
 	
 		case 165:
-			return PV_COMP_LOWR;
+			return 4;
 	
 		case 166:
-			return PV_COMP_HAND;
+			return 5;
 	
 		default:
 		
 	}
 
-	return PV_COMP_HEAD;
+	return 0;
 }
 
 int func_3782(var uParam0, var uParam1) // Position - 0x1388CB (1280203)
@@ -247240,7 +247240,7 @@ BOOL func_3808(int iParam0) // Position - 0x13D66E (1300078)
 		if (Global_2711405[iParam0 /*113*/].f_111)
 			return false;
 	
-		return Global_2711405[iParam0 /*113*/].f_66 != PV_COMP_HEAD;
+		return Global_2711405[iParam0 /*113*/].f_66 != 0;
 	}
 
 	return false;
@@ -247300,7 +247300,7 @@ BOOL func_3812(int iParam0) // Position - 0x13D71E (1300254)
 	return -1;
 }
 
-ePedComponentType func_3813(ePedComponentType epctParam0) // Position - 0x13D765 (1300325)
+int func_3813(ePedComponentType epctParam0) // Position - 0x13D765 (1300325)
 {
 	if (epctParam0 != _INVALID_PLAYER_INDEX())
 		return Global_1845299[epctParam0 /*883*/].f_260.f_504;
@@ -248698,7 +248698,7 @@ BOOL func_3889(ePedComponentType epctParam0, BOOL bParam1) // Position - 0x13F6A
 
 BOOL func_3890(ePedComponentType epctParam0) // Position - 0x13F751 (1308497)
 {
-	return Global_1845299[epctParam0 /*883*/].f_260.f_504 != PV_COMP_HEAD;
+	return Global_1845299[epctParam0 /*883*/].f_260.f_504 != 0;
 }
 
 char* func_3891(var uParam0, var uParam1, var uParam2) // Position - 0x13F76A (1308522)
@@ -248708,12 +248708,12 @@ char* func_3891(var uParam0, var uParam1, var uParam2) // Position - 0x13F76A (1
 
 char* func_3892(int iParam0, var uParam1, var uParam2) // Position - 0x13F776 (1308534)
 {
-	ePedComponentType type;
 	int num;
+	int num2;
 	var unk;
 	var unk2;
 	Vehicle vehiclePedIsIn;
-	ePedComponentType type2;
+	ePedComponentType type;
 	Ped pedInVehicleSeat;
 	ePedComponentType playerIndexFromPed;
 	Ped entityAttachedTo;
@@ -248724,15 +248724,15 @@ char* func_3892(int iParam0, var uParam1, var uParam2) // Position - 0x13F776 (1
 	if (func_2330(PLAYER::PLAYER_ID()) && func_471(PLAYER::PLAYER_ID(), false))
 		return "MANS_FT_GANG";
 
-	type = func_3781(iParam0);
+	num = func_3781(iParam0);
 
 	if (func_122(PLAYER::PLAYER_ID(), false))
 	{
-		num = func_121(PLAYER::PLAYER_ID());
+		num2 = func_121(PLAYER::PLAYER_ID());
 	
 		if (PLAYER::PLAYER_ID() != _INVALID_PLAYER_INDEX())
 		{
-			switch (num)
+			switch (num2)
 			{
 				case 192:
 					return "SVG_BLCK_A" /*You can't enter the Salvage Yard while resupplying another business.*/;
@@ -248819,10 +248819,10 @@ char* func_3892(int iParam0, var uParam1, var uParam2) // Position - 0x13F776 (1
 		else
 			return "SVG_BLCK_N" /*You can't enter the Salvage Yard while taking part in a Business Battle.*/;
 
-	if (_DOES_ENTITY_EXIST_AND_IS_ALIVE(PLAYER::PLAYER_PED_ID()) && PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), false) && func_3780(PLAYER::PLAYER_ID(), type))
+	if (_DOES_ENTITY_EXIST_AND_IS_ALIVE(PLAYER::PLAYER_PED_ID()) && PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), false) && func_3780(PLAYER::PLAYER_ID(), num))
 	{
 		vehiclePedIsIn = PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false);
-		type2 = func_2233(vehiclePedIsIn, &unk2, &unk);
+		type = func_2233(vehiclePedIsIn, &unk2, &unk);
 		pedInVehicleSeat = VEHICLE::GET_PED_IN_VEHICLE_SEAT(vehiclePedIsIn, -1, false);
 	
 		if (ENTITY::DOES_ENTITY_EXIST(pedInVehicleSeat))
@@ -248846,7 +248846,7 @@ char* func_3892(int iParam0, var uParam1, var uParam2) // Position - 0x13F776 (1
 					{
 						return "SVG_BLCK_R" /*You can't enter the Salvage Yard with the Mobile Operations Center.*/;
 					}
-					else if (func_471(playerIndexFromPed, false) && playerIndexFromPed == type2)
+					else if (func_471(playerIndexFromPed, false) && playerIndexFromPed == type)
 					{
 						return "SVG_BLCK_W" /*You can't enter the Salvage Yard with this vehicle while working for another player.*/;
 					}
@@ -248854,7 +248854,7 @@ char* func_3892(int iParam0, var uParam1, var uParam2) // Position - 0x13F776 (1
 					{
 						return "SVG_BLCK_T" /*You can't enter the Salvage Yard with the RC Bandito.*/;
 					}
-					else if (func_2585(vehiclePedIsIn) || func_2093(vehiclePedIsIn, true) && type2 != playerIndexFromPed || !func_2093(vehiclePedIsIn, true) || func_3893(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn), false) || func_2444(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn)) || !func_2564(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn), 26) || func_2587(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn)) || func_2583(vehiclePedIsIn))
+					else if (func_2585(vehiclePedIsIn) || func_2093(vehiclePedIsIn, true) && type != playerIndexFromPed || !func_2093(vehiclePedIsIn, true) || func_3893(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn), false) || func_2444(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn)) || !func_2564(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn), 26) || func_2587(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn)) || func_2583(vehiclePedIsIn))
 					{
 						if (func_2587(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn)) && ENTITY::IS_ENTITY_ATTACHED_TO_ANY_VEHICLE(vehiclePedIsIn))
 							return "";
@@ -248925,7 +248925,7 @@ int func_3896(var uParam0, var uParam1, var uParam2) // Position - 0x13FC5B (130
 	ePedComponentType playerIndexFromPed;
 	Entity entityAttachedTo;
 	Vehicle vehicleIndexFromEntityIndex;
-	ePedComponentType type;
+	int num;
 
 	*uParam2 = 0;
 
@@ -249056,9 +249056,9 @@ int func_3896(var uParam0, var uParam1, var uParam2) // Position - 0x13FC5B (130
 				}
 			}
 		
-			type = func_3781(*uParam0);
+			num = func_3781(*uParam0);
 		
-			if (_NETWORK_IS_PLAYER_VALID(playerIndexFromPed, true, true) && func_2564(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn), 21) && func_3780(NETWORK::NETWORK_GET_PLAYER_INDEX_FROM_PED(pedInVehicleSeat), type))
+			if (_NETWORK_IS_PLAYER_VALID(playerIndexFromPed, true, true) && func_2564(ENTITY::GET_ENTITY_MODEL(vehiclePedIsIn), 21) && func_3780(NETWORK::NETWORK_GET_PLAYER_INDEX_FROM_PED(pedInVehicleSeat), num))
 			{
 				if (_IS_PLAYER_IN_VEHICLE_SEAT(PLAYER::PLAYER_ID(), -1))
 				{
@@ -250292,9 +250292,9 @@ void func_3924(BOOL bParam0, var uParam1, var uParam2, var uParam3, var uParam4,
 
 BOOL func_3925(BOOL bParam0, int iParam1) // Position - 0x14231F (1319711)
 {
-	ePedComponentType type;
+	int num;
 
-	type = func_3781(bParam0);
+	num = func_3781(bParam0);
 
 	switch (iParam1)
 	{
@@ -250302,23 +250302,23 @@ BOOL func_3925(BOOL bParam0, int iParam1) // Position - 0x14231F (1319711)
 			if (_NETWORK_IS_PLAYER_VALID(PLAYER::PLAYER_ID(), true, true) && PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), false))
 				if (!_IS_PLAYER_IN_VEHICLE_SEAT(PLAYER::PLAYER_ID(), -1) && func_3912(bParam0, PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false)))
 					return false;
-				else if (_IS_PLAYER_IN_VEHICLE_SEAT(PLAYER::PLAYER_ID(), -1) && func_3780(PLAYER::PLAYER_ID(), type))
+				else if (_IS_PLAYER_IN_VEHICLE_SEAT(PLAYER::PLAYER_ID(), -1) && func_3780(PLAYER::PLAYER_ID(), num))
 					return false;
 			break;
 	
 		case 0:
-			if (func_3780(PLAYER::PLAYER_ID(), type))
+			if (func_3780(PLAYER::PLAYER_ID(), num))
 				return false;
 		
-			if (func_355(false) && func_3780(_GET_BOSS_OF_LOCAL_PLAYER(), type))
+			if (func_355(false) && func_3780(_GET_BOSS_OF_LOCAL_PLAYER(), num))
 				return false;
 			break;
 	
 		case 1:
-			if (func_355(false) && func_3780(_GET_BOSS_OF_LOCAL_PLAYER(), type))
+			if (func_355(false) && func_3780(_GET_BOSS_OF_LOCAL_PLAYER(), num))
 				return true;
 		
-			if (func_3780(PLAYER::PLAYER_ID(), type))
+			if (func_3780(PLAYER::PLAYER_ID(), num))
 				return true;
 		
 			if (func_3909(bParam0))
@@ -279558,7 +279558,7 @@ void func_4827(int iParam0, int iParam1, var uParam2, var uParam3) // Position -
 
 void func_4828(BOOL bParam0, int iParam1) // Position - 0x16EA9A (1501850)
 {
-	if (Global_1950714.f_5290 != PV_COMP_INVALID && bParam0 != -1)
+	if (Global_1950714.f_5290 != -1 && bParam0 != -1)
 	{
 	}
 	else
@@ -303794,7 +303794,7 @@ ePedComponentType func_5520(ePedComponentType epctParam0) // Position - 0x193073
 	if (func_31(epctParam0))
 		return Global_1984461[epctParam0 /*149*/].f_121.f_2;
 
-	return PV_COMP_INVALID;
+	return -1;
 }
 
 BOOL func_5521(BOOL bParam0) // Position - 0x193094 (1650836)
@@ -313127,9 +313127,9 @@ Vector3 func_5806(BOOL bParam0, int iParam1) // Position - 0x19F3C6 (1700806)
 	return 1f, 1f, 1f;
 }
 
-BOOL func_5807(ePedComponentType epctParam0) // Position - 0x19F53D (1701181)
+BOOL func_5807(BOOL bParam0) // Position - 0x19F53D (1701181)
 {
-	return Global_1950714.f_5212 == epctParam0;
+	return Global_1950714.f_5212 == bParam0;
 }
 
 BOOL func_5808() // Position - 0x19F54F (1701199)
@@ -317819,7 +317819,7 @@ int func_5850(BOOL bParam0, var uParam1) // Position - 0x1A7871 (1734769)
 	}
 
 	if (!IS_BIT_SET(Global_1950714.f_5216, 16))
-		if (Global_2685153.f_15 > PV_COMP_INVALID)
+		if (Global_2685153.f_15 > -1)
 			return 0;
 
 	if (!IS_BIT_SET(Global_1950714.f_759, 30))
@@ -319554,13 +319554,13 @@ BOOL func_5892(var uParam0) // Position - 0x1AA026 (1744934)
 	return false;
 }
 
-int func_5893(ePedComponentType epctParam0) // Position - 0x1AA0EA (1745130)
+int func_5893(Hash hParam0) // Position - 0x1AA0EA (1745130)
 {
 	int i;
 
 	for (i = 0; i < 21; i = i + 1)
 	{
-		if (Global_262145.f_6059[i] == epctParam0)
+		if (Global_262145.f_6059[i] == hParam0)
 			return 1;
 	}
 
@@ -332266,7 +332266,7 @@ ePedComponentType func_6282(ePedComponentType epctParam0) // Position - 0x1BD8D6
 	if (func_31(epctParam0))
 		return Global_1984461[epctParam0 /*149*/].f_73.f_21;
 
-	return PV_COMP_INVALID;
+	return -1;
 }
 
 BOOL func_6283() // Position - 0x1BD8F7 (1825015)
@@ -357086,9 +357086,9 @@ void func_6739(int iParam0, ePedComponentType epctParam1, var uParam2) // Positi
 	return;
 }
 
-BOOL func_6740(ePedComponentType epctParam0) // Position - 0x1E40FC (1982716)
+BOOL func_6740(BOOL bParam0) // Position - 0x1E40FC (1982716)
 {
-	if (epctParam0 >= 102 && epctParam0 <= 111)
+	if (bParam0 >= 102 && bParam0 <= 111)
 		return true;
 
 	return false;
@@ -377882,7 +377882,7 @@ BOOL func_7158(BOOL bParam0, var uParam1) // Position - 0x207C1F (2128927)
 	}
 
 	if (!IS_BIT_SET(Global_1950714.f_5216, 16))
-		if (Global_2685153.f_15 > PV_COMP_INVALID)
+		if (Global_2685153.f_15 > -1)
 			return false;
 
 	if (!NETWORK::NETWORK_IS_SESSION_ACTIVE())
@@ -410185,10 +410185,10 @@ BOOL func_7903(Player plParam0, BOOL bParam1, int iParam2) // Position - 0x23C3E
 	return 0;
 }
 
-BOOL func_7904(Player plParam0, ePedComponentType epctParam1, int iParam2) // Position - 0x23C443 (2344003)
+BOOL func_7904(Player plParam0, BOOL bParam1, int iParam2) // Position - 0x23C443 (2344003)
 {
 	if (Global_1845299[plParam0 /*883*/].f_260.f_409 >= PV_COMP_HEAD)
-		if (epctParam1 != -1 && Global_1845299[plParam0 /*883*/].f_260.f_410 == epctParam1)
+		if (bParam1 != -1 && Global_1845299[plParam0 /*883*/].f_260.f_410 == bParam1)
 			return 1;
 		else if (iParam2 != -1 && Global_1845299[plParam0 /*883*/].f_260.f_411 == iParam2)
 			return 1;
@@ -410290,7 +410290,7 @@ int func_7910(var uParam0, var uParam1, var uParam2) // Position - 0x23C5D3 (234
 		
 			if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::PLAYER_PED_ID(), false))
 				if (func_7835(*uParam0, &type, &unk, true, false) && func_572(PLAYER::PLAYER_ID(), func_7838(*uParam0)) && type == PLAYER::PLAYER_ID())
-					if (func_2626(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false), true) && func_7904(PLAYER::PLAYER_ID(), PV_COMP_INVALID, 1))
+					if (func_2626(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false), true) && func_7904(PLAYER::PLAYER_ID(), -1, 1))
 						return 0;
 					else if (func_2485(PED::GET_VEHICLE_PED_IS_IN(PLAYER::PLAYER_PED_ID(), false), true) && func_7903(PLAYER::PLAYER_ID(), -1, 1))
 						return 0;
@@ -410594,24 +410594,24 @@ int func_7913(ePedComponentType epctParam0, BOOL bParam1, var uParam2) // Positi
 		}
 	}
 
-	if (func_1194(epctParam0) == PV_COMP_UPPR)
+	if (func_1194(epctParam0) == 3)
 		if (PLAYER::GET_PLAYER_WANTED_LEVEL(epctParam0) > 0)
 			return 0;
 
 	return 0;
 }
 
-BOOL func_7914(ePedComponentType epctParam0) // Position - 0x23CEF7 (2346743)
+BOOL func_7914(int iParam0) // Position - 0x23CEF7 (2346743)
 {
-	if (func_121(PLAYER::PLAYER_ID()) == 225 && func_304(PLAYER::PLAYER_ID()) != 0 && !func_7915(epctParam0))
+	if (func_121(PLAYER::PLAYER_ID()) == 225 && func_304(PLAYER::PLAYER_ID()) != 0 && !func_7915(iParam0))
 		return true;
 
 	return false;
 }
 
-BOOL func_7915(ePedComponentType epctParam0) // Position - 0x23CF2D (2346797)
+BOOL func_7915(int iParam0) // Position - 0x23CF2D (2346797)
 {
-	switch (epctParam0)
+	switch (iParam0)
 	{
 		case 14:
 		case 15:
@@ -428785,17 +428785,17 @@ BOOL func_8177() // Position - 0x259B03 (2464515)
 
 BOOL func_8178(Player plParam0) // Position - 0x259B51 (2464593)
 {
-	ePedComponentType type;
+	Player player;
 
-	type = func_8179(plParam0);
+	player = func_8179(plParam0);
 
-	if (type != _INVALID_PLAYER_INDEX())
-		return Global_1892798[type /*615*/].f_10.f_468 == -81613951;
+	if (player != _INVALID_PLAYER_INDEX())
+		return Global_1892798[player /*615*/].f_10.f_468 == -81613951;
 
 	return false;
 }
 
-ePedComponentType func_8179(Player plParam0) // Position - 0x259B82 (2464642)
+Player func_8179(Player plParam0) // Position - 0x259B82 (2464642)
 {
 	return Global_1892798[plParam0 /*615*/].f_10.f_178;
 }
@@ -442466,7 +442466,7 @@ BOOL func_8548(float fParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPa
 
 	for (i = 0; i < 14; i = i + 1)
 	{
-		if (Global_2640831[i /*17*/].f_9 == true)
+		if (Global_2640831[i /*17*/].f_9 == 1)
 		{
 			if (!bParam2 || bParam2 && Global_2640831[i /*17*/].f_16)
 			{
@@ -443285,7 +443285,7 @@ int func_8571(var uParam0, var uParam1, var uParam2, int iParam3) // Position - 
 
 	for (i = 0; i < 14; i = i + 1)
 	{
-		if (Global_2640831[i /*17*/].f_9 == true || iParam3 == 0)
+		if (Global_2640831[i /*17*/].f_9 == 1 || iParam3 == 0)
 			if (func_8537(uParam0, &Global_2640831[i /*17*/], 0.1f, false, false))
 				return i;
 	}
@@ -448157,7 +448157,7 @@ BOOL func_8670(var uParam0, int iParam1, BOOL bParam2, int iParam3, int iParam4,
 					if (num13 == 9 || num13 == 12 && func_404(*Global_4718592.f_199277))
 					{
 					}
-					else if (Global_2640831[num13 /*17*/].f_9 == false)
+					else if (Global_2640831[num13 /*17*/].f_9 == 0)
 					{
 						func_8849(&dx, &Global_2640831[num13 /*17*/], 135f);
 					}
@@ -459486,7 +459486,7 @@ BOOL func_8846(float fParam0, BOOL bParam1) // Position - 0x290C77 (2690167)
 
 	for (i = 0; i < 14; i = i + 1)
 	{
-		if (Global_2640831[i /*17*/].f_9 == true)
+		if (Global_2640831[i /*17*/].f_9 == 1)
 		{
 			if (func_8537(*fParam0, &Global_2640831[i /*17*/], 1008981770, false, true) && !func_8537(*fParam0, &Global_2640831[i /*17*/], 1008981770, false, false))
 			{
@@ -460427,14 +460427,14 @@ ePedComponentType func_8876(BOOL bParam0) // Position - 0x2926D5 (2696917)
 
 int func_8877(BOOL bParam0) // Position - 0x2926E7 (2696935)
 {
-	ePedComponentType type;
+	Player player;
 
 	if (func_8382(bParam0))
 	{
-		type = func_8876(bParam0);
+		player = func_8876(bParam0);
 	
-		if (!(type == _INVALID_PLAYER_INDEX()))
-			return Global_2658294[type /*468*/].f_276.f_47;
+		if (!(player == _INVALID_PLAYER_INDEX()))
+			return Global_2658294[player /*468*/].f_276.f_47;
 	}
 
 	return -1;
@@ -463861,7 +463861,7 @@ void func_9040(int iParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3) // Positio
 			num = 0;
 	
 		if (!bParam2)
-			Global_1950563 = PV_COMP_INVALID;
+			Global_1950563 = -1;
 	
 		func_9059(iParam0, false, bParam2);
 	}

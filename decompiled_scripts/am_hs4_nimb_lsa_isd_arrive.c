@@ -17956,9 +17956,9 @@ void func_135(var uParam0, Hash hParam1, int iParam2, int iParam3) // Position -
 	return;
 }
 
-int func_136(int iParam0) // Position - 0x18040 (98368)
+int func_136(ePedComponentType epctParam0) // Position - 0x18040 (98368)
 {
-	switch (iParam0)
+	switch (epctParam0)
 	{
 		case 0:
 			return 0;
@@ -32816,7 +32816,7 @@ void func_232(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position
 	int i;
 	Hash nameHash;
 	BOOL enumValue;
-	int componentType;
+	ePedComponentType componentType;
 	int num;
 	int num2;
 	BOOL address;
@@ -32858,7 +32858,7 @@ void func_232(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position
 					if (num < Global_4519747)
 					{
 						Global_4519747[num] = -1;
-						Global_4519758[num] = -1;
+						Global_4519758[num] = PV_COMP_INVALID;
 					}
 				
 					EXTRAMETADATA::GET_VARIANT_COMPONENT(Global_2883588, i, &nameHash, &enumValue, &componentType);

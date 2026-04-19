@@ -24617,9 +24617,9 @@ void func_787(int iParam0) // Position - 0x1B2FE (111358)
 
 void func_788() // Position - 0x1B3B4 (111540)
 {
-	int* unk;
+	int* p_num;
 
-	Global_1837064 = unk;
+	Global_1837064 = p_num;
 	return;
 }
 

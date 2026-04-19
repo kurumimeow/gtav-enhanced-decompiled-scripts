@@ -119998,7 +119998,7 @@ void func_1172(int iParam0) // Position - 0x94FDB (610267)
 	return;
 }
 
-void func_1173(int iParam0, int iParam1, char* sParam2, int iParam3, int iParam4, int iParam5, float fParam6, int iParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17, int iParam18, int iParam19, int iParam20, int iParam21, int iParam22, int iParam23, int iParam24, int iParam25, int iParam26, int iParam27, int iParam28, int iParam29, int iParam30, int iParam31, int iParam32, int iParam33, int iParam34, int iParam35, int iParam36, int iParam37, int iParam38, int iParam39) // Position - 0x951AF (610735)
+void func_1173(BOOL bParam0, int iParam1, char* sParam2, int iParam3, int iParam4, int iParam5, float fParam6, int iParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17, int iParam18, int iParam19, int iParam20, int iParam21, int iParam22, int iParam23, int iParam24, int iParam25, int iParam26, int iParam27, int iParam28, int iParam29, int iParam30, int iParam31, int iParam32, int iParam33, int iParam34, int iParam35, int iParam36, int iParam37, int iParam38, int iParam39) // Position - 0x951AF (610735)
 {
 	int num;
 	int i;
@@ -120016,7 +120016,7 @@ void func_1173(int iParam0, int iParam1, char* sParam2, int iParam3, int iParam4
 	{
 		Global_1679155.f_1 = 1;
 		func_1174(0, num);
-		Global_1679155.f_1177[num] = iParam0;
+		Global_1679155.f_1177[num] = bParam0;
 		Global_1679155.f_1177.f_11[num] = iParam1;
 		TEXT_LABEL_ASSIGN_STRING(&Global_1679155.f_1177.f_22[num /*16*/], sParam2, 64);
 		Global_1679155.f_1177.f_194[num] = iParam3;
@@ -120073,15 +120073,15 @@ BOOL func_1175(int iParam0, int iParam1) // Position - 0x9548F (611471)
 	return IS_BIT_SET(Global_1679155.f_7064[iParam0], iParam1);
 }
 
-int func_1176(var uParam0, BOOL bParam1, BOOL bParam2) // Position - 0x954A5 (611493)
+int func_1176(int iParam0, BOOL bParam1, BOOL bParam2) // Position - 0x954A5 (611493)
 {
 	if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && !bParam1)
 		if (!bParam2)
-			return NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME(), *uParam0);
+			return NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME(), *iParam0);
 		else
-			return NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME_ACCURATE(), *uParam0);
+			return NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME_ACCURATE(), *iParam0);
 
-	return NETWORK::GET_TIME_DIFFERENCE(MISC::GET_GAME_TIMER(), *uParam0);
+	return NETWORK::GET_TIME_DIFFERENCE(MISC::GET_GAME_TIMER(), *iParam0);
 }
 
 BOOL func_1177(int iParam0) // Position - 0x954EC (611564)

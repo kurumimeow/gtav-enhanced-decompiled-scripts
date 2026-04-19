@@ -71139,7 +71139,7 @@ BOOL func_933(int iParam0, int iParam1) // Position - 0x53C8C (343180)
 
 	for (i = 0; i < Global_1989528; i = i + 1)
 	{
-		if (Global_1989528.f_1[i /*14*/] == iParam1 && Global_1989528.f_1[i /*14*/].f_2 > false)
+		if (Global_1989528.f_1[i /*14*/] == iParam1 && Global_1989528.f_1[i /*14*/].f_2 > 0)
 			return Global_1989528.f_1[i /*14*/].f_2;
 	}
 

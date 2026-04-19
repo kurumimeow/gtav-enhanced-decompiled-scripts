@@ -360237,9 +360237,9 @@ ePedComponentType func_7033(ePedComponentType epctParam0) // Position - 0x208A30
 	return Global_2658294[epctParam0 /*468*/].f_325.f_11;
 }
 
-BOOL func_7034(Hash hParam0) // Position - 0x208A54 (2132564)
+BOOL func_7034(ePedComponentType epctParam0) // Position - 0x208A54 (2132564)
 {
-	return Global_262145.f_4699[4] == hParam0;
+	return Global_262145.f_4699[4] == epctParam0;
 }
 
 ePedComponentType func_7035(ePedComponentType epctParam0) // Position - 0x208A69 (2132585)

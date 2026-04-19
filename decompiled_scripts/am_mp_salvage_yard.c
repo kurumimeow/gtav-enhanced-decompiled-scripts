@@ -109651,16 +109651,16 @@ BOOL func_942() // Position - 0x857E5 (546789)
 	return func_943(*Global_4718592.f_139000);
 }
 
-BOOL func_943(Hash hParam0) // Position - 0x857FB (546811)
+BOOL func_943(int iParam0) // Position - 0x857FB (546811)
 {
 	int i;
 
-	if (hParam0 == 0)
+	if (iParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 8; i = i + 1)
 	{
-		if (Global_262145.f_30473[i] == hParam0)
+		if (Global_262145.f_30473[i] == iParam0)
 			return 1;
 	}
 
@@ -243169,7 +243169,7 @@ BOOL func_3886(int iParam0) // Position - 0x14862F (1345071)
 	num = func_3824(iParam0);
 
 	if (func_471())
-		return 0;
+		return false;
 
 	if (Global_1950714.f_5449.f_23[num /*2*/].f_1 == MISC::GET_FRAME_COUNT())
 		return Global_1950714.f_5449.f_23[num /*2*/];
@@ -243180,13 +243180,13 @@ BOOL func_3886(int iParam0) // Position - 0x14862F (1345071)
 	{
 		if (func_3884(i, num))
 		{
-			Global_1950714.f_5449.f_23[num /*2*/] = 1;
-			return 1;
+			Global_1950714.f_5449.f_23[num /*2*/] = true;
+			return true;
 		}
 	}
 
-	Global_1950714.f_5449.f_23[num /*2*/] = 0;
-	return 0;
+	Global_1950714.f_5449.f_23[num /*2*/] = false;
+	return false;
 }
 
 void func_3887(var uParam0, var uParam1) // Position - 0x1486C7 (1345223)

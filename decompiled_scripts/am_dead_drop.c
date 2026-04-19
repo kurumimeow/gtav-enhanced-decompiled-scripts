@@ -5963,7 +5963,7 @@ void func_199(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4) /
 
 BOOL func_200() // Position - 0x4341 (17217)
 {
-	if (func_205(PLAYER::PLAYER_ID()) == 229 || func_205(PLAYER::PLAYER_ID()) == 191 || func_204(*Global_4718592.f_199277) || func_203() || func_202() || func_32() || Global_2709409.f_227 == 1 || Global_2635562.f_2054 && func_201(PLAYER::PLAYER_ID()))
+	if (func_205(PLAYER::PLAYER_ID()) == 229 || func_205(PLAYER::PLAYER_ID()) == 191 || func_204(*Global_4718592.f_199277) || func_203() || func_202() || func_32() || Global_2709409.f_227 == true || Global_2635562.f_2054 && func_201(PLAYER::PLAYER_ID()))
 		return false;
 
 	return true;
@@ -8196,7 +8196,7 @@ BOOL func_300(int iParam0, BOOL bParam1, BOOL bParam2, int iParam3, BOOL bParam4
 		if (bParam4 && STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS() && _NETWORK_IS_PLAYER_VALID(PLAYER::PLAYER_ID(), true, false) && Global_2658294[PLAYER::PLAYER_ID() /*468*/].f_236 == 1)
 		{
 		}
-		else if (func_1376() == TRANSITION_STATE_POST_BINK_VIDEO_WARP)
+		else if (func_1376() == 28)
 		{
 		}
 		else if (func_118(false))
@@ -10273,7 +10273,7 @@ BOOL func_366(float fParam0, var uParam1, var uParam2, float fParam3, BOOL bPara
 			if (bParam9 && _NETWORK_IS_PLAYER_VALID(PLAYER::PLAYER_ID(), true, false) && STREAMING::IS_PLAYER_SWITCH_IN_PROGRESS() && Global_2658294[PLAYER::PLAYER_ID() /*468*/].f_236 == 1)
 			{
 			}
-			else if (func_1376() == TRANSITION_STATE_POST_BINK_VIDEO_WARP)
+			else if (func_1376() == 28)
 			{
 			}
 			else
@@ -42182,7 +42182,7 @@ void func_559(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position
 	int i;
 	Hash nameHash;
 	BOOL enumValue;
-	int componentType;
+	ePedComponentType componentType;
 	int num;
 	int num2;
 	BOOL address;
@@ -42224,7 +42224,7 @@ void func_559(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position
 					if (num < Global_4519747)
 					{
 						Global_4519747[num] = -1;
-						Global_4519758[num] = -1;
+						Global_4519758[num] = PV_COMP_INVALID;
 					}
 				
 					EXTRAMETADATA::GET_VARIANT_COMPONENT(Global_2883588, i, &nameHash, &enumValue, &componentType);
@@ -121219,7 +121219,7 @@ int func_1375(BOOL bParam0) // Position - 0xA3220 (668192)
 	return 1000;
 }
 
-eTransitionState func_1376() // Position - 0xA3243 (668227)
+int func_1376() // Position - 0xA3243 (668227)
 {
 	return Global_1575020;
 }

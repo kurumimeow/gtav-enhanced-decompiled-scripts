@@ -482194,7 +482194,7 @@ int func_8421(int iParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position 
 		case 292:
 			if (Global_262145.f_17454 || func_244(24))
 			{
-				if (Global_262145.f_17503 == 0)
+				if (Global_262145.f_17503 == false)
 				{
 					return func_8426(hash2, func_8422(iParam1), bParam2);
 				}

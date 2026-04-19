@@ -135256,7 +135256,7 @@ ePedComponentType func_1836(Player plParam0) // Position - 0xA0861 (657505)
 	if (player != -1)
 		return Global_1892798[player /*615*/];
 
-	return PV_COMP_INVALID;
+	return -1;
 }
 
 BOOL func_1837() // Position - 0xA0880 (657536)

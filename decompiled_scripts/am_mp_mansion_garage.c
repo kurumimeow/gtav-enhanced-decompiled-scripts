@@ -38225,7 +38225,7 @@ void func_380() // Position - 0x2D229 (184873)
 				func_381(false, false, true, false, true, false, false);
 		
 			Global_1950687 = false;
-			Global_1950688 = false;
+			Global_1950688 = 0;
 		}
 	
 		MISC::SET_BIT(&iLocal_165, 12);
@@ -40190,7 +40190,7 @@ int func_458(BOOL bParam0, BOOL bParam1, int iParam2, int iParam3) // Position -
 
 	flag = _NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM();
 	flag = true;
-	Global_1957359 = true;
+	Global_1957359 = 1;
 
 	if (Global_262145.f_10745)
 	{

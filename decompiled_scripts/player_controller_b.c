@@ -112910,13 +112910,13 @@ BOOL func_639(eCharacter echParam0, var uParam1, var uParam2, var uParam3, var u
 {
 	float endRange;
 	int i;
-	eCharacter num;
-	int num2;
+	eCharacter character;
+	int num;
 	Vector3 vector;
 	Vector3 vector2;
-	float num3;
+	float num2;
 	var unk5;
-	float num4;
+	float num3;
 	float randomFloatInRange;
 
 	endRange = 0f;
@@ -112938,27 +112938,27 @@ BOOL func_639(eCharacter echParam0, var uParam1, var uParam2, var uParam3, var u
 	{
 		if (Global_99742[echParam0] == 1)
 		{
-			num = Global_99746[echParam0];
-			num2 = Global_93217[num /*34*/].f_10;
+			character = Global_99746[echParam0];
+			num = Global_93217[character /*34*/].f_10;
 		
-			if (!func_641(num2))
-				vector = { func_640(num2, 0) };
+			if (!func_641(num))
+				vector = { func_640(num, 0) };
 			else
-				vector = { func_640(num2, echParam0) };
+				vector = { func_640(num, echParam0) };
 		
 			vector2 = { 0f, 0f, 0f };
-			num3 = 0f;
+			num2 = 0f;
 			TEXT_LABEL_ASSIGN_STRING(&unk5, "", 32);
 		
 			for (i = 0; i < *uParam2; i = i + 1)
 			{
 				if (uParam1->[i] != 318)
 				{
-					if (func_593(uParam1->[i], &vector2, &num3, &unk5))
+					if (func_593(uParam1->[i], &vector2, &num2, &unk5))
 					{
-						num4 = BUILTIN::VDIST2(vector, vector2);
+						num3 = BUILTIN::VDIST2(vector, vector2);
 					
-						if (num4 < 22500f)
+						if (num3 < 22500f)
 						{
 							*uParam3 = uParam1->[i];
 							*uParam4 = 100f;

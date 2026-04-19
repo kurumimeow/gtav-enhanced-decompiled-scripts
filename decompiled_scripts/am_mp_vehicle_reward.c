@@ -46788,9 +46788,9 @@ BOOL func_385(int iParam0) // Position - 0x362BC (221884)
 	return false;
 }
 
-char* func_386(Hash hParam0) // Position - 0x363B8 (222136)
+char* func_386(int iParam0) // Position - 0x363B8 (222136)
 {
-	switch (hParam0)
+	switch (iParam0)
 	{
 		case joaat("lm87"):
 			return "SAL_LM87" /*LM87*/;
@@ -107317,18 +107317,18 @@ void func_931(BOOL bParam0, BOOL bParam1) // Position - 0x8BDC4 (572868)
 	return;
 }
 
-void func_932(var uParam0, int iParam1) // Position - 0x8BE24 (572964)
+void func_932(var uParam0, var uParam1) // Position - 0x8BE24 (572964)
 {
-	func_933(*uParam0, iParam1);
-	iParam1->f_104 = uParam0->f_104;
-	iParam1->f_105 = uParam0->f_105;
-	iParam1->f_106 = uParam0->f_106;
-	iParam1->f_107 = { uParam0->f_107 };
-	iParam1->f_123 = { uParam0->f_123 };
-	iParam1->f_139 = uParam0->f_139;
-	iParam1->f_140 = uParam0->f_140;
-	iParam1->f_141 = uParam0->f_141;
-	iParam1->f_142 = uParam0->f_142;
+	func_933(*uParam0, uParam1);
+	uParam1->f_104 = uParam0->f_104;
+	uParam1->f_105 = uParam0->f_105;
+	uParam1->f_106 = uParam0->f_106;
+	uParam1->f_107 = { uParam0->f_107 };
+	uParam1->f_123 = { uParam0->f_123 };
+	uParam1->f_139 = uParam0->f_139;
+	uParam1->f_140 = uParam0->f_140;
+	uParam1->f_141 = uParam0->f_141;
+	uParam1->f_142 = uParam0->f_142;
 	return;
 }
 

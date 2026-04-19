@@ -259719,7 +259719,7 @@ void func_4888(var uParam0) // Position - 0x16FAF4 (1506036)
 	if (Global_1950707 == 31)
 	{
 		Global_1972789 = true;
-		Global_1972791 = true;
+		Global_1972791 = 1;
 	}
 
 	return;
@@ -265536,7 +265536,7 @@ void func_5062(var uParam0) // Position - 0x1785BE (1541566)
 	if (Global_1950707 == 8 || Global_1950707 == 31)
 	{
 		Global_1972789 = true;
-		Global_1972791 = true;
+		Global_1972791 = 1;
 		Global_1972792 = true;
 		Global_1972790 = true;
 		Global_1972793 = true;

@@ -169210,16 +169210,16 @@ BOOL func_1613() // Position - 0xD12F1 (856817)
 	return func_1614(*Global_4718592.f_139000);
 }
 
-BOOL func_1614(Hash hParam0) // Position - 0xD1315 (856853)
+BOOL func_1614(int iParam0) // Position - 0xD1315 (856853)
 {
 	int i;
 
-	if (hParam0 == 0)
+	if (iParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 8; i = i + 1)
 	{
-		if (Global_262145.f_4690[i] == hParam0)
+		if (Global_262145.f_4690[i] == iParam0)
 			return 1;
 	}
 

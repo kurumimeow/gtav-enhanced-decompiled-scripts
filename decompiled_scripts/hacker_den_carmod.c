@@ -117675,7 +117675,7 @@ BOOL func_847() // Position - 0x956DC (612060)
 
 BOOL func_848() // Position - 0x956EE (612078)
 {
-	return Global_1950714.f_5427 != PV_COMP_INVALID;
+	return Global_1950714.f_5427 != -1;
 }
 
 void func_849(var uParam0, ePedComponentType epctParam1) // Position - 0x956FF (612095)
@@ -239843,7 +239843,7 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 	var unk5;
 	var unk9;
 	int num;
-	ePedComponentType type;
+	BOOL flag;
 	var unk10;
 	int num2;
 	var unk11;
@@ -239851,28 +239851,28 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 	int num4;
 	int num5;
 	int num6;
-	ePedComponentType type2;
+	BOOL flag2;
 	int num7;
 	var unk15;
 	int num8;
 	int num9;
 	int num10;
 	var unk19;
-	ePedComponentType type3;
+	BOOL flag3;
 	int num11;
-	ePedComponentType type4;
-	ePedComponentType type5;
-	ePedComponentType type6;
-	ePedComponentType type7;
-	ePedComponentType type8;
+	BOOL flag4;
+	BOOL flag5;
+	BOOL flag6;
+	BOOL flag7;
+	BOOL flag8;
 	int num12;
 	var unk23;
 	int num13;
 	int num14;
-	ePedComponentType type9;
-	ePedComponentType type10;
+	ePedComponentType type;
+	ePedComponentType type2;
 	int num15;
-	ePedComponentType type11;
+	ePedComponentType type3;
 	var unk27;
 	var unk31;
 	var unk35;
@@ -239949,17 +239949,17 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 						num5 = iLocal_759.f_613;
 						num3 = func_2581(num5, num, iLocal_759.f_613 == 2);
 						num4 = func_2580(num3);
-						type = func_2579(num5, num3);
+						flag = func_2579(num5, num3);
 					
-						if (func_2578(&unk11, num4, type, &num2))
+						if (func_2578(&unk11, num4, flag, &num2))
 						{
 							func_215(&unk11, 0, 0);
 						
 							if (num2 == 0)
-								if (func_2577(num4, type, &unk10))
+								if (func_2577(num4, flag, &unk10))
 									func_2576(unk10);
 								else
-									func_2576(type);
+									func_2576(flag);
 						}
 					}
 				}
@@ -239974,14 +239974,14 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 							num10 = iLocal_759.f_613;
 							num8 = func_2581(num10, num6, iLocal_759.f_120.f_5 == 2);
 							num9 = func_2580(num8);
-							type2 = func_2579(num10, num8);
+							flag2 = func_2579(num10, num8);
 						
-							if (func_2574(&unk15, num9, type2, &num7) && !func_2573(ENTITY::GET_ENTITY_MODEL(iLocal_759.f_413)))
+							if (func_2574(&unk15, num9, flag2, &num7) && !func_2573(ENTITY::GET_ENTITY_MODEL(iLocal_759.f_413)))
 							{
 								func_215(&unk15, 0, 0);
 							
 								if (num7 == 0)
-									func_2576(type2);
+									func_2576(flag2);
 							}
 						}
 					}
@@ -240023,18 +240023,18 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 					{
 						if (epctLocal_1912.f_9[iLocal_759.f_451] != iLocal_759.f_120.f_1)
 						{
-							func_2563(iLocal_759.f_610, iLocal_759.f_120.f_1 - 1, &type3, iLocal_759.f_413);
-							type3 > PV_COMP_BERD;
+							func_2563(iLocal_759.f_610, iLocal_759.f_120.f_1 - 1, &flag3, iLocal_759.f_413);
+							flag3 > true;
 						
 							if (iLocal_759.f_475[iLocal_759.f_120.f_1] == -99)
 							{
 								func_215("CMOD_UNLOCK_RNK", 0, 0);
-								func_2576(type3);
+								func_2576(flag3);
 							}
-							else if (type3 > PV_COMP_BERD)
+							else if (flag3 > true)
 							{
 								func_215("CMOD_UNLOKR_RNK", 0, 0);
-								func_2576(type3);
+								func_2576(flag3);
 							}
 						}
 					}
@@ -240058,34 +240058,34 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 				{
 					if (func_2550(ENTITY::GET_ENTITY_MODEL(iLocal_759.f_413), iLocal_759.f_451, iLocal_759.f_120.f_1, &num11))
 					{
-						type4 = func_2549(num11);
-						type5 = type4 - func_13(819, -1);
-						type6 = func_2548(Global_104661[iLocal_759.f_120.f_1]);
+						flag4 = func_2549(num11);
+						flag5 = flag4 - func_13(819, -1);
+						flag6 = func_2548(Global_104661[iLocal_759.f_120.f_1]);
 					
 						if (iLocal_759.f_475[iLocal_759.f_120.f_1] == -99)
 						{
-							if (type5 == PV_COMP_BERD)
+							if (flag5 == true)
 							{
 								func_215("CMOD_UNLOCK_R1", 0, 0);
-								func_2576(type6);
+								func_2576(flag6);
 							}
-							else if (type5 > PV_COMP_BERD)
+							else if (flag5 > true)
 							{
 								func_215("CMOD_UNLOCK_R2", 0, 0);
-								func_2576(type5);
-								func_2576(type6);
+								func_2576(flag5);
+								func_2576(flag6);
 							}
 						}
-						else if (type4 == PV_COMP_BERD)
+						else if (flag4 == true)
 						{
 							func_215("CMOD_UNLOKR_R1", 0, 0);
-							func_2576(type6);
+							func_2576(flag6);
 						}
-						else if (type4 > PV_COMP_BERD)
+						else if (flag4 > true)
 						{
 							func_215("CMOD_UNLOKR_R2", 0, 0);
-							func_2576(type4);
-							func_2576(type6);
+							func_2576(flag4);
+							func_2576(flag6);
 						}
 					}
 				}
@@ -240097,27 +240097,27 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 			
 				if (MISC::GET_HASH_KEY(&unk) == 0 && !func_2575())
 				{
-					type7 = func_2545(num13);
+					flag7 = func_2545(num13);
 				
 					if (iLocal_759.f_475[iLocal_759.f_120.f_1] == -99)
 					{
-						if (func_2578(&unk23, num14, type7, &num12))
+						if (func_2578(&unk23, num14, flag7, &num12))
 						{
 							func_215(&unk23, 0, 0);
 						
 							if (num12 == 0)
-								if (func_2577(num14, type7, &type8))
-									func_2576(type8);
+								if (func_2577(num14, flag7, &flag8))
+									func_2576(flag8);
 								else
-									func_2576(type7);
+									func_2576(flag7);
 						}
 					}
-					else if (func_2574(&unk23, num14, type7, &num12) && !func_2573(ENTITY::GET_ENTITY_MODEL(iLocal_759.f_413)))
+					else if (func_2574(&unk23, num14, flag7, &num12) && !func_2573(ENTITY::GET_ENTITY_MODEL(iLocal_759.f_413)))
 					{
 						func_215(&unk23, 0, 0);
 					
 						if (num12 == 0)
-							func_2576(type7);
+							func_2576(flag7);
 					}
 				}
 			}
@@ -240174,20 +240174,20 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 				{
 					if (func_1665(iLocal_759.f_450))
 					{
-						type9 = func_2035(iLocal_759.f_450, iLocal_759.f_120.f_1, 0, 0, true, false);
+						type = func_2035(iLocal_759.f_450, iLocal_759.f_120.f_1, 0, 0, true, false);
 					
 						if (func_1740())
-							type9 = BUILTIN::CEIL((float)type9 * *Global_262145.f_36255);
+							type = BUILTIN::CEIL((float)type * *Global_262145.f_36255);
 					
 						if (!func_3176())
 						{
 							func_215("ARENACARM_BUY_U" /*Unlock this item for purchase via the Arena War Career or Buy Now for a higher cost of $~1~.*/, 0, 0);
-							func_2576(type9);
+							func_2576(type);
 						}
 						else
 						{
 							func_215("ARENACARM_BUY_C" /*Are you sure you want to Buy Now for $~1~? Please note: this item will return to a locked state if removed.*/, 0, 0);
-							func_2576(type9);
+							func_2576(type);
 						}
 					}
 					else
@@ -240212,7 +240212,7 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 				{
 					if (iLocal_759.f_475[iLocal_759.f_120.f_1] > 0)
 					{
-						type10 = func_2548(Global_104661[iLocal_759.f_120.f_1]);
+						type2 = func_2548(Global_104661[iLocal_759.f_120.f_1]);
 					
 						if (func_201(ENTITY::GET_ENTITY_MODEL(iLocal_759.f_413), iLocal_759.f_451, iLocal_759.f_120.f_1))
 						{
@@ -240221,7 +240221,7 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 							else
 								func_215("CMOD_UNLOK_RSRC", 0, 0);
 						}
-						else if (type10 > PV_COMP_BERD && !func_2575())
+						else if (type2 > PV_COMP_BERD && !func_2575())
 						{
 							if (iLocal_759.f_450 == 58 && iLocal_759.f_120.f_5 == 2 && !VEHICLE::GET_VEHICLE_TYRES_CAN_BURST(iLocal_759.f_413) || VEHICLE::GET_DRIFT_TYRES_SET(iLocal_759.f_413) && func_2537(PLAYER::PLAYER_ID()) < 20)
 							{
@@ -240229,7 +240229,7 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 							else
 							{
 								func_215("CMOD_UNLOKR_RNK", 0, 0);
-								func_2576(type10);
+								func_2576(type2);
 							}
 						}
 						else if (iLocal_759.f_450 == 27)
@@ -240364,12 +240364,12 @@ void func_2493(BOOL bParam0) // Position - 0x151AD3 (1383123)
 			}
 			else if (MISC::GET_HASH_KEY(&unk) == 0)
 			{
-				type11 = func_2548(Global_104661[iLocal_759.f_120.f_1]);
+				type3 = func_2548(Global_104661[iLocal_759.f_120.f_1]);
 			
-				if (type11 > PV_COMP_HEAD)
+				if (type3 > PV_COMP_HEAD)
 				{
 					func_215("CMOD_UNLOCK_RNK", 0, 0);
-					func_2576(type11);
+					func_2576(type3);
 				}
 			}
 		
@@ -258059,7 +258059,7 @@ ePedComponentType func_2548(int iParam0) // Position - 0x171D86 (1514886)
 	return 0;
 }
 
-ePedComponentType func_2549(int iParam0) // Position - 0x172217 (1516055)
+BOOL func_2549(int iParam0) // Position - 0x172217 (1516055)
 {
 	switch (iParam0)
 	{
@@ -260821,7 +260821,7 @@ ePedComponentType func_2567(ePedComponentType epctParam0) // Position - 0x175601
 	return PV_COMP_HEAD;
 }
 
-ePedComponentType func_2568(int iParam0, int iParam1) // Position - 0x175658 (1529432)
+BOOL func_2568(int iParam0, int iParam1) // Position - 0x175658 (1529432)
 {
 	int num;
 
@@ -260830,7 +260830,7 @@ ePedComponentType func_2568(int iParam0, int iParam1) // Position - 0x175658 (15
 	if (num != 0)
 		return func_2539(num);
 
-	return PV_COMP_INVALID;
+	return -1;
 }
 
 int func_2569(int iParam0, int iParam1) // Position - 0x17567A (1529466)
@@ -260985,7 +260985,7 @@ BOOL func_2573(Hash hParam0) // Position - 0x1758FB (1530107)
 	return false;
 }
 
-BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uParam3) // Position - 0x17591E (1530142)
+BOOL func_2574(char* sParam0, int iParam1, BOOL bParam2, var uParam3) // Position - 0x17591E (1530142)
 {
 	*uParam3 = 0;
 
@@ -260994,7 +260994,7 @@ BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 1:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_RAT", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_RT1", 16);
 				*uParam3 = 1;
@@ -261004,7 +261004,7 @@ BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 2:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_RAM", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_RM1", 16);
 				*uParam3 = 1;
@@ -261014,7 +261014,7 @@ BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 3:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_SLI", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_SL1", 16);
 				*uParam3 = 1;
@@ -261024,7 +261024,7 @@ BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 4:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_RAW", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_RW1", 16);
 				*uParam3 = 1;
@@ -261034,7 +261034,7 @@ BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 5:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_USJ", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_US1", 16);
 				*uParam3 = 1;
@@ -261044,7 +261044,7 @@ BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 6:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_TBS", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_TB1", 16);
 				*uParam3 = 1;
@@ -261052,7 +261052,7 @@ BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 			break;
 	
 		case 7:
-			if (epctParam2 <= PV_COMP_BERD)
+			if (bParam2 <= true)
 				return false;
 		
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_RNK", 16);
@@ -261061,7 +261061,7 @@ BOOL func_2574(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 8:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_BL", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOKR_BL1", 16);
 				*uParam3 = 1;
@@ -261192,40 +261192,40 @@ void func_2576(ePedComponentType epctParam0) // Position - 0x175CDA (1531098)
 	return;
 }
 
-BOOL func_2577(int iParam0, ePedComponentType epctParam1, var uParam2) // Position - 0x175D39 (1531193)
+BOOL func_2577(int iParam0, BOOL bParam1, var uParam2) // Position - 0x175D39 (1531193)
 {
 	switch (iParam0)
 	{
 		case 3:
-			*uParam2 = epctParam1 - func_13(162, -1);
+			*uParam2 = bParam1 - func_13(162, -1);
 			break;
 	
 		case 4:
-			*uParam2 = epctParam1 - func_13(819, -1);
+			*uParam2 = bParam1 - func_13(819, -1);
 			break;
 	
 		case 5:
-			*uParam2 = epctParam1 - func_13(154, -1);
+			*uParam2 = bParam1 - func_13(154, -1);
 			break;
 	
 		case 6:
-			*uParam2 = epctParam1 - func_13(161, -1);
+			*uParam2 = bParam1 - func_13(161, -1);
 			break;
 	
 		case 8:
-			*uParam2 = epctParam1 - func_135(38, -1);
+			*uParam2 = bParam1 - func_135(38, -1);
 			break;
 	
 		case 10:
-			*uParam2 = epctParam1 - func_135(58, -1);
+			*uParam2 = bParam1 - func_135(58, -1);
 			break;
 	
 		case 11:
-			*uParam2 = epctParam1 - func_135(57, -1);
+			*uParam2 = bParam1 - func_135(57, -1);
 			break;
 	
 		case 9:
-			*uParam2 = epctParam1 - func_135(51, -1);
+			*uParam2 = bParam1 - func_135(51, -1);
 			break;
 	
 		default:
@@ -261238,7 +261238,7 @@ BOOL func_2577(int iParam0, ePedComponentType epctParam1, var uParam2) // Positi
 	return false;
 }
 
-BOOL func_2578(char* sParam0, int iParam1, ePedComponentType epctParam2, var uParam3) // Position - 0x175E09 (1531401)
+BOOL func_2578(char* sParam0, int iParam1, BOOL bParam2, var uParam3) // Position - 0x175E09 (1531401)
 {
 	*uParam3 = 0;
 
@@ -261247,7 +261247,7 @@ BOOL func_2578(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 1:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_RAT", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_RT1", 16);
 				*uParam3 = 1;
@@ -261257,7 +261257,7 @@ BOOL func_2578(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 2:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_RAM", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_RM1", 16);
 				*uParam3 = 1;
@@ -261267,7 +261267,7 @@ BOOL func_2578(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 3:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_SLI", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_SL1", 16);
 				*uParam3 = 1;
@@ -261277,7 +261277,7 @@ BOOL func_2578(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 4:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_RAW", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_RW1", 16);
 				*uParam3 = 1;
@@ -261287,7 +261287,7 @@ BOOL func_2578(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 5:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_USJ", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_US1", 16);
 				*uParam3 = 1;
@@ -261297,7 +261297,7 @@ BOOL func_2578(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 6:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_TBS", 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_TB1", 16);
 				*uParam3 = 1;
@@ -261311,7 +261311,7 @@ BOOL func_2578(char* sParam0, int iParam1, ePedComponentType epctParam2, var uPa
 		case 8:
 			TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_BL" /*This item will unlock when you achieve ~1~ more best laps.*/, 16);
 		
-			if (epctParam2 == PV_COMP_BERD)
+			if (bParam2 == true)
 			{
 				TEXT_LABEL_ASSIGN_STRING(sParam0, "CMOD_UNLOCK_BL1" /*This item will unlock when you achieve a best lap.*/, 16);
 				*uParam3 = 1;
@@ -266590,18 +266590,18 @@ BOOL func_2638() // Position - 0x17DE59 (1564249)
 BOOL func_2639(int iParam0) // Position - 0x17DED4 (1564372)
 {
 	ePedComponentType type;
+	ePedComponentType flag;
 	ePedComponentType type2;
 	ePedComponentType type3;
 	ePedComponentType type4;
 	ePedComponentType type5;
-	ePedComponentType type6;
 
 	type = func_13(161, -1);
-	type2 = func_2640(func_2641(PLAYER::PLAYER_ID(), true), false);
-	type3 = func_13(162, -1);
-	type4 = func_13(154, -1);
-	type5 = func_13(819, -1);
-	type6 = func_135(38, -1);
+	flag = func_2640(func_2641(PLAYER::PLAYER_ID(), true), false);
+	type2 = func_13(162, -1);
+	type3 = func_13(154, -1);
+	type4 = func_13(819, -1);
+	type5 = func_135(38, -1);
 
 	switch (iParam0)
 	{
@@ -266650,7 +266650,7 @@ BOOL func_2639(int iParam0) // Position - 0x17DED4 (1564372)
 		case 51:
 		case 52:
 		case 36:
-			if (type2 >= func_2545(iParam0))
+			if (flag >= func_2545(iParam0))
 				return true;
 			else
 				return false;
@@ -266665,7 +266665,7 @@ BOOL func_2639(int iParam0) // Position - 0x17DED4 (1564372)
 		case 54:
 		case 55:
 		case 56:
-			if (type6 >= func_2545(iParam0))
+			if (type5 >= func_2545(iParam0))
 				return true;
 			else
 				return false;
@@ -266674,7 +266674,7 @@ BOOL func_2639(int iParam0) // Position - 0x17DED4 (1564372)
 		case 57:
 		case 58:
 		case 59:
-			if (type4 >= func_2545(iParam0))
+			if (type3 >= func_2545(iParam0))
 				return true;
 			else
 				return false;
@@ -266693,7 +266693,7 @@ BOOL func_2639(int iParam0) // Position - 0x17DED4 (1564372)
 		case 64:
 		case 65:
 		case 66:
-			if (type3 >= func_2545(iParam0))
+			if (type2 >= func_2545(iParam0))
 				return true;
 			else
 				return false;
@@ -266703,7 +266703,7 @@ BOOL func_2639(int iParam0) // Position - 0x17DED4 (1564372)
 		case 68:
 		case 69:
 		case 70:
-			if (type5 >= func_2545(iParam0))
+			if (type4 >= func_2545(iParam0))
 				return true;
 			else
 				return false;

@@ -43848,44 +43848,44 @@ void func_552(var uParam0, Hash hParam1, BOOL bParam2, int iParam3) // Position 
 	return;
 }
 
-int func_553(int iParam0) // Position - 0x3EEF3 (257779)
+int func_553(ePedComponentType epctParam0) // Position - 0x3EEF3 (257779)
 {
-	switch (iParam0)
+	switch (epctParam0)
 	{
-		case 0:
+		case PV_COMP_HEAD:
 			return 0;
 	
-		case 2:
+		case PV_COMP_HAIR:
 			return 2;
 	
-		case 3:
+		case PV_COMP_UPPR:
 			return 3;
 	
-		case 4:
+		case PV_COMP_LOWR:
 			return 4;
 	
-		case 6:
+		case PV_COMP_FEET:
 			return 6;
 	
-		case 5:
+		case PV_COMP_HAND:
 			return 5;
 	
-		case 8:
+		case PV_COMP_ACCS:
 			return 8;
 	
-		case 9:
+		case PV_COMP_TASK:
 			return 9;
 	
-		case 10:
+		case PV_COMP_DECL:
 			return 10;
 	
-		case 1:
+		case PV_COMP_BERD:
 			return 1;
 	
-		case 7:
+		case PV_COMP_TEEF:
 			return 7;
 	
-		case 11:
+		case PV_COMP_JBIB:
 			return 11;
 	}
 

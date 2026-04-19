@@ -55345,7 +55345,7 @@ Hash func_308(int iParam0, int iParam1) // Position - 0x41F84 (270212)
 	return STATS::_GET_STAT_HASH_FOR_CHARACTER_STAT(10, iParam0, func_147(iParam1));
 }
 
-int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (270234)
+BOOL func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (270234)
 {
 	iParam2 == 0;
 
@@ -55355,10 +55355,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55381,10 +55381,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55407,10 +55407,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55433,10 +55433,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55459,10 +55459,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -55485,10 +55485,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55511,10 +55511,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 2;
@@ -55537,10 +55537,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 2;
@@ -55563,13 +55563,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 2;
@@ -55589,13 +55589,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 2;
@@ -55615,10 +55615,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -55641,10 +55641,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -55667,10 +55667,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55693,10 +55693,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55719,10 +55719,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55745,10 +55745,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55771,10 +55771,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55797,10 +55797,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -55823,10 +55823,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -55849,10 +55849,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55875,10 +55875,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -55901,10 +55901,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -55927,10 +55927,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55953,10 +55953,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -55979,10 +55979,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56005,10 +56005,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -56031,10 +56031,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -56057,10 +56057,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56083,10 +56083,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56109,10 +56109,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56135,10 +56135,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56161,10 +56161,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -56187,10 +56187,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -56213,10 +56213,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56239,10 +56239,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56265,10 +56265,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56291,10 +56291,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56317,10 +56317,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56343,10 +56343,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56369,10 +56369,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56395,10 +56395,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56421,10 +56421,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56447,10 +56447,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56473,10 +56473,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56499,10 +56499,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56525,10 +56525,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56551,10 +56551,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56577,10 +56577,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56603,10 +56603,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -56629,10 +56629,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -56655,10 +56655,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56681,10 +56681,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56707,10 +56707,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 1000;
@@ -56733,10 +56733,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 3;
@@ -56759,10 +56759,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56785,10 +56785,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56811,10 +56811,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -56837,10 +56837,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56863,10 +56863,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56889,10 +56889,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56915,10 +56915,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56941,10 +56941,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -56967,10 +56967,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -56993,10 +56993,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -57019,10 +57019,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -57045,10 +57045,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57071,10 +57071,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57097,10 +57097,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57123,10 +57123,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57149,10 +57149,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57175,10 +57175,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57201,10 +57201,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57227,10 +57227,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -57253,10 +57253,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57279,10 +57279,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -57305,10 +57305,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57331,10 +57331,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57357,10 +57357,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57383,10 +57383,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57409,10 +57409,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57435,10 +57435,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -57461,10 +57461,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_24938;
@@ -57487,10 +57487,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_24938;
@@ -57513,10 +57513,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_24938;
@@ -57539,10 +57539,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_24938;
@@ -57565,10 +57565,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57591,13 +57591,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 3;
@@ -57617,13 +57617,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 3;
@@ -57643,10 +57643,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57669,10 +57669,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57695,10 +57695,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57721,13 +57721,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 3;
@@ -57747,13 +57747,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 3;
@@ -57773,13 +57773,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 3;
@@ -57799,10 +57799,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57825,10 +57825,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57851,10 +57851,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -57877,10 +57877,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -57903,10 +57903,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -57929,10 +57929,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 100000;
@@ -57955,10 +57955,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -57981,10 +57981,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 1000;
@@ -58007,10 +58007,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -58033,10 +58033,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58059,10 +58059,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58085,10 +58085,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58111,10 +58111,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 25000;
@@ -58137,10 +58137,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -58163,10 +58163,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28315;
@@ -58189,10 +58189,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28498;
@@ -58215,10 +58215,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28526;
@@ -58241,10 +58241,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28530;
@@ -58267,10 +58267,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28246;
@@ -58293,10 +58293,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return Global_262145.f_28502;
@@ -58319,10 +58319,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58345,10 +58345,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58371,10 +58371,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 50000;
@@ -58397,10 +58397,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58423,10 +58423,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58449,10 +58449,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58475,10 +58475,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 1000000;
@@ -58501,10 +58501,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58527,10 +58527,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58553,10 +58553,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58579,10 +58579,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58605,10 +58605,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58631,10 +58631,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58657,10 +58657,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58683,10 +58683,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58709,10 +58709,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58735,10 +58735,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 30;
@@ -58761,10 +58761,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -58787,10 +58787,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58813,10 +58813,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58839,10 +58839,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58865,13 +58865,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 2;
@@ -58891,10 +58891,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58917,10 +58917,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58943,10 +58943,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58969,10 +58969,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -58995,13 +58995,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 2;
@@ -59021,10 +59021,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59047,10 +59047,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59073,10 +59073,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59099,10 +59099,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59125,10 +59125,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -59151,10 +59151,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -59177,10 +59177,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59203,10 +59203,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59229,10 +59229,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59255,10 +59255,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -59281,10 +59281,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -59307,10 +59307,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59333,10 +59333,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59359,10 +59359,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 3;
@@ -59385,10 +59385,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59411,10 +59411,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59437,10 +59437,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59463,10 +59463,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59489,10 +59489,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -59515,10 +59515,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5000;
@@ -59541,13 +59541,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 2;
@@ -59567,13 +59567,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 3;
@@ -59593,10 +59593,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59619,13 +59619,13 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
-					return 1;
+					return true;
 			
 				case 3:
 					return 2;
@@ -59645,10 +59645,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59671,10 +59671,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 250000;
@@ -59697,10 +59697,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 50000;
@@ -59723,10 +59723,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59749,10 +59749,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59775,10 +59775,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59801,10 +59801,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59827,10 +59827,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59853,10 +59853,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59879,10 +59879,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 10;
@@ -59905,10 +59905,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 2;
@@ -59931,10 +59931,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59957,10 +59957,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -59983,10 +59983,10 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 			switch (iParam1)
 			{
 				case 0:
-					return 0;
+					return false;
 			
 				case 1:
-					return 0;
+					return false;
 			
 				case 2:
 					return 5;
@@ -60009,17 +60009,17 @@ int func_309(int iParam0, int iParam1, int iParam2) // Position - 0x41F9A (27023
 	return 999;
 }
 
-int func_310(int iParam0, int iParam1) // Position - 0x45848 (284744)
+BOOL func_310(int iParam0, int iParam1) // Position - 0x45848 (284744)
 {
 	Hash statHash;
-	int outValue;
+	BOOL outValue;
 
 	statHash = func_311(iParam0, iParam1);
 
 	if (STATS::STAT_GET_INT(statHash, &outValue, -1))
 		return outValue;
 
-	return 0;
+	return false;
 }
 
 Hash func_311(int iParam0, int iParam1) // Position - 0x4586C (284780)
@@ -71419,7 +71419,7 @@ void func_372(Hash hParam0, int iParam1, int iParam2, BOOL bParam3) // Position 
 	int i;
 	Hash nameHash;
 	int enumValue;
-	int componentType;
+	ePedComponentType componentType;
 	int num;
 	int num2;
 	int address;
@@ -71461,7 +71461,7 @@ void func_372(Hash hParam0, int iParam1, int iParam2, BOOL bParam3) // Position 
 					if (num < Global_4519747)
 					{
 						Global_4519747[num] = -1;
-						Global_4519758[num] = -1;
+						Global_4519758[num] = PV_COMP_INVALID;
 					}
 				
 					EXTRAMETADATA::GET_VARIANT_COMPONENT(Global_2883588, i, &nameHash, &enumValue, &componentType);
@@ -97438,7 +97438,7 @@ int func_419(Ped pedParam0, int iParam1, int iParam2, int iParam3, int iParam4, 
 	return 1;
 }
 
-void func_420(Hash hParam0, int iParam1, int iParam2) // Position - 0x6F337 (455479)
+void func_420(Hash hParam0, int iParam1, BOOL bParam2) // Position - 0x6F337 (455479)
 {
 	int num;
 	int num2;
@@ -97452,14 +97452,14 @@ void func_420(Hash hParam0, int iParam1, int iParam2) // Position - 0x6F337 (455
 
 	if (func_422(hParam0, 12, num))
 	{
-		if (func_421(hParam0, iParam1, iParam2))
+		if (func_421(hParam0, iParam1, bParam2))
 		{
 			num2 = func_418(hParam0);
 		
 			if (iParam1 == 3)
-				Global_114931.f_2370.f_539.f_196[num2] = iParam2;
+				Global_114931.f_2370.f_539.f_196[num2] = bParam2;
 			else if (iParam1 == 4)
-				Global_114931.f_2370.f_539.f_200[num2] = iParam2;
+				Global_114931.f_2370.f_539.f_200[num2] = bParam2;
 		}
 	}
 

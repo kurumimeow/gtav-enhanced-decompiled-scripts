@@ -80487,10 +80487,10 @@ void func_795(BOOL bParam0) // Position - 0x5E205 (385541)
 	{
 		if (func_819())
 			if (!func_825(func_818(func_819())))
-				func_806(func_818(func_819()), func_817(), false, HUD_COLOUR_PURE_WHITE);
+				func_806(func_818(func_819()), func_817(), false, PV_COMP_HEAD);
 		else if (func_804() && !_STOPWATCH_IS_INITIALIZED_0(&(uLocal_945.f_5)) || func_801() && !_STOPWATCH_IS_INITIALIZED_0(&(uLocal_945.f_5)))
 			if (!func_825(func_818(func_819())))
-				func_800(func_818(func_819()), func_817(), HUD_COLOUR_BLUE, false);
+				func_800(func_818(func_819()), func_817(), PV_COMP_TASK, false);
 		else if (!func_825(func_799()))
 			func_822(func_799(), false);
 	}
@@ -80542,12 +80542,12 @@ char* func_799() // Position - 0x5E383 (385923)
 	return "SIMP_TRN_0" /*Enter the ~HUD_COLOUR_BLUE~Wastelander.~s~*/;
 }
 
-void func_800(char* sParam0, char* sParam1, eHudColour ehcParam2, BOOL bParam3) // Position - 0x5E390 (385936)
+void func_800(char* sParam0, char* sParam1, ePedComponentType epctParam2, BOOL bParam3) // Position - 0x5E390 (385936)
 {
-	if (func_806(sParam0, sParam1, bParam3, ehcParam2))
+	if (func_806(sParam0, sParam1, bParam3, epctParam2))
 	{
 		Global_1574766 = 19;
-		Global_1574766.f_56 = ehcParam2;
+		Global_1574766.f_56 = epctParam2;
 	}
 
 	return;
@@ -80637,7 +80637,7 @@ BOOL func_805(int iParam0) // Position - 0x5E4A1 (386209)
 	return false;
 }
 
-BOOL func_806(char* sParam0, char* sParam1, BOOL bParam2, eHudColour ehcParam3) // Position - 0x5E4E9 (386281)
+BOOL func_806(char* sParam0, char* sParam1, BOOL bParam2, ePedComponentType epctParam3) // Position - 0x5E4E9 (386281)
 {
 	if (MISC::IS_STRING_NULL_OR_EMPTY(sParam0))
 		return false;
@@ -80648,7 +80648,7 @@ BOOL func_806(char* sParam0, char* sParam1, BOOL bParam2, eHudColour ehcParam3) 
 	if (MISC::IS_STRING_NULL_OR_EMPTY(sParam1))
 		return false;
 
-	if (func_816(sParam0, sParam1) && ehcParam3 == Global_1574766.f_58)
+	if (func_816(sParam0, sParam1) && epctParam3 == Global_1574766.f_58)
 		return false;
 
 	func_810();
@@ -80657,8 +80657,8 @@ BOOL func_806(char* sParam0, char* sParam1, BOOL bParam2, eHudColour ehcParam3) 
 	Global_1574766.f_9 = MISC::GET_HASH_KEY(&(Global_1574766.f_1));
 	TEXT_LABEL_ASSIGN_STRING(&(Global_1574766.f_12), sParam0, 16);
 	TEXT_LABEL_ASSIGN_STRING(&(Global_1574766.f_16), sParam1, 64);
-	Global_1574766.f_58 = ehcParam3;
-	Global_1574766.f_56 = ehcParam3;
+	Global_1574766.f_58 = epctParam3;
+	Global_1574766.f_56 = epctParam3;
 	func_809();
 	func_808(bParam2);
 	func_807();
@@ -87082,7 +87082,7 @@ void func_1082() // Position - 0x6603C (417852)
 	return;
 }
 
-void func_1083(ePedComponentType epctParam0, int iParam1, char* sParam2, ePedComponentType epctParam3, ePedComponentType epctParam4, int iParam5, int iParam6, int iParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17, int iParam18, int iParam19, int iParam20, int iParam21, int iParam22, int iParam23, int iParam24, int iParam25, int iParam26, int iParam27, int iParam28, int iParam29, int iParam30, int iParam31, int iParam32, int iParam33, int iParam34, int iParam35, int iParam36, int iParam37, int iParam38, int iParam39) // Position - 0x6611C (418076)
+void func_1083(ePedComponentType epctParam0, int iParam1, char* sParam2, ePedComponentType epctParam3, int iParam4, int iParam5, int iParam6, int iParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17, int iParam18, int iParam19, int iParam20, int iParam21, int iParam22, int iParam23, int iParam24, int iParam25, int iParam26, int iParam27, int iParam28, int iParam29, int iParam30, int iParam31, int iParam32, int iParam33, int iParam34, int iParam35, int iParam36, int iParam37, int iParam38, int iParam39) // Position - 0x6611C (418076)
 {
 	int num;
 	int i;
@@ -87104,7 +87104,7 @@ void func_1083(ePedComponentType epctParam0, int iParam1, char* sParam2, ePedCom
 		Global_1679155.f_1177.f_11[num] = iParam1;
 		TEXT_LABEL_ASSIGN_STRING(&Global_1679155.f_1177.f_22[num /*16*/], sParam2, 64);
 		Global_1679155.f_1177.f_194[num] = epctParam3;
-		Global_1679155.f_1177.f_183[num] = epctParam4;
+		Global_1679155.f_1177.f_183[num] = iParam4;
 		Global_1679155.f_1177.f_227[num] = iParam5;
 		Global_1679155.f_1177.f_238[num /*3*/] = iParam6;
 		Global_1679155.f_1177.f_238[num /*3*/].f_1 = iParam7;
@@ -150427,11 +150427,11 @@ ePedComponentType func_1952(Ped pedParam0, ePedComponentType epctParam1) // Posi
 	return func_1825(pedParam0, pedPropIndex, pedPropTextureIndex, epctParam1);
 }
 
-void func_1953(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType epctParam2, ePedComponentType epctParam3) // Position - 0xBF335 (783157)
+void func_1953(Ped pedParam0, ePedComponentType epctParam1, int iParam2, int iParam3) // Position - 0xBF335 (783157)
 {
 	ePedComponentType type;
 
-	if (epctParam2 == -1)
+	if (iParam2 == -1)
 	{
 		PED::CLEAR_PED_PROP(pedParam0, epctParam1, 1);
 	
@@ -150443,13 +150443,13 @@ void func_1953(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType ep
 	}
 	else
 	{
-		PED::SET_PED_PROP_INDEX(pedParam0, epctParam1, epctParam2, epctParam3, NETWORK::NETWORK_IS_GAME_IN_PROGRESS(), 1);
+		PED::SET_PED_PROP_INDEX(pedParam0, epctParam1, iParam2, iParam3, NETWORK::NETWORK_IS_GAME_IN_PROGRESS(), 1);
 	
 		if (epctParam1 == PV_COMP_HEAD)
 		{
-			type = func_1825(pedParam0, epctParam2, epctParam3, epctParam1);
+			type = func_1825(pedParam0, iParam2, iParam3, epctParam1);
 		
-			if (func_1943(ENTITY::GET_ENTITY_MODEL(pedParam0), 14, type, EXTRAMETADATA::GET_HASH_NAME_FOR_PROP(pedParam0, 0, epctParam2, epctParam3)))
+			if (func_1943(ENTITY::GET_ENTITY_MODEL(pedParam0), 14, type, EXTRAMETADATA::GET_HASH_NAME_FOR_PROP(pedParam0, 0, iParam2, iParam3)))
 			{
 				PED::SET_PED_CONFIG_FLAG(pedParam0, 34, true);
 				PED::SET_PED_CONFIG_FLAG(pedParam0, 36, true);
@@ -153273,7 +153273,7 @@ BOOL func_1972(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType ep
 	}
 	else if (epctParam1 == 14)
 	{
-		if (PED::GET_PED_PROP_INDEX(pedParam0, Global_80088[1 /*14*/].f_12, 1) == Global_80088[1 /*14*/].f_3 && PED::GET_PED_PROP_TEXTURE_INDEX(pedParam0, Global_80088[1 /*14*/].f_12) == Global_80088[1 /*14*/].f_4 || Global_80088[1 /*14*/].f_3 == PV_COMP_INVALID)
+		if (PED::GET_PED_PROP_INDEX(pedParam0, Global_80088[1 /*14*/].f_12, 1) == Global_80088[1 /*14*/].f_3 && PED::GET_PED_PROP_TEXTURE_INDEX(pedParam0, Global_80088[1 /*14*/].f_12) == Global_80088[1 /*14*/].f_4 || Global_80088[1 /*14*/].f_3 == -1)
 			return true;
 	}
 	else if (Global_80088[1 /*14*/].f_3 == PED::GET_PED_DRAWABLE_VARIATION(pedParam0, func_433(epctParam1)) && Global_80088[1 /*14*/].f_4 == PED::GET_PED_TEXTURE_VARIATION(pedParam0, func_433(epctParam1)))
@@ -188907,9 +188907,9 @@ int func_2335(var uParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bParam
 										{
 											PED::SET_PED_COMPONENT_VARIATION(*uParam0, PV_COMP_HEAD, 0, 0, 0);
 											PED::SET_PED_COMPONENT_VARIATION(*uParam0, PV_COMP_BERD, 0, 0, 0);
-											func_1953(*uParam0, PV_COMP_HEAD, PV_COMP_INVALID, PV_COMP_HEAD);
-											func_1953(*uParam0, PV_COMP_BERD, PV_COMP_INVALID, PV_COMP_HEAD);
-											func_1953(*uParam0, PV_COMP_HAIR, PV_COMP_INVALID, PV_COMP_HEAD);
+											func_1953(*uParam0, PV_COMP_HEAD, -1, 0);
+											func_1953(*uParam0, PV_COMP_BERD, -1, 0);
+											func_1953(*uParam0, PV_COMP_HAIR, -1, 0);
 											func_1828(*uParam0, 14, PV_COMP_HEAD, 1, -1, 0, 0, 0, PV_COMP_INVALID, PV_COMP_INVALID, -1, false, false, false);
 											PED::SET_PED_CONFIG_FLAG(*uParam0, 380, true);
 										}
@@ -190079,8 +190079,8 @@ void func_2352(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType ep
 	int shopPedApparelVariantPropCount;
 	Hash componentHash;
 	BOOL flag;
-	ePedComponentType type;
-	ePedComponentType type2;
+	int num;
+	int num2;
 	var outProp;
 
 	componentId = 0;
@@ -190106,24 +190106,24 @@ void func_2352(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType ep
 			if (componentHash != 0)
 			{
 				flag = false;
-				type = PV_COMP_INVALID;
-				type2 = PV_COMP_INVALID;
+				num = -1;
+				num2 = -1;
 				EXTRAMETADATA::GET_SHOP_PED_PROP(componentHash, &outProp);
 			
 				if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForProp, joaat("ALT_HELMET"), 1))
 				{
 					flag = true;
-					type = epctParam1;
-					type2 = outProp.f_3;
+					num = epctParam1;
+					num2 = outProp.f_3;
 				}
 				else
 				{
 					flag = false;
-					type = outProp.f_3;
-					type2 = epctParam1;
+					num = outProp.f_3;
+					num2 = epctParam1;
 				}
 			
-				PED::SET_PED_HELMET_VISOR_PROP_INDICES(pedParam0, flag, type, type2);
+				PED::SET_PED_HELMET_VISOR_PROP_INDICES(pedParam0, flag, num, num2);
 			
 				if (bParam3)
 				{
@@ -215211,7 +215211,7 @@ void func_2841(ePedComponentType epctParam0) // Position - 0x11287A (1124474)
 			value2 = (BUILTIN::TO_FLOAT(value) / (float)*Global_262145.f_37873) * 100f;
 		
 			if (value2 > 0f)
-				func_1083(BUILTIN::FLOOR(value2), 100, "MANSION_QE_HUD", PV_COMP_BERD, PV_COMP_INVALID, 2, -1082130432, -1082130432, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, -1, 0, -1, -1082130432, -1082130432, 0, 1, 0, 0, 1, -1, 0, -1, 1, 255, 0, -1082130432);
+				func_1083(BUILTIN::FLOOR(value2), 100, "MANSION_QE_HUD", PV_COMP_BERD, -1, 2, -1082130432, -1082130432, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, -1, 0, -1, -1082130432, -1082130432, 0, 1, 0, 0, 1, -1, 0, -1, 1, 255, 0, -1082130432);
 		}
 		else
 		{

@@ -114582,7 +114582,7 @@ BOOL func_1084(ePedComponentType epctParam0, ePedComponentType epctParam1) // Po
 
 void func_1085(int iParam0, BOOL bParam1, var uParam2, BOOL bParam3) // Position - 0x91799 (595865)
 {
-	BOOL value;
+	ePedComponentType value;
 	int value2;
 	var unk;
 	var unk2;
@@ -127754,9 +127754,9 @@ void func_1133(int iParam0, BOOL bParam1, BOOL bParam2) // Position - 0xA246C (6
 	return;
 }
 
-void func_1134(int iParam0, BOOL bParam1) // Position - 0xA24A9 (664745)
+void func_1134(int iParam0, ePedComponentType epctParam1) // Position - 0xA24A9 (664745)
 {
-	if (bParam1 > false)
+	if (epctParam1 > PV_COMP_HEAD)
 	{
 		if (Global_262145.f_23732 != -1)
 		{
@@ -127764,10 +127764,10 @@ void func_1134(int iParam0, BOOL bParam1) // Position - 0xA24A9 (664745)
 			{
 				Global_2733138.f_283 = iParam0;
 			
-				if (bParam1 > Global_262145.f_7202)
-					bParam1 = Global_262145.f_7202;
+				if (epctParam1 > Global_262145.f_7202)
+					epctParam1 = Global_262145.f_7202;
 			
-				Global_2733138.f_284 = bParam1;
+				Global_2733138.f_284 = epctParam1;
 				Global_2733138.f_285 = 0;
 			}
 		}
@@ -127892,11 +127892,11 @@ BOOL func_1137(int iParam0) // Position - 0xA25FE (665086)
 	return num;
 }
 
-void func_1138(int iParam0, BOOL bParam1) // Position - 0xA2666 (665190)
+void func_1138(int iParam0, ePedComponentType epctParam1) // Position - 0xA2666 (665190)
 {
 	if (func_1132(PLAYER::PLAYER_ID()) && func_2219())
-		if (func_1131(iParam0) && bParam1 > false)
-			func_668(14936, func_454(14936, -1) + bParam1, -1, true);
+		if (func_1131(iParam0) && epctParam1 > PV_COMP_HEAD)
+			func_668(14936, func_454(14936, -1) + epctParam1, -1, true);
 
 	return;
 }
@@ -128658,7 +128658,7 @@ void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, ePedComponentType epctParam1
 		case joaat("SERVICE_SPEND_ARENA_SPECTATOR_BOX"):
 		case joaat("SERVICE_SPEND_MAKE_IT_RAIN"):
 		case 571787049:
-			if (epctParam1 > false || Global_262145.f_28043)
+			if (epctParam1 > PV_COMP_HEAD || Global_262145.f_28043)
 				func_1155(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), joaat("NET_SHOP_ACTION_SPEND"), joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, epctParam1, num, 7);
 			break;
 	
@@ -128813,7 +128813,7 @@ void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, ePedComponentType epctParam1
 		case 767920357:
 		case 1238804234:
 		case -2140508184:
-			if (epctParam1 > false || Global_262145.f_28043)
+			if (epctParam1 > PV_COMP_HEAD || Global_262145.f_28043)
 				func_1155(uParam2, joaat("NET_SHOP_TTYPE_SERVICE"), joaat("NET_SHOP_ACTION_SPEND"), joaat("CATEGORY_SERVICE_WITH_THRESHOLD"), hParam0, epctParam1, num, 7);
 			break;
 	
@@ -128977,7 +128977,7 @@ void _NETSHOPPING_PROCESS_TRANSACTION(Hash hParam0, ePedComponentType epctParam1
 	return;
 }
 
-int func_1155(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, BOOL bParam5, int iParam6, int iParam7) // Position - 0xA3CBE (670910)
+int func_1155(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, ePedComponentType epctParam5, int iParam6, int iParam7) // Position - 0xA3CBE (670910)
 {
 	BOOL flag;
 	BOOL flag2;
@@ -129025,11 +129025,11 @@ int func_1155(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4
 	*uParam0 = 15;
 	transactionId = 2147483647;
 
-	if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_BEGIN_SERVICE(&transactionId, hParam3, hParam4, hParam2, bParam5, iParam6))
+	if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_BEGIN_SERVICE(&transactionId, hParam3, hParam4, hParam2, epctParam5, iParam6))
 	{
 		if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_CHECKOUT_START(transactionId))
 		{
-			*uParam0 = func_1162(transactionId, iParam1, hParam4, hParam2, hParam3, bParam5, false, iParam6, iParam7, 1, true);
+			*uParam0 = func_1162(transactionId, iParam1, hParam4, hParam2, hParam3, epctParam5, false, iParam6, iParam7, 1, true);
 		
 			if (flag2 && !flag)
 			{
@@ -129056,7 +129056,7 @@ int func_1155(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4
 			Global_4516905 = hParam4;
 			Global_4516907 = hParam3;
 			Global_4516908 = 1;
-			Global_4516906 = bParam5;
+			Global_4516906 = epctParam5;
 		}
 	
 		if (iParam7 & 8 != 0)
@@ -129064,7 +129064,7 @@ int func_1155(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4
 			Global_4516905 = hParam4;
 			Global_4516907 = hParam3;
 			Global_4516908 = 1;
-			Global_4516906 = bParam5;
+			Global_4516906 = epctParam5;
 		}
 	
 		flag4 = false;
@@ -129076,13 +129076,13 @@ int func_1155(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4
 		}
 	
 		if (iParam7 & 4 != 0)
-			func_1156(-1, hParam4, iParam6, bParam5, -1);
+			func_1156(-1, hParam4, iParam6, epctParam5, -1);
 	}
 
 	return 0;
 }
 
-void func_1156(int iParam0, Hash hParam1, int iParam2, BOOL bParam3, int iParam4) // Position - 0xA3E6B (671339)
+void func_1156(int iParam0, Hash hParam1, int iParam2, ePedComponentType epctParam3, int iParam4) // Position - 0xA3E6B (671339)
 {
 	switch (hParam1)
 	{
@@ -129192,7 +129192,7 @@ void func_1161(int iParam0, Hash hParam1) // Position - 0xA406E (671854)
 	return;
 }
 
-int func_1162(int iParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, BOOL bParam5, BOOL bParam6, int iParam7, int iParam8, int iParam9, BOOL bParam10) // Position - 0xA4082 (671874)
+int func_1162(int iParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, ePedComponentType epctParam5, BOOL bParam6, int iParam7, int iParam8, int iParam9, BOOL bParam10) // Position - 0xA4082 (671874)
 {
 	int i;
 
@@ -129206,7 +129206,7 @@ int func_1162(int iParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4
 				iParam0 = i + 900;
 		
 			Global_4515413[i /*84*/].f_65.f_2 = 1;
-			Global_4515413[i /*84*/].f_65.f_1 = bParam5;
+			Global_4515413[i /*84*/].f_65.f_1 = epctParam5;
 			Global_4515413[i /*84*/].f_65.f_3 = iParam1;
 			Global_4515413[i /*84*/].f_65.f_4 = hParam2;
 			Global_4515413[i /*84*/].f_65.f_7 = hParam3;
@@ -139304,7 +139304,7 @@ void func_1393(Player plParam0, Player plParam1, Player plParam2, float fParam3,
 		}
 	
 		if (fParam3 > 0f)
-			func_1401(PV_COMP_INVALID, &Global_2698373[0 /*16*/], -1, HUD_COLOUR_GOLD, 8, 1, sParam9, 1, fParam3, 0, 0, 109, 0, 0, 0, 0, 0, 0, iParam16, 255, 0, 0, 0, 0, 1, -1, 0);
+			func_1401(PV_COMP_INVALID, &Global_2698373[0 /*16*/], -1, HUD_COLOUR_GOLD, 8, 1, sParam9, 1, fParam3, 0, 0, HUD_COLOUR_GOLD, 0, 0, 0, 0, 0, 0, iParam16, 255, 0, 0, 0, 0, 1, -1, 0);
 	}
 
 	if (Global_2698367[1] != _INVALID_PLAYER_INDEX())
@@ -139316,7 +139316,7 @@ void func_1393(Player plParam0, Player plParam1, Player plParam2, float fParam3,
 		}
 	
 		if (fParam4 > 0f)
-			func_1401(PV_COMP_INVALID, &Global_2698373[1 /*16*/], -1, HUD_COLOUR_SILVER, 7, 1, sParam9, 1, fParam4, 0, 0, 108, 0, 0, 0, 0, 0, 0, iParam17, 255, 0, 0, 0, 0, 1, -1, 0);
+			func_1401(PV_COMP_INVALID, &Global_2698373[1 /*16*/], -1, HUD_COLOUR_SILVER, 7, 1, sParam9, 1, fParam4, 0, 0, HUD_COLOUR_SILVER, 0, 0, 0, 0, 0, 0, iParam17, 255, 0, 0, 0, 0, 1, -1, 0);
 	}
 
 	if (Global_2698367[2] != _INVALID_PLAYER_INDEX())
@@ -139328,28 +139328,28 @@ void func_1393(Player plParam0, Player plParam1, Player plParam2, float fParam3,
 		}
 	
 		if (fParam5 > 0f)
-			func_1401(PV_COMP_INVALID, &Global_2698373[2 /*16*/], -1, HUD_COLOUR_BRONZE, 6, 1, sParam9, 1, fParam5, 0, 0, 107, 0, 0, 0, 0, 0, 0, iParam18, 255, 0, 0, 0, 0, 1, -1, 0);
+			func_1401(PV_COMP_INVALID, &Global_2698373[2 /*16*/], -1, HUD_COLOUR_BRONZE, 6, 1, sParam9, 1, fParam5, 0, 0, HUD_COLOUR_BRONZE, 0, 0, 0, 0, 0, 0, iParam18, 255, 0, 0, 0, 0, 1, -1, 0);
 	}
 
 	if (bParam12)
-		func_1401(PV_COMP_INVALID, "HUD_ATTEMPTS" /*CURRENT ATTEMPT*/, -1, HUD_COLOUR_WHITE, 5, 0, sParam9, 1, fParam6, 1, iParam13, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
+		func_1401(PV_COMP_INVALID, "HUD_ATTEMPTS" /*CURRENT ATTEMPT*/, -1, HUD_COLOUR_WHITE, 5, 0, sParam9, 1, fParam6, 1, iParam13, HUD_COLOUR_PURE_WHITE, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
 
 	switch (iParam15)
 	{
 		case 0:
 			if (PLAYER::PLAYER_ID() != _INVALID_PLAYER_INDEX())
 				if (func_1398(PLAYER::PLAYER_ID()) == false)
-					func_1401(PV_COMP_INVALID, PLAYER::GET_PLAYER_NAME(PLAYER::PLAYER_ID()), -1, HUD_COLOUR_WHITE, 4, 1, sParam9, 1, fParam7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
+					func_1401(PV_COMP_INVALID, PLAYER::GET_PLAYER_NAME(PLAYER::PLAYER_ID()), -1, HUD_COLOUR_WHITE, 4, 1, sParam9, 1, fParam7, 0, 0, HUD_COLOUR_PURE_WHITE, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
 			break;
 	
 		case 1:
 			if (func_1398(PLAYER::PLAYER_ID()) == false)
-				func_1401(PV_COMP_INVALID, "HUD_USCORE" /*YOUR SCORE*/, -1, HUD_COLOUR_WHITE, 4, 0, sParam9, 1, fParam7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
+				func_1401(PV_COMP_INVALID, "HUD_USCORE" /*YOUR SCORE*/, -1, HUD_COLOUR_WHITE, 4, 0, sParam9, 1, fParam7, 0, 0, HUD_COLOUR_PURE_WHITE, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
 			break;
 	
 		case 2:
 			if (func_1398(PLAYER::PLAYER_ID()) == false)
-				func_1401(PV_COMP_INVALID, "HUD_UBEST" /*YOUR BEST*/, -1, HUD_COLOUR_WHITE, 4, 0, sParam9, 1, fParam7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
+				func_1401(PV_COMP_INVALID, "HUD_UBEST" /*YOUR BEST*/, -1, HUD_COLOUR_WHITE, 4, 0, sParam9, 1, fParam7, 0, 0, HUD_COLOUR_PURE_WHITE, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
 			break;
 	
 		case 3:
@@ -139460,7 +139460,7 @@ BOOL func_1400() // Position - 0xB09AD (723373)
 	return Global_1574582.f_1;
 }
 
-void func_1401(ePedComponentType epctParam0, char* sParam1, int iParam2, eHudColour ehcParam3, int iParam4, int iParam5, char* sParam6, int iParam7, float fParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17, int iParam18, int iParam19, int iParam20, int iParam21, int iParam22, int iParam23, int iParam24, int iParam25, int iParam26) // Position - 0xB09BB (723387)
+void func_1401(ePedComponentType epctParam0, char* sParam1, int iParam2, eHudColour ehcParam3, int iParam4, int iParam5, char* sParam6, int iParam7, float fParam8, int iParam9, int iParam10, eHudColour ehcParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17, int iParam18, int iParam19, int iParam20, int iParam21, int iParam22, int iParam23, int iParam24, int iParam25, int iParam26) // Position - 0xB09BB (723387)
 {
 	int num;
 	int i;
@@ -139492,7 +139492,7 @@ void func_1401(ePedComponentType epctParam0, char* sParam1, int iParam2, eHudCol
 		Global_1679155.f_4085.f_454[num] = fParam8;
 		Global_1679155.f_4085.f_497[num] = iParam9;
 		Global_1679155.f_4085.f_508[num] = iParam10;
-		Global_1679155.f_4085.f_205[num] = iParam11;
+		Global_1679155.f_4085.f_205[num] = ehcParam11;
 		Global_1679155.f_4085.f_216[num] = iParam12;
 		Global_1679155.f_4085.f_227[num] = iParam13;
 		Global_1679155.f_4085.f_238[num] = iParam14;
@@ -139660,7 +139660,7 @@ void func_1409(Player plParam0, Player plParam1, Player plParam2, Player plParam
 		}
 	
 		if (fParam4 > 0f)
-			func_1401(PV_COMP_INVALID, &Global_2698373[0 /*16*/], -1, HUD_COLOUR_GOLD, 9, 1, sParam11, 1, fParam4, 0, 0, 109, 0, 0, 0, 0, 0, 0, iParam18, 255, 0, 0, 0, 0, 1, -1, 0);
+			func_1401(PV_COMP_INVALID, &Global_2698373[0 /*16*/], -1, HUD_COLOUR_GOLD, 9, 1, sParam11, 1, fParam4, 0, 0, HUD_COLOUR_GOLD, 0, 0, 0, 0, 0, 0, iParam18, 255, 0, 0, 0, 0, 1, -1, 0);
 	}
 
 	if (Global_2698367[1] != _INVALID_PLAYER_INDEX())
@@ -139672,7 +139672,7 @@ void func_1409(Player plParam0, Player plParam1, Player plParam2, Player plParam
 		}
 	
 		if (fParam5 > 0f)
-			func_1401(PV_COMP_INVALID, &Global_2698373[1 /*16*/], -1, HUD_COLOUR_SILVER, 8, 1, sParam11, 1, fParam5, 0, 0, 108, 0, 0, 0, 0, 0, 0, iParam19, 255, 0, 0, 0, 0, 1, -1, 0);
+			func_1401(PV_COMP_INVALID, &Global_2698373[1 /*16*/], -1, HUD_COLOUR_SILVER, 8, 1, sParam11, 1, fParam5, 0, 0, HUD_COLOUR_SILVER, 0, 0, 0, 0, 0, 0, iParam19, 255, 0, 0, 0, 0, 1, -1, 0);
 	}
 
 	if (Global_2698367[2] != _INVALID_PLAYER_INDEX())
@@ -139684,7 +139684,7 @@ void func_1409(Player plParam0, Player plParam1, Player plParam2, Player plParam
 		}
 	
 		if (fParam6 > 0f)
-			func_1401(PV_COMP_INVALID, &Global_2698373[2 /*16*/], -1, HUD_COLOUR_BRONZE, 7, 1, sParam11, 1, fParam6, 0, 0, 107, 0, 0, 0, 0, 0, 0, iParam20, 255, 0, 0, 0, 0, 1, -1, 0);
+			func_1401(PV_COMP_INVALID, &Global_2698373[2 /*16*/], -1, HUD_COLOUR_BRONZE, 7, 1, sParam11, 1, fParam6, 0, 0, HUD_COLOUR_BRONZE, 0, 0, 0, 0, 0, 0, iParam20, 255, 0, 0, 0, 0, 1, -1, 0);
 	}
 
 	if (Global_2698367[3] != _INVALID_PLAYER_INDEX())
@@ -139696,28 +139696,28 @@ void func_1409(Player plParam0, Player plParam1, Player plParam2, Player plParam
 		}
 	
 		if (fParam7 > 0f)
-			func_1401(PV_COMP_INVALID, &Global_2698373[3 /*16*/], -1, HUD_COLOUR_GREYLIGHT, 6, 1, sParam11, 1, fParam7, 0, 0, 4, 0, 0, 0, 0, 0, 0, iParam20, 255, 0, 0, 0, 0, 1, -1, 0);
+			func_1401(PV_COMP_INVALID, &Global_2698373[3 /*16*/], -1, HUD_COLOUR_GREYLIGHT, 6, 1, sParam11, 1, fParam7, 0, 0, HUD_COLOUR_GREYLIGHT, 0, 0, 0, 0, 0, 0, iParam20, 255, 0, 0, 0, 0, 1, -1, 0);
 	}
 
 	if (bParam14)
-		func_1401(PV_COMP_INVALID, "HUD_ATTEMPTS" /*CURRENT ATTEMPT*/, -1, HUD_COLOUR_WHITE, 5, 0, sParam11, 1, fParam8, 1, iParam15, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
+		func_1401(PV_COMP_INVALID, "HUD_ATTEMPTS" /*CURRENT ATTEMPT*/, -1, HUD_COLOUR_WHITE, 5, 0, sParam11, 1, fParam8, 1, iParam15, HUD_COLOUR_PURE_WHITE, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
 
 	switch (iParam17)
 	{
 		case 0:
 			if (PLAYER::PLAYER_ID() != _INVALID_PLAYER_INDEX())
 				if (func_1398(PLAYER::PLAYER_ID()) == false)
-					func_1401(PV_COMP_INVALID, PLAYER::GET_PLAYER_NAME(PLAYER::PLAYER_ID()), -1, HUD_COLOUR_WHITE, 5, 1, sParam11, 1, fParam9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
+					func_1401(PV_COMP_INVALID, PLAYER::GET_PLAYER_NAME(PLAYER::PLAYER_ID()), -1, HUD_COLOUR_WHITE, 5, 1, sParam11, 1, fParam9, 0, 0, HUD_COLOUR_PURE_WHITE, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
 			break;
 	
 		case 1:
 			if (func_1398(PLAYER::PLAYER_ID()) == false)
-				func_1401(PV_COMP_INVALID, "HUD_USCORE" /*YOUR SCORE*/, -1, HUD_COLOUR_WHITE, 5, 0, sParam11, 1, fParam9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
+				func_1401(PV_COMP_INVALID, "HUD_USCORE" /*YOUR SCORE*/, -1, HUD_COLOUR_WHITE, 5, 0, sParam11, 1, fParam9, 0, 0, HUD_COLOUR_PURE_WHITE, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
 			break;
 	
 		case 2:
 			if (func_1398(PLAYER::PLAYER_ID()) == false)
-				func_1401(PV_COMP_INVALID, "HUD_UBEST" /*YOUR BEST*/, -1, HUD_COLOUR_WHITE, 5, 0, sParam11, 1, fParam9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
+				func_1401(PV_COMP_INVALID, "HUD_UBEST" /*YOUR BEST*/, -1, HUD_COLOUR_WHITE, 5, 0, sParam11, 1, fParam9, 0, 0, HUD_COLOUR_PURE_WHITE, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 1, -1, 0);
 			break;
 	
 		case 3:

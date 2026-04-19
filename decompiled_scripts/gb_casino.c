@@ -475832,11 +475832,11 @@ void func_8755(BOOL bParam0) // Position - 0x2954D2 (2708690)
 	if (bParam0)
 	{
 		CAM::SET_GAMEPLAY_COORD_HINT(func_8757(), -1, 2000, 2000, 0);
-		func_8756(true);
+		func_8756(1);
 	}
 	else
 	{
-		func_8756(false);
+		func_8756(0);
 	
 		if (CAM::IS_GAMEPLAY_HINT_ACTIVE())
 			CAM::STOP_GAMEPLAY_HINT(false);
@@ -475845,10 +475845,10 @@ void func_8755(BOOL bParam0) // Position - 0x2954D2 (2708690)
 	return;
 }
 
-void func_8756(BOOL bParam0) // Position - 0x295508 (2708744)
+void func_8756(int iParam0) // Position - 0x295508 (2708744)
 {
-	if (Global_2733138.f_3751 != bParam0)
-		Global_2733138.f_3751 = bParam0;
+	if (Global_2733138.f_3751 != iParam0)
+		Global_2733138.f_3751 = iParam0;
 
 	return;
 }
@@ -504827,7 +504827,7 @@ void func_9509() // Position - 0x2C0E23 (2887203)
 		
 			if (flag)
 			{
-				func_8756(true);
+				func_8756(1);
 				func_11058(45);
 			}
 		}
@@ -504839,7 +504839,7 @@ void func_9509() // Position - 0x2C0E23 (2887203)
 		{
 			func_9510(&uLocal_2903, 0, false, false);
 			func_11056(45);
-			func_8756(false);
+			func_8756(0);
 		}
 	}
 
@@ -516586,13 +516586,13 @@ void func_9970() // Position - 0x2CEAB7 (2943671)
 					unk[i] = 6;
 		}
 	
-		func_9971(func_11061(), func_9974(), -1, true, true, true, 1, 1, 1, 1, 1, 18, 6, -1, 4, -1082130432, -1082130432, 0, unk[0], unk[1], unk[2], unk[3], unk[4], unk[5], unk[6], unk[7], 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, uLocal_2916.f_1328[0] == 3 || uLocal_2916.f_1328[0] == 2, uLocal_2916.f_1328[1] == 3 || uLocal_2916.f_1328[1] == 2, uLocal_2916.f_1328[2] == 3 || uLocal_2916.f_1328[2] == 2, uLocal_2916.f_1328[3] == 3 || uLocal_2916.f_1328[3] == 2, uLocal_2916.f_1328[4] == 3 || uLocal_2916.f_1328[4] == 2, uLocal_2916.f_1328[5] == 3 || uLocal_2916.f_1328[5] == 2, uLocal_2916.f_1328[6] == 3 || uLocal_2916.f_1328[6] == 2, uLocal_2916.f_1328[7] == 3 || uLocal_2916.f_1328[7] == 2, 0, 0, unk10[0], unk10[1], unk10[2], unk10[3], unk10[4], unk10[5], unk10[6], unk10[7], false);
+		func_9971(func_11061(), func_9974(), -1, true, true, true, 1, 1, 1, 1, 1, 18, 6, -1, 4, -1082130432, -1082130432, false, unk[0], unk[1], unk[2], unk[3], unk[4], unk[5], unk[6], unk[7], 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, PV_COMP_HEAD, uLocal_2916.f_1328[0] == 3 || uLocal_2916.f_1328[0] == 2, uLocal_2916.f_1328[1] == 3 || uLocal_2916.f_1328[1] == 2, uLocal_2916.f_1328[2] == 3 || uLocal_2916.f_1328[2] == 2, uLocal_2916.f_1328[3] == 3 || uLocal_2916.f_1328[3] == 2, uLocal_2916.f_1328[4] == 3 || uLocal_2916.f_1328[4] == 2, uLocal_2916.f_1328[5] == 3 || uLocal_2916.f_1328[5] == 2, uLocal_2916.f_1328[6] == 3 || uLocal_2916.f_1328[6] == 2, uLocal_2916.f_1328[7] == 3 || uLocal_2916.f_1328[7] == 2, 0, 0, unk10[0], unk10[1], unk10[2], unk10[3], unk10[4], unk10[5], unk10[6], unk10[7], false);
 	}
 
 	return;
 }
 
-void func_9971(ePedComponentType epctParam0, char* sParam1, int iParam2, BOOL bParam3, BOOL bParam4, BOOL bParam5, int iParam6, int iParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17, int iParam18, int iParam19, int iParam20, int iParam21, int iParam22, int iParam23, int iParam24, int iParam25, int iParam26, int iParam27, int iParam28, int iParam29, int iParam30, int iParam31, int iParam32, int iParam33, int iParam34, int iParam35, int iParam36, int iParam37, BOOL bParam38, BOOL bParam39, BOOL bParam40, BOOL bParam41, BOOL bParam42, BOOL bParam43, BOOL bParam44, BOOL bParam45, int iParam46, int iParam47, int iParam48, int iParam49, int iParam50, int iParam51, int iParam52, int iParam53, int iParam54, int iParam55, BOOL bParam56) // Position - 0x2CED22 (2944290)
+void func_9971(ePedComponentType epctParam0, char* sParam1, int iParam2, BOOL bParam3, BOOL bParam4, BOOL bParam5, int iParam6, int iParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, BOOL bParam17, eHudColour ehcParam18, eHudColour ehcParam19, eHudColour ehcParam20, eHudColour ehcParam21, eHudColour ehcParam22, eHudColour ehcParam23, eHudColour ehcParam24, eHudColour ehcParam25, int iParam26, int iParam27, int iParam28, int iParam29, int iParam30, int iParam31, int iParam32, int iParam33, int iParam34, int iParam35, int iParam36, ePedComponentType epctParam37, BOOL bParam38, BOOL bParam39, BOOL bParam40, BOOL bParam41, BOOL bParam42, BOOL bParam43, BOOL bParam44, BOOL bParam45, int iParam46, int iParam47, int iParam48, int iParam49, int iParam50, int iParam51, int iParam52, int iParam53, int iParam54, int iParam55, BOOL bParam56) // Position - 0x2CED22 (2944290)
 {
 	int num;
 	int i;
@@ -516627,15 +516627,15 @@ void func_9971(ePedComponentType epctParam0, char* sParam1, int iParam2, BOOL bP
 		Global_1679155.f_2153.f_315[num] = iParam14;
 		Global_1679155.f_2153.f_326[num /*3*/] = iParam15;
 		Global_1679155.f_2153.f_326[num /*3*/].f_1 = iParam16;
-		Global_1679155.f_2153.f_357[num] = iParam17;
-		Global_1679155.f_2153.f_368[num] = iParam18;
-		Global_1679155.f_2153.f_379[num] = iParam19;
-		Global_1679155.f_2153.f_390[num] = iParam20;
-		Global_1679155.f_2153.f_401[num] = iParam21;
-		Global_1679155.f_2153.f_412[num] = iParam22;
-		Global_1679155.f_2153.f_423[num] = iParam23;
-		Global_1679155.f_2153.f_434[num] = iParam24;
-		Global_1679155.f_2153.f_445[num] = iParam25;
+		Global_1679155.f_2153.f_357[num] = bParam17;
+		Global_1679155.f_2153.f_368[num] = ehcParam18;
+		Global_1679155.f_2153.f_379[num] = ehcParam19;
+		Global_1679155.f_2153.f_390[num] = ehcParam20;
+		Global_1679155.f_2153.f_401[num] = ehcParam21;
+		Global_1679155.f_2153.f_412[num] = ehcParam22;
+		Global_1679155.f_2153.f_423[num] = ehcParam23;
+		Global_1679155.f_2153.f_434[num] = ehcParam24;
+		Global_1679155.f_2153.f_445[num] = ehcParam25;
 		Global_1679155.f_2153.f_456[num] = iParam26;
 		Global_1679155.f_2153.f_467[num] = iParam27;
 		Global_1679155.f_2153.f_478[num] = iParam28;
@@ -516644,7 +516644,7 @@ void func_9971(ePedComponentType epctParam0, char* sParam1, int iParam2, BOOL bP
 		Global_1679155.f_2153.f_511[num] = iParam31;
 		Global_1679155.f_2153.f_522[num] = iParam32;
 		Global_1679155.f_2153.f_533[num] = iParam33;
-		Global_1679155.f_2153.f_544[num] = iParam37;
+		Global_1679155.f_2153.f_544[num] = epctParam37;
 		Global_2740035[num] = bParam38;
 		Global_2740046[num] = bParam39;
 		Global_2740057[num] = bParam40;
