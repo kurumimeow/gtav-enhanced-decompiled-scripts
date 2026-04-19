@@ -4947,12 +4947,12 @@ void func_167(BOOL bParam0, BOOL bParam1) // Position - 0x4F78 (20344)
 			if (uLocal_294[1] >= 7500)
 				type = PV_COMP_UPPR;
 		
-			func_168(uLocal_294[1], 7500, &unk, type, PV_COMP_INVALID, 2, -1f, -1f, false, 1, 0, 0, false, 0, false, 0, HUD_COLOUR_PURE_WHITE, HUD_COLOUR_WHITE, false, PV_COMP_BERD, false, 0, HUD_COLOUR_WHITE, PV_COMP_INVALID, false, PV_COMP_INVALID, -1082130432, -1082130432, false, PV_COMP_BERD, 0, false, HUD_COLOUR_WHITE, PV_COMP_INVALID, 0, -1, true, 255, PV_COMP_HEAD, -1082130432);
+			func_168(uLocal_294[1], 7500, &unk, type, PV_COMP_INVALID, 2, -1f, -1f, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, -1, 0, -1, -1082130432, -1082130432, 0, 1, 0, 0, 1, -1, 0, -1, 1, 255, 0, -1082130432);
 		}
 	
 		if (func_1067() && bParam1)
 			if (NETWORK::NETWORK_PLAYER_HAS_HEADSET(PLAYER::PLAYER_ID()))
-				func_168(BUILTIN::FLOOR(fLocal_297), BUILTIN::FLOOR(60f), "SCLUB_METER_F" /*FLIRT*/, PV_COMP_MAX, PV_COMP_INVALID, 2, -1f, -1f, false, 1, 0, 0, false, 0, false, 0, HUD_COLOUR_PURE_WHITE, HUD_COLOUR_WHITE, false, PV_COMP_BERD, false, 0, HUD_COLOUR_WHITE, PV_COMP_INVALID, false, PV_COMP_INVALID, -1082130432, -1082130432, false, PV_COMP_BERD, 0, false, HUD_COLOUR_WHITE, PV_COMP_INVALID, 0, -1, true, 255, PV_COMP_HEAD, -1082130432);
+				func_168(BUILTIN::FLOOR(fLocal_297), BUILTIN::FLOOR(60f), "SCLUB_METER_F" /*FLIRT*/, PV_COMP_MAX, PV_COMP_INVALID, 2, -1f, -1f, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, -1, 0, -1, -1082130432, -1082130432, 0, 1, 0, 0, 1, -1, 0, -1, 1, 255, 0, -1082130432);
 	}
 
 	if (iLocal_293 < MISC::GET_GAME_TIMER())
@@ -4961,7 +4961,7 @@ void func_167(BOOL bParam0, BOOL bParam1) // Position - 0x4F78 (20344)
 	return;
 }
 
-void func_168(ePedComponentType epctParam0, int iParam1, char* sParam2, ePedComponentType epctParam3, ePedComponentType epctParam4, int iParam5, float fParam6, float fParam7, BOOL bParam8, int iParam9, int iParam10, int iParam11, BOOL bParam12, int iParam13, BOOL bParam14, int iParam15, eHudColour ehcParam16, eHudColour ehcParam17, BOOL bParam18, ePedComponentType epctParam19, BOOL bParam20, int iParam21, eHudColour ehcParam22, ePedComponentType epctParam23, BOOL bParam24, ePedComponentType epctParam25, int iParam26, int iParam27, BOOL bParam28, ePedComponentType epctParam29, int iParam30, BOOL bParam31, eHudColour ehcParam32, ePedComponentType epctParam33, int iParam34, int iParam35, BOOL bParam36, int iParam37, ePedComponentType epctParam38, int iParam39) // Position - 0x50F2 (20722)
+void func_168(ePedComponentType epctParam0, int iParam1, char* sParam2, ePedComponentType epctParam3, ePedComponentType epctParam4, int iParam5, float fParam6, float fParam7, int iParam8, int iParam9, int iParam10, int iParam11, int iParam12, int iParam13, int iParam14, int iParam15, int iParam16, int iParam17, int iParam18, int iParam19, int iParam20, int iParam21, int iParam22, int iParam23, int iParam24, int iParam25, int iParam26, int iParam27, int iParam28, int iParam29, int iParam30, int iParam31, int iParam32, int iParam33, int iParam34, int iParam35, int iParam36, int iParam37, int iParam38, int iParam39) // Position - 0x50F2 (20722)
 {
 	int num;
 	int i;
@@ -4987,39 +4987,39 @@ void func_168(ePedComponentType epctParam0, int iParam1, char* sParam2, ePedComp
 		Global_1679155.f_1177.f_227[num] = iParam5;
 		Global_1679155.f_1177.f_238[num /*3*/] = fParam6;
 		Global_1679155.f_1177.f_238[num /*3*/].f_1 = fParam7;
-		Global_1679155.f_1177.f_269[num] = bParam8;
+		Global_1679155.f_1177.f_269[num] = iParam8;
 		Global_1679155.f_1177.f_280[num] = iParam9;
 		Global_1679155.f_1177.f_323[num] = iParam10;
 		Global_1679155.f_1177.f_334[num] = iParam11;
-		Global_1679155.f_1177.f_345[num] = bParam12;
+		Global_1679155.f_1177.f_345[num] = iParam12;
 		Global_1679155.f_1177.f_356[num] = iParam13;
 		Global_1679155.f_1172 = 1;
-		Global_1679155.f_1177.f_367[num] = bParam14;
+		Global_1679155.f_1177.f_367[num] = iParam14;
 		Global_1679155.f_1177.f_378[num] = iParam15;
-		Global_1679155.f_1177.f_389[num] = ehcParam16;
-		Global_1679155.f_1177.f_400[num] = ehcParam17;
-		Global_1679155.f_1177.f_411[num] = bParam18;
-		Global_1679155.f_1177.f_422[num] = epctParam19;
-		Global_1679155.f_1177.f_433[num] = bParam20;
+		Global_1679155.f_1177.f_389[num] = iParam16;
+		Global_1679155.f_1177.f_400[num] = iParam17;
+		Global_1679155.f_1177.f_411[num] = iParam18;
+		Global_1679155.f_1177.f_422[num] = iParam19;
+		Global_1679155.f_1177.f_433[num] = iParam20;
 		Global_1679155.f_1177.f_444[num] = iParam21;
-		Global_1679155.f_1177.f_455[num] = ehcParam22;
-		Global_1679155.f_1177.f_466[num] = epctParam23;
-		Global_1679155.f_1177.f_477[num] = bParam24;
-		Global_1679155.f_1177.f_205[num] = epctParam25;
+		Global_1679155.f_1177.f_455[num] = iParam22;
+		Global_1679155.f_1177.f_466[num] = iParam23;
+		Global_1679155.f_1177.f_477[num] = iParam24;
+		Global_1679155.f_1177.f_205[num] = iParam25;
 		Global_1679155.f_1177.f_216[num] = iParam39;
 		Global_1679155.f_1177.f_488[num] = iParam26;
 		Global_1679155.f_1177.f_499[num] = iParam27;
-		Global_1679155.f_1177.f_510[num] = bParam28;
-		Global_1679155.f_1177.f_521[num] = epctParam29;
+		Global_1679155.f_1177.f_510[num] = iParam28;
+		Global_1679155.f_1177.f_521[num] = iParam29;
 		Global_1679155.f_1177.f_532[num] = iParam30;
-		Global_1679155.f_1177.f_543[num] = bParam31;
-		Global_1679155.f_1177.f_554[num] = ehcParam32;
-		Global_1679155.f_1177.f_565[num] = epctParam33;
+		Global_1679155.f_1177.f_543[num] = iParam31;
+		Global_1679155.f_1177.f_554[num] = iParam32;
+		Global_1679155.f_1177.f_565[num] = iParam33;
 		Global_1679155.f_1177.f_576[num] = iParam34;
 		Global_1679155.f_1177.f_587[num] = iParam35;
-		Global_1679155.f_1177.f_598[num] = bParam36;
+		Global_1679155.f_1177.f_598[num] = iParam36;
 		Global_1679155.f_1177.f_609[num] = iParam37;
-		Global_1679155.f_1177.f_620[num] = epctParam38;
+		Global_1679155.f_1177.f_620[num] = iParam38;
 	}
 
 	return;

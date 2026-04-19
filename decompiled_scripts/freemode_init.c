@@ -7039,11 +7039,11 @@ void func_244() // Position - 0x8351 (33617)
 
 void func_245() // Position - 0x8363 (33635)
 {
-	if (Global_4576520 == 0 && Global_4576521 == PV_COMP_HEAD)
+	if (Global_4576520 == 0 && Global_4576521 == false)
 		return;
 
 	Global_4576520 = 0;
-	Global_4576521 = PV_COMP_HEAD;
+	Global_4576521 = false;
 	return;
 }
 
@@ -8620,7 +8620,7 @@ void func_332(BOOL bParam0) // Position - 0x9DC6 (40390)
 
 void func_333() // Position - 0x9DF0 (40432)
 {
-	Global_1881843 = PV_COMP_HEAD;
+	Global_1881843 = false;
 	return;
 }
 

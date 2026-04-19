@@ -618,12 +618,12 @@ void func_7() // Position - 0xCE7 (3303)
 	return;
 }
 
-int func_8(int iParam0, eCharacter echParam1) // Position - 0xD17 (3351)
+int func_8(eCharacter echParam0, eCharacter echParam1) // Position - 0xD17 (3351)
 {
 	if (echParam1 < CHAR_MICHAEL || echParam1 > CHAR_ALL_PLAYERS_CONF)
 		return 0;
 
-	return Global_2339[iParam0 /*29*/].f_24[echParam1];
+	return Global_2339[echParam0 /*29*/].f_24[echParam1];
 }
 
 void func_9(char* sParam0) // Position - 0xD41 (3393)

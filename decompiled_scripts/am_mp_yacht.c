@@ -116780,11 +116780,11 @@ int func_956(int iParam0) // Position - 0x905C9 (591305)
 	return -1;
 }
 
-int func_957(int iParam0, int iParam1, int iParam2) // Position - 0x905F0 (591344)
+int func_957(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x905F0 (591344)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -116963,7 +116963,7 @@ int func_957(int iParam0, int iParam1, int iParam2) // Position - 0x905F0 (59134
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -117095,7 +117095,7 @@ int func_957(int iParam0, int iParam1, int iParam2) // Position - 0x905F0 (59134
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -120446,7 +120446,7 @@ void func_1036() // Position - 0x96230 (614960)
 	return;
 }
 
-BOOL func_1037(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, int iParam5, int iParam6, int iParam7) // Position - 0x96266 (615014)
+BOOL func_1037(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, BOOL bParam5, int iParam6, int iParam7) // Position - 0x96266 (615014)
 {
 	BOOL flag;
 	BOOL flag2;
@@ -120494,11 +120494,11 @@ BOOL func_1037(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam
 	*uParam0 = 15;
 	transactionId = 2147483647;
 
-	if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_BEGIN_SERVICE(&transactionId, hParam3, hParam4, hParam2, iParam5, iParam6))
+	if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_BEGIN_SERVICE(&transactionId, hParam3, hParam4, hParam2, bParam5, iParam6))
 	{
 		if (flag || flag2 || NETSHOPPING::NET_GAMESERVER_CHECKOUT_START(transactionId))
 		{
-			*uParam0 = func_961(transactionId, iParam1, hParam4, hParam2, hParam3, iParam5, false, iParam6, iParam7, 1, true);
+			*uParam0 = func_961(transactionId, iParam1, hParam4, hParam2, hParam3, bParam5, false, iParam6, iParam7, 1, true);
 		
 			if (flag2 && !flag)
 			{
@@ -120525,7 +120525,7 @@ BOOL func_1037(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam
 			Global_4516905 = hParam4;
 			Global_4516907 = hParam3;
 			Global_4516908 = 1;
-			Global_4516906 = iParam5;
+			Global_4516906 = bParam5;
 		}
 	
 		if (iParam7 & 8 != 0)
@@ -120533,7 +120533,7 @@ BOOL func_1037(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam
 			Global_4516905 = hParam4;
 			Global_4516907 = hParam3;
 			Global_4516908 = 1;
-			Global_4516906 = iParam5;
+			Global_4516906 = bParam5;
 		}
 	
 		flag4 = false;
@@ -120545,13 +120545,13 @@ BOOL func_1037(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam
 		}
 	
 		if (iParam7 & 4 != 0)
-			func_1038(-1, hParam4, iParam6, iParam5, -1);
+			func_1038(-1, hParam4, iParam6, bParam5, -1);
 	}
 
 	return false;
 }
 
-void func_1038(int iParam0, Hash hParam1, int iParam2, int iParam3, int iParam4) // Position - 0x96413 (615443)
+void func_1038(int iParam0, Hash hParam1, int iParam2, BOOL bParam3, int iParam4) // Position - 0x96413 (615443)
 {
 	switch (hParam1)
 	{
@@ -289235,7 +289235,7 @@ void func_5182(var uParam0) // Position - 0x186362 (1598306)
 {
 	if (Global_1950707 == 31)
 	{
-		Global_1972789 = 1;
+		Global_1972789 = true;
 		Global_1972791 = 1;
 	}
 
@@ -295052,7 +295052,7 @@ void func_5356(var uParam0) // Position - 0x18ECAE (1633454)
 {
 	if (Global_1950707 == 8 || Global_1950707 == 31)
 	{
-		Global_1972789 = 1;
+		Global_1972789 = true;
 		Global_1972791 = 1;
 		Global_1972792 = 1;
 		Global_1972790 = 1;

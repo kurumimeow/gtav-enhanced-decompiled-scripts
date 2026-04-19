@@ -35599,7 +35599,7 @@ void func_264() // Position - 0x29C4E (171086)
 	if (num == -1)
 		return;
 
-	Global_114018[num /*10*/] = true;
+	Global_114018[num /*10*/] = 1;
 	return;
 }
 

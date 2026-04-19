@@ -14017,7 +14017,7 @@ BOOL func_425() // Position - 0x11F77 (73591)
 				{
 					if (VEHICLE::IS_VEHICLE_DRIVEABLE(vehiclePedIsIn, true))
 					{
-						if (Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_39 <= 0)
+						if (Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_39 <= false)
 						{
 							if (!DECORATOR::DECOR_EXIST_ON(vehiclePedIsIn, "Not_Allow_As_Saved_Veh"))
 							{

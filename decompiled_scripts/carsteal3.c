@@ -21722,16 +21722,16 @@ BOOL func_127() // Position - 0x20913 (133395)
 	return func_128(*Global_4718592.f_139000);
 }
 
-int func_128(int iParam0) // Position - 0x20929 (133417)
+int func_128(Hash hParam0) // Position - 0x20929 (133417)
 {
 	int i;
 
-	if (iParam0 == 0)
+	if (hParam0 == 0)
 		return 0;
 
 	for (i = 0; i < 8; i = i + 1)
 	{
-		if (Global_262145.f_30473[i] == iParam0)
+		if (Global_262145.f_30473[i] == hParam0)
 			return 1;
 	}
 
@@ -101427,7 +101427,7 @@ BOOL func_624(Vehicle veParam0) // Position - 0x7D630 (513584)
 		if (func_630() || func_629(PLAYER::PLAYER_ID()))
 			return false;
 	
-		if (func_628(PLAYER::PLAYER_ID(), true, false) && Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_39 > false || IS_BIT_SET(Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_37, 14) || IS_BIT_SET(Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_37, 11))
+		if (func_628(PLAYER::PLAYER_ID(), true, false) && Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_39 > PV_COMP_HEAD || IS_BIT_SET(Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_37, 14) || IS_BIT_SET(Global_1845299[PLAYER::PLAYER_ID() /*883*/].f_260.f_37, 11))
 			return false;
 	
 		if (DECORATOR::DECOR_IS_REGISTERED_AS_TYPE("Player_Vehicle", INT))
@@ -102118,7 +102118,7 @@ BOOL _NETSHOPPING_SHOULD_USE_TRANSACTION_SYSTEM() // Position - 0x7E87C (518268)
 	return false;
 }
 
-BOOL func_647(Hash hParam0, int iParam1) // Position - 0x7E893 (518291)
+BOOL func_647(ePedComponentType epctParam0, int iParam1) // Position - 0x7E893 (518291)
 {
 	int cloudTimeAsInt;
 	int num;
@@ -102134,7 +102134,7 @@ BOOL func_647(Hash hParam0, int iParam1) // Position - 0x7E893 (518291)
 	cloudTimeAsInt = NETWORK::GET_CLOUD_TIME_AS_INT();
 	num = 0;
 
-	switch (hParam0)
+	switch (epctParam0)
 	{
 		case 1730644782:
 			num = Global_262145.f_36257[0];
@@ -102202,7 +102202,7 @@ BOOL func_647(Hash hParam0, int iParam1) // Position - 0x7E893 (518291)
 
 	for (i = 0; i < 10; i = i + 1)
 	{
-		if (hParam0 == Global_1835471[i])
+		if (epctParam0 == Global_1835471[i])
 			return true;
 	}
 
@@ -115177,9 +115177,9 @@ struct<5> func_832(int iParam0) // Position - 0x929B6 (600502)
 	return unk;
 }
 
-var func_833(var uParam0) // Position - 0x95790 (612240)
+char* func_833(char* sParam0) // Position - 0x95790 (612240)
 {
-	return uParam0;
+	return sParam0;
 }
 
 struct<6> func_834(int iParam0, BOOL bParam1) // Position - 0x9579A (612250)

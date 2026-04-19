@@ -305,7 +305,7 @@ void func_7(eCharacter echParam0) // Position - 0x2A3 (675)
 
 	if (Global_99351 == echParam0)
 		if (echParam0 != CHAR_MP_STRETCH)
-			Global_99355 = 1;
+			Global_99355 = true;
 
 	func_62("TRIG_FT" /*Return as Franklin or Trevor to start this mission.*/, 1);
 	func_62("TRIG_F" /*Return as Franklin to start this mission.*/, true);
@@ -1391,7 +1391,7 @@ void func_59() // Position - 0x15CB (5579)
 	{
 		if (Global_99362[i /*17*/] && !Global_99362[i /*17*/].f_1)
 			if (Global_99362[i /*17*/].f_3 == 0)
-				if (Global_99362[i /*17*/].f_5 != 88 && Global_99362[i /*17*/].f_5 != 89 && Global_99362[i /*17*/].f_5 != 92)
+				if (Global_99362[i /*17*/].f_5 != CHAR_DETONATEBOMB && Global_99362[i /*17*/].f_5 != CHAR_LS_CUSTOMS && Global_99362[i /*17*/].f_5 != CHAR_DOMESTIC_GIRL)
 					func_60(Global_99362[i /*17*/].f_5, true);
 	}
 

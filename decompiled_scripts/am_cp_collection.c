@@ -24164,9 +24164,9 @@ void func_755() // Position - 0x1AAF6 (109302)
 
 void func_756() // Position - 0x1AB25 (109349)
 {
-	var unk;
+	BOOL flag;
 
-	Global_1579247 = unk;
+	Global_1579247 = flag;
 	return;
 }
 

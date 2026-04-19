@@ -49788,7 +49788,7 @@ void func_43() // Position - 0x18C3 (6339)
 						}
 					
 						Global_2686095.f_3915 = 0;
-						func_362(false, false);
+						func_362(0, false);
 						func_4862();
 						Global_1926938 = false;
 					
@@ -112209,9 +112209,9 @@ char* func_293(ePedComponentType epctParam0, int iParam1) // Position - 0x51BED 
 	return "";
 }
 
-char* func_294(const char* sParam0) // Position - 0x51C4F (334927)
+char* func_294(var uParam0) // Position - 0x51C4F (334927)
 {
-	return sParam0;
+	return uParam0;
 }
 
 ePedComponentType func_295(ePedComponentType epctParam0) // Position - 0x51C59 (334937)
@@ -120335,7 +120335,7 @@ BOOL func_361(int iParam0, int iParam1) // Position - 0x5CB8B (379787)
 	return iParam0 == 999 && iParam1 == 999;
 }
 
-void func_362(BOOL bParam0, BOOL bParam1) // Position - 0x5CBA4 (379812)
+void func_362(int iParam0, BOOL bParam1) // Position - 0x5CBA4 (379812)
 {
 	if (bParam1)
 	{
@@ -120343,14 +120343,14 @@ void func_362(BOOL bParam0, BOOL bParam1) // Position - 0x5CBA4 (379812)
 		GRAPHICS::USE_SNOW_WHEEL_VFX_WHEN_UNSHELTERED(false);
 		GRAPHICS::_FORCE_ALLOW_SNOW_FOOT_VFX_ON_ICE(false);
 		GRAPHICS::_FORCE_GROUND_SNOW_PASS(false);
-		Global_4516916 = bParam0;
+		Global_4516916 = iParam0;
 	}
 	else
 	{
 		if (Global_262145.f_4413 && SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_mission_creator")) <= 0 && SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_deathmatch_creator")) <= 0 && SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_race_creator")) <= 0 && SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_capture_creator")) <= 0 && SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_lts_creator")) <= 0 && SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(joaat("fm_survival_creator")) <= 0 && SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(-2136380241) <= 0)
 			return;
 	
-		Global_4516916 = bParam0;
+		Global_4516916 = iParam0;
 	}
 
 	return;
@@ -343401,7 +343401,7 @@ void func_4893(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	Global_1926078 = false;
 	Global_1926938 = false;
 	MISC::CLEAR_OVERRIDE_WEATHER();
-	func_362(false, false);
+	func_362(0, false);
 	func_4895();
 	GRAPHICS::_FORCE_GROUND_SNOW_PASS(false);
 	func_4894();
@@ -488033,12 +488033,12 @@ void func_7406(BOOL bParam0) // Position - 0x304A9B (3164827)
 	{
 		if (num == 3)
 		{
-			func_362(true, false);
+			func_362(1, false);
 			GRAPHICS::_FORCE_GROUND_SNOW_PASS(true);
 		}
 		else
 		{
-			func_362(false, false);
+			func_362(0, false);
 			GRAPHICS::_FORCE_GROUND_SNOW_PASS(false);
 		}
 	
@@ -488088,7 +488088,7 @@ void func_7407(int iParam0, BOOL bParam1, float fParam2, BOOL bParam3) // Positi
 			if (bParam3)
 				MISC::SET_OVERRIDE_WEATHEREX("CLEAR", true);
 		
-			func_362(true, false);
+			func_362(1, false);
 			break;
 	
 		case 4:

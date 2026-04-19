@@ -11767,7 +11767,7 @@ BOOL func_217(Player plParam0, BOOL bParam1) // Position - 0xA598 (42392)
 	return func_219(plParam0, bParam1) >= func_218(bParam1);
 }
 
-BOOL func_218(BOOL bParam0) // Position - 0xA5AF (42415)
+int func_218(BOOL bParam0) // Position - 0xA5AF (42415)
 {
 	switch (bParam0)
 	{
@@ -11791,12 +11791,12 @@ BOOL func_218(BOOL bParam0) // Position - 0xA5AF (42415)
 	return 0;
 }
 
-BOOL func_219(Player plParam0, BOOL bParam1) // Position - 0xA60B (42507)
+int func_219(Player plParam0, BOOL bParam1) // Position - 0xA60B (42507)
 {
 	int i;
 
 	if (plParam0 == _INVALID_PLAYER_INDEX())
-		return false;
+		return 0;
 
 	if (func_8(bParam1) && func_220(bParam1))
 	{
@@ -11807,7 +11807,7 @@ BOOL func_219(Player plParam0, BOOL bParam1) // Position - 0xA60B (42507)
 		}
 	}
 
-	return false;
+	return 0;
 }
 
 BOOL func_220(BOOL bParam0) // Position - 0xA670 (42608)
@@ -14317,11 +14317,11 @@ int func_301(int iParam0) // Position - 0xD92B (55595)
 	return -1;
 }
 
-int func_302(int iParam0, int iParam1, int iParam2) // Position - 0xD952 (55634)
+int func_302(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xD952 (55634)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -14500,7 +14500,7 @@ int func_302(int iParam0, int iParam1, int iParam2) // Position - 0xD952 (55634)
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -14632,7 +14632,7 @@ int func_302(int iParam0, int iParam1, int iParam2) // Position - 0xD952 (55634)
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -31525,7 +31525,7 @@ BOOL _CONVERSATION_ADD_LINE(var uParam0, char* sParam1, char* sParam2, int iPara
 
 	Global_23007 = false;
 	Global_23009 = 0;
-	Global_23014 = 0;
+	Global_23014 = false;
 	Global_23991 = 0;
 	Global_23993 = 0;
 	Global_23997 = 0;
@@ -32012,10 +32012,10 @@ void func_541() // Position - 0x22794 (141204)
 	return;
 }
 
-void func_542(var uParam0, int iParam1, char* sParam2, int iParam3, int iParam4, int iParam5) // Position - 0x227EB (141291)
+void func_542(var uParam0, eCharacter echParam1, char* sParam2, int iParam3, int iParam4, int iParam5) // Position - 0x227EB (141291)
 {
 	Global_22454 = { *uParam0 };
-	Global_8779 = iParam1;
+	Global_8779 = echParam1;
 	TEXT_LABEL_ASSIGN_STRING(&Global_23070, sParam2, 24);
 	Global_23989 = iParam5;
 

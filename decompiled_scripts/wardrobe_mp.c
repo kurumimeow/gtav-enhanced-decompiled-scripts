@@ -119745,7 +119745,7 @@ BOOL func_1411(ePedComponentType epctParam0) // Position - 0x99CBF (629951)
 	if (!func_1412(32))
 		return false;
 
-	if (Global_1950714.f_5212 != -1)
+	if (Global_1950714.f_5212 != PV_COMP_INVALID)
 		return false;
 
 	if (!PLAYER::IS_PLAYER_CONTROL_ON(Global_2673274.f_4.f_16))
@@ -235468,9 +235468,9 @@ Vector3 func_4619(ePedComponentType epctParam0, int iParam1) // Position - 0x141
 	return 1f, 1f, 1f;
 }
 
-BOOL func_4620(BOOL bParam0) // Position - 0x141CA2 (1318050)
+BOOL func_4620(ePedComponentType epctParam0) // Position - 0x141CA2 (1318050)
 {
-	return Global_1950714.f_5212 == bParam0;
+	return Global_1950714.f_5212 == epctParam0;
 }
 
 BOOL func_4621() // Position - 0x141CB4 (1318068)

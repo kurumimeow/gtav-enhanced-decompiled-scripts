@@ -38531,7 +38531,7 @@ void func_265(int iParam0, BOOL bParam1, int iParam2, int iParam3) // Position -
 			}
 		}
 	
-		if (Global_102506.f_1437 >= PV_COMP_HEAD)
+		if (Global_102506.f_1437 >= false)
 		{
 			if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 			{
@@ -58807,11 +58807,11 @@ BOOL func_437() // Position - 0x513E1 (332769)
 	return false;
 }
 
-int func_438(int iParam0, int iParam1, int iParam2) // Position - 0x51541 (333121)
+int func_438(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x51541 (333121)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -58990,7 +58990,7 @@ int func_438(int iParam0, int iParam1, int iParam2) // Position - 0x51541 (33312
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -59122,7 +59122,7 @@ int func_438(int iParam0, int iParam1, int iParam2) // Position - 0x51541 (33312
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -87781,30 +87781,30 @@ BOOL func_637(eCharacter echParam0, int iParam1) // Position - 0x7852E (492846)
 	return false;
 }
 
-BOOL func_638(ePedComponentType epctParam0) // Position - 0x78562 (492898)
+ePedComponentType func_638(ePedComponentType epctParam0) // Position - 0x78562 (492898)
 {
 	switch (epctParam0)
 	{
 		case joaat("WEAPON_PISTOL"):
-			return false;
+			return PV_COMP_HEAD;
 	
 		case joaat("WEAPON_KNIFE"):
-			return false;
+			return PV_COMP_HEAD;
 	
 		case joaat("WEAPON_MICROSMG"):
-			return 5;
+			return PV_COMP_HAND;
 	
 		case joaat("WEAPON_ASSAULTSMG"):
 			return 29;
 	
 		case joaat("WEAPON_NIGHTSTICK"):
-			return 3;
+			return PV_COMP_UPPR;
 	
 		case joaat("WEAPON_COMBATPISTOL"):
-			return 9;
+			return PV_COMP_TASK;
 	
 		case joaat("WEAPON_SMG"):
-			return 11;
+			return PV_COMP_JBIB;
 	
 		case joaat("WEAPON_ASSAULTRIFLE"):
 			return 24;
@@ -87813,7 +87813,7 @@ BOOL func_638(ePedComponentType epctParam0) // Position - 0x78562 (492898)
 			return 21;
 	
 		case joaat("WEAPON_STICKYBOMB"):
-			return false;
+			return PV_COMP_HEAD;
 	
 		case joaat("WEAPON_PETROLCAN"):
 			return 20;
@@ -87825,14 +87825,14 @@ BOOL func_638(ePedComponentType epctParam0) // Position - 0x78562 (492898)
 			return 33;
 	
 		case joaat("WEAPON_SMOKEGRENADE"):
-			return false;
+			return PV_COMP_HEAD;
 	
 		case joaat("WEAPON_GRENADE"):
-			return false;
+			return PV_COMP_HEAD;
 	
 		case joaat("WEAPON_CARBINERIFLE"):
 			if (_STAT_GET_PACKED_BOOL(3741, -1))
-				return false;
+				return PV_COMP_HEAD;
 			else
 				return 42;
 			break;
@@ -87842,7 +87842,7 @@ BOOL func_638(ePedComponentType epctParam0) // Position - 0x78562 (492898)
 	
 		case joaat("WEAPON_MOLOTOV"):
 			if (_STAT_GET_PACKED_BOOL(3741, -1))
-				return false;
+				return PV_COMP_HEAD;
 			else
 				return 31;
 			break;
@@ -87869,19 +87869,19 @@ BOOL func_638(ePedComponentType epctParam0) // Position - 0x78562 (492898)
 			return 120;
 	
 		case joaat("WEAPON_SAWNOFFSHOTGUN"):
-			return false;
+			return PV_COMP_HEAD;
 	
 		case joaat("WEAPON_GOLFCLUB"):
-			return false;
+			return PV_COMP_HEAD;
 	
 		case joaat("WEAPON_CROWBAR"):
-			return false;
+			return PV_COMP_HEAD;
 	
 		case joaat("WEAPON_BAT"):
-			return false;
+			return PV_COMP_HEAD;
 	}
 
-	return false;
+	return PV_COMP_HEAD;
 }
 
 BOOL func_639() // Position - 0x78721 (493345)

@@ -93786,7 +93786,7 @@ int func_541() // Position - 0x74126 (475430)
 	return Global_2652582.f_2706;
 }
 
-BOOL func_542() // Position - 0x74135 (475445)
+int func_542() // Position - 0x74135 (475445)
 {
 	return Global_2658294[PLAYER::PLAYER_ID() /*468*/].f_325.f_8;
 }

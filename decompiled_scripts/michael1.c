@@ -117851,7 +117851,7 @@ void func_933(int iParam0) // Position - 0x9613E (614718)
 	BOOL flag;
 	int i;
 
-	Global_65028 = 0;
+	Global_65028 = false;
 
 	if (!(Global_65252[iParam0 /*13*/] == 3))
 		return;

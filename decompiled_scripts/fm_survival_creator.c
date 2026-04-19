@@ -64318,11 +64318,11 @@ void func_272() // Position - 0x1C780 (116608)
 	var unk;
 	int i;
 
-	if (Global_2699543 != PV_COMP_HEAD)
+	if (Global_2699543 != false)
 	{
 		if (Global_2673274.f_2591[0 /*80*/].f_1 == 86)
 		{
-			Global_2699543 = PV_COMP_HEAD;
+			Global_2699543 = false;
 		
 			if (MISC::IS_PC_VERSION())
 				if (Global_262145.f_4393)
@@ -64333,7 +64333,7 @@ void func_272() // Position - 0x1C780 (116608)
 			_STOPWATCH_DESTROY(&Global_2697463);
 		}
 	
-		if (Global_2699543 != PV_COMP_HEAD)
+		if (Global_2699543 != false)
 		{
 			if (_STOPWATCH_IS_INITIALIZED(&Global_2697463))
 			{
@@ -64349,14 +64349,14 @@ void func_272() // Position - 0x1C780 (116608)
 						else if (Global_262145.f_4394)
 							HUD::USE_FAKE_MP_CASH(false);
 				
-					Global_2699543 = PV_COMP_HEAD;
+					Global_2699543 = false;
 					_STOPWATCH_DESTROY(&Global_2697463);
 				}
 				else if (Global_2673274.f_2591[0 /*80*/].f_2 != 5)
 				{
 					if (MISC::IS_PC_VERSION())
 					{
-						if (Global_2699543 != PV_COMP_HEAD)
+						if (Global_2699543 != false)
 						{
 							if (Global_262145.f_4395)
 								HUD::USE_FAKE_MP_CASH(true);
@@ -64368,7 +64368,7 @@ void func_272() // Position - 0x1C780 (116608)
 							HUD::CHANGE_FAKE_MP_CASH(0, Global_2699543);
 						}
 					}
-					else if (Global_2699543 != PV_COMP_HEAD)
+					else if (Global_2699543 != false)
 					{
 						HUD::CHANGE_FAKE_MP_CASH(Global_2699543, 0);
 						HUD::SET_MULTIPLAYER_WALLET_CASH();
@@ -64394,7 +64394,7 @@ void func_272() // Position - 0x1C780 (116608)
 		case 2:
 			if (func_402(&Global_2673274.f_2591[0 /*80*/]))
 			{
-				if (Global_2699543 != PV_COMP_HEAD)
+				if (Global_2699543 != false)
 					if (func_401(Global_2673274.f_2591[0 /*80*/].f_1) || func_400(Global_2673274.f_2591[0 /*80*/].f_1))
 						func_399(&Global_2697463, false, false);
 			
@@ -111689,18 +111689,18 @@ int func_1155(BOOL bParam0, int iParam1, int iParam2, int iParam3) // Position -
 	return value;
 }
 
-int func_1156(int iParam0, int iParam1) // Position - 0x7FDE7 (523751)
+int func_1156(int iParam0, ePedComponentType epctParam1) // Position - 0x7FDE7 (523751)
 {
-	if (iParam0 > iParam1)
+	if (iParam0 > epctParam1)
 		return iParam0;
 
-	return iParam1;
+	return epctParam1;
 }
 
-int func_1157(int iParam0, int iParam1) // Position - 0x7FDFD (523773)
+int func_1157(int iParam0, ePedComponentType epctParam1) // Position - 0x7FDFD (523773)
 {
-	if (iParam0 > iParam1)
-		return iParam1;
+	if (iParam0 > epctParam1)
+		return epctParam1;
 
 	return iParam0;
 }
@@ -195998,14 +195998,14 @@ void func_2368(char* sParam0) // Position - 0x11E4DF (1172703)
 	return;
 }
 
-void func_2369(BOOL bParam0) // Position - 0x11E540 (1172800)
+void func_2369(ePedComponentType epctParam0) // Position - 0x11E540 (1172800)
 {
 	if (Global_24546.f_5320 >= 3 || Global_24546.f_5319 >= 4)
 		return;
 
 	Global_24546.f_5253[Global_24546.f_5319] = 2;
 	Global_24546.f_5319 = Global_24546.f_5319 + 1;
-	Global_24546.f_5258[Global_24546.f_5320] = bParam0;
+	Global_24546.f_5258[Global_24546.f_5320] = epctParam0;
 	Global_24546.f_5320 = Global_24546.f_5320 + 1;
 	return;
 }
@@ -268707,7 +268707,7 @@ BOOL func_3776() // Position - 0x19F32A (1700650)
 void func_3777(int* piParam0) // Position - 0x19F343 (1700675)
 {
 	ePedComponentType i;
-	ePedComponentType value;
+	int value;
 	float num;
 
 	func_2607(piParam0);
@@ -268728,7 +268728,7 @@ void func_3777(int* piParam0) // Position - 0x19F343 (1700675)
 		{
 			value = Global_4718592.f_213876[piParam0->f_7614 /*301*/].f_277[i];
 		
-			if (value == PV_COMP_HEAD)
+			if (value == 0)
 			{
 				func_2630(i, func_3770(i, false), "DM_WEP_OHK", true, false, PV_COMP_INVALID);
 			}
@@ -277315,11 +277315,11 @@ void func_4029(int* piParam0, BOOL bParam1) // Position - 0x1B34FB (1783035)
 
 void func_4030() // Position - 0x1B35B2 (1783218)
 {
-	ePedComponentType type;
-	ePedComponentType type2;
+	int num;
+	int num2;
 
-	type = 0;
-	type2 = 0;
+	num = 0;
+	num2 = 0;
 
 	if (*Global_4718592.f_192086 == 0 || *Global_4718592.f_192086 == -1)
 		Global_4718592.f_192086 = 1;
@@ -277327,26 +277327,26 @@ void func_4030() // Position - 0x1B35B2 (1783218)
 	switch (*Global_4718592.f_192086)
 	{
 		case 1:
-			type = 0;
-			type2 = 17;
+			num = 0;
+			num2 = 17;
 			break;
 	
 		case 2:
-			type = 0;
-			type2 = 10;
+			num = 0;
+			num2 = 10;
 			break;
 	
 		case 3:
-			type = 0;
-			type2 = 10;
+			num = 0;
+			num2 = 10;
 			break;
 	}
 
-	if (Global_4718592.f_192086.f_1 < type)
-		Global_4718592.f_192086.f_1 = type;
+	if (Global_4718592.f_192086.f_1 < num)
+		Global_4718592.f_192086.f_1 = num;
 
-	if (Global_4718592.f_192086.f_1 > type2)
-		Global_4718592.f_192086.f_1 = type2;
+	if (Global_4718592.f_192086.f_1 > num2)
+		Global_4718592.f_192086.f_1 = num2;
 
 	if (Global_4718592.f_192086.f_2 == PV_COMP_HEAD)
 		Global_4718592.f_192086.f_2 = 4;

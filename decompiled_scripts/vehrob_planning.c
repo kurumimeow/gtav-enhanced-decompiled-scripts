@@ -36580,7 +36580,7 @@ void func_687(ePedComponentType epctParam0, int iParam1) // Position - 0x3202C (
 	return;
 }
 
-void func_688(ePedComponentType epctParam0, int iParam1, int iParam2, int iParam3, var uParam4, int iParam5) // Position - 0x32094 (204948)
+void func_688(ePedComponentType epctParam0, int iParam1, int iParam2, int iParam3, int iParam4, int iParam5) // Position - 0x32094 (204948)
 {
 	Hash eventData;
 
@@ -36589,7 +36589,7 @@ void func_688(ePedComponentType epctParam0, int iParam1, int iParam2, int iParam
 	eventData.f_3 = epctParam0;
 	eventData.f_4 = iParam2;
 	eventData.f_5 = iParam3;
-	eventData.f_6 = uParam4;
+	eventData.f_6 = iParam4;
 	eventData.f_7 = iParam5;
 
 	if (!(iParam1 == 0))
@@ -36598,7 +36598,7 @@ void func_688(ePedComponentType epctParam0, int iParam1, int iParam2, int iParam
 	return;
 }
 
-var func_689() // Position - 0x320E1 (205025)
+int func_689() // Position - 0x320E1 (205025)
 {
 	return Global_2733138.f_3989.f_350;
 }

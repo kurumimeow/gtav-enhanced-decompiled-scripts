@@ -55633,7 +55633,7 @@ BOOL func_557(BOOL bParam0, BOOL bParam1, BOOL bParam2, int iParam3, BOOL bParam
 
 	Global_2699583 = MISC::GET_GAME_TIMER();
 
-	if (!func_839() && !NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && !DLC::GET_IS_LOADING_SCREEN_ACTIVE() && !HUD::IS_WARNING_MESSAGE_ACTIVE() && !Global_2699688 && !(func_838() == 63))
+	if (!func_839() && !NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && !DLC::GET_IS_LOADING_SCREEN_ACTIVE() && !HUD::IS_WARNING_MESSAGE_ACTIVE() && !Global_2699688 && !(func_838() == TRANSITION_STATE_RETURN_TO_SINGLEPLAYER))
 		return false;
 
 	if (PLAYER::IS_PLAYER_TELEPORT_ACTIVE())
@@ -55661,7 +55661,7 @@ BOOL func_557(BOOL bParam0, BOOL bParam1, BOOL bParam2, int iParam3, BOOL bParam
 	{
 		if (func_59())
 		{
-			if (func_838() == 58)
+			if (func_838() == TRANSITION_STATE_TERMINATE_SESSION)
 				func_600(1);
 		
 			if (func_599())
@@ -87216,9 +87216,9 @@ void func_746(var uParam0, Hash hParam1, int iParam2, int iParam3) // Position -
 	return;
 }
 
-int func_747(ePedComponentType epctParam0) // Position - 0x70B33 (461619)
+int func_747(int iParam0) // Position - 0x70B33 (461619)
 {
-	switch (epctParam0)
+	switch (iParam0)
 	{
 		case 0:
 			return 0;
@@ -87285,7 +87285,7 @@ void func_749(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position
 	int i;
 	Hash nameHash;
 	int enumValue;
-	ePedComponentType componentType;
+	int componentType;
 	int num;
 	int num2;
 	BOOL address;
@@ -87327,7 +87327,7 @@ void func_749(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position
 					if (num < Global_4519747)
 					{
 						Global_4519747[num] = -1;
-						Global_4519758[num] = PV_COMP_INVALID;
+						Global_4519758[num] = -1;
 					}
 				
 					EXTRAMETADATA::GET_VARIANT_COMPONENT(Global_2883588, i, &nameHash, &enumValue, &componentType);
@@ -108285,7 +108285,7 @@ int func_820(Ped pedParam0, int iParam1, int iParam2, int iParam3, int iParam4, 
 	return 1;
 }
 
-void func_821(Hash hParam0, int iParam1, BOOL bParam2) // Position - 0x86BB1 (551857)
+void func_821(Hash hParam0, int iParam1, int iParam2) // Position - 0x86BB1 (551857)
 {
 	int num;
 	int num2;
@@ -108299,14 +108299,14 @@ void func_821(Hash hParam0, int iParam1, BOOL bParam2) // Position - 0x86BB1 (55
 
 	if (func_823(hParam0, 12, num))
 	{
-		if (func_822(hParam0, iParam1, bParam2))
+		if (func_822(hParam0, iParam1, iParam2))
 		{
 			num2 = func_819(hParam0);
 		
 			if (iParam1 == 3)
-				Global_114931.f_2370.f_539.f_196[num2] = bParam2;
+				Global_114931.f_2370.f_539.f_196[num2] = iParam2;
 			else if (iParam1 == 4)
-				Global_114931.f_2370.f_539.f_200[num2] = bParam2;
+				Global_114931.f_2370.f_539.f_200[num2] = iParam2;
 		}
 	}
 
@@ -109745,7 +109745,7 @@ int func_837(Player plParam0) // Position - 0x88ABD (559805)
 	return Global_1892798[plParam0 /*615*/].f_592;
 }
 
-int func_838() // Position - 0x88AD1 (559825)
+eTransitionState func_838() // Position - 0x88AD1 (559825)
 {
 	return Global_1575020;
 }
@@ -130820,7 +130820,7 @@ int func_1174(Player plParam0, Player plParam1, int iParam2, BOOL bParam3, BOOL 
 		}
 		else if (Global_1836756 || Global_1836746 || Global_1845299[plParam0 /*883*/] == 0)
 		{
-			if (plParam0 == plParam1 || Global_1836756 == true && Global_1836766 == false)
+			if (plParam0 == plParam1 || Global_1836756 == true && Global_1836766 == 0)
 				return func_1169(true);
 			else
 				return func_1164(plParam1, true, playerTeam, bParam4);
@@ -133538,7 +133538,7 @@ void func_1295(BOOL bParam0, int iParam1, int iParam2, BOOL bParam3, BOOL bParam
 		switch (Global_1927014.f_9)
 		{
 			case 1:
-				if (!func_1452() && func_1449(0) > 0)
+				if (!func_1452() && func_1449(0) > false)
 					Global_1945595[0 /*8*/].f_5 = 1;
 			
 				if (!flag3)
@@ -137126,7 +137126,7 @@ void func_1448(float fParam0) // Position - 0xAA4E9 (697577)
 	return;
 }
 
-int func_1449(int iParam0) // Position - 0xAA50D (697613)
+BOOL func_1449(int iParam0) // Position - 0xAA50D (697613)
 {
 	int num;
 

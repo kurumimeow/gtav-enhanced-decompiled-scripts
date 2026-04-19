@@ -122179,7 +122179,7 @@ BOOL func_837(var uParam0) // Position - 0x9E57A (648570)
 							CAM::PLAY_CAM_ANIM(caLocal_1029, "ig_7_front_intro_cam", "missfam6ig_7_tattoo", 324.13f, 181.29f, 102.6f, 0f, 0f, -22.32f, false, 2);
 							bLocal_965 = true;
 							iLocal_552 = 1;
-							Global_102454.f_12[0] = 1;
+							Global_102454.f_12[0] = true;
 							func_847(254, false);
 							*uParam0 = *uParam0 + 1;
 						}
@@ -132172,7 +132172,7 @@ BOOL func_974(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4) /
 			MISC::SET_WEATHER_TYPE_NOW_PERSIST("EXTRASUNNY");
 	
 		if (!func_1086())
-			Global_102454.f_12[0] = 0;
+			Global_102454.f_12[0] = false;
 	
 		PLAYER::CLEAR_PLAYER_HAS_DAMAGED_AT_LEAST_ONE_PED(PLAYER::PLAYER_ID());
 		PLAYER::CLEAR_PLAYER_HAS_DAMAGED_AT_LEAST_ONE_NON_ANIMAL_PED(PLAYER::PLAYER_ID());
@@ -132547,7 +132547,7 @@ BOOL func_974(int iParam0, var uParam1, var uParam2, var uParam3, var uParam4) /
 		
 			case 14:
 				if (*uParam4 == 1)
-					if (Global_102454.f_12[0] == 1)
+					if (Global_102454.f_12[0] == true)
 						bLocal_965 = true;
 					else if (Global_102454.f_12[0] == 2)
 						bLocal_965 = false;

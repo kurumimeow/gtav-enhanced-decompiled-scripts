@@ -4570,12 +4570,12 @@ void func_23(var uParam0) // Position - 0x45A0 (17824)
 											if (unk37.f_9 == 0)
 												if (unk37.f_8 == -99)
 													flag = false;
-												else if (func_490(unk37.f_8) == false)
+												else if (func_490(unk37.f_8) == PV_COMP_HEAD)
 													flag = false;
 											else if (unk37.f_9 == 1 || unk37.f_9 == 2)
 												if (unk37.f_10 == -1)
 													flag = false;
-												else if (func_487(unk37.f_10) == false)
+												else if (func_487(unk37.f_10) == PV_COMP_HEAD)
 													flag = false;
 									
 										if (!flag)
@@ -8438,7 +8438,7 @@ ePedComponentType func_81(Ped pedParam0, int iParam1, int iParam2, ePedComponent
 	int j;
 	int numberOfPedPropTextureVariations;
 
-	if (iParam1 == PV_COMP_INVALID)
+	if (iParam1 == -1)
 		return func_87(epctParam3);
 
 	entityModel = ENTITY::GET_ENTITY_MODEL(pedParam0);
@@ -11768,48 +11768,48 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 	ePedComponentType type14;
 	ePedComponentType type15;
 	Hash componentHash2;
+	int num3;
+	int num4;
+	int num5;
 	ePedComponentType type16;
 	ePedComponentType type17;
 	ePedComponentType type18;
-	ePedComponentType type19;
-	ePedComponentType type20;
-	ePedComponentType type21;
 	Hash componentHash3;
 	Hash componentHash4;
-	ePedComponentType type22;
+	ePedComponentType type19;
 	Hash hashNameForComponent7;
+	ePedComponentType type20;
+	ePedComponentType type21;
+	ePedComponentType type22;
+	Hash componentHash5;
+	int m;
 	ePedComponentType type23;
 	ePedComponentType type24;
 	ePedComponentType type25;
-	Hash componentHash5;
-	int m;
-	ePedComponentType type26;
-	ePedComponentType type27;
-	ePedComponentType type28;
 	ePedComponentType skinFirstID;
 	ePedComponentType skinSecondID;
 	ePedComponentType skinThirdID;
 	float skinMix;
 	int n;
-	ePedComponentType type29;
-	ePedComponentType type30;
+	ePedComponentType type26;
+	ePedComponentType type27;
 	Hash hashNameForComponent8;
-	ePedComponentType type31;
+	ePedComponentType type28;
 	Hash componentHash6;
 	int o;
+	ePedComponentType type29;
+	ePedComponentType type30;
+	ePedComponentType type31;
 	ePedComponentType type32;
 	ePedComponentType type33;
-	ePedComponentType type34;
-	ePedComponentType type35;
-	ePedComponentType type36;
 	int pedDrawableVariation;
 	int pedTextureVariation2;
 	ePedComponentType hashNameForComponent9;
 	int pedDrawableVariation2;
 	int pedTextureVariation3;
 	ePedComponentType hashNameForComponent10;
-	ePedComponentType type37;
-	ePedComponentType type38;
+	ePedComponentType type34;
+	ePedComponentType type35;
 	int shopPedApparelVariantComponentCount;
 	int p;
 	ePedComponentType nameHash;
@@ -11818,7 +11818,7 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 	int pedDrawableVariation3;
 	int pedTextureVariation4;
 	Hash hashNameForComponent11;
-	ePedComponentType type39;
+	ePedComponentType type36;
 
 	if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
 		if (Global_1575019 != 4 && Global_1575019 != 5 && Global_1575019 != 7)
@@ -12228,24 +12228,24 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 					else
 					{
 						Global_80088[1 /*14*/] = { func_672(entityModel, 11, type8, -1) };
-						type16 = Global_80088[1 /*14*/].f_3;
+						num3 = Global_80088[1 /*14*/].f_3;
 						Global_80088[1 /*14*/] = { func_672(entityModel, 11, epctParam2, -1) };
-						type17 = Global_80088[1 /*14*/].f_3;
+						num4 = Global_80088[1 /*14*/].f_3;
 					
-						if (type16 != type17)
+						if (num3 != num4)
 						{
-							type19 = func_279(pedParam0, epctParam2);
+							type16 = func_279(pedParam0, epctParam2);
 							Global_80088[1 /*14*/] = { func_672(entityModel, 8, type9, -1) };
-							type18 = Global_80088[1 /*14*/].f_4;
-							type20 = func_277(entityModel, type9, type18);
+							num5 = Global_80088[1 /*14*/].f_4;
+							type17 = func_277(entityModel, type9, num5);
 						
-							if (type19 != -99 && pedParam0 == PLAYER::PLAYER_PED_ID() || pedParam0 == Global_4520024)
+							if (type16 != -99 && pedParam0 == PLAYER::PLAYER_PED_ID() || pedParam0 == Global_4520024)
 							{
-								type21 = type19;
+								type18 = type16;
 							}
-							else if (type20 == -99)
+							else if (type17 == -99)
 							{
-								type21 = type9;
+								type18 = type9;
 							
 								if (entityModel == joaat("MP_M_Freemode_01"))
 								{
@@ -12253,9 +12253,9 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 								
 									if (epctParam2 >= 96 && epctParam2 <= 107 || func_276(componentHash3) == 6 || EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash3, joaat("BIKER_VEST"), 0))
 									{
-										type20 = func_278(entityModel, 11, PV_COMP_INVALID);
-										Global_80088[1 /*14*/] = { func_672(entityModel, 11, type20, -1) };
-										type21 = func_281(entityModel, type20, epctParam2, Global_80088[1 /*14*/].f_4);
+										type17 = func_278(entityModel, 11, PV_COMP_INVALID);
+										Global_80088[1 /*14*/] = { func_672(entityModel, 11, type17, -1) };
+										type18 = func_281(entityModel, type17, epctParam2, Global_80088[1 /*14*/].f_4);
 									}
 								}
 							
@@ -12263,9 +12263,9 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 								{
 									if (!EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(func_167(entityModel, epctParam2, 11, 4), joaat("JACKET_ONLY"), 0))
 									{
-										type20 = func_278(entityModel, 11, PV_COMP_INVALID);
-										Global_80088[1 /*14*/] = { func_672(entityModel, 11, type20, -1) };
-										type21 = func_281(entityModel, type20, epctParam2, Global_80088[1 /*14*/].f_4);
+										type17 = func_278(entityModel, 11, PV_COMP_INVALID);
+										Global_80088[1 /*14*/] = { func_672(entityModel, 11, type17, -1) };
+										type18 = func_281(entityModel, type17, epctParam2, Global_80088[1 /*14*/].f_4);
 									}
 								}
 							
@@ -12278,39 +12278,39 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 							
 								if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash4, joaat("OVERCOAT_ACCS"), 0))
 								{
-									type20 = func_278(entityModel, 11, PV_COMP_INVALID);
-									Global_80088[1 /*14*/] = { func_672(entityModel, 11, type20, -1) };
-									type21 = func_281(entityModel, type20, epctParam2, Global_80088[1 /*14*/].f_4);
+									type17 = func_278(entityModel, 11, PV_COMP_INVALID);
+									Global_80088[1 /*14*/] = { func_672(entityModel, 11, type17, -1) };
+									type18 = func_281(entityModel, type17, epctParam2, Global_80088[1 /*14*/].f_4);
 								}
 							}
 							else
 							{
-								type21 = func_281(entityModel, type20, epctParam2, type18);
+								type18 = func_281(entityModel, type17, epctParam2, num5);
 							
 								if (entityModel == joaat("MP_M_Freemode_01"))
 									if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(func_167(entityModel, epctParam2, 11, 3), joaat("LOW2_OPEN_CHECK"), 0))
-										if (!func_275(entityModel, func_77(pedParam0, 4), type20))
-											type21 = 240;
+										if (!func_275(entityModel, func_77(pedParam0, 4), type17))
+											type18 = 240;
 								else if (entityModel == joaat("MP_F_Freemode_01"))
 									if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(func_167(entityModel, epctParam2, 11, 4), joaat("LOW2_OPEN_CHECK"), 0))
-										if (!func_275(entityModel, func_77(pedParam0, 4), type20))
-											type21 = 48;
+										if (!func_275(entityModel, func_77(pedParam0, 4), type17))
+											type18 = 48;
 							}
 						
-							if (type21 != -99)
+							if (type18 != -99)
 							{
-								func_186(pedParam0, 8, type21, 0, iParam4, 0, 0, 0, -1, -1, -1, 0, false, 0);
+								func_186(pedParam0, 8, type18, 0, iParam4, 0, 0, 0, -1, -1, -1, 0, false, 0);
 							}
 							else if (entityModel == joaat("MP_M_Freemode_01"))
 							{
-								type20 = func_278(entityModel, 11, PV_COMP_INVALID);
-								Global_80088[1 /*14*/] = { func_672(entityModel, 11, type20, -1) };
-								type21 = func_281(entityModel, type20, epctParam2, Global_80088[1 /*14*/].f_4);
+								type17 = func_278(entityModel, 11, PV_COMP_INVALID);
+								Global_80088[1 /*14*/] = { func_672(entityModel, 11, type17, -1) };
+								type18 = func_281(entityModel, type17, epctParam2, Global_80088[1 /*14*/].f_4);
 							
-								if (type21 == -99)
-									type21 = 240;
+								if (type18 == -99)
+									type18 = 240;
 							
-								func_186(pedParam0, 8, type21, 0, iParam4, 0, 0, 0, -1, -1, -1, 0, false, 0);
+								func_186(pedParam0, 8, type18, 0, iParam4, 0, 0, 0, -1, -1, -1, 0, false, 0);
 							}
 							else if (entityModel == joaat("MP_F_Freemode_01"))
 							{
@@ -12350,15 +12350,15 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 			{
 				if (epctParam2 != -99)
 				{
-					type22 = -99;
+					type19 = -99;
 				
 					if (entityModel == joaat("MP_M_Freemode_01"))
-						type22 = func_312(epctParam2);
+						type19 = func_312(epctParam2);
 					else if (entityModel == joaat("MP_F_Freemode_01"))
-						type22 = func_310(epctParam2);
+						type19 = func_310(epctParam2);
 				
-					if (type22 != -99 && epctParam2 != type22)
-						epctParam2 = type22;
+					if (type19 != -99 && epctParam2 != type19)
+						epctParam2 = type19;
 				}
 			
 				func_231(pedParam0, epctParam2, iParam10, bParam11);
@@ -12370,12 +12370,12 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 		
 			if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent7, joaat("GLOVES"), 0))
 			{
-				type23 = func_77(pedParam0, 11);
-				type24 = func_77(pedParam0, 4);
-				type25 = func_284(entityModel, epctParam2, type23, type24);
+				type20 = func_77(pedParam0, 11);
+				type21 = func_77(pedParam0, 4);
+				type22 = func_284(entityModel, epctParam2, type20, type21);
 			
-				if (type25 == -99)
-					type25 = func_291(pedParam0, entityModel, 11, type23, 3, 0);
+				if (type22 == -99)
+					type22 = func_291(pedParam0, entityModel, 11, type20, 3, 0);
 			
 				switch (hashNameForComponent7)
 				{
@@ -12385,19 +12385,19 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 					case joaat("DLC_MP_VAL_F_UPPR0_3"):
 					case joaat("DLC_MP_VAL_F_UPPR0_4"):
 					case joaat("DLC_MP_VAL_F_UPPR0_5"):
-						type25 = PV_COMP_JBIB;
+						type22 = PV_COMP_JBIB;
 						componentHash5 = func_167(entityModel, epctParam2, 11, 4);
 					
 						if (!EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash5, joaat("DRESS"), 0))
-							type25 = -99;
+							type22 = -99;
 						break;
 				}
 			
-				if (type25 != -99)
+				if (type22 != -99)
 				{
 					for (m = 0; m < 18; m = m + 1)
 					{
-						if (func_283(entityModel, type25, m) == hashNameForComponent7)
+						if (func_283(entityModel, type22, m) == hashNameForComponent7)
 						{
 							num = m;
 							pedTextureVariation = PED::GET_PED_TEXTURE_VARIATION(pedParam0, PV_COMP_UPPR);
@@ -12407,12 +12407,12 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 			}
 		
 			func_293(pedParam0, iParam1, epctParam2, iParam6, 0);
-			type26 = func_77(pedParam0, 11);
+			type23 = func_77(pedParam0, 11);
 		
-			if (func_280(entityModel, type26, -1))
+			if (func_280(entityModel, type23, -1))
 			{
-				type27 = func_277(entityModel, epctParam2, Global_80088[1 /*14*/].f_4);
-				func_272(entityModel, type27);
+				type24 = func_277(entityModel, epctParam2, Global_80088[1 /*14*/].f_4);
+				func_272(entityModel, type24);
 			}
 		
 			if (iParam5 == 0)
@@ -12422,9 +12422,9 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 		{
 			if (epctParam2 >= PV_COMP_BERD && epctParam2 <= 41)
 			{
-				type28 = func_77(pedParam0, 7);
+				type25 = func_77(pedParam0, 7);
 			
-				if (!func_227(entityModel, type28, 9, -99, -99, -99, pedParam0, 0, epctParam2, -99, -99, -99))
+				if (!func_227(entityModel, type25, 9, -99, -99, -99, pedParam0, 0, epctParam2, -99, -99, -99))
 					PED::SET_PED_COMPONENT_VARIATION(pedParam0, func_79(7), 0, 0, 0);
 			}
 		}
@@ -12454,14 +12454,14 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 		}
 		else if (iParam1 == 4)
 		{
-			type29 = func_77(pedParam0, 11);
-			type30 = func_77(pedParam0, 8);
+			type26 = func_77(pedParam0, 11);
+			type27 = func_77(pedParam0, 8);
 		
 			if (entityModel == joaat("MP_M_Freemode_01"))
 			{
-				if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(func_167(entityModel, type29, 11, 3), joaat("LOW2_OPEN_CHECK"), 0))
+				if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(func_167(entityModel, type26, 11, 3), joaat("LOW2_OPEN_CHECK"), 0))
 				{
-					if (!func_275(entityModel, epctParam2, func_277(entityModel, type30, PV_COMP_HEAD)))
+					if (!func_275(entityModel, epctParam2, func_277(entityModel, type27, 0)))
 					{
 						func_186(pedParam0, 8, 240, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 						Global_80088[1 /*14*/] = { func_672(entityModel, iParam1, epctParam2, -1) };
@@ -12470,9 +12470,9 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 			}
 			else if (entityModel == joaat("MP_F_Freemode_01"))
 			{
-				if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(func_167(entityModel, type29, 11, 4), joaat("LOW2_OPEN_CHECK"), 0))
+				if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(func_167(entityModel, type26, 11, 4), joaat("LOW2_OPEN_CHECK"), 0))
 				{
-					if (!func_275(entityModel, epctParam2, func_277(entityModel, type30, PV_COMP_HEAD)))
+					if (!func_275(entityModel, epctParam2, func_277(entityModel, type27, 0)))
 					{
 						func_186(pedParam0, 8, 78, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 						Global_80088[1 /*14*/] = { func_672(entityModel, iParam1, epctParam2, -1) };
@@ -12487,10 +12487,10 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 		
 			if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent8, joaat("GLOVES"), 0))
 			{
-				type31 = func_284(entityModel, type30, type29, epctParam2);
+				type28 = func_284(entityModel, type27, type26, epctParam2);
 			
-				if (type31 == -99)
-					type31 = func_291(pedParam0, entityModel, 11, type29, 3, 0);
+				if (type28 == -99)
+					type28 = func_291(pedParam0, entityModel, 11, type26, 3, 0);
 			
 				switch (hashNameForComponent8)
 				{
@@ -12500,19 +12500,19 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 					case joaat("DLC_MP_VAL_F_UPPR0_3"):
 					case joaat("DLC_MP_VAL_F_UPPR0_4"):
 					case joaat("DLC_MP_VAL_F_UPPR0_5"):
-						type31 = PV_COMP_JBIB;
+						type28 = PV_COMP_JBIB;
 						componentHash6 = func_167(entityModel, epctParam2, 11, 4);
 					
 						if (!EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash6, joaat("DRESS"), 0))
-							type31 = -99;
+							type28 = -99;
 						break;
 				}
 			
-				if (type31 != -99)
+				if (type28 != -99)
 				{
 					for (o = 0; o < 18; o = o + 1)
 					{
-						if (func_283(entityModel, type31, o) == hashNameForComponent8)
+						if (func_283(entityModel, type28, o) == hashNameForComponent8)
 						{
 							num = o;
 							pedTextureVariation = PED::GET_PED_TEXTURE_VARIATION(pedParam0, PV_COMP_UPPR);
@@ -12571,14 +12571,14 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 			{
 				if (func_213(pedParam0))
 				{
-					type32 = func_211(pedParam0, entityModel, iParam1, epctParam2);
+					type29 = func_211(pedParam0, entityModel, iParam1, epctParam2);
 				
-					if (type32 > PV_COMP_HEAD)
+					if (type29 > PV_COMP_HEAD)
 					{
-						type32 = type32 + PED::GET_PED_TEXTURE_VARIATION(pedParam0, PV_COMP_TASK);
+						type29 = type29 + PED::GET_PED_TEXTURE_VARIATION(pedParam0, PV_COMP_TASK);
 					
-						if (!func_206(pedParam0, 9, type32))
-							func_186(pedParam0, 9, type32, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+						if (!func_206(pedParam0, 9, type29))
+							func_186(pedParam0, 9, type29, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 					}
 					else
 					{
@@ -12592,16 +12592,16 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 		
 			if (iParam1 == 11 || iParam1 == 8)
 			{
-				type33 = func_17(2042, -1);
+				type30 = func_17(2042, -1);
 			
 				if (PED::GET_PED_DRAWABLE_VARIATION(pedParam0, PV_COMP_HAND) != 0)
-					PED::SET_PED_COMPONENT_VARIATION(pedParam0, PV_COMP_HAND, func_200(pedParam0, type33), func_199(pedParam0, type33), func_198(pedParam0, type33));
+					PED::SET_PED_COMPONENT_VARIATION(pedParam0, PV_COMP_HAND, func_200(pedParam0, type30), func_199(pedParam0, type30), func_198(pedParam0, type30));
 			
 				if (pedParam0 == PLAYER::PLAYER_PED_ID())
 				{
-					PLAYER::SET_PLAYER_PARACHUTE_VARIATION_OVERRIDE(PLAYER::PLAYER_ID(), 5, func_200(PLAYER::PLAYER_PED_ID(), type33), func_199(PLAYER::PLAYER_PED_ID(), type33), false);
-					PLAYER::SET_PLAYER_PARACHUTE_PACK_TINT_INDEX(PLAYER::PLAYER_ID(), func_198(PLAYER::PLAYER_PED_ID(), type33));
-					func_196(PLAYER::PLAYER_ID(), type33);
+					PLAYER::SET_PLAYER_PARACHUTE_VARIATION_OVERRIDE(PLAYER::PLAYER_ID(), 5, func_200(PLAYER::PLAYER_PED_ID(), type30), func_199(PLAYER::PLAYER_PED_ID(), type30), false);
+					PLAYER::SET_PLAYER_PARACHUTE_PACK_TINT_INDEX(PLAYER::PLAYER_ID(), func_198(PLAYER::PLAYER_PED_ID(), type30));
+					func_196(PLAYER::PLAYER_ID(), type30);
 				}
 			}
 		
@@ -12614,22 +12614,22 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 			{
 				if (iParam1 == 11)
 				{
-					type34 = func_296(pedParam0, 4, PV_COMP_INVALID);
-					type35 = epctParam2;
+					type31 = func_296(pedParam0, 4, PV_COMP_INVALID);
+					type32 = epctParam2;
 				}
 				else
 				{
-					type34 = epctParam2;
-					type35 = func_296(pedParam0, 11, PV_COMP_INVALID);
+					type31 = epctParam2;
+					type32 = func_296(pedParam0, 11, PV_COMP_INVALID);
 				}
 			
-				if (func_195(entityModel, 11, type35, -1))
-					if (!func_194(entityModel, 4, type34, -1))
-						if (func_193(entityModel, 4, type34, &type36))
-							func_186(pedParam0, 4, type36, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
-				else if (func_194(entityModel, 4, type34, -1))
-					if (func_192(entityModel, 4, type34, &type36))
-						func_186(pedParam0, 4, type36, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+				if (func_195(entityModel, 11, type32, -1))
+					if (!func_194(entityModel, 4, type31, -1))
+						if (func_193(entityModel, 4, type31, &type33))
+							func_186(pedParam0, 4, type33, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+				else if (func_194(entityModel, 4, type31, -1))
+					if (func_192(entityModel, 4, type31, &type33))
+						func_186(pedParam0, 4, type33, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 					else
 						func_186(pedParam0, 4, 233, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 			}
@@ -12642,12 +12642,12 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 				pedDrawableVariation2 = PED::GET_PED_DRAWABLE_VARIATION(pedParam0, PV_COMP_LOWR);
 				pedTextureVariation3 = PED::GET_PED_TEXTURE_VARIATION(pedParam0, PV_COMP_LOWR);
 				hashNameForComponent10 = EXTRAMETADATA::GET_HASH_NAME_FOR_COMPONENT(pedParam0, 4, pedDrawableVariation2, pedTextureVariation3);
-				type37 = func_77(pedParam0, 4);
-				type38 = func_77(pedParam0, 6);
+				type34 = func_77(pedParam0, 4);
+				type35 = func_77(pedParam0, 6);
 			
 				if (func_191(entityModel, hashNameForComponent9))
 				{
-					if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent9, joaat("ALT_FEET"), 0) != func_190(entityModel, type37, hashNameForComponent9))
+					if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent9, joaat("ALT_FEET"), 0) != func_190(entityModel, type34, hashNameForComponent9))
 					{
 						shopPedApparelVariantComponentCount = EXTRAMETADATA::GET_SHOP_PED_APPAREL_VARIANT_COMPONENT_COUNT(hashNameForComponent9);
 					
@@ -12661,15 +12661,15 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 								{
 									if (entityModel == joaat("MP_M_Freemode_01"))
 									{
-										type38 = func_83(entityModel, nameHash, 6, 3);
+										type35 = func_83(entityModel, nameHash, 6, 3);
 										hashNameForComponent9 = nameHash;
-										func_186(pedParam0, 6, type38, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+										func_186(pedParam0, 6, type35, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 									}
 									else if (entityModel == joaat("MP_F_Freemode_01"))
 									{
-										type38 = func_83(entityModel, nameHash, 6, 4);
+										type35 = func_83(entityModel, nameHash, 6, 4);
 										hashNameForComponent9 = nameHash;
-										func_186(pedParam0, 6, type38, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+										func_186(pedParam0, 6, type35, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 									}
 								
 									p = shopPedApparelVariantComponentCount + 1;
@@ -12677,7 +12677,7 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 							}
 						}
 					}
-					else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent10, joaat("ALT_LEGS"), 0) != func_189(entityModel, type38, hashNameForComponent10))
+					else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent10, joaat("ALT_LEGS"), 0) != func_189(entityModel, type35, hashNameForComponent10))
 					{
 						shopPedApparelVariantComponentCount = EXTRAMETADATA::GET_SHOP_PED_APPAREL_VARIANT_COMPONENT_COUNT(hashNameForComponent10);
 					
@@ -12691,15 +12691,15 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 								{
 									if (entityModel == joaat("MP_M_Freemode_01"))
 									{
-										type37 = func_83(entityModel, nameHash, 4, 3);
+										type34 = func_83(entityModel, nameHash, 4, 3);
 										hashNameForComponent10 = nameHash;
-										func_186(pedParam0, 4, type37, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+										func_186(pedParam0, 4, type34, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 									}
 									else if (entityModel == joaat("MP_F_Freemode_01"))
 									{
-										type37 = func_83(entityModel, nameHash, 4, 4);
+										type34 = func_83(entityModel, nameHash, 4, 4);
 										hashNameForComponent10 = nameHash;
-										func_186(pedParam0, 4, type37, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+										func_186(pedParam0, 4, type34, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 									}
 								
 									p = shopPedApparelVariantComponentCount + 1;
@@ -12711,7 +12711,7 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 			
 				if (func_191(entityModel, hashNameForComponent10))
 				{
-					if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent10, joaat("ALT_LEGS"), 0) != func_189(entityModel, type38, hashNameForComponent10))
+					if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent10, joaat("ALT_LEGS"), 0) != func_189(entityModel, type35, hashNameForComponent10))
 					{
 						shopPedApparelVariantComponentCount = EXTRAMETADATA::GET_SHOP_PED_APPAREL_VARIANT_COMPONENT_COUNT(hashNameForComponent10);
 					
@@ -12725,15 +12725,15 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 								{
 									if (entityModel == joaat("MP_M_Freemode_01"))
 									{
-										type37 = func_83(entityModel, nameHash, 4, 3);
+										type34 = func_83(entityModel, nameHash, 4, 3);
 										hashNameForComponent10 = nameHash;
-										func_186(pedParam0, 4, type37, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+										func_186(pedParam0, 4, type34, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 									}
 									else if (entityModel == joaat("MP_F_Freemode_01"))
 									{
-										type37 = func_83(entityModel, nameHash, 4, 4);
+										type34 = func_83(entityModel, nameHash, 4, 4);
 										hashNameForComponent10 = nameHash;
-										func_186(pedParam0, 4, type37, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+										func_186(pedParam0, 4, type34, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 									}
 								
 									p = shopPedApparelVariantComponentCount + 1;
@@ -12741,7 +12741,7 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 							}
 						}
 					}
-					else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent9, joaat("ALT_FEET"), 0) != func_190(entityModel, type37, hashNameForComponent9))
+					else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(hashNameForComponent9, joaat("ALT_FEET"), 0) != func_190(entityModel, type34, hashNameForComponent9))
 					{
 						shopPedApparelVariantComponentCount = EXTRAMETADATA::GET_SHOP_PED_APPAREL_VARIANT_COMPONENT_COUNT(hashNameForComponent9);
 					
@@ -12755,15 +12755,15 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 								{
 									if (entityModel == joaat("MP_M_Freemode_01"))
 									{
-										type38 = func_83(entityModel, nameHash, 6, 3);
+										type35 = func_83(entityModel, nameHash, 6, 3);
 										hashNameForComponent9 = nameHash;
-										func_186(pedParam0, 6, type38, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+										func_186(pedParam0, 6, type35, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 									}
 									else if (entityModel == joaat("MP_F_Freemode_01"))
 									{
-										type38 = func_83(entityModel, nameHash, 6, 4);
+										type35 = func_83(entityModel, nameHash, 6, 4);
 										hashNameForComponent9 = nameHash;
-										func_186(pedParam0, 6, type38, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
+										func_186(pedParam0, 6, type35, 0, iParam4, 0, 0, 0, -1, -1, -1, false, false, false);
 									}
 								
 									p = shopPedApparelVariantComponentCount + 1;
@@ -12812,14 +12812,14 @@ int func_186(Ped pedParam0, int iParam1, ePedComponentType epctParam2, int iPara
 
 	if (num != -1)
 	{
-		type39 = func_283(entityModel, func_296(pedParam0, 3, PV_COMP_INVALID), num);
+		type36 = func_283(entityModel, func_296(pedParam0, 3, PV_COMP_INVALID), num);
 	
-		if (type39 != PV_COMP_INVALID)
+		if (type36 != PV_COMP_INVALID)
 		{
 			if (entityModel == joaat("MP_M_Freemode_01"))
-				type6 = func_83(entityModel, type39, 3, 3);
+				type6 = func_83(entityModel, type36, 3, 3);
 			else if (entityModel == joaat("MP_F_Freemode_01"))
-				type6 = func_83(entityModel, type39, 3, 4);
+				type6 = func_83(entityModel, type36, 3, 4);
 		
 			if (type6 != -99)
 			{
@@ -15460,7 +15460,7 @@ BOOL func_206(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType epc
 	}
 	else if (epctParam1 == 14)
 	{
-		if (PED::GET_PED_PROP_INDEX(pedParam0, Global_80088[1 /*14*/].f_12, 1) == Global_80088[1 /*14*/].f_3 && PED::GET_PED_PROP_TEXTURE_INDEX(pedParam0, Global_80088[1 /*14*/].f_12) == Global_80088[1 /*14*/].f_4 || Global_80088[1 /*14*/].f_3 == PV_COMP_INVALID)
+		if (PED::GET_PED_PROP_INDEX(pedParam0, Global_80088[1 /*14*/].f_12, 1) == Global_80088[1 /*14*/].f_3 && PED::GET_PED_PROP_TEXTURE_INDEX(pedParam0, Global_80088[1 /*14*/].f_12) == Global_80088[1 /*14*/].f_4 || Global_80088[1 /*14*/].f_3 == -1)
 			return true;
 	
 		if (Global_80088[1 /*14*/].f_12 == PV_COMP_HEAD && IS_BIT_SET(Global_80088[1 /*14*/].f_6, 6) && EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(Global_2883588, joaat("HELMET"), 1) && EXTRAMETADATA::GET_SHOP_PED_APPAREL_VARIANT_PROP_COUNT(Global_2883588) > 0)
@@ -17618,7 +17618,7 @@ BOOL func_227(Hash hParam0, ePedComponentType epctParam1, int iParam2, ePedCompo
 						return false;
 				else if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash8, joaat("VEST_SHIRT"), 0) || EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash8, joaat("HEIST_DRAW_5"), 0) || EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash8, joaat("HEIST_DRAW_6"), 0) || EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash8, joaat("HEIST_DRAW_7"), 0) || EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash8, joaat("HEIST_DRAW_8"), 0) || EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash8, joaat("HEIST_DRAW_9"), 0) || EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash8, joaat("APART_DRAW_0"), 0) || EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash8, joaat("APART_DRAW_1"), 0))
 					return false;
-				else if (func_277(hParam0, epctParam4, PV_COMP_HEAD) != -99)
+				else if (func_277(hParam0, epctParam4, 0) != -99)
 					if (EXTRAMETADATA::DOES_SHOP_PED_APPAREL_HAVE_RESTRICTION_TAG(componentHash6, joaat("ALT_CHAIN"), 0))
 						return false;
 			}
@@ -31694,7 +31694,7 @@ int func_276(Hash hParam0) // Position - 0x2F820 (194592)
 	return num;
 }
 
-ePedComponentType func_277(Hash hParam0, ePedComponentType epctParam1, ePedComponentType epctParam2) // Position - 0x2F98D (194957)
+ePedComponentType func_277(Hash hParam0, ePedComponentType epctParam1, int iParam2) // Position - 0x2F98D (194957)
 {
 	ePedComponentType type;
 	Hash componentHash;
@@ -31904,7 +31904,7 @@ ePedComponentType func_277(Hash hParam0, ePedComponentType epctParam1, ePedCompo
 	}
 
 	if (type != -99)
-		type = type + epctParam2;
+		type = type + iParam2;
 
 	return type;
 }
@@ -32227,7 +32227,7 @@ BOOL func_280(Hash hParam0, ePedComponentType epctParam1, Hash hParam2) // Posit
 	return false;
 }
 
-ePedComponentType func_281(Hash hParam0, ePedComponentType epctParam1, ePedComponentType epctParam2, ePedComponentType epctParam3) // Position - 0x302CF (197327)
+ePedComponentType func_281(Hash hParam0, ePedComponentType epctParam1, ePedComponentType epctParam2, int iParam3) // Position - 0x302CF (197327)
 {
 	ePedComponentType type;
 	BOOL flag;
@@ -33189,7 +33189,7 @@ ePedComponentType func_281(Hash hParam0, ePedComponentType epctParam1, ePedCompo
 	}
 
 	if (flag && type != -99)
-		type = type + epctParam3;
+		type = type + iParam3;
 
 	return type;
 }
@@ -35093,7 +35093,7 @@ ePedComponentType func_284(Hash hParam0, ePedComponentType epctParam1, ePedCompo
 				}
 				else
 				{
-					type = func_284(hParam0, -99, func_277(hParam0, epctParam1, PV_COMP_HEAD), epctParam3);
+					type = func_284(hParam0, -99, func_277(hParam0, epctParam1, 0), epctParam3);
 				
 					if (type == -99)
 						type = PV_COMP_HEAD;
@@ -35319,7 +35319,7 @@ ePedComponentType func_284(Hash hParam0, ePedComponentType epctParam1, ePedCompo
 				}
 				else
 				{
-					type = func_284(hParam0, -99, func_277(hParam0, epctParam1, PV_COMP_HEAD), epctParam3);
+					type = func_284(hParam0, -99, func_277(hParam0, epctParam1, 0), epctParam3);
 				
 					if (type == -99)
 						type = 14;
@@ -38149,11 +38149,11 @@ ePedComponentType func_296(Ped pedParam0, int iParam1, ePedComponentType epctPar
 	return -99;
 }
 
-void func_297(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType epctParam2, ePedComponentType epctParam3) // Position - 0x393B9 (234425)
+void func_297(Ped pedParam0, ePedComponentType epctParam1, int iParam2, int iParam3) // Position - 0x393B9 (234425)
 {
 	ePedComponentType type;
 
-	if (epctParam2 == PV_COMP_INVALID)
+	if (iParam2 == -1)
 	{
 		PED::CLEAR_PED_PROP(pedParam0, epctParam1, 1);
 	
@@ -38165,13 +38165,13 @@ void func_297(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType epc
 	}
 	else
 	{
-		PED::SET_PED_PROP_INDEX(pedParam0, epctParam1, epctParam2, epctParam3, NETWORK::NETWORK_IS_GAME_IN_PROGRESS(), 1);
+		PED::SET_PED_PROP_INDEX(pedParam0, epctParam1, iParam2, iParam3, NETWORK::NETWORK_IS_GAME_IN_PROGRESS(), 1);
 	
 		if (epctParam1 == PV_COMP_HEAD)
 		{
-			type = func_81(pedParam0, epctParam2, epctParam3, epctParam1);
+			type = func_81(pedParam0, iParam2, iParam3, epctParam1);
 		
-			if (func_290(ENTITY::GET_ENTITY_MODEL(pedParam0), 14, type, EXTRAMETADATA::GET_HASH_NAME_FOR_PROP(pedParam0, 0, epctParam2, epctParam3)))
+			if (func_290(ENTITY::GET_ENTITY_MODEL(pedParam0), 14, type, EXTRAMETADATA::GET_HASH_NAME_FOR_PROP(pedParam0, 0, iParam2, iParam3)))
 			{
 				PED::SET_PED_CONFIG_FLAG(pedParam0, 34, true);
 				PED::SET_PED_CONFIG_FLAG(pedParam0, 36, true);
@@ -40122,7 +40122,7 @@ void func_304(Hash hParam0, int iParam1, ePedComponentType epctParam2, BOOL bPar
 	return;
 }
 
-ePedComponentType func_305(Hash hParam0, ePedComponentType epctParam1, ePedComponentType epctParam2) // Position - 0x3CFB7 (249783)
+ePedComponentType func_305(Hash hParam0, ePedComponentType epctParam1, int iParam2) // Position - 0x3CFB7 (249783)
 {
 	ePedComponentType type;
 	Hash componentHash;
@@ -40324,7 +40324,7 @@ ePedComponentType func_305(Hash hParam0, ePedComponentType epctParam1, ePedCompo
 	}
 
 	if (type != -99)
-		type = type + epctParam2;
+		type = type + iParam2;
 
 	return type;
 }
@@ -67496,42 +67496,42 @@ int func_486(int iParam0) // Position - 0x6226F (402031)
 	return 29;
 }
 
-BOOL func_487(int iParam0) // Position - 0x62648 (403016)
+ePedComponentType func_487(int iParam0) // Position - 0x62648 (403016)
 {
 	switch (iParam0)
 	{
 		case 28:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 29:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 30:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 31:
-			return 4;
+			return PV_COMP_LOWR;
 	
 		case 32:
-			return 6;
+			return PV_COMP_FEET;
 	
 		case 33:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 34:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 35:
-			return 10;
+			return PV_COMP_DECL;
 	
 		case 36:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 37:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 38:
-			return 12;
+			return PV_COMP_MAX;
 	
 		case 39:
 			return 14;
@@ -67546,19 +67546,19 @@ BOOL func_487(int iParam0) // Position - 0x62648 (403016)
 			return 20;
 	
 		case 43:
-			return 8;
+			return PV_COMP_ACCS;
 	
 		case 44:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 45:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 46:
-			return 7;
+			return PV_COMP_TEEF;
 	
 		case 47:
-			return 5;
+			return PV_COMP_HAND;
 	
 		case 48:
 			return 21;
@@ -67570,25 +67570,25 @@ BOOL func_487(int iParam0) // Position - 0x62648 (403016)
 			return 17;
 	
 		case 51:
-			return false;
+			return PV_COMP_HEAD;
 	
 		case 52:
-			return false;
+			return PV_COMP_HEAD;
 	
 		case 53:
-			return false;
+			return PV_COMP_HEAD;
 	
 		case 54:
-			return false;
+			return PV_COMP_HEAD;
 	
 		case 55:
-			return 9;
+			return PV_COMP_TASK;
 	
 		case 56:
 			return 13;
 	
 		case 57:
-			return 11;
+			return PV_COMP_JBIB;
 	
 		case 58:
 			return 15;
@@ -67600,115 +67600,115 @@ BOOL func_487(int iParam0) // Position - 0x62648 (403016)
 			return 25;
 	
 		case 91:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 92:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 93:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 94:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 95:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 96:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 97:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 98:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 99:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 100:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 101:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 102:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 103:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 104:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 105:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 106:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 107:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 108:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 109:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 110:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 111:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 112:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 113:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 114:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 115:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 116:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 117:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 118:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 119:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 120:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 121:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 122:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 61:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 62:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 63:
-			return 6;
+			return PV_COMP_FEET;
 	
 		case 64:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 65:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 66:
 			return 22;
@@ -67717,22 +67717,22 @@ BOOL func_487(int iParam0) // Position - 0x62648 (403016)
 			return 14;
 	
 		case 68:
-			return 8;
+			return PV_COMP_ACCS;
 	
 		case 69:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 70:
 			return 20;
 	
 		case 71:
-			return 10;
+			return PV_COMP_DECL;
 	
 		case 72:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 73:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 74:
 			return 18;
@@ -67741,7 +67741,7 @@ BOOL func_487(int iParam0) // Position - 0x62648 (403016)
 			return 16;
 	
 		case 76:
-			return 12;
+			return PV_COMP_MAX;
 	
 		case 77:
 			return 24;
@@ -67750,109 +67750,109 @@ BOOL func_487(int iParam0) // Position - 0x62648 (403016)
 			return 26;
 	
 		case 80:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 81:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 82:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 83:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 84:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 85:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 86:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 87:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 88:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 89:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 90:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 149:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 150:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 151:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 152:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 153:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 154:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 155:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 156:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 157:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 158:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 159:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 160:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 161:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 162:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 163:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 164:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 165:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 166:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 167:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 168:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 169:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 170:
-			return true;
+			return PV_COMP_BERD;
 	
 		case 171:
-			return true;
+			return PV_COMP_BERD;
 	}
 
-	return false;
+	return PV_COMP_HEAD;
 }
 
 int func_488(int iParam0) // Position - 0x62C63 (404579)
@@ -67959,102 +67959,102 @@ int func_488(int iParam0) // Position - 0x62C63 (404579)
 	return 61;
 }
 
-void func_489(BOOL bParam0) // Position - 0x62DC9 (404937)
+void func_489(ePedComponentType epctParam0) // Position - 0x62DC9 (404937)
 {
 	if (Global_24546.f_5320 >= 3 || Global_24546.f_5319 >= 4)
 		return;
 
 	Global_24546.f_5253[Global_24546.f_5319] = 2;
 	Global_24546.f_5319 = Global_24546.f_5319 + 1;
-	Global_24546.f_5258[Global_24546.f_5320] = bParam0;
+	Global_24546.f_5258[Global_24546.f_5320] = epctParam0;
 	Global_24546.f_5320 = Global_24546.f_5320 + 1;
 	return;
 }
 
 // Unhandled jump detected. Output should be considered invalid
-BOOL func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
+ePedComponentType func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
 {
 	if (!func_88())
 	{
 		switch (epctParam0)
 		{
 			case PV_COMP_HEAD:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_BERD:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_HAIR:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_UPPR:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_LOWR:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_HAND:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_TEEF:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_ACCS:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_TASK:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_DECL:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_JBIB:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 13:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 14:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 15:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 16:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 17:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 19:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 20:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 21:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 22:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 23:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 26:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 27:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 28:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 29:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 30:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 32:
 				return 18;
@@ -68072,34 +68072,34 @@ BOOL func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
 				return 18;
 		
 			case 38:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 39:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 40:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 41:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 42:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 45:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 46:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 47:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 48:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 49:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 50:
 				return 14;
@@ -68162,19 +68162,19 @@ BOOL func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
 				return 22;
 		
 			case 74:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 75:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 76:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 77:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 78:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 80:
 				return 20;
@@ -68192,19 +68192,19 @@ BOOL func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
 				return 20;
 		
 			case 85:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 86:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 87:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 88:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 89:
-				return 6;
+				return PV_COMP_FEET;
 		
 			default:
 				goto 0x65A;
@@ -68215,169 +68215,169 @@ BOOL func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
 		switch (epctParam0)
 		{
 			case PV_COMP_BERD:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_HAIR:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_UPPR:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_LOWR:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_HAND:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_TEEF:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_ACCS:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_TASK:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_DECL:
-				return true;
+				return PV_COMP_BERD;
 		
 			case PV_COMP_JBIB:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 13:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 14:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 15:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 16:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 17:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 24:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 25:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 26:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 27:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 28:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 35:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 36:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 37:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 38:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 39:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 60:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 61:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 62:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 63:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 64:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 85:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 86:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 87:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 88:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 89:
-				return true;
+				return PV_COMP_BERD;
 		
 			case 41:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 42:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 43:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 44:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 45:
-				return 6;
+				return PV_COMP_FEET;
 		
 			case 79:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 80:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 81:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 82:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 83:
-				return 8;
+				return PV_COMP_ACCS;
 		
 			case 18:
-				return 10;
+				return PV_COMP_DECL;
 		
 			case 19:
-				return 10;
+				return PV_COMP_DECL;
 		
 			case 20:
-				return 10;
+				return PV_COMP_DECL;
 		
 			case 21:
-				return 10;
+				return PV_COMP_DECL;
 		
 			case 22:
-				return 10;
+				return PV_COMP_DECL;
 		
 			case 67:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 68:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 69:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 70:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 71:
-				return 12;
+				return PV_COMP_MAX;
 		
 			case 53:
 				return 14;
@@ -68447,7 +68447,7 @@ BOOL func_490(ePedComponentType epctParam0) // Position - 0x62E28 (405032)
 		}
 	}
 
-	return false;
+	return PV_COMP_HEAD;
 }
 
 void func_491(char* sParam0, int iParam1, int iParam2) // Position - 0x63486 (406662)
@@ -130349,11 +130349,11 @@ BOOL func_950() // Position - 0xAD511 (709905)
 	return false;
 }
 
-int func_951(int iParam0, int iParam1, int iParam2) // Position - 0xAD671 (710257)
+int func_951(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xAD671 (710257)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -130532,7 +130532,7 @@ int func_951(int iParam0, int iParam1, int iParam2) // Position - 0xAD671 (71025
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -130664,7 +130664,7 @@ int func_951(int iParam0, int iParam1, int iParam2) // Position - 0xAD671 (71025
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -165267,7 +165267,7 @@ BOOL func_1404(Ped pedParam0, ePedComponentType epctParam1, ePedComponentType ep
 	}
 	else if (epctParam1 == 14)
 	{
-		if (PED::GET_PED_PROP_INDEX(pedParam0, Global_80088[1 /*14*/].f_12, 1) == Global_80088[1 /*14*/].f_3 && PED::GET_PED_PROP_TEXTURE_INDEX(pedParam0, Global_80088[1 /*14*/].f_12) == Global_80088[1 /*14*/].f_4 || Global_80088[1 /*14*/].f_3 == PV_COMP_INVALID)
+		if (PED::GET_PED_PROP_INDEX(pedParam0, Global_80088[1 /*14*/].f_12, 1) == Global_80088[1 /*14*/].f_3 && PED::GET_PED_PROP_TEXTURE_INDEX(pedParam0, Global_80088[1 /*14*/].f_12) == Global_80088[1 /*14*/].f_4 || Global_80088[1 /*14*/].f_3 == -1)
 			return true;
 	}
 	else if (Global_80088[1 /*14*/].f_3 == PED::GET_PED_DRAWABLE_VARIATION(pedParam0, func_79(epctParam1)) && Global_80088[1 /*14*/].f_4 == PED::GET_PED_TEXTURE_VARIATION(pedParam0, func_79(epctParam1)))

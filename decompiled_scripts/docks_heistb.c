@@ -126778,7 +126778,7 @@ void func_935() // Position - 0x9D425 (644133)
 		iLocal_6061 = 0;
 		iLocal_7009 = 2;
 		iLocal_6059 = 0;
-		func_937(false);
+		func_937(0);
 		func_936(75);
 		VEHICLE::SET_ALL_VEHICLE_GENERATORS_ACTIVE_IN_AREA({ 4.80476f, -1523.046f, -1157.1743f } - { 1.75f, 65f, 65f }, { 4.80476f, -1523.046f, -1157.1743f } + { 1.75f, 65f, 65f }, true, true);
 		STREAMING::SET_VEHICLE_POPULATION_BUDGET(3);
@@ -126811,9 +126811,9 @@ void func_936(int iParam0) // Position - 0x9E256 (647766)
 	return;
 }
 
-void func_937(BOOL bParam0) // Position - 0x9E27A (647802)
+void func_937(int iParam0) // Position - 0x9E27A (647802)
 {
-	Global_99735 = bParam0;
+	Global_99735 = iParam0;
 	return;
 }
 

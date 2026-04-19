@@ -117936,7 +117936,7 @@ void func_753() // Position - 0x9153D (595261)
 		iLocal_5056 = 0;
 		iLocal_7195 = 2;
 		iLocal_5059 = 0;
-		func_754(false);
+		func_754(0);
 		STREAMING::SET_VEHICLE_POPULATION_BUDGET(3);
 		STREAMING::SET_PED_POPULATION_BUDGET(3);
 		bLocal_5256 = false;
@@ -117952,9 +117952,9 @@ void func_753() // Position - 0x9153D (595261)
 	return;
 }
 
-void func_754(BOOL bParam0) // Position - 0x91CBA (597178)
+void func_754(int iParam0) // Position - 0x91CBA (597178)
 {
-	Global_99735 = bParam0;
+	Global_99735 = iParam0;
 	return;
 }
 
@@ -124467,7 +124467,7 @@ void func_853() // Position - 0x9C492 (640146)
 	PATHFIND::ADD_NAVMESH_BLOCKING_OBJECT(-53.081f, -2415.703f, 5.119f, 16.4f, 15.3f, 1.6f, 1.584f, false, 7);
 	PED::ADD_SCENARIO_BLOCKING_AREA({ 8.000994f, -2415.8008f, -73.98793f } - { 3.25f, 8f, 43.25f }, { 8.000994f, -2415.8008f, -73.98793f } + { 3.25f, 8f, 43.25f }, false, true, true, true, 1);
 	func_873(true);
-	func_754(false);
+	func_754(0);
 	HUD::REQUEST_ADDITIONAL_TEXT("DOCKH1", 0);
 
 	while (!HUD::HAS_ADDITIONAL_TEXT_LOADED(0))
@@ -124708,7 +124708,7 @@ void func_854(int iParam0) // Position - 0x9CA71 (641649)
 		bLocal_5219 = false;
 		bLocal_5248 = true;
 		func_602(true);
-		func_754(false);
+		func_754(0);
 		bLocal_5113 = true;
 	}
 

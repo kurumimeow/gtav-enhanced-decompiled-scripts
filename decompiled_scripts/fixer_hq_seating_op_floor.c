@@ -135175,11 +135175,11 @@ void func_1343(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	return;
 }
 
-int func_1344(int iParam0, int iParam1, int iParam2) // Position - 0xA762D (685613)
+int func_1344(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xA762D (685613)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -135358,7 +135358,7 @@ int func_1344(int iParam0, int iParam1, int iParam2) // Position - 0xA762D (6856
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -135490,7 +135490,7 @@ int func_1344(int iParam0, int iParam1, int iParam2) // Position - 0xA762D (6856
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -222715,19 +222715,19 @@ void func_3942(var uParam0) // Position - 0x12AF00 (1224448)
 	return;
 }
 
-void func_3943(int iParam0, ePedComponentType epctParam1, int iParam2) // Position - 0x12AF31 (1224497)
+void func_3943(int iParam0, int iParam1, int iParam2) // Position - 0x12AF31 (1224497)
 {
 	if (iParam2 != -1)
 		Global_2686095.f_4357.f_433[iParam0] = Global_2686095.f_4357.f_433[iParam0] + iParam2;
-	else if (epctParam1 != -1)
-		Global_2686095.f_4357.f_433[iParam0] = epctParam1;
+	else if (iParam1 != -1)
+		Global_2686095.f_4357.f_433[iParam0] = iParam1;
 	else
 		Global_2686095.f_4357.f_433[iParam0] = func_3944(iParam0);
 
 	return;
 }
 
-ePedComponentType func_3944(int iParam0) // Position - 0x12AF8E (1224590)
+int func_3944(int iParam0) // Position - 0x12AF8E (1224590)
 {
 	switch (iParam0)
 	{
@@ -222735,7 +222735,7 @@ ePedComponentType func_3944(int iParam0) // Position - 0x12AF8E (1224590)
 			return 300000;
 	
 		case 1:
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case 2:
 			return 600000;
@@ -222771,13 +222771,13 @@ ePedComponentType func_3944(int iParam0) // Position - 0x12AF8E (1224590)
 			return 300000;
 	
 		case 14:
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case 15:
 			return 180000;
 	
 		case 16:
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case 17:
 			return 180000;
@@ -222819,7 +222819,7 @@ ePedComponentType func_3944(int iParam0) // Position - 0x12AF8E (1224590)
 			return 180000;
 	
 		case 81:
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case 45:
 		case 7:
@@ -222878,16 +222878,16 @@ ePedComponentType func_3944(int iParam0) // Position - 0x12AF8E (1224590)
 			return Global_262145.f_21665;
 	
 		case 39:
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case 40:
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case 41:
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case 42:
-			return PV_COMP_HEAD;
+			return 0;
 	
 		case 50:
 			return 1800000;
@@ -222935,10 +222935,10 @@ ePedComponentType func_3944(int iParam0) // Position - 0x12AF8E (1224590)
 			return *Global_262145.f_37829;
 	}
 
-	return PV_COMP_HEAD;
+	return 0;
 }
 
-ePedComponentType func_3945() // Position - 0x12B3E3 (1225699)
+int func_3945() // Position - 0x12B3E3 (1225699)
 {
 	if (NETWORK::NETWORK_IS_SCRIPT_ACTIVE(func_7772(46), -1, false, 0) || func_379(PLAYER::PLAYER_ID()) == 194)
 		return Global_262145.f_12035;
@@ -222946,7 +222946,7 @@ ePedComponentType func_3945() // Position - 0x12B3E3 (1225699)
 	return 0;
 }
 
-ePedComponentType func_3946() // Position - 0x12B417 (1225751)
+int func_3946() // Position - 0x12B417 (1225751)
 {
 	if (NETWORK::NETWORK_IS_SCRIPT_ACTIVE(func_7772(46), -1, false, 0) || func_379(PLAYER::PLAYER_ID()) == 194)
 		return Global_262145.f_11801;
@@ -306214,7 +306214,7 @@ void func_5908(var uParam0) // Position - 0x1AD8AA (1759402)
 {
 	Global_2733138.f_587 = 1;
 	func_5909(true);
-	func_3943(49, PV_COMP_INVALID, -1);
+	func_3943(49, -1, -1);
 	return;
 }
 

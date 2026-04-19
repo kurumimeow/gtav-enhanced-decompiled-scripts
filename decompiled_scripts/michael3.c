@@ -9823,7 +9823,7 @@ int func_34(int iParam0, BOOL bParam1) // Position - 0x5157 (20823)
 	if (Global_1575072[num2] == true)
 	{
 		bParam1;
-		num = 8;
+		num = CHAR_MIKE_FRANK_CONF;
 	}
 	else
 	{

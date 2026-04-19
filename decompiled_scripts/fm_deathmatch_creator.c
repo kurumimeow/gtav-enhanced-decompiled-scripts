@@ -306505,7 +306505,7 @@ void func_2469(ePedComponentType epctParam0) // Position - 0x17E7E6 (1566694)
 			else
 			{
 				func_1223(&Global_2686095.f_4357.f_260[45 /*2*/], true, false);
-				Global_2686095.f_4357.f_433[45] = PV_COMP_HEAD;
+				Global_2686095.f_4357.f_433[45] = 0;
 			}
 		
 			if (func_835(4))
@@ -426409,7 +426409,7 @@ void func_4887(int* piParam0) // Position - 0x2546C2 (2442946)
 
 void func_4888(int* piParam0) // Position - 0x2547D5 (2443221)
 {
-	ePedComponentType value;
+	int value;
 	float num;
 	BOOL flag;
 
@@ -426679,7 +426679,7 @@ void func_4894(int* piParam0) // Position - 0x254E88 (2444936)
 
 void func_4895(int* piParam0) // Position - 0x2551D1 (2445777)
 {
-	ePedComponentType value;
+	int value;
 	float num;
 
 	func_3507(piParam0);
@@ -426695,7 +426695,7 @@ void func_4895(int* piParam0) // Position - 0x2551D1 (2445777)
 	{
 		value = Global_4718592.f_213876[piParam0->f_7614 /*301*/].f_277[9];
 	
-		if (value == PV_COMP_HEAD)
+		if (value == 0)
 		{
 			func_4091(PV_COMP_HEAD, "DM_WEP_SNOWB", "DM_WEP_OHK", true, false, PV_COMP_INVALID);
 		}
@@ -434790,7 +434790,7 @@ void func_5143() // Position - 0x268A63 (2525795)
 	if (Global_4718592.f_192086.f_1 > num2)
 		Global_4718592.f_192086.f_1 = num2;
 
-	if (Global_4718592.f_192086.f_2 == 0)
+	if (Global_4718592.f_192086.f_2 == PV_COMP_HEAD)
 		Global_4718592.f_192086.f_2 = 4;
 
 	return;
@@ -483535,7 +483535,7 @@ void func_6018() // Position - 0x2C7383 (2913155)
 				}
 				else
 				{
-					func_6038(false);
+					func_6038(PV_COMP_HEAD);
 					func_6037("FMMC_SPP");
 				}
 			}
@@ -485655,14 +485655,14 @@ void func_6037(char* sParam0) // Position - 0x2CB405 (2929669)
 	return;
 }
 
-void func_6038(BOOL bParam0) // Position - 0x2CB466 (2929766)
+void func_6038(ePedComponentType epctParam0) // Position - 0x2CB466 (2929766)
 {
 	if (Global_24546.f_5320 >= 3 || Global_24546.f_5319 >= 4)
 		return;
 
 	Global_24546.f_5253[Global_24546.f_5319] = 2;
 	Global_24546.f_5319 = Global_24546.f_5319 + 1;
-	Global_24546.f_5258[Global_24546.f_5320] = bParam0;
+	Global_24546.f_5258[Global_24546.f_5320] = epctParam0;
 	Global_24546.f_5320 = Global_24546.f_5320 + 1;
 	return;
 }

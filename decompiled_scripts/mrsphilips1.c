@@ -352,32 +352,32 @@ void func_2() // Position - 0x25F (607)
 
 void func_3(int iParam0, BOOL bParam1) // Position - 0x2C4 (708)
 {
-	eCharacter character;
+	int num;
 	var unk;
 
-	character = func_205();
+	num = func_205();
 
-	if (character == -1)
+	if (num == -1)
 		return;
 
-	if (!Global_114018[character /*10*/].f_4)
+	if (!Global_114018[num /*10*/].f_4)
 		return;
 
-	if (Global_114018[character /*10*/].f_5)
+	if (Global_114018[num /*10*/].f_5)
 		return;
 
-	if (Global_114018[character /*10*/].f_6)
+	if (Global_114018[num /*10*/].f_6)
 		return;
 
-	func_176(character, false);
+	func_176(num, false);
 	MISC::SET_BIT(&Global_80554, 1);
 
-	if (Global_114018[character /*10*/].f_9 == -1)
+	if (Global_114018[num /*10*/].f_9 == -1)
 	{
 	}
 	else
 	{
-		func_175(&(Global_114018[character /*10*/].f_9));
+		func_175(&(Global_114018[num /*10*/].f_9));
 	}
 
 	if (bParam1)
@@ -390,9 +390,9 @@ void func_3(int iParam0, BOOL bParam1) // Position - 0x2C4 (708)
 		}
 	}
 
-	func_161(character, 1, false, false);
+	func_161(num, 1, false, false);
 	func_160(0, 0);
-	TEXT_LABEL_COPY(&unk, { func_158(character) }, 4);
+	TEXT_LABEL_COPY(&unk, { func_158(num) }, 4);
 	func_155(&unk, func_156());
 	func_31();
 
@@ -29700,13 +29700,13 @@ void func_157() // Position - 0x1FDCB (130507)
 	return;
 }
 
-struct<2> func_158(eCharacter echParam0) // Position - 0x1FEC8 (130760)
+struct<2> func_158(int iParam0) // Position - 0x1FEC8 (130760)
 {
 	var unk;
 	var unk3;
 
 	TEXT_LABEL_ASSIGN_STRING(&unk, "", 8);
-	unk3 = { func_159(echParam0) };
+	unk3 = { func_159(iParam0) };
 
 	if (MISC::IS_STRING_NULL_OR_EMPTY(&unk3))
 	{
@@ -30014,7 +30014,7 @@ void func_160(BOOL bParam0, BOOL bParam1) // Position - 0x2043E (132158)
 	return;
 }
 
-void func_161(eCharacter echParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position - 0x20488 (132232)
+void func_161(int iParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position - 0x20488 (132232)
 {
 	if (!PED::IS_PED_INJURED(PLAYER::PLAYER_PED_ID()))
 	{
@@ -30039,7 +30039,7 @@ void func_161(eCharacter echParam0, int iParam1, BOOL bParam2, BOOL bParam3) // 
 	func_167(30000);
 
 	if (iParam1 == 1)
-		func_162(echParam0, bParam2, bParam3);
+		func_162(iParam0, bParam2, bParam3);
 
 	HUD::SET_MISSION_NAME(false, 0);
 	return;
@@ -33544,7 +33544,7 @@ BOOL func_204(const char* sParam0) // Position - 0x27004 (159748)
 	return false;
 }
 
-eCharacter func_205() // Position - 0x27064 (159844)
+int func_205() // Position - 0x27064 (159844)
 {
 	return func_206(SCRIPT::GET_THIS_SCRIPT_NAME(), 0);
 }
@@ -34321,7 +34321,7 @@ void func_239(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, v
 				HUD::SET_TEXT_JUSTIFICATION(2);
 				character = _GET_CURRENT_PLAYER_CHARACTER();
 			
-				if (Global_80563 == 1 && Global_80561 == CHAR_MAUDE)
+				if (Global_80563 == 1 && Global_80561 == 62)
 					character = Global_114931.f_2370.f_539.f_4322;
 			
 				switch (character)
@@ -34395,54 +34395,54 @@ float func_240(const char* sParam0) // Position - 0x27F42 (163650)
 	return HUD::END_TEXT_COMMAND_GET_SCREEN_WIDTH_OF_DISPLAY_TEXT(true);
 }
 
-struct<2> func_241(eCharacter echParam0, int iParam1, int iParam2) // Position - 0x27F55 (163669)
+struct<2> func_241(int iParam0, int iParam1, int iParam2) // Position - 0x27F55 (163669)
 {
 	var unk;
-	eCharacter character;
+	int num;
 
 	TEXT_LABEL_ASSIGN_STRING(&unk, "", 8);
 
 	switch (iParam1)
 	{
 		case 1:
-			unk = { func_249(echParam0) };
+			unk = { func_249(iParam0) };
 			break;
 	
 		case 7:
-			unk = { func_158(echParam0) };
+			unk = { func_158(iParam0) };
 			break;
 	
 		case 3:
-			character = echParam0;
+			num = iParam0;
 		
-			switch (character)
+			switch (num)
 			{
-				case CHAR_MICHAEL:
+				case 0:
 					unk = { func_248(iParam2) };
 					break;
 			
-				case CHAR_MIKE_FRANK_CONF:
+				case 8:
 					unk = { func_247(iParam2) };
 					break;
 			
-				case CHAR_LEST_MIKE_CONF:
+				case 7:
 					unk = { func_246(iParam2) };
 					break;
 			
-				case CHAR_STEVE_MIKE_CONF:
+				case 10:
 					unk = { func_245(iParam2) };
 					break;
 			
-				case CHAR_FRANK_TREV_CONF:
+				case 5:
 					unk = { func_244(iParam2) };
 					break;
 			
-				case CHAR_ALL_PLAYERS_CONF:
+				case 4:
 					unk = { func_243(iParam2) };
 					break;
 			
 				default:
-					TEXT_LABEL_ASSIGN_STRING(&unk, func_242(character), 8);
+					TEXT_LABEL_ASSIGN_STRING(&unk, func_242(num), 8);
 					break;
 			}
 			break;
@@ -34454,68 +34454,68 @@ struct<2> func_241(eCharacter echParam0, int iParam1, int iParam2) // Position -
 	return unk;
 }
 
-char* func_242(eCharacter echParam0) // Position - 0x2802D (163885)
+char* func_242(int iParam0) // Position - 0x2802D (163885)
 {
-	switch (echParam0)
+	switch (iParam0)
 	{
-		case CHAR_MICHAEL:
+		case 0:
 			return "MG_BJUM" /*Base Jumping*/;
 	
-		case CHAR_FRANKLIN:
+		case 1:
 			return "MG_DART" /*Darts*/;
 	
-		case CHAR_TREVOR:
+		case 2:
 			return "MG_GOLF" /*Golf*/;
 	
-		case CHAR_MULTIPLAYER:
+		case 3:
 			return "MG_HUNT" /*Hunting*/;
 	
-		case CHAR_ALL_PLAYERS_CONF:
+		case 4:
 			return "MG_OFFR" /*Off-Road Races*/;
 	
-		case CHAR_FRANK_TREV_CONF:
+		case 5:
 			return "MG_PILO" /*Flight School*/;
 	
-		case CHAR_LEST_FRANK_CONF:
+		case 6:
 			return "MG_RMPG" /*Rampages*/;
 	
-		case CHAR_LEST_MIKE_CONF:
+		case 7:
 			return "MG_SERA" /*Sea Races*/;
 	
-		case CHAR_MIKE_FRANK_CONF:
+		case 8:
 			return "MG_SRAC" /*Street Races*/;
 	
-		case CHAR_MIKE_TREV_CONF:
+		case 9:
 			return "MG_STRP" /*Stripclub*/;
 	
-		case CHAR_STEVE_MIKE_CONF:
+		case 10:
 			return "MG_STNT" /*Stunt Planes*/;
 	
-		case CHAR_STEVE_TREV_CONF:
+		case 11:
 			return "MG_SHTR" /*Shooting Range*/;
 	
-		case CHAR_LESTER:
+		case 12:
 			return "MG_TAXI" /*Taxi Jobs*/;
 	
-		case CHAR_LESTER_DEATHWISH:
+		case 13:
 			return "MG_TENN" /*Tennis*/;
 	
-		case CHAR_JIMMY:
+		case 14:
 			return "MG_TOWI" /*Towing*/;
 	
-		case CHAR_TRACEY:
+		case 15:
 			return "MG_TRFA" /*Trafficking - Air*/;
 	
-		case CHAR_ABIGAIL:
+		case 16:
 			return "MG_TRFG" /*Trafficking - Ground*/;
 	
-		case CHAR_AMANDA:
+		case 17:
 			return "MG_TRIA" /*Triathlon*/;
 	
-		case CHAR_SIMEON:
+		case 18:
 			return "MG_YOGA" /*Yoga*/;
 	
-		case CHAR_LAMAR:
+		case 19:
 			return "MG_CRCE" /*Stock Car Races*/;
 	}
 
@@ -34642,14 +34642,14 @@ struct<2> func_248(int iParam0) // Position - 0x28289 (164489)
 	return unk;
 }
 
-struct<2> func_249(eCharacter echParam0) // Position - 0x282BC (164540)
+struct<2> func_249(int iParam0) // Position - 0x282BC (164540)
 {
 	var unk;
 
 	TEXT_LABEL_ASSIGN_STRING(&unk, "M_", 8);
-	TEXT_LABEL_APPEND_STRING(&unk, &(Global_93217[echParam0 /*34*/].f_8), 8);
+	TEXT_LABEL_APPEND_STRING(&unk, &(Global_93217[iParam0 /*34*/].f_8), 8);
 
-	if (echParam0 == _CHAR_JULIO_FABRIZIO)
+	if (iParam0 == 90)
 	{
 		switch (Global_114931.f_9092.f_99.f_205[7])
 		{

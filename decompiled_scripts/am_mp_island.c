@@ -170332,10 +170332,10 @@ float func_1943() // Position - 0xE5875 (940149)
 	return Global_24546.f_9245;
 }
 
-void func_1944(float fParam0, float fParam1, char* sParam2, BOOL bParam3, int iParam4) // Position - 0xE5883 (940163)
+void func_1944(float fParam0, float fParam1, char* sParam2, int iParam3, int iParam4) // Position - 0xE5883 (940163)
 {
 	HUD::BEGIN_TEXT_COMMAND_DISPLAY_TEXT(sParam2);
-	HUD::ADD_TEXT_COMPONENT_INTEGER(bParam3);
+	HUD::ADD_TEXT_COMPONENT_INTEGER(iParam3);
 	HUD::END_TEXT_COMMAND_DISPLAY_TEXT(func_1941(fParam0), fParam1, iParam4);
 	return;
 }
@@ -172210,7 +172210,7 @@ void func_1987(eControlAction ecaParam0, char* sParam1, int iParam2, BOOL bParam
 	return;
 }
 
-void func_1988(BOOL bParam0, BOOL bParam1) // Position - 0xE8531 (951601)
+void func_1988(int iParam0, BOOL bParam1) // Position - 0xE8531 (951601)
 {
 	float num;
 	float num2;
@@ -172229,7 +172229,7 @@ void func_1988(BOOL bParam0, BOOL bParam1) // Position - 0xE8531 (951601)
 	if (Global_24546.f_6346 >= Global_24546.f_6344)
 		return;
 
-	Global_24546.f_4469[Global_24546.f_5825] = bParam0;
+	Global_24546.f_4469[Global_24546.f_5825] = iParam0;
 	Global_24546.f_5825 = Global_24546.f_5825 + 1;
 	Global_24546.f_2387[Global_24546.f_6345 /*5*/][Global_24546.f_6346] = 2;
 	Global_24546.f_6346 = Global_24546.f_6346 + 1;
@@ -172571,7 +172571,7 @@ void func_1999(BOOL bParam0, BOOL bParam1) // Position - 0xE8DBE (953790)
 
 	for (i = 0; i < 256; i = i + 1)
 	{
-		Global_24546.f_4469[i] = false;
+		Global_24546.f_4469[i] = 0;
 	}
 
 	for (i = 0; i < 128; i = i + 1)

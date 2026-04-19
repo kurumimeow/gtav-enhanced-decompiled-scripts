@@ -24984,9 +24984,9 @@ void func_800() // Position - 0x1C73C (116540)
 
 void func_801() // Position - 0x1C76B (116587)
 {
-	BOOL flag;
+	var unk;
 
-	Global_1579247 = flag;
+	Global_1579247 = unk;
 	return;
 }
 

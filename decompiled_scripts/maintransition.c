@@ -304054,11 +304054,11 @@ BOOL func_4157() // Position - 0x18D9BF (1628607)
 	return false;
 }
 
-int func_4158(int iParam0, int iParam1, int iParam2) // Position - 0x18DB1F (1628959)
+int func_4158(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x18DB1F (1628959)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -304237,7 +304237,7 @@ int func_4158(int iParam0, int iParam1, int iParam2) // Position - 0x18DB1F (162
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -304369,7 +304369,7 @@ int func_4158(int iParam0, int iParam1, int iParam2) // Position - 0x18DB1F (162
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -361229,7 +361229,7 @@ BOOL func_4644(Player plParam0, ePedComponentType epctParam1) // Position - 0x1D
 	return func_4646(plParam0, epctParam1) >= func_4645(epctParam1);
 }
 
-BOOL func_4645(ePedComponentType epctParam0) // Position - 0x1D75DB (1930715)
+int func_4645(ePedComponentType epctParam0) // Position - 0x1D75DB (1930715)
 {
 	switch (epctParam0)
 	{
@@ -361253,12 +361253,12 @@ BOOL func_4645(ePedComponentType epctParam0) // Position - 0x1D75DB (1930715)
 	return 0;
 }
 
-BOOL func_4646(Player plParam0, ePedComponentType epctParam1) // Position - 0x1D7637 (1930807)
+int func_4646(Player plParam0, ePedComponentType epctParam1) // Position - 0x1D7637 (1930807)
 {
 	int i;
 
 	if (plParam0 == _INVALID_PLAYER_INDEX())
-		return false;
+		return 0;
 
 	if (func_3191(epctParam1) && func_4647(epctParam1))
 	{
@@ -361269,7 +361269,7 @@ BOOL func_4646(Player plParam0, ePedComponentType epctParam1) // Position - 0x1D
 		}
 	}
 
-	return false;
+	return 0;
 }
 
 BOOL func_4647(ePedComponentType epctParam0) // Position - 0x1D769C (1930908)

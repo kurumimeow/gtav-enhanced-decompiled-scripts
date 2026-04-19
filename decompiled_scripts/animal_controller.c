@@ -2081,7 +2081,7 @@ void func_4(var uParam0, var uParam1, var uParam2, int iParam3, var uParam4, int
 				{
 					if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam5))
 					{
-						func_12(1);
+						func_12(true);
 						GRAPHICS::DRAW_SCALEFORM_MOVIE_FULLSCREEN(*piParam5, 100, 100, 100, 255, 0);
 					}
 				}
@@ -2096,7 +2096,7 @@ void func_4(var uParam0, var uParam1, var uParam2, int iParam3, var uParam4, int
 				{
 					if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam5))
 					{
-						func_12(1);
+						func_12(true);
 						GRAPHICS::DRAW_SCALEFORM_MOVIE_FULLSCREEN(*piParam5, 100, 100, 100, 255, 0);
 					}
 				}
@@ -2106,7 +2106,7 @@ void func_4(var uParam0, var uParam1, var uParam2, int iParam3, var uParam4, int
 				if (GRAPHICS::HAS_SCALEFORM_MOVIE_LOADED(*piParam5))
 					GRAPHICS::SET_SCALEFORM_MOVIE_AS_NO_LONGER_NEEDED(piParam5);
 			
-				func_12(0);
+				func_12(false);
 				*uParam1 = 0;
 				*uParam0 = 0;
 				*uParam4 = 0;
@@ -2228,10 +2228,10 @@ int func_11(int iParam0) // Position - 0x902 (2306)
 	return 15;
 }
 
-void func_12(int iParam0) // Position - 0x952 (2386)
+void func_12(BOOL bParam0) // Position - 0x952 (2386)
 {
-	if (Global_80573 != iParam0)
-		Global_80573 = iParam0;
+	if (Global_80573 != bParam0)
+		Global_80573 = bParam0;
 
 	return;
 }

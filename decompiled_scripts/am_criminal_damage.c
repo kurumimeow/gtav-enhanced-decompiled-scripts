@@ -129514,7 +129514,7 @@ void func_739(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4) /
 
 BOOL func_740() // Position - 0xAA199 (696729)
 {
-	if (func_305(PLAYER::PLAYER_ID()) == 229 || func_305(PLAYER::PLAYER_ID()) == 191 || func_743(*Global_4718592.f_199277) || func_742() || func_751() || func_504() || Global_2709409.f_227 == true || Global_2635562.f_2054 && func_741(PLAYER::PLAYER_ID()))
+	if (func_305(PLAYER::PLAYER_ID()) == 229 || func_305(PLAYER::PLAYER_ID()) == 191 || func_743(*Global_4718592.f_199277) || func_742() || func_751() || func_504() || Global_2709409.f_227 == 1 || Global_2635562.f_2054 && func_741(PLAYER::PLAYER_ID()))
 		return false;
 
 	return true;

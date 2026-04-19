@@ -5491,7 +5491,7 @@ void func_148(var uParam0) // Position - 0x71E8 (29160)
 
 	if (func_175(uParam0, uParam0->f_2593))
 	{
-		if (func_171(uParam0, uParam0->f_2593) != -1)
+		if (func_171(uParam0, uParam0->f_2593) != PV_COMP_INVALID)
 		{
 			func_124("CH_DETAILSb" /*Expertise:~n~~a~~n~~n~Skill level:~n~~a~~n~~n~Cut:~n~~1~%*/, 0, 0);
 			func_132(func_170(uParam0, uParam0->f_2593));
@@ -5948,13 +5948,13 @@ char* func_170(var uParam0, int iParam1) // Position - 0x79FC (31228)
 	return "";
 }
 
-BOOL func_171(var uParam0, int iParam1) // Position - 0x7A35 (31285)
+ePedComponentType func_171(var uParam0, int iParam1) // Position - 0x7A35 (31285)
 {
 	switch (iParam1)
 	{
 		case 10:
 			if (func_156(uParam0))
-				return false;
+				return PV_COMP_HEAD;
 			else
 				return func_174(uParam0->f_744.f_738);
 			break;
@@ -5964,16 +5964,16 @@ BOOL func_171(var uParam0, int iParam1) // Position - 0x7A35 (31285)
 	
 		case 12:
 			if (func_150(uParam0))
-				return false;
+				return PV_COMP_HEAD;
 			else
 				return func_172(uParam0->f_744.f_743);
 			break;
 	}
 
-	return false;
+	return PV_COMP_HEAD;
 }
 
-BOOL func_172(int iParam0) // Position - 0x7AAD (31405)
+ePedComponentType func_172(int iParam0) // Position - 0x7AAD (31405)
 {
 	switch (iParam0)
 	{
@@ -5999,7 +5999,7 @@ BOOL func_172(int iParam0) // Position - 0x7AAD (31405)
 	return 0;
 }
 
-BOOL func_173(int iParam0) // Position - 0x7B0D (31501)
+ePedComponentType func_173(int iParam0) // Position - 0x7B0D (31501)
 {
 	switch (iParam0)
 	{
@@ -6025,7 +6025,7 @@ BOOL func_173(int iParam0) // Position - 0x7B0D (31501)
 	return 0;
 }
 
-BOOL func_174(int iParam0) // Position - 0x7B6D (31597)
+ePedComponentType func_174(int iParam0) // Position - 0x7B6D (31597)
 {
 	switch (iParam0)
 	{
@@ -49176,14 +49176,14 @@ void func_1196(int iParam0, int iParam1, BOOL bParam2) // Position - 0x391FD (23
 	return;
 }
 
-void func_1197(int iParam0, int iParam1, char* sParam2, char* sParam3, int iParam4, BOOL bParam5, int iParam6) // Position - 0x39220 (234016)
+void func_1197(int iParam0, int iParam1, char* sParam2, char* sParam3, int iParam4, ePedComponentType epctParam5, int iParam6) // Position - 0x39220 (234016)
 {
 	GRAPHICS::BEGIN_SCALEFORM_MOVIE_METHOD(iParam0, "SET_CREW_MEMBER");
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iParam1);
 	func_92(sParam2);
 	func_92(sParam3);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iParam4);
-	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(bParam5);
+	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(epctParam5);
 	GRAPHICS::SCALEFORM_MOVIE_METHOD_ADD_PARAM_INT(iParam6);
 	GRAPHICS::END_SCALEFORM_MOVIE_METHOD();
 	return;

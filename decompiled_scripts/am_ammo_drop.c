@@ -1252,7 +1252,7 @@ int func_17(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, 
 				}
 			}
 		
-			Global_4516884 = true;
+			Global_4516884 = 1;
 			return 1;
 		}
 	}
@@ -1427,7 +1427,7 @@ int func_24(int iParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4, 
 			Global_4515413[i /*84*/].f_65.f_12 = 0;
 			Global_4515413[i /*84*/].f_65.f_14 = MISC::GET_FRAME_COUNT();
 			Global_4515413[i /*84*/].f_65.f_18 = 0;
-			Global_4516884 = false;
+			Global_4516884 = 0;
 		
 			if (bParam6)
 				Global_4515413[i /*84*/].f_65.f_5 = 1;

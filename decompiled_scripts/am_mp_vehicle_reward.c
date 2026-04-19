@@ -38473,11 +38473,11 @@ int func_282(Player plParam0) // Position - 0x2C035 (180277)
 	return address;
 }
 
-int func_283(int iParam0, int iParam1, int iParam2) // Position - 0x2C050 (180304)
+int func_283(Hash hParam0, Hash hParam1, int iParam2) // Position - 0x2C050 (180304)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -38656,7 +38656,7 @@ int func_283(int iParam0, int iParam1, int iParam2) // Position - 0x2C050 (18030
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -38788,7 +38788,7 @@ int func_283(int iParam0, int iParam1, int iParam2) // Position - 0x2C050 (18030
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -107317,18 +107317,18 @@ void func_931(BOOL bParam0, BOOL bParam1) // Position - 0x8BDC4 (572868)
 	return;
 }
 
-void func_932(var uParam0, var uParam1) // Position - 0x8BE24 (572964)
+void func_932(var uParam0, int iParam1) // Position - 0x8BE24 (572964)
 {
-	func_933(*uParam0, uParam1);
-	uParam1->f_104 = uParam0->f_104;
-	uParam1->f_105 = uParam0->f_105;
-	uParam1->f_106 = uParam0->f_106;
-	uParam1->f_107 = { uParam0->f_107 };
-	uParam1->f_123 = { uParam0->f_123 };
-	uParam1->f_139 = uParam0->f_139;
-	uParam1->f_140 = uParam0->f_140;
-	uParam1->f_141 = uParam0->f_141;
-	uParam1->f_142 = uParam0->f_142;
+	func_933(*uParam0, iParam1);
+	iParam1->f_104 = uParam0->f_104;
+	iParam1->f_105 = uParam0->f_105;
+	iParam1->f_106 = uParam0->f_106;
+	iParam1->f_107 = { uParam0->f_107 };
+	iParam1->f_123 = { uParam0->f_123 };
+	iParam1->f_139 = uParam0->f_139;
+	iParam1->f_140 = uParam0->f_140;
+	iParam1->f_141 = uParam0->f_141;
+	iParam1->f_142 = uParam0->f_142;
 	return;
 }
 

@@ -48276,7 +48276,7 @@ int func_264(var uParam0, int iParam1, Hash hParam2, Hash hParam3, Hash hParam4,
 	return 0;
 }
 
-void func_265(int iParam0, Hash hParam1, int iParam2, ePedComponentType epctParam3, int iParam4) // Position - 0x31C92 (203922)
+void func_265(int iParam0, Hash hParam1, int iParam2, BOOL bParam3, int iParam4) // Position - 0x31C92 (203922)
 {
 	switch (hParam1)
 	{

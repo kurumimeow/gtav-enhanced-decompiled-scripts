@@ -34618,7 +34618,7 @@ void func_357(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPara
 	
 		func_359(true, bParam3, bParam2, false);
 		Global_65033 = 1;
-		Global_77362 = 1;
+		Global_77362 = true;
 		Global_80303 = 1;
 	}
 	else
@@ -126569,15 +126569,15 @@ BOOL func_1302(int iParam0, int iParam1) // Position - 0xA0220 (655904)
 	return IS_BIT_SET(Global_1679155.f_7064[iParam0], iParam1);
 }
 
-int func_1303(int iParam0, BOOL bParam1, BOOL bParam2) // Position - 0xA0236 (655926)
+int func_1303(var uParam0, BOOL bParam1, BOOL bParam2) // Position - 0xA0236 (655926)
 {
 	if (NETWORK::NETWORK_IS_GAME_IN_PROGRESS() && !bParam1)
 		if (!bParam2)
-			return NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME(), *iParam0);
+			return NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME(), *uParam0);
 		else
-			return NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME_ACCURATE(), *iParam0);
+			return NETWORK::GET_TIME_DIFFERENCE(NETWORK::GET_NETWORK_TIME_ACCURATE(), *uParam0);
 
-	return NETWORK::GET_TIME_DIFFERENCE(MISC::GET_GAME_TIMER(), *iParam0);
+	return NETWORK::GET_TIME_DIFFERENCE(MISC::GET_GAME_TIMER(), *uParam0);
 }
 
 BOOL func_1304(int iParam0) // Position - 0xA027D (655997)
@@ -139460,11 +139460,11 @@ void func_1448(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	return;
 }
 
-int func_1449(int iParam0, int iParam1, int iParam2) // Position - 0xAF5F9 (718329)
+int func_1449(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xAF5F9 (718329)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -139643,7 +139643,7 @@ int func_1449(int iParam0, int iParam1, int iParam2) // Position - 0xAF5F9 (7183
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -139775,7 +139775,7 @@ int func_1449(int iParam0, int iParam1, int iParam2) // Position - 0xAF5F9 (7183
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -443907,7 +443907,7 @@ void func_8198(int iParam0, var uParam1, var uParam2, BOOL bParam3, int iParam4)
 
 void func_8199() // Position - 0x2821B4 (2630068)
 {
-	Global_77362 = 1;
+	Global_77362 = true;
 	return;
 }
 

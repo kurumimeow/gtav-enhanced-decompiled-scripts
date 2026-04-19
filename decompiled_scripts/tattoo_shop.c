@@ -64386,7 +64386,7 @@ void func_416() // Position - 0x49AF4 (301812)
 	BOOL flag;
 	BOOL flag2;
 	var name;
-	BOOL flag3;
+	ePedComponentType type;
 	var unk45;
 	var unk58;
 	var unk62;
@@ -64567,12 +64567,12 @@ void func_416() // Position - 0x49AF4 (301812)
 							}
 							else
 							{
-								flag3 = func_439(iLocal_161.f_507);
+								type = func_439(iLocal_161.f_507);
 							
-								if (flag3 > false)
+								if (type > PV_COMP_HEAD)
 								{
 									func_698("TAT_UNLOCK", 0, 0);
-									func_449(flag3);
+									func_449(type);
 								}
 								else
 								{
@@ -64640,7 +64640,7 @@ void func_416() // Position - 0x49AF4 (301812)
 				}
 			}
 		}
-		else if (func_417() != false)
+		else if (func_417() != PV_COMP_HEAD)
 		{
 			func_409(&unk66);
 		
@@ -64664,7 +64664,7 @@ void func_416() // Position - 0x49AF4 (301812)
 	return;
 }
 
-BOOL func_417() // Position - 0x4A07B (303227)
+ePedComponentType func_417() // Position - 0x4A07B (303227)
 {
 	int num;
 
@@ -65118,7 +65118,7 @@ BOOL func_438() // Position - 0x4A89B (305307)
 	return func_437(func_19() + 1);
 }
 
-BOOL func_439(int iParam0) // Position - 0x4A8AD (305325)
+ePedComponentType func_439(int iParam0) // Position - 0x4A8AD (305325)
 {
 	switch (iParam0)
 	{
@@ -65876,14 +65876,14 @@ char* func_448(eControlAction ecaParam0, int iParam1) // Position - 0x4B264 (307
 	return str;
 }
 
-void func_449(BOOL bParam0) // Position - 0x4B70F (309007)
+void func_449(ePedComponentType epctParam0) // Position - 0x4B70F (309007)
 {
 	if (Global_24546.f_5320 >= 3 || Global_24546.f_5319 >= 4)
 		return;
 
 	Global_24546.f_5253[Global_24546.f_5319] = 2;
 	Global_24546.f_5319 = Global_24546.f_5319 + 1;
-	Global_24546.f_5258[Global_24546.f_5320] = bParam0;
+	Global_24546.f_5258[Global_24546.f_5320] = epctParam0;
 	Global_24546.f_5320 = Global_24546.f_5320 + 1;
 	return;
 }
@@ -89439,7 +89439,7 @@ float func_695() // Position - 0x6804F (426063)
 void func_696(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4) // Position - 0x68061 (426081)
 {
 	Hash hashKey;
-	BOOL value;
+	ePedComponentType value;
 	BOOL flag;
 	var name;
 

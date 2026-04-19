@@ -133797,7 +133797,7 @@ BOOL func_1458(ePedComponentType epctParam0) // Position - 0xB69F7 (748023)
 	if (!func_1459(32))
 		return false;
 
-	if (Global_1950714.f_5212 != -1)
+	if (Global_1950714.f_5212 != PV_COMP_INVALID)
 		return false;
 
 	if (!PLAYER::IS_PLAYER_CONTROL_ON(Global_2673274.f_4.f_16))
@@ -249003,9 +249003,9 @@ Vector3 func_4661(ePedComponentType epctParam0, int iParam1) // Position - 0x15E
 	return 1f, 1f, 1f;
 }
 
-BOOL func_4662(BOOL bParam0) // Position - 0x15E32E (1434414)
+BOOL func_4662(ePedComponentType epctParam0) // Position - 0x15E32E (1434414)
 {
-	return Global_1950714.f_5212 == bParam0;
+	return Global_1950714.f_5212 == epctParam0;
 }
 
 BOOL func_4663() // Position - 0x15E340 (1434432)
@@ -259719,7 +259719,7 @@ void func_4888(var uParam0) // Position - 0x16FAF4 (1506036)
 	if (Global_1950707 == 31)
 	{
 		Global_1972789 = true;
-		Global_1972791 = 1;
+		Global_1972791 = true;
 	}
 
 	return;
@@ -265536,7 +265536,7 @@ void func_5062(var uParam0) // Position - 0x1785BE (1541566)
 	if (Global_1950707 == 8 || Global_1950707 == 31)
 	{
 		Global_1972789 = true;
-		Global_1972791 = 1;
+		Global_1972791 = true;
 		Global_1972792 = true;
 		Global_1972790 = true;
 		Global_1972793 = true;

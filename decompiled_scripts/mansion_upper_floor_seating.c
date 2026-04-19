@@ -4284,7 +4284,7 @@ void func_140(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPara
 		}
 	
 		func_142(true, bParam3, bParam2, false);
-		Global_65033 = true;
+		Global_65033 = 1;
 		Global_77362 = true;
 		Global_80303 = true;
 	}
@@ -4292,7 +4292,7 @@ void func_140(BOOL bParam0, BOOL bParam1, BOOL bParam2, BOOL bParam3, BOOL bPara
 	{
 		func_135(0);
 		HUD::THEFEED_RESUME();
-		Global_65033 = false;
+		Global_65033 = 0;
 	
 		if (bParam1)
 			GRAPHICS::CASCADE_SHADOWS_INIT_SESSION();
@@ -116591,7 +116591,7 @@ BOOL func_1155(ePedComponentType epctParam0) // Position - 0x94179 (606585)
 	if (!func_1156(32))
 		return false;
 
-	if (Global_1950714.f_5212 != -1)
+	if (Global_1950714.f_5212 != PV_COMP_INVALID)
 		return false;
 
 	if (!PLAYER::IS_PLAYER_CONTROL_ON(Global_2673274.f_4.f_16))
@@ -129451,11 +129451,11 @@ void func_1297(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	return;
 }
 
-int func_1298(int iParam0, int iParam1, int iParam2) // Position - 0xA34CC (668876)
+int func_1298(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xA34CC (668876)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -129634,7 +129634,7 @@ int func_1298(int iParam0, int iParam1, int iParam2) // Position - 0xA34CC (6688
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -129766,7 +129766,7 @@ int func_1298(int iParam0, int iParam1, int iParam2) // Position - 0xA34CC (6688
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -232502,9 +232502,9 @@ Vector3 func_4376(ePedComponentType epctParam0, int iParam1) // Position - 0x13B
 	return 1f, 1f, 1f;
 }
 
-BOOL func_4377(BOOL bParam0) // Position - 0x13C107 (1294599)
+BOOL func_4377(ePedComponentType epctParam0) // Position - 0x13C107 (1294599)
 {
-	return Global_1950714.f_5212 == bParam0;
+	return Global_1950714.f_5212 == epctParam0;
 }
 
 BOOL func_4378() // Position - 0x13C119 (1294617)

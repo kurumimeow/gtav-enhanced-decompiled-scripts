@@ -117194,7 +117194,7 @@ BOOL func_1179(ePedComponentType epctParam0) // Position - 0x94B94 (609172)
 	if (!func_1180(32))
 		return false;
 
-	if (Global_1950714.f_5212 != -1)
+	if (Global_1950714.f_5212 != PV_COMP_INVALID)
 		return false;
 
 	if (!PLAYER::IS_PLAYER_CONTROL_ON(Global_2673274.f_4.f_16))
@@ -130054,14 +130054,14 @@ void func_1321(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	return;
 }
 
-int func_1322(int iParam0, int iParam1, int iParam2) // Position - 0xA3EF3 (671475)
+int func_1322(Hash hParam0, Hash hParam1, ePedComponentType epctParam2) // Position - 0xA3EF3 (671475)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
-				if (iParam2 >= 10000)
+				if (epctParam2 >= 10000)
 					return 1;
 				else
 					return 0;
@@ -130073,7 +130073,7 @@ int func_1322(int iParam0, int iParam1, int iParam2) // Position - 0xA3EF3 (6714
 			case joaat("SERVICE_EARN_DEATHMATCH_BOUNTY"):
 			case joaat("SERVICE_EARN_CASHING_OUT"):
 			case joaat("SERVICE_EARN_REFUND_ARENA_SPEC_BOX_ENTRY"):
-				if (iParam2 >= 1000)
+				if (epctParam2 >= 1000)
 					return 1;
 				else
 					return 2;
@@ -130237,7 +130237,7 @@ int func_1322(int iParam0, int iParam1, int iParam2) // Position - 0xA3EF3 (6714
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -130356,7 +130356,7 @@ int func_1322(int iParam0, int iParam1, int iParam2) // Position - 0xA3EF3 (6714
 			case 1496037489:
 			case -804351832:
 			case 1570992221:
-				if (iParam2 == 0)
+				if (epctParam2 == PV_COMP_HEAD)
 					return 0;
 			
 				return 1;
@@ -130369,7 +130369,7 @@ int func_1322(int iParam0, int iParam1, int iParam2) // Position - 0xA3EF3 (6714
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -233086,9 +233086,9 @@ Vector3 func_4398(ePedComponentType epctParam0, int iParam1) // Position - 0x13C
 	return 1f, 1f, 1f;
 }
 
-BOOL func_4399(BOOL bParam0) // Position - 0x13CCEE (1297646)
+BOOL func_4399(ePedComponentType epctParam0) // Position - 0x13CCEE (1297646)
 {
-	return Global_1950714.f_5212 == bParam0;
+	return Global_1950714.f_5212 == epctParam0;
 }
 
 BOOL func_4400() // Position - 0x13CD00 (1297664)

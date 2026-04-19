@@ -5963,7 +5963,7 @@ void func_199(int iParam0, int iParam1, int iParam2, int iParam3, int iParam4) /
 
 BOOL func_200() // Position - 0x4341 (17217)
 {
-	if (func_205(PLAYER::PLAYER_ID()) == 229 || func_205(PLAYER::PLAYER_ID()) == 191 || func_204(*Global_4718592.f_199277) || func_203() || func_202() || func_32() || Global_2709409.f_227 == true || Global_2635562.f_2054 && func_201(PLAYER::PLAYER_ID()))
+	if (func_205(PLAYER::PLAYER_ID()) == 229 || func_205(PLAYER::PLAYER_ID()) == 191 || func_204(*Global_4718592.f_199277) || func_203() || func_202() || func_32() || Global_2709409.f_227 == 1 || Global_2635562.f_2054 && func_201(PLAYER::PLAYER_ID()))
 		return false;
 
 	return true;
@@ -42113,44 +42113,44 @@ void func_556(var uParam0, Hash hParam1, BOOL bParam2, int iParam3) // Position 
 	return;
 }
 
-int func_557(ePedComponentType epctParam0) // Position - 0x3BEDB (245467)
+int func_557(int iParam0) // Position - 0x3BEDB (245467)
 {
-	switch (epctParam0)
+	switch (iParam0)
 	{
-		case PV_COMP_HEAD:
+		case 0:
 			return 0;
 	
-		case PV_COMP_HAIR:
+		case 2:
 			return 2;
 	
-		case PV_COMP_UPPR:
+		case 3:
 			return 3;
 	
-		case PV_COMP_LOWR:
+		case 4:
 			return 4;
 	
-		case PV_COMP_FEET:
+		case 6:
 			return 6;
 	
-		case PV_COMP_HAND:
+		case 5:
 			return 5;
 	
-		case PV_COMP_ACCS:
+		case 8:
 			return 8;
 	
-		case PV_COMP_TASK:
+		case 9:
 			return 9;
 	
-		case PV_COMP_DECL:
+		case 10:
 			return 10;
 	
-		case PV_COMP_BERD:
+		case 1:
 			return 1;
 	
-		case PV_COMP_TEEF:
+		case 7:
 			return 7;
 	
-		case PV_COMP_JBIB:
+		case 11:
 			return 11;
 	}
 
@@ -42182,7 +42182,7 @@ void func_559(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position
 	int i;
 	Hash nameHash;
 	BOOL enumValue;
-	ePedComponentType componentType;
+	int componentType;
 	int num;
 	int num2;
 	BOOL address;
@@ -42224,7 +42224,7 @@ void func_559(Hash hParam0, int iParam1, BOOL bParam2, BOOL bParam3) // Position
 					if (num < Global_4519747)
 					{
 						Global_4519747[num] = -1;
-						Global_4519758[num] = PV_COMP_INVALID;
+						Global_4519758[num] = -1;
 					}
 				
 					EXTRAMETADATA::GET_VARIANT_COMPONENT(Global_2883588, i, &nameHash, &enumValue, &componentType);

@@ -151061,7 +151061,7 @@ BOOL func_1703(ePedComponentType epctParam0) // Position - 0xBB02D (765997)
 	if (!func_1704(32))
 		return false;
 
-	if (Global_1950714.f_5212 != -1)
+	if (Global_1950714.f_5212 != PV_COMP_INVALID)
 		return false;
 
 	if (!PLAYER::IS_PLAYER_CONTROL_ON(Global_2673274.f_4.f_16))
@@ -163928,11 +163928,11 @@ void func_1846(var uParam0, var uParam1, var uParam2, var uParam3, var uParam4, 
 	return;
 }
 
-int func_1847(int iParam0, int iParam1, int iParam2) // Position - 0xCA45D (828509)
+int func_1847(Hash hParam0, Hash hParam1, int iParam2) // Position - 0xCA45D (828509)
 {
-	if (iParam0 == -433440095 || iParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
+	if (hParam0 == -433440095 || hParam0 == joaat("CATEGORY_SERVICE_WITH_THRESHOLD"))
 	{
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_SPEND_MATCH_ENTRY_FEE"):
 				if (iParam2 >= 10000)
@@ -164111,7 +164111,7 @@ int func_1847(int iParam0, int iParam1, int iParam2) // Position - 0xCA45D (8285
 				return 2;
 		}
 	
-		switch (iParam1)
+		switch (hParam1)
 		{
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_SMASH_N_GRAB"):
 			case joaat("SERVICE_EARN_CASINO_HEIST_AWARD_IN_PLAIN_SIGHT"):
@@ -164243,7 +164243,7 @@ int func_1847(int iParam0, int iParam1, int iParam2) // Position - 0xCA45D (8285
 	
 		return 0;
 	}
-	else if (iParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || iParam0 == joaat("CATEGORY_PRICE_MODIFIER") || iParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
+	else if (hParam0 == joaat("CATEGORY_SERVICE_WITH_LIMIT") || hParam0 == joaat("CATEGORY_PRICE_MODIFIER") || hParam0 == joaat("CATEGORY_PRICE_OVERRIDE"))
 	{
 		return 0;
 	}
@@ -265565,9 +265565,9 @@ Vector3 func_4844(ePedComponentType epctParam0, int iParam1) // Position - 0x161
 	return 1f, 1f, 1f;
 }
 
-BOOL func_4845(BOOL bParam0) // Position - 0x161679 (1447545)
+BOOL func_4845(ePedComponentType epctParam0) // Position - 0x161679 (1447545)
 {
-	return Global_1950714.f_5212 == bParam0;
+	return Global_1950714.f_5212 == epctParam0;
 }
 
 BOOL func_4846() // Position - 0x16168B (1447563)
@@ -427106,7 +427106,7 @@ BOOL func_8562() // Position - 0x2642ED (2507501)
 		{
 			if (func_36() != 2)
 			{
-				if (Global_80568 == CHAR_RICKIE || Global_80569 == 46)
+				if (Global_80568 == 46 || Global_80569 == 46)
 				{
 					if (!CAM::IS_SCREEN_FADED_OUT() && func_107() != 4 && func_107() != 5)
 					{
@@ -427129,7 +427129,7 @@ BOOL func_8562() // Position - 0x2642ED (2507501)
 					return false;
 				}
 			
-				if (Global_80568 == CHAR_HAO || Global_80569 == 53)
+				if (Global_80568 == 53 || Global_80569 == 53)
 				{
 					if (!CAM::IS_SCREEN_FADED_OUT() && func_107() != 4 && func_107() != 5)
 					{
